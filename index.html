@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LeXpersonal — 12 Design-Konzepte</title>
+<title>LeXpersonal — 24 Design-Konzepte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Fraunces:ital,wght@0,400;1,400&family=Caprasimo&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=UnifrakturCook:wght@700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:wght@700;900&family=UnifrakturCook:wght@700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -22,262 +21,369 @@
   --cyan-bright:#1DB4F0;
   --gold:#D4B57A;
 }
-body{background:var(--bg);color:var(--text);font-family:'Source Sans Pro',sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
 
 .container{max-width:1440px;margin:0 auto;padding:0 32px}
 
 /* HEADER */
-.head{padding:72px 0 56px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.head .bg-x{position:absolute;right:-100px;top:-50px;width:520px;height:640px;opacity:0.05;pointer-events:none}
-.head-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);margin-bottom:48px;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
-.head-logo{display:inline-flex;align-items:center;gap:12px;font-family:'Montserrat',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.06em;color:var(--text);margin-bottom:32px;position:relative;z-index:2}
+.head{padding:64px 0 48px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.head .bg-x{position:absolute;right:-100px;top:-50px;width:480px;height:586px;opacity:0.05;pointer-events:none}
+.head-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);margin-bottom:40px;flex-wrap:wrap;gap:14px;position:relative;z-index:2}
+.head-logo{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.06em;color:var(--text);margin-bottom:28px;position:relative;z-index:2}
 .head-logo strong{font-weight:600;color:var(--cyan)}
-.head-logo svg{width:24px;height:30px}
-.head h1{font-family:'Montserrat',sans-serif;font-size:clamp(48px,7vw,96px);line-height:0.95;letter-spacing:-0.04em;font-weight:600;max-width:1100px;position:relative;z-index:2}
+.head-logo svg{width:22px;height:27px}
+.head h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,6vw,84px);line-height:0.98;letter-spacing:-0.035em;font-weight:600;max-width:1100px;position:relative;z-index:2}
 .head h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
-.head p{font-size:18px;color:var(--muted);max-width:780px;margin-top:24px;position:relative;z-index:2}
+.head p{font-size:17px;color:var(--muted);max-width:780px;margin-top:20px;position:relative;z-index:2;line-height:1.65}
 
 /* B2B Recommendation Block */
-.reco{margin-top:48px;padding:32px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:16px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;z-index:2}
-.reco .icon{width:56px;height:56px;border-radius:14px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;flex-shrink:0}
-.reco h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:8px}
-.reco p{font-size:14.5px;color:var(--text);line-height:1.6;max-width:880px}
+.reco{margin-top:40px;padding:24px 28px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;position:relative;z-index:2}
+.reco .icon{width:48px;height:48px;border-radius:12px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;letter-spacing:0.02em}
+.reco h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
+.reco p{font-size:13.5px;color:var(--text);line-height:1.55}
 .reco p strong{color:var(--cyan-bright);font-weight:600}
-@media (max-width:768px){.reco{grid-template-columns:1fr;gap:20px;padding:24px}}
 
-/* Section group */
-.group-header{padding:48px 0 16px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);margin-bottom:0;flex-wrap:wrap;gap:16px}
-.group-header .left h2{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:600;letter-spacing:-0.02em}
+/* Group header */
+.group-header{padding:48px 0 16px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);margin-bottom:0;flex-wrap:wrap;gap:14px}
+.group-header .left h2{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;letter-spacing:-0.02em}
 .group-header .left h2 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan);font-weight:400}
-.group-header .left .sub{color:var(--muted);font-size:14px;max-width:640px;margin-top:8px}
-.group-header .badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
+.group-header .left .sub{color:var(--muted);font-size:13.5px;max-width:640px;margin-top:6px;line-height:1.6}
+.group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
 .group-header .badge.b2b{color:var(--cyan-bright);border-color:var(--cyan-bright);background:rgba(0,159,227,0.08)}
-.group-header .badge.statement{color:var(--gold);border-color:var(--gold);background:rgba(212,181,122,0.05)}
-.group-header .badge.standard{color:var(--muted);border-color:var(--muted)}
+.group-header .badge.std{color:var(--muted);border-color:var(--muted)}
+.group-header .badge.edit{color:var(--gold);border-color:var(--gold);background:rgba(212,181,122,0.05)}
+.group-header .badge.spc{color:#B895E0;border-color:#B895E0;background:rgba(184,149,224,0.06)}
 
 /* GRID */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:32px 0 40px}
-@media (max-width:900px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 36px}
+@media (max-width:1080px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
 
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;position:relative}
-.card:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative}
+.card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 20px 60px -20px rgba(0,159,227,0.2)}
 .card.b2b-rec{border-color:rgba(0,159,227,0.25)}
-.card.b2b-rec::after{content:"B2B-EMPFEHLUNG";position:absolute;top:14px;right:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--cyan);color:#fff;font-weight:600;z-index:3}
+.card.b2b-rec::after{content:"B2B";position:absolute;top:12px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--cyan);color:#fff;font-weight:700;z-index:3}
 .card-preview{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.card-body{padding:22px 26px 26px}
-.card-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
-.card h2{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.025em;margin:10px 0 6px}
-.card .vibe{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px}
-.card p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.card .tag{padding:4px 10px;border-radius:99px;background:rgba(255,255,255,0.04);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text);letter-spacing:0.06em}
-.card .open{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:99px;background:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 100%);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;align-self:flex-start;transition:gap .2s}
-.card .open:hover{gap:14px}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
+.card-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.card h2{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.15}
+.card .vibe{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .open{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:transparent;color:var(--cyan);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;align-self:flex-start;border:1px solid var(--line-strong);transition:gap .2s,background .2s;margin-top:auto}
+.card .open:hover{gap:12px;background:var(--cyan);color:#fff;border-color:var(--cyan)}
 
 /* === Previews === */
 
 /* 01 Editorial */
-.prev-edit{background:#F5F1EA;color:#1A1F2E;padding:22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.prev-edit .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:#6B6B6B;letter-spacing:0.1em;text-transform:uppercase;align-items:center;gap:12px}
-.prev-edit .top .lex-mini{display:flex;align-items:center;gap:6px}
-.prev-edit .top .lex-mini svg{width:14px;height:18px}
-.prev-edit .top .lex-mini span{font-family:'Montserrat',sans-serif;font-weight:300;font-size:11px;letter-spacing:0.06em;color:#424141}
-.prev-edit .top .lex-mini strong{font-weight:600;color:#2778BC}
-.prev-edit .title{font-family:'Fraunces',serif;font-size:54px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
+.prev-edit{background:#F5F1EA;color:#1A1F2E;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.prev-edit .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B6B;letter-spacing:0.1em;text-transform:uppercase}
+.prev-edit .top svg{width:12px;height:15px;margin-right:4px;vertical-align:middle}
+.prev-edit .top strong{font-weight:600;color:#2778BC}
+.prev-edit .title{font-family:'Fraunces',serif;font-size:42px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
 .prev-edit .title em{font-style:italic;color:#2778BC;font-weight:300}
 .prev-edit .title .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-edit .x-bg{position:absolute;right:-30px;top:30%;transform:translateY(-50%);width:160px;height:196px;opacity:0.08;pointer-events:none}
-.prev-edit .footer-row{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B6B;letter-spacing:0.1em;padding-top:8px;border-top:1px solid #1A1F2E}
+.prev-edit .x-bg{position:absolute;right:-20px;top:30%;transform:translateY(-50%);width:120px;height:147px;opacity:0.08;pointer-events:none}
+.prev-edit .ft{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6B6B6B;letter-spacing:0.1em;padding-top:6px;border-top:1px solid #1A1F2E}
 
 /* 02 Dark Tech */
-.prev-dark{background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.5),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.45),transparent 50%),#0A1220;color:#F2F2F2;padding:22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.prev-dark .badge{padding:4px 10px;border-radius:99px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:9px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:12px}
-.prev-dark .x-icon{width:32px;height:40px;margin-bottom:12px;filter:drop-shadow(0 8px 24px rgba(0,159,227,0.5))}
-.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:600;letter-spacing:-0.035em;line-height:1.0}
+.prev-dark{background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.5),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.45),transparent 50%),#0A1220;color:#F2F2F2;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.prev-dark .badge{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:10px}
+.prev-dark .x-icon{width:26px;height:32px;margin-bottom:10px;filter:drop-shadow(0 6px 18px rgba(0,159,227,0.5))}
+.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.035em;line-height:1.0}
 .prev-dark .title .g{background:linear-gradient(135deg,#1DB4F0,#009FE3,#2778BC);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:300}
-.prev-dark .row{display:flex;gap:6px;margin-top:12px}
-.prev-dark .pill{padding:4px 12px;border-radius:99px;background:linear-gradient(135deg,#009FE3,#2778BC);color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600}
-.prev-dark .pill.ghost{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15)}
+.prev-dark .row{display:flex;gap:5px;margin-top:10px}
+.prev-dark .pill{padding:3px 10px;border-radius:99px;background:linear-gradient(135deg,#009FE3,#2778BC);color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600}
 
 /* 03 Bento */
-.prev-bento{background:#F2F2F2;padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;grid-auto-rows:52px}
-.prev-bento .bt{border-radius:8px;padding:8px;font-family:'Source Sans Pro',sans-serif;font-size:9px;color:#1A1F2E;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.prev-bento .bt-main{grid-column:span 2;grid-row:span 2;background:#13265D;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:-0.02em;line-height:1.1}
-.prev-bento .bt-main .ser{font-family:'Fraunces',serif;font-style:italic;color:#1DB4F0;font-size:17px;font-weight:400}
-.prev-bento .bt-cyan{background:#009FE3;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px}
-.prev-bento .bt-soft{background:#CFE6F6;font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:#13265D}
-.prev-bento .bt-blue{background:#2778BC;color:#fff;font-size:9px;grid-column:span 2}
-.prev-bento .bt-white{background:#fff;font-size:9px}
+.prev-bento{background:#F2F2F2;padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;grid-auto-rows:42px}
+.prev-bento .bt{border-radius:7px;padding:7px;font-family:'Inter',sans-serif;font-size:8px;color:#1A1F2E;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.prev-bento .bt-main{grid-column:span 2;grid-row:span 2;background:#13265D;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:-0.02em;line-height:1.1}
+.prev-bento .bt-main .ser{font-family:'Fraunces',serif;font-style:italic;color:#1DB4F0;font-size:14px;font-weight:400}
+.prev-bento .bt-cyan{background:#009FE3;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px}
+.prev-bento .bt-soft{background:#CFE6F6;font-family:'Fraunces',serif;font-style:italic;font-size:11px;color:#13265D}
+.prev-bento .bt-blue{background:#2778BC;color:#fff;font-size:8px;grid-column:span 2}
+.prev-bento .bt-white{background:#fff;font-size:8px}
 
 /* 04 Brutalist */
-.prev-brut{background:#FAFAF7;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Source Sans Pro',sans-serif}
-.prev-brut .top{background:#13265D;color:#FAFAF7;padding:6px 14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.08em;text-transform:uppercase}
-.prev-brut .mid{padding:16px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:44px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
-.prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 4px}
+.prev-brut{background:#FAFAF7;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
+.prev-brut .top{background:#13265D;color:#FAFAF7;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase}
+.prev-brut .mid{padding:12px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
+.prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 3px}
 .prev-brut .mid h3 .o{-webkit-text-stroke:1px #13265D;color:transparent;font-style:italic;font-weight:600}
-.prev-brut .x-corner{position:absolute;right:-15px;bottom:-25px;width:80px;height:98px;opacity:0.08}
-.prev-brut .bot{background:#009FE3;color:#fff;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+.prev-brut .x-corner{position:absolute;right:-12px;bottom:-20px;width:64px;height:78px;opacity:0.08}
+.prev-brut .bot{background:#009FE3;color:#fff;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
 
 /* 05 Scroll Story */
 .prev-story{background:#F4F1EC;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative}
 .prev-story .progress{position:absolute;top:0;left:0;height:2px;width:60%;background:#009FE3;z-index:2}
-.prev-story .top{padding:14px 22px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;display:flex;justify-content:space-between}
+.prev-story .top{padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;display:flex;justify-content:space-between}
 .prev-story .top .ch{color:#009FE3}
-.prev-story .mid{padding:0 22px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.prev-story .mid .mini{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:10px}
-.prev-story .mid .mini::before{content:"";display:inline-block;width:24px;height:1px;background:#009FE3;vertical-align:middle;margin-right:10px}
-.prev-story .mid h3{font-family:'Fraunces',serif;font-size:46px;line-height:0.9;letter-spacing:-0.04em;font-weight:300}
+.prev-story .mid{padding:0 18px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.prev-story .mid .mini{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px}
+.prev-story .mid .mini::before{content:"";display:inline-block;width:18px;height:1px;background:#009FE3;vertical-align:middle;margin-right:8px}
+.prev-story .mid h3{font-family:'Fraunces',serif;font-size:34px;line-height:0.9;letter-spacing:-0.04em;font-weight:300}
 .prev-story .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
 .prev-story .mid h3 .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-story .mid .sub{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:#6B6B6B;margin-top:14px;font-weight:300}
-.prev-story .bot{padding:12px 22px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
+.prev-story .bot{padding:8px 18px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
 
-/* 06 Terminal */
-.prev-term{background:#08111E;background-image:linear-gradient(rgba(0,159,227,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,159,227,0.06) 1px,transparent 1px);background-size:18px 18px;color:#D7E3F0;padding:0;font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;flex-direction:column}
-.prev-term .titlebar{background:linear-gradient(180deg,#0F1D33,#0A1525);padding:8px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(0,159,227,0.15)}
-.prev-term .lights{display:flex;gap:5px}
-.prev-term .lights span{width:9px;height:9px;border-radius:50%}
-.prev-term .lights .r{background:#FF5F57}
-.prev-term .lights .y{background:#FEBC2E}
-.prev-term .lights .g{background:#27C93F}
-.prev-term .titlebar .path{flex:1;text-align:center;color:#5C7090;font-size:9px}
-.prev-term .titlebar .path .acc{color:#009FE3}
-.prev-term .body{padding:14px 18px;flex:1;display:flex;flex-direction:column;gap:6px}
-.prev-term .prompt{display:flex;gap:6px;align-items:baseline}
-.prev-term .user{color:#1DB4F0}
-.prev-term .at{color:#5C7090}
-.prev-term .host{color:#2778BC}
-.prev-term .dir{color:#FFB454}
-.prev-term .cmd{color:#fff;font-weight:500}
-.prev-term .out{color:#D7E3F0;font-size:10px;padding-left:0}
-.prev-term .ok{color:#5CD672}
-.prev-term .dim{color:#5C7090}
-.prev-term .cyan{color:#009FE3}
-.prev-term .cursor{display:inline-block;width:6px;height:11px;background:#009FE3;vertical-align:middle;margin-left:2px;animation:blink 1s steps(2) infinite}
-@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
-.prev-term .banner{font-size:9px;font-weight:700;color:#009FE3;line-height:1.05;white-space:pre;margin:4px 0}
-
-/* 07 Memphis */
-.prev-memph{background:#FFF9EE;color:#0E2244;padding:14px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
-.prev-memph .mtop{display:flex;justify-content:space-between;align-items:center;font-family:'Caprasimo',serif;font-size:14px;color:#0E2244;z-index:3;position:relative}
-.prev-memph .mtop .x{color:#009FE3;font-size:20px;transform:rotate(-8deg);display:inline-block}
-.prev-memph .mtop .chip{font-family:'JetBrains Mono',monospace;font-size:9px;background:#F5E11E;color:#0E2244;padding:3px 10px;border:2px solid #0E2244;border-radius:99px;transform:rotate(-2deg);box-shadow:2px 2px 0 #0E2244;text-transform:uppercase;letter-spacing:0.05em}
-.prev-memph .mid{flex:1;display:flex;align-items:center;position:relative;z-index:2}
-.prev-memph .title{font-family:'Caprasimo',serif;font-size:34px;line-height:0.95;letter-spacing:-0.02em;position:relative}
-.prev-memph .title .w1{display:inline-block;transform:rotate(-2deg);position:relative}
-.prev-memph .title .w1::after{content:"";position:absolute;left:-4%;right:-4%;bottom:6%;height:8px;background:#F5E11E;z-index:-1}
-.prev-memph .title .w2{display:inline-block;transform:rotate(2deg);color:#FF6B5A}
-.prev-memph .title .w3{display:block;transform:rotate(-1deg);color:#009FE3;margin-top:-6px}
-.prev-memph .deco-circle{position:absolute;bottom:8px;right:14px;width:46px;height:46px;border:3px solid #FF6B5A;border-radius:50%;z-index:1}
-.prev-memph .deco-tri{position:absolute;bottom:32px;left:30%;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid #F5E11E;transform:rotate(15deg);z-index:1}
-.prev-memph .mbot{display:flex;gap:6px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#0E2244;z-index:3;position:relative}
-.prev-memph .mbot .pill{padding:3px 10px;background:#0E2244;color:#FFF9EE;border-radius:99px;text-transform:uppercase;letter-spacing:0.04em;font-weight:500}
-.prev-memph .mbot .pill.cy{background:#FF6B5A}
-
-/* 08 Newspaper */
-.prev-news{background:#F0EAD7;color:#15161A;padding:14px 18px;font-family:'Source Serif 4',Georgia,serif;display:flex;flex-direction:column;gap:6px;background-image:radial-gradient(ellipse at top left,rgba(0,0,0,0.02) 0%,transparent 50%),radial-gradient(ellipse at bottom right,rgba(0,0,0,0.025) 0%,transparent 60%)}
-.prev-news .ntop{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6B5F;padding-bottom:4px;border-bottom:1px solid #15161A}
-.prev-news .mast{font-family:'UnifrakturCook','Playfair Display',serif;font-size:34px;line-height:1;font-weight:700;text-align:center;letter-spacing:-0.005em;padding:6px 0}
+/* 06 Newspaper */
+.prev-news{background:#F0EAD7;color:#15161A;padding:10px 14px;font-family:'Source Serif 4',Georgia,serif;display:flex;flex-direction:column;gap:5px}
+.prev-news .ntop{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6B5F;padding-bottom:3px;border-bottom:1px solid #15161A}
+.prev-news .mast{font-family:'UnifrakturCook',serif;font-size:26px;line-height:1;font-weight:700;text-align:center;padding:4px 0}
 .prev-news .mast .ink-x{color:#2778BC;font-style:italic}
-.prev-news .nrule{border-top:1px solid #15161A;border-bottom:3px double #15161A;padding:3px 0;display:flex;justify-content:space-between;font-family:'Playfair Display',serif;font-style:italic;font-size:9px;color:#15161A}
-.prev-news .nrule strong{font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.05em;font-size:8px}
-.prev-news .splash{text-align:center;padding:4px 0}
-.prev-news .splash .kick{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.15em;color:#9A2422;margin-bottom:4px}
-.prev-news .splash h3{font-family:'Playfair Display',serif;font-weight:900;font-size:30px;letter-spacing:-0.025em;line-height:0.92}
+.prev-news .nrule{border-top:1px solid #15161A;border-bottom:3px double #15161A;padding:2px 0;display:flex;justify-content:space-between;font-style:italic;font-size:8px}
+.prev-news .splash{text-align:center;padding:3px 0}
+.prev-news .splash .kick{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;color:#9A2422;margin-bottom:3px}
+.prev-news .splash h3{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;letter-spacing:-0.025em;line-height:0.92}
 .prev-news .splash h3 em{font-style:italic;font-weight:400;color:#2778BC}
-.prev-news .splash .dek{font-family:'Source Serif 4',serif;font-style:italic;font-size:10px;color:#3F3E3A;margin-top:4px}
-.prev-news .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:8px;line-height:1.4;text-align:justify;padding-top:6px;border-top:3px double #15161A;margin-top:4px;color:#3F3E3A;position:relative}
-.prev-news .cols::before,.prev-news .cols::after{content:"";position:absolute;top:6px;bottom:0;width:1px;background:#15161A}
-.prev-news .cols::before{left:33.33%;transform:translateX(50%)}
-.prev-news .cols::after{left:66.66%;transform:translateX(50%)}
+.prev-news .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:7px;line-height:1.4;text-align:justify;padding-top:4px;border-top:3px double #15161A;color:#3F3E3A}
 
-/* 09 Corporate */
+/* 07 Corporate */
 .prev-corp{background:#FFFFFF;color:#0B1F3A;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto}
-.prev-corp .top{padding:10px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E9F0}
-.prev-corp .top .ll{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:300;font-size:10px;letter-spacing:0.08em;color:#0B1F3A}
-.prev-corp .top .ll svg{width:14px;height:18px}
+.prev-corp .top{padding:8px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E9F0}
+.prev-corp .top .ll{display:flex;align-items:center;gap:6px;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1F3A}
+.prev-corp .top .ll svg{width:11px;height:14px}
 .prev-corp .top .ll strong{font-weight:600;color:#2778BC}
-.prev-corp .top .nv{display:flex;gap:14px;font-size:10px;color:#5A6677;font-weight:500}
-.prev-corp .top .btn{background:#2778BC;color:#fff;padding:5px 10px;font-size:9px;font-weight:600;letter-spacing:0.04em}
-.prev-corp .mid{padding:24px 24px 14px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
-.prev-corp .mid .eb{display:flex;align-items:center;gap:8px;color:#2778BC;margin-bottom:10px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600}
-.prev-corp .mid .eb .bar{width:18px;height:2px;background:#009FE3}
-.prev-corp .mid h3{font-family:'Inter',sans-serif;font-weight:300;font-size:32px;line-height:0.98;letter-spacing:-0.035em;color:#0B1F3A}
+.prev-corp .top .btn{background:#2778BC;color:#fff;padding:4px 8px;font-size:8px;font-weight:600}
+.prev-corp .mid{padding:14px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:end}
+.prev-corp .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.prev-corp .mid .eb .bar{width:14px;height:2px;background:#009FE3}
+.prev-corp .mid h3{font-family:'Inter',sans-serif;font-weight:300;font-size:22px;line-height:0.98;letter-spacing:-0.035em;color:#0B1F3A}
 .prev-corp .mid h3 strong{font-weight:600}
 .prev-corp .mid h3 .it{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-corp .mid .asd{font-size:10px;color:#1F2937;line-height:1.5;padding-left:14px;border-left:1px solid #E5E9F0;padding-bottom:4px}
-.prev-corp .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E5E9F0;font-family:'Inter',sans-serif}
-.prev-corp .stats .st{padding:10px 14px;border-right:1px solid #E5E9F0}
+.prev-corp .mid .asd{font-size:8px;color:#1F2937;line-height:1.5;padding-left:10px;border-left:1px solid #E5E9F0}
+.prev-corp .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E5E9F0}
+.prev-corp .stats .st{padding:6px 10px;border-right:1px solid #E5E9F0}
 .prev-corp .stats .st:last-child{border-right:none}
-.prev-corp .stats .st .l{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#5A6677;margin-bottom:4px;font-weight:600}
-.prev-corp .stats .st .v{font-family:'Inter',sans-serif;font-weight:300;font-size:20px;line-height:1;color:#0B1F3A;letter-spacing:-0.035em}
+.prev-corp .stats .st .l{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#5A6677;margin-bottom:2px;font-weight:600}
+.prev-corp .stats .st .v{font-weight:300;font-size:14px;line-height:1;color:#0B1F3A;letter-spacing:-0.035em}
 .prev-corp .stats .st .v strong{font-weight:600;color:#2778BC}
 
-/* 10 Blueprint */
-.prev-bp{background:#F2EFE6;background-image:linear-gradient(rgba(39,120,188,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(39,120,188,0.04) 1px,transparent 1px);background-size:18px 18px;color:#0E1726;padding:0;font-family:'IBM Plex Sans',sans-serif;display:grid;grid-template-rows:auto 1fr auto;position:relative}
-.prev-bp .top{padding:6px 14px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:0.06em;text-transform:uppercase;color:#5A6479;border-bottom:1px dashed rgba(14,23,38,0.2)}
-.prev-bp .top .rev{background:#0E1726;color:#F2EFE6;padding:1px 6px;font-weight:500}
-.prev-bp .tblock{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-bottom:1px solid #0E1726;font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:0.06em;text-transform:uppercase;color:#5A6479}
-.prev-bp .tblock > div{padding:5px 8px;border-right:1px solid rgba(14,23,38,0.15)}
-.prev-bp .tblock > div:last-child{border-right:none}
-.prev-bp .tblock .v{color:#0E1726;font-weight:600;font-size:8px;margin-top:2px;display:block}
-.prev-bp .mid{padding:16px 18px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative}
-.prev-bp .mid .sid{display:inline-block;padding:2px 8px;border:1px solid #0E1726;background:#F2EFE6;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:#0E1726;margin-bottom:8px}
-.prev-bp .mid h3{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:34px;line-height:0.92;letter-spacing:-0.035em;color:#0E1726}
-.prev-bp .mid h3 strong{font-weight:600}
-.prev-bp .mid h3 .blue{color:#2778BC}
-.prev-bp .x-tech{position:absolute;right:14px;bottom:14px;width:44px;height:54px}
-.prev-bp .x-tech::before{content:"";position:absolute;inset:-6px;border:1px dashed #2778BC;pointer-events:none}
-.prev-bp .specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #0E1726;font-family:'IBM Plex Mono',monospace}
-.prev-bp .specs .sc{padding:8px 10px;border-right:1px solid rgba(14,23,38,0.15)}
-.prev-bp .specs .sc:last-child{border-right:none}
-.prev-bp .specs .sc .l{font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#5A6479;margin-bottom:3px;font-weight:500}
-.prev-bp .specs .sc .v{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:16px;line-height:1;color:#0E1726;letter-spacing:-0.025em}
-.prev-bp .specs .sc .v strong{font-weight:600;color:#2778BC}
-
-/* 11 Portfolio */
+/* 08 Portfolio */
 .prev-port{background:#F4F2EE;color:#1A1814;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto}
-.prev-port .top{padding:8px 16px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6A60;border-bottom:1px solid rgba(26,24,20,0.12)}
-.prev-port .top .live::before{content:"●";color:#009FE3;margin-right:4px}
-.prev-port .mid{padding:18px 22px;display:flex;flex-direction:column;justify-content:center}
-.prev-port .mid .eb{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#6E6A60;margin-bottom:12px;font-weight:500}
-.prev-port .mid h3{font-family:'Inter',sans-serif;font-weight:200;font-size:42px;line-height:0.92;letter-spacing:-0.045em;color:#1A1814}
+.prev-port .top{padding:6px 14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6A60;border-bottom:1px solid rgba(26,24,20,0.12)}
+.prev-port .top .live::before{content:"●";color:#009FE3;margin-right:3px}
+.prev-port .mid{padding:14px;display:flex;flex-direction:column;justify-content:center}
+.prev-port .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;color:#6E6A60;margin-bottom:8px;font-weight:500;text-transform:uppercase}
+.prev-port .mid h3{font-family:'Inter',sans-serif;font-weight:200;font-size:30px;line-height:0.92;letter-spacing:-0.045em;color:#1A1814}
 .prev-port .mid h3 strong{font-weight:600}
 .prev-port .mid h3 .it{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-port .marquee{background:#1A1814;color:#F4F2EE;padding:8px 0;overflow:hidden;white-space:nowrap;font-family:'Source Serif 4',serif;font-style:italic;font-size:12px;font-weight:300}
-.prev-port .marquee .track{display:inline-flex;gap:24px;align-items:center;padding:0 16px}
-.prev-port .marquee .track strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600}
-.prev-port .marquee .dot{color:#009FE3}
+.prev-port .mq{background:#1A1814;color:#F4F2EE;padding:6px 0;overflow:hidden;white-space:nowrap;font-family:'Source Serif 4',serif;font-style:italic;font-size:10px;font-weight:300}
+.prev-port .mq .track{display:inline-flex;gap:14px;padding:0 12px}
+.prev-port .mq .track strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600}
+.prev-port .mq .dot{color:#009FE3}
 
-/* 12 Annual Report */
+/* 09 Annual Report */
 .prev-ar{background:#FBFAF6;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto;position:relative}
-.prev-ar .spine{padding:8px 18px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585}
-.prev-ar .spine .ll{display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:300;font-size:10px;letter-spacing:0.08em;color:#0B1A33;text-transform:none}
-.prev-ar .spine .ll svg{width:12px;height:14px}
+.prev-ar .spine{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585}
+.prev-ar .spine .ll{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1A33;text-transform:none}
+.prev-ar .spine .ll svg{width:11px;height:13px}
 .prev-ar .spine .ll strong{font-weight:600;color:#2778BC}
 .prev-ar .spine .ctr{text-align:center}
 .prev-ar .spine .ctr strong{color:#0B1A33}
-.prev-ar .mid{padding:22px 22px 14px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.prev-ar .mid .eb{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.prev-ar .mid .eb .bar{width:30px;height:2px;background:#D4B57A}
-.prev-ar .mid h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:42px;line-height:0.92;letter-spacing:-0.03em;color:#0B1A33}
+.prev-ar .mid{padding:16px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.prev-ar .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-ar .mid .eb .bar{width:22px;height:2px;background:#D4B57A}
+.prev-ar .mid h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:30px;line-height:0.92;letter-spacing:-0.03em;color:#0B1A33}
 .prev-ar .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
 .prev-ar .mid h3 strong{font-weight:600}
-.prev-ar .mid .yr{position:absolute;right:22px;bottom:14px;font-family:'Source Serif 4',serif;font-weight:300;font-size:34px;line-height:0.9;color:#0B1A33;letter-spacing:-0.04em}
+.prev-ar .mid .yr{position:absolute;right:14px;bottom:10px;font-family:'Source Serif 4',serif;font-weight:300;font-size:24px;line-height:0.9;color:#0B1A33;letter-spacing:-0.04em}
 .prev-ar .mid .yr em{font-style:italic;color:#D4B57A}
-.prev-ar .foot{padding:8px 18px;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585;gap:8px}
-.prev-ar .foot .v{color:#0B1A33;font-weight:600;font-size:8px;display:block;margin-top:2px}
+.prev-ar .ft{padding:6px 14px;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E7585;gap:8px}
+.prev-ar .ft .v{color:#0B1A33;font-weight:600;font-size:7px;display:block}
+
+/* 10 Split */
+.prev-split{display:grid;grid-template-columns:1fr 1fr;color:#fff;font-family:'Inter',sans-serif}
+.prev-split .a,.prev-split .b{padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.prev-split .a{background:#F4F1EC;color:#0B1A33}
+.prev-split .b{background:#0B1A33}
+.prev-split .tag{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.prev-split .a .tag{color:#2778BC}
+.prev-split .b .tag{color:#009FE3}
+.prev-split .tag .bar{width:16px;height:1px;background:currentColor}
+.prev-split h4{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
+.prev-split h4 em{font-style:italic;color:#2778BC}
+.prev-split .b h4 em{color:#009FE3}
+
+/* 11 Magazine */
+.prev-mag{background:#F1ECE0;color:#15171C;padding:10px 14px;font-family:'Source Serif 4',serif;display:grid;grid-template-rows:auto 1fr auto;gap:6px}
+.prev-mag .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#7A7B7C}
+.prev-mag .mast{text-align:center;font-style:italic;font-size:16px;padding:3px 0;border-top:1px solid #15171C;border-bottom:3px double #15171C;font-weight:400}
+.prev-mag .mast strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600;color:#2778BC;letter-spacing:0.02em}
+.prev-mag .body{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+.prev-mag .body h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:32px;line-height:0.95;letter-spacing:-0.035em}
+.prev-mag .body h3 em{font-style:italic;color:#2778BC}
+.prev-mag .vis{aspect-ratio:1/1;background:radial-gradient(circle at 50% 35%,rgba(11,26,51,0.6) 0%,transparent 35%),radial-gradient(circle at 50% 78%,rgba(11,26,51,0.8) 0%,transparent 45%),linear-gradient(180deg,#cfc6ac 0%,#766c54 100%);border:1px solid #15171C}
+.prev-mag .ft{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#7A7B7C;display:flex;justify-content:space-between;padding-top:3px;border-top:1px solid rgba(0,0,0,0.15)}
+
+/* 12 Minimalist */
+.prev-min{background:#FFFFFF;color:#0E1322;padding:24px;display:flex;flex-direction:column;justify-content:center;font-family:'Inter',sans-serif}
+.prev-min .num{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:#94A0B5;margin-bottom:24px;font-weight:500;display:flex;align-items:center;gap:10px}
+.prev-min .num::before{content:"";width:22px;height:1px;background:#2778BC}
+.prev-min h3{font-family:'Inter',sans-serif;font-weight:200;font-size:36px;line-height:1;letter-spacing:-0.04em}
+.prev-min h3 strong{font-weight:500}
+
+/* 13 Horizontal */
+.prev-horiz{background:#0A1220;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+.prev-horiz .bg{position:absolute;inset:0;background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.45),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.35),transparent 50%)}
+.prev-horiz .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
+.prev-horiz .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-horiz .num .bar{width:16px;height:1px;background:#009FE3}
+.prev-horiz h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:1;letter-spacing:-0.025em;color:#fff}
+.prev-horiz h3 em{font-style:italic;color:#1DB4F0}
+.prev-horiz .vis{display:flex;align-items:center;justify-content:center}
+.prev-horiz .vis svg{width:60px;height:73px;filter:drop-shadow(0 8px 24px rgba(0,159,227,0.5))}
+.prev-horiz .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15)}
+.prev-horiz .dots{display:flex;gap:5px;align-items:center;justify-content:center}
+.prev-horiz .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25)}
+.prev-horiz .dot.act{background:#009FE3;width:14px;border-radius:99px}
+
+/* 14 Team */
+.prev-team{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
+.prev-team .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;display:flex;align-items:center;gap:8px}
+.prev-team .num .bar{width:18px;height:1px;background:#009FE3}
+.prev-team h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
+.prev-team h3 em{font-style:italic;color:#2778BC}
+.prev-team .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto}
+.prev-team .ppl{aspect-ratio:3/4;background:radial-gradient(circle at 50% 32%,#0B1A33 0%,#0B1A33 18%,transparent 19%),radial-gradient(ellipse at 50% 78%,#0B1A33 0%,#0B1A33 30%,transparent 31%),#E8E2D5;border:1px solid rgba(11,26,51,0.12);position:relative}
+.prev-team .ppl::after{content:"";position:absolute;top:4px;left:4px;width:6px;height:6px;border-top:1px solid #2778BC;border-left:1px solid #2778BC}
+
+/* 15 Timeline */
+.prev-time{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;font-family:'Inter',sans-serif;gap:8px}
+.prev-time .top{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#2778BC;font-weight:600}
+.prev-time h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em;margin-bottom:4px}
+.prev-time h3 em{font-style:italic;color:#2778BC}
+.prev-time .line{position:relative;flex:1;padding:8px 0}
+.prev-time .line::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(11,26,51,0.18)}
+.prev-time .pt{position:relative;z-index:2;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6E7585;padding:4px 0;font-weight:600;letter-spacing:0.08em}
+.prev-time .pt.l{flex-direction:row-reverse;text-align:right}
+.prev-time .pt .dot{width:8px;height:8px;border-radius:50%;background:#fff;border:1.5px solid #2778BC;flex-shrink:0;margin:0 auto}
+.prev-time .pt strong{color:#0B1A33;font-family:'Source Serif 4',serif;font-style:italic;font-size:10px;font-weight:400}
+
+/* 16 ESG */
+.prev-esg{background:#F4F5F0;color:#0E2230;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
+.prev-esg .top{background:#0E2230;color:#F4F5F0;padding:5px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;margin:-14px -14px 8px}
+.prev-esg .top .b{background:#A3B07A;color:#0E2230;padding:1px 6px;font-weight:700}
+.prev-esg h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
+.prev-esg h3 em{font-style:italic;color:#6B7A4A}
+.prev-esg .h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;background:#0E2230;padding:8px;color:#F4F5F0}
+.prev-esg .h .item{text-align:center}
+.prev-esg .h .v{font-family:'Source Serif 4',serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
+.prev-esg .h .v strong{font-weight:500;color:#A3B07A}
+.prev-esg .h .l{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,245,240,0.6);margin-top:4px}
+
+/* 17 Cinematic */
+.prev-cine{background:linear-gradient(180deg,#070C18 0%,#0E1729 100%);color:#fff;padding:0;display:grid;grid-template-rows:14px 1fr 14px;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+.prev-cine .b{background:#070C18}
+.prev-cine .mid{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 18px;overflow:hidden}
+.prev-cine .mid::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(0,159,227,0.3) 0%,transparent 55%),radial-gradient(circle at 80% 70%,rgba(39,120,188,0.4) 0%,transparent 55%)}
+.prev-cine .mid::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay}
+.prev-cine .inner{position:relative;z-index:2}
+.prev-cine .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-cine .lbl::before{content:"";width:18px;height:1px;background:#009FE3}
+.prev-cine h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:28px;line-height:0.95;letter-spacing:-0.035em;text-shadow:0 4px 20px rgba(0,159,227,0.3)}
+.prev-cine h3 em{font-style:italic;color:#009FE3}
+
+/* 18 Documentation */
+.prev-doc{background:#FFFFFF;color:#0B1A33;padding:0;display:grid;grid-template-columns:80px 1fr;font-family:'Inter',sans-serif;font-size:9px}
+.prev-doc .sb{background:#F7F8FB;border-right:1px solid #E7EAF0;padding:10px 8px}
+.prev-doc .sb h6{font-family:'Inter',sans-serif;font-weight:600;font-size:6px;letter-spacing:0.08em;text-transform:uppercase;color:#697288;padding:0 4px;margin-bottom:4px}
+.prev-doc .sb a{display:block;padding:3px 4px;font-size:8px;color:#1F2937;border-radius:3px;margin-bottom:2px}
+.prev-doc .sb a.act{background:rgba(0,159,227,0.1);color:#2778BC;font-weight:500}
+.prev-doc .body{padding:14px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.prev-doc .crumbs{font-family:'Inter',sans-serif;font-size:7px;color:#697288}
+.prev-doc h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;color:#0B1A33;line-height:1.1}
+.prev-doc .lede{font-size:9px;color:#697288;line-height:1.5}
+.prev-doc .callout{padding:6px 8px;background:rgba(0,159,227,0.06);border-left:2px solid #2778BC;font-size:8px;color:#1F2937;border-radius:0 3px 3px 0;line-height:1.4;margin-top:auto}
+.prev-doc .callout strong{color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.05em;text-transform:uppercase;display:block;margin-bottom:2px;font-weight:700}
+
+/* 19 Conversational */
+.prev-conv{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif;text-align:center}
+.prev-conv .greet{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.prev-conv .greet::before{content:"●";color:#009FE3}
+.prev-conv h3{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:24px;line-height:1.1;letter-spacing:-0.025em}
+.prev-conv h3 em{font-style:normal;color:#2778BC;font-weight:400}
+.prev-conv .opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto}
+.prev-conv .opt{padding:8px;background:#fff;border:1px solid rgba(11,26,51,0.12);border-radius:6px;font-size:7px;color:#1F2937;text-align:left}
+.prev-conv .opt strong{display:block;color:#0B1A33;font-size:8px;font-weight:600}
+
+/* 20 SaaS Pricing */
+.prev-saas{background:#FFFFFF;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:8px;font-family:'Inter',sans-serif}
+.prev-saas .badge{display:inline-flex;padding:3px 8px;background:rgba(0,159,227,0.08);border:1px solid rgba(0,159,227,0.2);color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border-radius:99px;align-self:flex-start}
+.prev-saas h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.025em;line-height:1.05}
+.prev-saas h3 em{font-style:normal;color:#2778BC;font-weight:400}
+.prev-saas .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:auto}
+.prev-saas .pl{padding:8px;background:#F7F8FB;border:1px solid #E5E9F0;border-radius:6px;font-size:7px;color:#1F2937}
+.prev-saas .pl.f{border:1.5px solid #2778BC}
+.prev-saas .pl .id{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.08em;color:#2778BC;font-weight:600;margin-bottom:2px}
+.prev-saas .pl strong{display:block;font-size:8px;color:#0B1A33;font-weight:600;margin-bottom:2px}
+.prev-saas .pl .pr{font-weight:600;color:#0B1A33;font-size:11px;margin-top:4px}
+
+/* 21 Whitepaper */
+.prev-wp{background:#FAFAF6;color:#0E1424;padding:14px;display:flex;flex-direction:column;gap:8px;font-family:'Source Serif 4',serif}
+.prev-wp .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;padding-bottom:4px;border-bottom:1px solid rgba(14,20,36,0.14)}
+.prev-wp .top .l{display:flex;align-items:center;gap:5px}
+.prev-wp .top .l svg{width:10px;height:13px}
+.prev-wp .meta{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-top:4px;display:flex;align-items:center;gap:6px}
+.prev-wp .meta::before{content:"";width:14px;height:2px;background:#009FE3}
+.prev-wp h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
+.prev-wp h3 em{font-style:italic;color:#2778BC}
+.prev-wp .figure{padding:8px;background:#fff;border:1px solid #0E1424;margin-top:auto}
+.prev-wp .figure .cap{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600;margin-bottom:4px}
+.prev-wp .figure table{width:100%;font-size:7px;border-collapse:collapse}
+.prev-wp .figure td{padding:2px 4px;border-bottom:1px solid rgba(0,0,0,0.05)}
+.prev-wp .figure td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600}
+
+/* 22 Institutional */
+.prev-inst{background:#F2EFE5;color:#13242E;padding:0;display:grid;grid-template-rows:auto 1fr;font-family:'Cormorant Garamond',serif}
+.prev-inst .mast{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid rgba(19,36,46,0.18);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(19,36,46,0.6)}
+.prev-inst .mast .l{display:flex;align-items:center;gap:5px;color:#13242E;text-transform:none}
+.prev-inst .mast .l svg{width:11px;height:13px}
+.prev-inst .mast .l span{font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
+.prev-inst .mast .l span strong{font-weight:600;color:#2778BC}
+.prev-inst .mast .ctr{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;text-transform:none;color:#13242E;font-weight:400}
+.prev-inst .body{padding:14px;display:grid;grid-template-columns:1.5fr 1fr;gap:14px;align-items:center}
+.prev-inst h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;line-height:0.95;letter-spacing:-0.02em}
+.prev-inst h3 em{font-style:italic;color:#2778BC}
+.prev-inst .seal{width:60px;height:60px;border:2px solid #13242E;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto;position:relative}
+.prev-inst .seal::after{content:"";position:absolute;inset:-5px;border:1px dotted #13242E;border-radius:50%}
+.prev-inst .seal svg{width:20px;height:25px;margin-bottom:2px}
+.prev-inst .seal small{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.16em;text-transform:uppercase;color:#13242E;font-weight:600;line-height:1}
+
+/* 23 Architecture */
+.prev-arch{background:#0E1218;color:#F4F1EC;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+.prev-arch .bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,24,0.4) 0%,rgba(14,18,24,0.95) 100%),radial-gradient(circle at 60% 60%,#3D4A60 0%,#1F2530 60%,#0E1218 100%)}
+.prev-arch .lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none}
+.prev-arch .top{position:relative;z-index:2;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.prev-arch .top .l{display:flex;align-items:center;gap:5px;color:#F4F1EC;text-transform:none}
+.prev-arch .top .l svg{width:10px;height:13px}
+.prev-arch .top .l span{font-family:'Inter',sans-serif;font-weight:200;font-size:8px;letter-spacing:0.1em}
+.prev-arch .top .l strong{font-weight:500;color:#009FE3}
+.prev-arch .mid{position:relative;z-index:2;padding:14px;display:flex;flex-direction:column;justify-content:center}
+.prev-arch .lbl{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-arch .lbl::before{content:"";width:16px;height:1px;background:#009FE3}
+.prev-arch h3{font-family:'Inter',sans-serif;font-weight:200;font-size:32px;line-height:0.95;letter-spacing:-0.04em;text-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.prev-arch h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#009FE3;font-weight:300}
+.prev-arch .ft{position:relative;z-index:2;padding:6px 14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);border-top:1px solid rgba(255,255,255,0.1)}
+
+/* 24 Photography */
+.prev-photo{background:linear-gradient(180deg,rgba(30,27,20,0.1),rgba(30,27,20,0.55) 80%,rgba(30,27,20,0.75)),radial-gradient(circle at 30% 35%,#1E1B14 0%,#1E1B14 14%,transparent 15%),radial-gradient(ellipse at 30% 72%,#252114 0%,#252114 24%,transparent 25%),radial-gradient(circle at 75% 45%,#3A331E 0%,#3A331E 12%,transparent 13%),radial-gradient(ellipse at 75% 75%,#1E1B14 0%,#1E1B14 24%,transparent 25%),linear-gradient(180deg,#C0B49A 0%,#9C8E72 40%,#5E5440 80%,#2A2418 100%);color:#F1EDE3;padding:14px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Cormorant Garamond',serif;position:relative;overflow:hidden}
+.prev-photo::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay;pointer-events:none}
+.prev-photo .top{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,237,227,0.7);font-weight:500}
+.prev-photo .top strong{color:#F1EDE3;font-weight:600}
+.prev-photo h3{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:30px;line-height:1.0;letter-spacing:-0.015em;text-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.prev-photo h3 em{font-style:normal;color:#F1EDE3;font-weight:400}
+.prev-photo .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,237,227,0.7);font-weight:500}
 
 /* FOOTER */
-.foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:16px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+.foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
 </style>
 </head>
 <body>
 
-<!-- X symbol -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="lex-x" viewBox="0 0 180 220">
     <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
@@ -294,176 +400,169 @@ a{color:inherit;text-decoration:none}
 <section class="head">
   <svg class="bg-x"><use href="#lex-x"/></svg>
   <div class="head-meta mono">
-    <span><span style="color:var(--cyan)">●</span> 2026 · Edition 04 · 12 Konzepte</span>
-    <span>Auftraggeber · LeXpersonal GmbH, Münster</span>
+    <span><span style="color:var(--cyan)">●</span> 2026 · Edition 06 · 24 Konzepte</span>
+    <span>LeXpersonal GmbH · Münster</span>
     <span>Für Konzern- &amp; Industriekund:innen</span>
   </div>
   <div class="head-logo">
     <svg><use href="#lex-x"/></svg>
     LE<strong>X</strong>PERSONAL
   </div>
-  <h1>Zwölf Designs.<br>Drei klare <em>Spielarten</em>.</h1>
-  <p>Die zwölf Konzepte teilen sich in drei Gruppen: <strong style="color:var(--text)">vier Premium-B2B-Konzepte</strong> für Konzern- und Industriekund:innen, <strong style="color:var(--text)">vier moderne Standards</strong> für eine zeitgemäße Marketing-Page, und <strong style="color:var(--text)">vier Statement-Designs</strong> mit klarer Differenzierung. Alles im echten LeXpersonal-CI mit X-Symbol, Blautönen und Montserrat.</p>
+  <h1>Vier­undzwanzig Designs.<br>Vier <em>klare Spielarten</em>.</h1>
+  <p>Vier Tier-Gruppen: <strong style="color:var(--text)">B2B-Premium</strong> für Konzern- und Industrie­einkauf, <strong style="color:var(--text)">moderne Standards</strong> für eine zeitgemäße Marketing-Page, <strong style="color:var(--text)">Editorial / Story</strong> für Markenpositionierung und <strong style="color:var(--text)">Statement-Designs</strong> mit klarer Differenzierung. Alle im echten LeXpersonal-CI (X-Symbol, Blautöne, Montserrat).</p>
 
   <div class="reco">
     <div class="icon">B2B</div>
     <div>
       <h3>Empfehlung für Konzern- &amp; Industriekund:innen</h3>
-      <p>Wenn die Seite vor allem Vertrauen großer Auftraggeber gewinnen soll, sind die <strong>Konzepte 09 (Corporate Premium)</strong>, <strong>10 (Engineering Blueprint)</strong>, <strong>11 (Case Portfolio)</strong> und <strong>12 (Annual Report)</strong> die ersten Adressen. Sie sind speziell auf HR- und Einkaufs-Entscheider:innen großer Unternehmen ausgelegt — mit Daten, Cases, Compliance-Belegen und Premium-Anmutung.</p>
+      <p>Wenn die Seite vor allem große Auftraggeber gewinnen soll, sind die <strong>Konzepte 07, 08, 09, 16, 18, 21 und 22</strong> die ersten Adressen. Sie sind speziell auf HR- und Einkaufs-Entscheider:innen zugeschnitten — mit Daten, Cases, Compliance und Premium-Anmutung.</p>
     </div>
   </div>
 </section>
 
-<!-- GROUP A · B2B Premium NEW -->
+<!-- TIER 1 — B2B PREMIUM -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 3 — <em>B2B Premium</em></h2>
-    <p class="sub">Für Konzerne, Industriebetriebe und Mittelstand mit professionellem Einkauf. Maximaler Vertrauensaufbau, Daten, Cases, Compliance.</p>
+    <h2>Runde 1 — <em>B2B Premium</em></h2>
+    <p class="sub">Für Konzerne, Industriebetriebe und Mittelstand mit professionellem Einkauf. Maximaler Vertrauensaufbau über Daten, Cases, Compliance-Belege und Premium-Anmutung.</p>
   </div>
   <span class="badge b2b">▲ Konzern-tauglich</span>
 </div>
 
 <section class="grid">
 
-  <!-- 09 Corporate -->
-  <a href="09-corporate.html" class="card b2b-rec">
+  <a href="07-corporate.html" class="card b2b-rec">
     <div class="card-preview prev-corp">
-      <div class="top">
-        <span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span>
-        <span class="nv"><span>Leistungen</span><span>Branchen</span><span>Referenzen</span></span>
-        <span class="btn">Anfrage stellen</span>
-      </div>
-      <div class="mid">
-        <div>
-          <div class="eb"><span class="bar"></span><span>Seit 2008</span></div>
-          <h3>Personal,<br>auf das sich<br><span class="it">Industrie</span><br><strong>verlässt.</strong></h3>
-        </div>
-        <div class="asd">Wir stellen produzierenden Unternehmen, Industrie und Mittelstand qualifiziertes Personal — kurzfristig, dauerhaft oder im Werkvertrag.</div>
-      </div>
-      <div class="stats">
-        <div class="st"><div class="l">Operating</div><div class="v"><strong>2008</strong></div></div>
-        <div class="st"><div class="l">Pipeline</div><div class="v">2.4<strong>K</strong>+</div></div>
-        <div class="st"><div class="l">Time-to-Fill</div><div class="v">4–7<strong> d</strong></div></div>
-        <div class="st"><div class="l">Retention</div><div class="v">98<strong>%</strong></div></div>
-      </div>
+      <div class="top"><span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="btn">Anfrage</span></div>
+      <div class="mid"><div><div class="eb"><span class="bar"></span>Seit 2008</div><h3>Personal,<br>auf das sich<br><span class="it">Industrie</span><br><strong>verlässt.</strong></h3></div><div class="asd">Wir liefern Industrie und Mittelstand qualifiziertes Personal.</div></div>
+      <div class="stats"><div class="st"><div class="l">Op.</div><div class="v"><strong>2008</strong></div></div><div class="st"><div class="l">Pipeline</div><div class="v">2.4<strong>K</strong></div></div><div class="st"><div class="l">TTF</div><div class="v">4–7<strong>d</strong></div></div><div class="st"><div class="l">Ret.</div><div class="v">98<strong>%</strong></div></div></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[09] / B2B Premium</span>
+      <span class="card-num">[07] · B2B Premium</span>
       <h2>Corporate Premium</h2>
       <div class="vibe">McKinsey · Deloitte · Roland Berger</div>
-      <p>Klassisches B2B-Beratungs-Layout: viel Whitespace, sachliche Source-Serif-Akzente, Logo-Wall „Trusted by", Sektoren-Übersicht, Case-Preview mit harten KPIs, Anfrage-Formular. Vermittelt Premium-Beraterhaltung — passt zu Konzern-Einkauf.</p>
-      <div class="tags"><span class="tag">Whitespace</span><span class="tag">Logo-Wall</span><span class="tag">Case-KPI</span><span class="tag">Lead-Form</span></div>
+      <p>Klassisches Beratungs-Layout: Whitespace, Logo-Wall „Trusted by", Case-KPIs, Anfrage-Formular, Compliance-Footer.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <!-- 10 Blueprint -->
-  <a href="10-blueprint.html" class="card b2b-rec">
-    <div class="card-preview prev-bp">
-      <div class="top">
-        <span>· DOC. lexpersonal–overview ·</span>
-        <span><span class="rev">REV. 18.2</span></span>
-      </div>
-      <div class="tblock">
-        <div>Document<span class="v">LEX-OV-2026</span></div>
-        <div>Subject<span class="v">Personal·dienst·leistung</span></div>
-        <div>Scale<span class="v">1 : 1</span></div>
-        <div>Sheet<span class="v">01 / 06</span></div>
-      </div>
-      <div class="mid">
-        <span class="sid">SEC-00 · ÜBERSICHT</span>
-        <h3>Personal,<br>gebaut wie<br><strong>eine Maschine.</strong><br><span class="blue">Bedient wie ein Mensch.</span></h3>
-        <div class="x-tech"><svg><use href="#lex-x"/></svg></div>
-      </div>
-      <div class="specs">
-        <div class="sc"><div class="l">Spec · 01</div><div class="v"><strong>2008</strong></div></div>
-        <div class="sc"><div class="l">Spec · 02</div><div class="v">2.4K<strong>+</strong></div></div>
-        <div class="sc"><div class="l">Spec · 03</div><div class="v">4–7<strong>d</strong></div></div>
-        <div class="sc"><div class="l">Spec · 04</div><div class="v">98<strong>%</strong></div></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[10] / B2B Premium</span>
-      <h2>Engineering Blueprint</h2>
-      <div class="vibe">Technische Zeichnung · Ingenieurs­büro</div>
-      <p>Wirkt wie eine technische Zeichnung: Title-Block, Sheet-Nummerierung, Spec-Sheets, gestrichelte Maßlinien, Module-IDs (M-01/M-02/M-03), Schematic-Diagramm. Spricht Ingenieurs- und Industrie-Entscheider direkt an — Personalbeschaffung als Engineering-Aufgabe.</p>
-      <div class="tags"><span class="tag">Blueprint</span><span class="tag">Spec-Sheets</span><span class="tag">Schematic</span><span class="tag">DIN-Anmutung</span></div>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <!-- 11 Portfolio -->
-  <a href="11-portfolio.html" class="card b2b-rec">
+  <a href="08-portfolio.html" class="card b2b-rec">
     <div class="card-preview prev-port">
-      <div class="top">
-        <span class="live">Aktuell: 23 laufende Einsätze · Q2 / 2026</span>
-        <span>Münster · NRW</span>
-      </div>
-      <div class="mid">
-        <div class="eb">— Edition 2026 · Index</div>
-        <h3>Wir messen<br>Personal an<br>dem, <span class="it">was bleibt:</span><br><strong>am Ergebnis.</strong></h3>
-      </div>
-      <div class="marquee">
-        <div class="track">
-          <span><strong>METALL</strong> WERK</span>
-          <span class="dot">✦</span>
-          <span>Nord<strong>LOGISTIK</strong></span>
-          <span class="dot">✦</span>
-          <span><strong>MS</strong> Industriegruppe</span>
-          <span class="dot">✦</span>
-          <span>Kramer &amp; Söhne</span>
-          <span class="dot">✦</span>
-        </div>
-      </div>
+      <div class="top"><span class="live">23 laufende Einsätze · Q2 / 2026</span><span>Münster</span></div>
+      <div class="mid"><div class="eb">— Edition 2026 · Index</div><h3>Wir messen<br>Personal an<br><span class="it">dem,</span><br><strong>was bleibt.</strong></h3></div>
+      <div class="mq"><div class="track"><span><strong>METALL</strong>WERK</span><span class="dot">✦</span><span>Nord<strong>LOGISTIK</strong></span><span class="dot">✦</span><span><strong>MS</strong>·Industrie</span><span class="dot">✦</span></div></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[11] / B2B Premium</span>
+      <span class="card-num">[08] · B2B Premium</span>
       <h2>Case Portfolio</h2>
-      <div class="vibe">Pentagram · Mother Design · Bureau Cool</div>
-      <p>Track Record dominiert: aktive Engagements im Header, scrollende Kundenliste, vier ausführliche Case-Studies mit duotone-Visuals und KPI-Rows, drei Testimonials mit Avatar &amp; Rolle. Verkauft Vertrauen über bewiesene Ergebnisse — ideal für Erst­kontakt mit großen Unternehmen.</p>
-      <div class="tags"><span class="tag">Case-Studies</span><span class="tag">KPI-Heavy</span><span class="tag">Testimonials</span><span class="tag">Track Record</span></div>
+      <div class="vibe">Pentagram · Mother Design</div>
+      <p>Track Record dominiert: aktive Engagements, vier Case-Studies mit duotone-Visuals und KPI-Rows, Testimonials.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <!-- 12 Annual Report -->
-  <a href="12-annual-report.html" class="card b2b-rec">
+  <a href="09-annual-report.html" class="card b2b-rec">
     <div class="card-preview prev-ar">
-      <div class="spine">
-        <span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span>
-        <span class="ctr">Annual Report · 2026 · <strong>Vol. XVIII</strong></span>
-        <span>→ PDF</span>
-      </div>
-      <div class="mid">
-        <div class="eb"><span class="bar"></span><span>Geschäftsbericht 2025</span></div>
-        <h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3>
-        <span class="yr">20<em>26</em></span>
-      </div>
-      <div class="foot">
-        <span>LeXpersonal GmbH<span class="v">Münster</span></span>
-        <span>Geschäfts­bericht<span class="v">für das Jahr 2025</span></span>
-        <span>Veröffentlicht<span class="v">27. Mai 2026</span></span>
-      </div>
+      <div class="spine"><span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">Annual Report · 2026 · <strong>Vol. XVIII</strong></span><span>→ PDF</span></div>
+      <div class="mid"><div class="eb"><span class="bar"></span>Geschäftsbericht 2025</div><h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3><span class="yr">20<em>26</em></span></div>
+      <div class="ft"><span>LeXpersonal<span class="v">Münster</span></span><span>Geschäftsbericht<span class="v">2025</span></span><span>Veröff.<span class="v">27.05.26</span></span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[12] / B2B Premium</span>
+      <span class="card-num">[09] · B2B Premium</span>
       <h2>Annual Report</h2>
       <div class="vibe">DAX-Geschäftsbericht · BMW · Siemens</div>
-      <p>Inszeniert wie der Geschäftsbericht eines Konzerns: Cover mit Volume, Inhalts­verzeichnis, Brief der Geschäftsführung, Kennzahlen-Seite, Geschäfts­entwicklung mit Balken- und Anteils-Diagrammen, Geschäftsfelder, Werte-Kapitel, Compliance &amp; Outlook. Höchstes Trust-Niveau — perfekt für Konzern-Einkauf.</p>
-      <div class="tags"><span class="tag">Geschäftsbericht</span><span class="tag">CEO-Brief</span><span class="tag">Charts</span><span class="tag">Compliance</span></div>
+      <p>Cover + Inhaltsverzeichnis + CEO-Brief + Kennzahlen + Charts + Werte + Compliance &amp; Outlook. Höchstes Trust-Niveau.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="16-esg-report.html" class="card b2b-rec">
+    <div class="card-preview prev-esg">
+      <div class="top"><span><span class="b">SOCIAL IMPACT 2025</span> · LeXpersonal</span><span>27.05.2026</span></div>
+      <h3>Personal heißt:<br><em>Menschen</em><br>Verantwortung<br>übernehmen.</h3>
+      <div class="h"><div class="item"><div class="v"><strong>0</strong>%</div><div class="l">Kurzarbeit</div></div><div class="item"><div class="v"><strong>100</strong>%</div><div class="l">tarif­gebunden</div></div><div class="item"><div class="v"><strong>86</strong>%</div><div class="l">Verbleib 18M</div></div><div class="item"><div class="v"><strong>9,2</strong>J</div><div class="l">Ø Zugeh.</div></div></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[16] · B2B Premium</span>
+      <h2>Social Impact Report</h2>
+      <div class="vibe">ESG-Bericht · Sustainability</div>
+      <p>Sozialer Verantwortungs­bericht mit messbaren Prinzipien, Compliance-Standards (iGZ, ANÜ-Erlaubnis, DSGVO) und Selbst­verpflichtungen.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="18-documentation.html" class="card b2b-rec">
+    <div class="card-preview prev-doc">
+      <div class="sb">
+        <h6>Übersicht</h6>
+        <a class="act">Was ist LeX?</a>
+        <a>Grundprinzipien</a>
+        <h6 style="margin-top:6px">Modelle</h6>
+        <a>M-01 ANÜ</a>
+        <a>M-02 Vermittl.</a>
+        <a>M-03 Werkv.</a>
+      </div>
+      <div class="body">
+        <div class="crumbs">Docs / Übersicht / Was ist LeX?</div>
+        <h3>Was ist LeXpersonal?</h3>
+        <p class="lede">Wir bieten drei Modelle — Arbeitnehmer­überlassung (M-01), Personal­vermittlung (M-02) und Werkverträge (M-03).</p>
+        <div class="callout"><strong>Quick Facts</strong>18+ Jahre · 2.430 Talente · 4–7 d TTF · 98 % Folgeauftrag.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[18] · B2B Premium</span>
+      <h2>Documentation Hub</h2>
+      <div class="vibe">Stripe Docs · Linear Docs</div>
+      <p>Knowledge-Base-Style mit Sidebar, TOC, Tabellen, Callouts. Tiefe Inhaltstruktur für Compliance- und Einkaufs-Teams.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="21-whitepaper.html" class="card b2b-rec">
+    <div class="card-preview prev-wp">
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span>Vol. XVIII · Q2/2026</span></div>
+      <div class="meta">Whitepaper · Personaldienstleistung 2026</div>
+      <h3>Wie der Mittelstand<br><em>Personal denkt</em><br>— und was sich<br>lernen lässt.</h3>
+      <div class="figure">
+        <div class="cap"><strong>Abb. 01</strong> Kennzahlen 2025 vs 2024</div>
+        <table><tr><td>Pipeline</td><td>+ 12,4 %</td></tr><tr><td>Vermittlungen</td><td>+ 18,2 %</td></tr><tr><td>Folgeauftrag</td><td>+ 1,3 PP</td></tr></table>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[21] · B2B Premium</span>
+      <h2>Whitepaper / Industry Report</h2>
+      <div class="vibe">PwC · BCG Insight · McKinsey Quarterly</div>
+      <p>Branchen­bericht mit Executive Summary, Fußnoten, Tabellen, Charts und Handlungs­empfehlungen. Maximale fachliche Tiefe.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="22-institutional.html" class="card b2b-rec">
+    <div class="card-preview prev-inst">
+      <div class="mast"><span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span><span class="ctr">— Gegr. Anno MMVIII —</span><span>48155 MÜNSTER</span></div>
+      <div class="body">
+        <h3>Über die<br>Aufgaben &amp; den<br><em>Auftrag</em><br>der Gesellschaft.</h3>
+        <div class="seal"><svg><use href="#lex-x"/></svg><small>LeX<br>MMVIII</small></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[22] · B2B Premium</span>
+      <h2>Institutionell</h2>
+      <div class="vibe">Behörde · Bundesregierung · Stiftung</div>
+      <p>Maximale Seriosität: Briefkopf, Siegel, Artikel-Struktur (§ I bis § IV), klassische Garamond. Für besonders konservative Konzern-Käufer.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
 </section>
 
-<!-- GROUP B · Modern Standards -->
+<!-- TIER 2 — MODERN STANDARDS -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 1 — <em>Moderne Standards</em></h2>
-    <p class="sub">Vier moderne Marketing-Page-Stile mit gleichem Grundgerüst — solide B2B-tauglich, aber weniger spezifisch auf Konzern-Einkauf zugeschnitten.</p>
+    <h2>Runde 2 — <em>Moderne Standards</em></h2>
+    <p class="sub">Neun zeitgemäße Marketing-Page-Stile mit klar unterscheidbarer Bildsprache — solide B2B-tauglich, weniger spezifisch auf Konzern-Einkauf zugeschnitten.</p>
   </div>
-  <span class="badge standard">○ Standard B2B</span>
+  <span class="badge std">○ Standard B2B</span>
 </div>
 
 <section class="grid">
@@ -471,43 +570,31 @@ a{color:inherit;text-decoration:none}
   <a href="01-editorial.html" class="card">
     <div class="card-preview prev-edit">
       <svg class="x-bg"><use href="#lex-x"/></svg>
-      <div class="top">
-        <span class="lex-mini"><svg><use href="#lex-x"/></svg><span>LE<strong>X</strong>PERSONAL</span></span>
-        <span>NO. 01 — MÜNSTER</span>
-      </div>
+      <div class="top"><span><svg><use href="#lex-x"/></svg>LE<strong>X</strong>PERSONAL</span><span>NO. 01 — MÜNSTER</span></div>
       <div class="title">Starke<br><em>Jobs</em> für<br><span class="cy">alle.</span></div>
-      <div class="footer-row">
-        <span>↳ ÜBERLASSUNG</span>
-        <span>↳ VERMITTLUNG</span>
-        <span>↳ WERKVERTRAG</span>
-      </div>
+      <div class="ft"><span>↳ ÜBERLASSUNG</span><span>↳ VERMITTLUNG</span><span>↳ WERKVERTRAG</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[01] / Standard</span>
-      <h2>Editorial Serif Modern</h2>
-      <div class="vibe">Pentagram · NY Times · Frame Magazine</div>
-      <p>Magazin-Anmutung mit Fraunces-Serif auf Cream. Vertrauen und Substanz, Handschrift statt Hochglanz.</p>
-      <div class="tags"><span class="tag">Cream + CI-Blau</span><span class="tag">Fraunces</span><span class="tag">Editorial</span></div>
+      <span class="card-num">[01] · Standard</span>
+      <h2>Editorial Serif</h2>
+      <div class="vibe">Pentagram · NY Times</div>
+      <p>Magazin-Anmutung mit Fraunces-Serif auf Cream. Vertrauen und Substanz.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
   <a href="02-dark-tech.html" class="card">
     <div class="card-preview prev-dark">
-      <div class="badge">● AKTIV · 18+ JAHRE</div>
+      <div class="badge">● 18+ JAHRE</div>
       <svg class="x-icon"><use href="#lex-x"/></svg>
       <div class="title">Starke Jobs<br><span class="g">für alle.</span></div>
-      <div class="row">
-        <div class="pill">Personal anfragen →</div>
-        <div class="pill ghost">Jobs entdecken</div>
-      </div>
+      <div class="row"><div class="pill">Anfragen →</div><div class="pill" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15)">Jobs</div></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[02] / Standard</span>
+      <span class="card-num">[02] · Standard</span>
       <h2>Dark Tech / Gradient</h2>
       <div class="vibe">Linear · Vercel · Stripe</div>
-      <p>SaaS-Look in Tiefblau mit Cyan→Royal-Gradient. Das X glowt im Hero — moderne HR-Tech-Anmutung.</p>
-      <div class="tags"><span class="tag">Dark Mode</span><span class="tag">CI-Gradient</span><span class="tag">Glassmorph</span></div>
+      <p>Tiefblau-Background mit Cyan→Royal-Gradient. Modern, HR-Tech-Anmutung.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -517,47 +604,126 @@ a{color:inherit;text-decoration:none}
       <div class="bt bt-main">Starke <span class="ser">Jobs</span> für alle.</div>
       <div class="bt bt-cyan">2.400+</div>
       <div class="bt bt-soft">4–7 Tage</div>
-      <div class="bt bt-blue">„Mensch · Match · Mehrwert"</div>
+      <div class="bt bt-blue">„Mensch · Match"</div>
       <div class="bt bt-white">→ Bewerber</div>
     </div>
     <div class="card-body">
-      <span class="card-num">[03] / Standard</span>
+      <span class="card-num">[03] · Standard</span>
       <h2>Bento Modular</h2>
-      <div class="vibe">Apple · Notion · Linear Marketing</div>
-      <p>Modulare Bento-Tiles im CI-Blau-Spektrum. Modern, freundlich, scanbar — viele Inhalte auf einen Blick.</p>
-      <div class="tags"><span class="tag">Bento Grid</span><span class="tag">CI Blau-Palette</span><span class="tag">Modular</span></div>
+      <div class="vibe">Apple · Notion</div>
+      <p>Modulare Tiles in CI-Blau-Palette. Modern, freundlich, scanbar.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
   <a href="04-swiss-brutalist.html" class="card">
     <div class="card-preview prev-brut">
-      <div class="top"><span>● LIVE · MÜNSTER</span><span>2026 / ED. 01</span></div>
-      <div class="mid">
-        <h3>Starke<br><span class="a">Jobs.</span><br>Für <span class="o">alle</span>.</h3>
-        <svg class="x-corner"><use href="#lex-x"/></svg>
-      </div>
-      <div class="bot"><span>[01] LEISTUNGEN</span><span>[02] HALTUNG</span><span>[03] PATHS</span><span>[04] KONTAKT</span></div>
+      <div class="top"><span>● MÜNSTER</span><span>2026 / ED. 01</span></div>
+      <div class="mid"><h3>Starke<br><span class="a">Jobs.</span><br>Für <span class="o">alle</span>.</h3><svg class="x-corner"><use href="#lex-x"/></svg></div>
+      <div class="bot"><span>[01] LEIST.</span><span>[02] HALTUNG</span><span>[03] PATHS</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[04] / Standard</span>
-      <h2>Swiss Brutalist Modern</h2>
-      <div class="vibe">Pentagram · Order · Awwwards 25/26</div>
-      <p>Strenges Grid mit Tiefblau &amp; Paper, Cyan als Signal. Oversized-Headlines — selbstbewusst, modern.</p>
-      <div class="tags"><span class="tag">CI-Blau Signal</span><span class="tag">Oversized Type</span><span class="tag">Strict Grid</span></div>
+      <span class="card-num">[04] · Standard</span>
+      <h2>Swiss Brutalist</h2>
+      <div class="vibe">Pentagram · Awwwards</div>
+      <p>Strenges Grid mit Tiefblau und Cyan-Signal. Oversized Headlines, selbstbewusst.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="10-split-screen.html" class="card">
+    <div class="card-preview prev-split">
+      <div class="a"><div class="tag"><span class="bar"></span>SEITE A</div><h4>Ihr nächster<br><em>Schritt</em><br>beginnt<br>hier.</h4></div>
+      <div class="b"><div class="tag"><span class="bar"></span>SEITE B</div><h4>Personal,<br>auf das<br>sich <em>Industrie</em><br>verlässt.</h4></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[10] · Standard</span>
+      <h2>Split-Screen Dual-Audience</h2>
+      <div class="vibe">50:50 Bewerber | Unternehmen</div>
+      <p>Permanent geteilter Bildschirm: Bewerber:innen links auf Cream, Unternehmen rechts auf Tiefblau. Klare Architektur.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="12-minimalist.html" class="card">
+    <div class="card-preview prev-min">
+      <div class="num">01 · seit 2008</div>
+      <h3>Personal,<br>auf das sich<br><strong>Industrie</strong><br>verlässt.</h3>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[12] · Standard</span>
+      <h2>Minimalist Premium</h2>
+      <div class="vibe">Apple Quiet · Reduced</div>
+      <p>Extreme Reduktion. Eine Aussage pro Bildschirmhöhe, sehr großer Whitespace. Premium-Anmutung durch Ruhe.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="14-team-portrait.html" class="card">
+    <div class="card-preview prev-team">
+      <div class="num"><span class="bar"></span>HINTER JEDER VERMITTLUNG</div>
+      <h3>Hinter jedem<br>Match steht<br>ein <em>Mensch.</em></h3>
+      <div class="grid">
+        <div class="ppl"></div><div class="ppl"></div><div class="ppl"></div><div class="ppl"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[14] · Standard</span>
+      <h2>Team Portrait Focus</h2>
+      <div class="vibe">Boutique Agency · People First</div>
+      <p>Team und Personen im Mittelpunkt: Hero-Gruppenbild, individuelle Portraits, „Sie sprechen mit Menschen mit Namen".</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="15-timeline.html" class="card">
+    <div class="card-preview prev-time">
+      <div class="top">— 18 Jahre Chronologie</div>
+      <h3>Von <em>2008</em><br>bis heute.</h3>
+      <div class="line">
+        <div class="pt l"><strong>2008</strong> Gründung<span class="dot"></span></div>
+        <div class="pt"><span class="dot"></span><strong>2017</strong> 500 MA</div>
+        <div class="pt l"><strong>2022</strong> 2.000 Pipeline<span class="dot"></span></div>
+        <div class="pt"><span class="dot"></span><strong>2026</strong> Heute</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[15] · Standard</span>
+      <h2>Timeline / 18 Jahre</h2>
+      <div class="vibe">Chronologie · Heritage</div>
+      <p>Vertikale Chronologie 2008 → 2026 mit Meilensteinen. Erzählt die Marken-Geschichte und zeigt Substanz.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="20-saas-pricing.html" class="card">
+    <div class="card-preview prev-saas">
+      <div class="badge">● Modelle &amp; Konditionen</div>
+      <h3>Drei Modelle.<br>Eine klare <em>Übersicht.</em></h3>
+      <div class="plans">
+        <div class="pl"><div class="id">M-01</div><strong>ANÜ</strong><div class="pr">Std-Satz</div></div>
+        <div class="pl f"><div class="id">M-02</div><strong>Vermittl.</strong><div class="pr">% Erfolg</div></div>
+        <div class="pl"><div class="id">M-03</div><strong>Werkv.</strong><div class="pr">Festpr.</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[20] · Standard</span>
+      <h2>B2B Service-Vergleich</h2>
+      <div class="vibe">SaaS Pricing · Feature-Matrix</div>
+      <p>Drei Modelle als vergleichbare Karten, Feature-Matrix-Tabelle, FAQ. Sehr klar für Einkäufer, die Vergleichbarkeit suchen.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
 </section>
 
-<!-- GROUP C · Statement -->
+<!-- TIER 3 — EDITORIAL / STORY -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 2 — <em>Statement-Designs</em></h2>
-    <p class="sub">Maximale Differenzierung, ungewöhnliche Layout-DNA. Polarisierender als die anderen — eher für eigenständige Microsites oder Image-Kampagnen als für die Haupt-Seite mit Konzern-Einkauf-Fokus.</p>
+    <h2>Runde 3 — <em>Editorial &amp; Story</em></h2>
+    <p class="sub">Vier visuell und narrativ getriebene Layouts — für Markenarbeit, Image-Kampagnen oder Microsites neben der Hauptseite.</p>
   </div>
-  <span class="badge statement">★ Statement</span>
+  <span class="badge edit">★ Editorial</span>
 </div>
 
 <section class="grid">
@@ -565,154 +731,161 @@ a{color:inherit;text-decoration:none}
   <a href="05-scroll-story.html" class="card">
     <div class="card-preview prev-story">
       <div class="progress"></div>
-      <div class="top">
-        <span>LEXPERSONAL · MANIFEST</span>
-        <span><span class="ch">III</span> / VII</span>
-      </div>
-      <div class="mid">
-        <span class="mini">Ein Manifest in 7 Kapiteln</span>
-        <h3>Starke<br><em>Jobs</em> für<br><span class="cy">alle.</span></h3>
-        <span class="sub">— erzählt in sieben Kapiteln.</span>
-      </div>
-      <div class="bot">
-        <span>© 2008</span>
-        <span>↓ scrollen</span>
-      </div>
+      <div class="top"><span>LEXPERSONAL · MANIFEST</span><span><span class="ch">III</span> / VII</span></div>
+      <div class="mid"><span class="mini">Manifest in 7 Kapiteln</span><h3>Starke<br><em>Jobs</em> für<br><span class="cy">alle.</span></h3></div>
+      <div class="bot"><span>© 2008</span><span>↓ scrollen</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[05] / Statement</span>
+      <span class="card-num">[05] · Editorial</span>
       <h2>Long-Form Scroll Story</h2>
-      <div class="vibe">Apple Newsroom · Cartier · Editorial Feature</div>
-      <p>Ein Manifest in 7 Kapiteln, vertikal erzählt. Dropcaps, Pull-Quotes, Single-Statement-Chapters. Slow Reading, sehr literarisch — für Markenpositionierung statt für direkte Lead-Conversion.</p>
-      <div class="tags"><span class="tag">Scrollytelling</span><span class="tag">Magazin-Feature</span><span class="tag">Slow Read</span></div>
+      <div class="vibe">Apple Newsroom · Cartier</div>
+      <p>Vertikal erzähltes Manifest in 7 Kapiteln. Dropcaps, Pull-Quotes, Single-Statement-Chapters. Slow Reading.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="06-terminal.html" class="card">
-    <div class="card-preview prev-term">
-      <div class="titlebar">
-        <div class="lights"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-        <div class="path">— <span class="acc">lex@personal</span>: ~/münster —</div>
-      </div>
-      <div class="body">
-        <pre class="banner">██╗     ███████╗██╗  ██╗
-██║     ██╔════╝╚██╗██╔╝
-██║     █████╗   ╚███╔╝
-██║     ██╔══╝   ██╔██╗
-███████╗███████╗██╔╝ ██╗</pre>
-        <div class="prompt">
-          <span class="user">lex</span><span class="at">@</span><span class="host">personal</span><span class="at">:</span><span class="dir">~</span><span style="color:#D7E3F0">$</span>
-          <span class="cmd">whoami</span>
-        </div>
-        <div class="out"><span class="cyan">→</span> <span style="color:#fff">LeXpersonal GmbH</span> <span class="dim">[muenster]</span></div>
-        <div class="out"><span class="cyan">→</span> Personalexperten <span class="ok">mit Leidenschaft</span></div>
-        <div class="prompt">
-          <span class="user">lex</span><span class="at">@</span><span class="host">personal</span><span class="at">:</span><span class="dir">~</span><span style="color:#D7E3F0">$</span>
-          <span class="cmd">_</span><span class="cursor"></span>
-        </div>
-      </div>
+  <a href="11-magazine-spread.html" class="card">
+    <div class="card-preview prev-mag">
+      <div class="top"><span>· Ausgabe 02 ·</span><span>· No. 18 ·</span></div>
+      <div class="mast">Le<strong>X</strong>·Personal·<em>Magazin</em></div>
+      <div class="body"><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3><div class="vis"></div></div>
+      <div class="ft"><span>RESSORT I</span><span>REPORTAGE</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[06] / Statement</span>
-      <h2>Terminal / CLI Interface</h2>
-      <div class="vibe">Vercel CLI · Hacker-Aesthetic</div>
-      <p>Die ganze Seite IST ein Terminal-Fenster. ASCII-Banner, Command-Prompts, Progress-Bars. Sehr ungewöhnlich für die Branche — für IT-affine Kund:innen oder Recruiting im Tech-Bereich. Polarisiert bei klassischen Industriekund:innen.</p>
-      <div class="tags"><span class="tag">Monospace</span><span class="tag">CLI</span><span class="tag">Polarisiert</span></div>
+      <span class="card-num">[11] · Editorial</span>
+      <h2>Magazine Spread</h2>
+      <div class="vibe">Brand Eins · Monocle</div>
+      <p>Hochwertiges Business-Magazin mit Cover, Reportage, Pull-Quote, Interview-Q&amp;A und Faktblock.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="07-memphis.html" class="card">
-    <div class="card-preview prev-memph">
-      <div class="mtop">
-        <span>LE<span class="x">X</span>P</span>
-        <span class="chip">★ MÜNSTER</span>
-      </div>
-      <div class="mid">
-        <div class="title">
-          <span class="w1">Starke</span>
-          <span class="w2">Jobs</span>
-          <span class="w3">für alle.</span>
-        </div>
-      </div>
-      <div class="deco-tri"></div>
-      <div class="deco-circle"></div>
-      <div class="mbot">
-        <span class="pill">Anfragen</span>
-        <span class="pill cy">Bewerben</span>
-      </div>
+  <a href="17-cinematic.html" class="card">
+    <div class="card-preview prev-cine">
+      <div class="b"></div>
+      <div class="mid"><div class="inner"><div class="lbl">An Original Production · Münster 2026</div><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3></div></div>
+      <div class="b"></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[07] / Statement</span>
-      <h2>Memphis Maximalist Pop</h2>
-      <div class="vibe">Memphis Group · 80s Revival</div>
-      <p>Bunte Geometrien, schräge Karten, Slap-Shadows. Sehr abweichend von Konzern-Üblichkeit — kann polarisieren. Eher für Recruiting jüngerer Zielgruppen (Gastro, Office, Pflege) als für Konzern-Auftraggeber.</p>
-      <div class="tags"><span class="tag">Maximalist</span><span class="tag">Polarisiert</span><span class="tag">Playful</span></div>
+      <span class="card-num">[17] · Editorial</span>
+      <h2>Cinematic / Documentary</h2>
+      <div class="vibe">Apple TV+ · Dokumentar­film</div>
+      <p>Vollbild-Hero mit Letterbox-Bars, Kapitel-Episoden im Filmstill-Look. Sehr atmosphärisch.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="08-newspaper.html" class="card">
-    <div class="card-preview prev-news">
-      <div class="ntop">
-        <span>· Mi · 27. Mai 2026 ·</span>
-        <span>· Vol. XVIII · No. 02 ·</span>
-        <span>· Münster ·</span>
-      </div>
-      <div class="mast">Der Le<span class="ink-x">X</span>·Personal·Anzeiger</div>
-      <div class="nrule">
-        <strong>Gegr. 2008</strong>
-        <span>— Personaldienstleistung mit Haltung —</span>
-        <strong>Edition Münster</strong>
-      </div>
-      <div class="splash">
-        <div class="kick">— Leitartikel · Mai 2026 —</div>
-        <h3>Starke Jobs für <em>alle.</em></h3>
-        <div class="dek">Wie eine Personaldienstleistung in Münster seit 2008 beweist, dass Mensch und Markt keine Gegensätze sind.</div>
-      </div>
-      <div class="cols">
-        <div>Als LeXpersonal im Jahr 2008 in Münster gegründet wurde, war die Branche…</div>
-        <div>Drei Leistungen bietet das Haus an: Arbeitnehmerüberlassung, Personalvermittlung und…</div>
-        <div>Drei Grundprinzipien tragen die Arbeit: Achtung, Spitzenleistungen, Dienst…</div>
-      </div>
+  <a href="24-photography-editorial.html" class="card">
+    <div class="card-preview prev-photo">
+      <div class="top"><span>VOL. XVIII · <strong>2026</strong></span><span>· REPORTAGE ·</span></div>
+      <h3>Was zwischen<br>Brief und <em>Werk­bank</em><br>passiert.</h3>
+      <div class="ft"><span>PHOTOGRAPHY EDITORIAL</span><span>↓ SCROLLEN</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[08] / Statement</span>
-      <h2>Newspaper / Print</h2>
-      <div class="vibe">FAZ · NYT Print · Tageszeitung</div>
-      <p>Klassische Zeitungsoptik mit Fraktur-Masthead. Seriös aber sehr eigenständig. Wirkt extrem regional verwurzelt — ideal für Marken­positionierung im Münsterland, weniger für Konzern-Einkauf.</p>
-      <div class="tags"><span class="tag">Newspaper</span><span class="tag">Regional</span><span class="tag">Serif-Heavy</span></div>
+      <span class="card-num">[24] · Editorial</span>
+      <h2>Photography Editorial</h2>
+      <div class="vibe">Kinfolk · Apartamento · Cereal</div>
+      <p>Foto-getriebene Reportage mit warmen Halftone-Bildern, Cormorant-Serif, Pull-Quotes. Lifestyle-Magazin-Anmutung.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
 </section>
 
-<section style="padding:40px 0 56px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<!-- TIER 4 — STATEMENT / SPEZIAL -->
+<div class="group-header">
+  <div class="left">
+    <h2>Runde 4 — <em>Statement-Designs</em></h2>
+    <p class="sub">Vier eigenständige Layout-Welten mit klar abweichender Architektur — für Differenzierung im Wettbewerb oder fokussierte Microsites.</p>
+  </div>
+  <span class="badge spc">◆ Differenzierend</span>
+</div>
+
+<section class="grid">
+
+  <a href="06-newspaper.html" class="card">
+    <div class="card-preview prev-news">
+      <div class="ntop"><span>· 27.05.2026 ·</span><span>· Vol. XVIII ·</span><span>· Münster ·</span></div>
+      <div class="mast">Der Le<span class="ink-x">X</span>·Personal·Anzeiger</div>
+      <div class="nrule"><strong>GEGR. 2008</strong><span>— mit Haltung —</span><strong>MÜNSTER</strong></div>
+      <div class="splash"><div class="kick">LEITARTIKEL · MAI 2026</div><h3>Starke Jobs für <em>alle.</em></h3></div>
+      <div class="cols"><div>Als LeXpersonal 2008 gegründet wurde, war die Branche…</div><div>Drei Leistungen bietet das Haus: ANÜ, Vermittlung…</div><div>Drei Prinzipien: Achtung, Spitzen­leistungen, Dienst…</div></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[06] · Statement</span>
+      <h2>Newspaper / Print</h2>
+      <div class="vibe">FAZ · NYT Print · Tageszeitung</div>
+      <p>Klassische Zeitungsoptik mit Fraktur-Masthead, 3-Spalten-Leitartikel, klassifizierten Stellenanzeigen.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="13-horizontal-stories.html" class="card">
+    <div class="card-preview prev-horiz">
+      <div class="bg"></div>
+      <div class="inner"><div><div class="num"><span class="bar"></span>STORY 01 / 06</div><h3>Personal,<br>auf das<br>sich <em>Industrie</em><br>verlässt.</h3></div><div class="vis"><svg><use href="#lex-x"/></svg></div></div>
+      <div class="ft"><span>← PREV</span><div class="dots"><span class="dot act"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span>NEXT →</span></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[13] · Statement</span>
+      <h2>Horizontal Stories</h2>
+      <div class="vibe">Apple Stories · Snap-Scroll</div>
+      <p>Horizontale Story-Navigation in 6 Panels mit Snap-Scrolling, Dots-Indicator und Pfeil-Steuerung.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="19-conversational.html" class="card">
+    <div class="card-preview prev-conv">
+      <div class="greet">Hallo, wir hören zu</div>
+      <h3>Was bringt Sie heute<br>zu <em>LeXpersonal?</em></h3>
+      <div class="opts"><div class="opt"><strong>Personal suchen</strong>für Unternehmen</div><div class="opt"><strong>Job suchen</strong>als Bewerber</div></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[19] · Statement</span>
+      <h2>Conversational Q-Driven</h2>
+      <div class="vibe">Frage-Antwort · Beratungs­ansatz</div>
+      <p>Die Seite leitet durch Fragen statt durch Sektionen. Persönlich, fast wie eine Beratung in Schrift.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="23-architecture.html" class="card">
+    <div class="card-preview prev-arch">
+      <div class="bg"></div><div class="lines"></div>
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span><span>EST. 2008</span></div>
+      <div class="mid"><div class="lbl">Built since 2008</div><h3>Personal,<br>gebaut für<br><em>Bestand.</em></h3></div>
+      <div class="ft"><span>SELECTED WORK</span><span>↓</span></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[23] · Statement</span>
+      <h2>Architecture Studio</h2>
+      <div class="vibe">Foster · Snøhetta · Architekturbüro</div>
+      <p>Dunkle, hi-res Vollbild-Anmutung mit Blueprint-Grid. Personal als Architektur — sehr ruhig, sehr B2B-tauglich.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+</section>
+
+<section style="padding:32px 0 48px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
   <div>
-    <span class="mono" style="color:var(--cyan)">Wenn Konzern­vertrieb</span>
-    <p style="margin-top:14px;font-size:15px;color:var(--muted);line-height:1.7">
-      Wenn die Seite vor allem große Auftraggeber überzeugen soll, beginnt die engere Auswahl bei <strong style="color:var(--text)">09 Corporate</strong>, <strong style="color:var(--text)">11 Case Portfolio</strong> und <strong style="color:var(--text)">12 Annual Report</strong>.
-    </p>
+    <span class="mono" style="color:var(--cyan)">Für Konzern-Vertrieb</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Engste Auswahl: <strong style="color:var(--text)">07 Corporate</strong>, <strong style="color:var(--text)">08 Case Portfolio</strong>, <strong style="color:var(--text)">09 Annual Report</strong>, <strong style="color:var(--text)">21 Whitepaper</strong>, <strong style="color:var(--text)">22 Institutionell</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Wenn Industrie­fokus</span>
-    <p style="margin-top:14px;font-size:15px;color:var(--muted);line-height:1.7">
-      Für Industrie-, Maschinenbau- und Engineering-Kund:innen ist <strong style="color:var(--text)">10 Blueprint</strong> der direkte Treffer — Personalbeschaffung in der Bildsprache, die diese Kunden verstehen.
-    </p>
+    <span class="mono" style="color:var(--cyan)">Für Markenarbeit</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Für strategische Markenpositionierung neben der Hauptseite: <strong style="color:var(--text)">05 Scroll Story</strong>, <strong style="color:var(--text)">11 Magazin</strong>, <strong style="color:var(--text)">17 Cinematic</strong>, <strong style="color:var(--text)">24 Photography</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Wenn Markenarbeit</span>
-    <p style="margin-top:14px;font-size:15px;color:var(--muted);line-height:1.7">
-      Für strategische Markenpositionierung neben der Haupt-Seite: <strong style="color:var(--text)">05 Scroll Story</strong> als Manifest, <strong style="color:var(--text)">08 Newspaper</strong> als regionales Statement.
-    </p>
+    <span class="mono" style="color:var(--cyan)">Für Differenzierung</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Maximale Abhebung von der grauen Personaldienstleister-Masse: <strong style="color:var(--text)">06 Newspaper</strong> (regional), <strong style="color:var(--text)">14 Team</strong> (menschlich), <strong style="color:var(--text)">23 Architecture</strong> (ruhig premium).</p>
   </div>
 </section>
 
 <div class="foot-bar">
-  <span>© 2026 · 12 Design-Konzepte für LeXpersonal GmbH</span>
-  <span>3 Runden · 1 CI · Münster</span>
+  <span>© 2026 · 24 Design-Konzepte für LeXpersonal GmbH</span>
+  <span>4 Tier · 1 CI · Münster</span>
 </div>
 
 </div>

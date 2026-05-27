@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Cinematic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070C18;
+  --bg-2:#0E1729;
+  --paper:#F2F0EB;
+  --muted:#7A8395;
+  --line:rgba(255,255,255,0.08);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+}
+body{background:var(--bg);color:var(--paper);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase}
+
+/* TOP BAR — slim, cinema-style */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:linear-gradient(180deg,rgba(7,12,24,0.9),rgba(7,12,24,0));mix-blend-mode:normal}
+.bar .l{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:300;font-size:15px;letter-spacing:0.1em;color:#fff}
+.bar .l strong{font-weight:600;color:var(--cyan)}
+.bar .l svg{width:22px;height:27px}
+.bar .nv{display:flex;gap:32px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600}
+.bar .nv a:hover{color:var(--cyan)}
+.bar .btn{padding:9px 18px;background:var(--cyan);color:#070C18;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border-radius:0}
+@media (max-width:900px){.bar .nv{display:none}.bar{padding:16px 24px}}
+
+/* CINEMATIC HERO — Full-bleed letterbox */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .bg{position:absolute;inset:0;background:
+  radial-gradient(circle at 30% 40%,rgba(0,159,227,0.25) 0%,transparent 50%),
+  radial-gradient(circle at 80% 70%,rgba(39,120,188,0.35) 0%,transparent 55%),
+  linear-gradient(180deg,#0B1A33 0%,#070C18 100%);}
+.hero .bg::before{content:"";position:absolute;inset:0;background-image:
+  repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:overlay;pointer-events:none}
+.hero .bg::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 100%,rgba(7,12,24,0.85) 0%,transparent 70%),
+  radial-gradient(ellipse at 50% 0%,rgba(7,12,24,0.5) 0%,transparent 50%);}
+/* Letterbox bars */
+.hero .top-bar,.hero .bot-bar{position:absolute;left:0;right:0;height:64px;background:var(--bg);z-index:3}
+.hero .top-bar{top:0}
+.hero .bot-bar{bottom:0}
+
+.hero-inner{position:relative;z-index:4;padding:120px 64px;max-width:1440px;margin:0 auto;width:100%}
+.hero .mono{color:var(--cyan);margin-bottom:32px;display:flex;align-items:center;gap:14px;font-weight:600}
+.hero .mono .bar-line{width:48px;height:1px;background:var(--cyan)}
+.hero h1{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(64px,9vw,168px);line-height:0.92;letter-spacing:-0.045em;color:#fff;text-shadow:0 4px 60px rgba(0,159,227,0.25)}
+.hero h1 em{font-style:italic;color:var(--cyan);font-weight:300}
+.hero h1 .out{-webkit-text-stroke:1px rgba(255,255,255,0.7);color:transparent;font-weight:200}
+.hero .sub{margin-top:40px;font-family:'Source Serif 4',serif;font-style:italic;font-size:22px;line-height:1.5;color:rgba(255,255,255,0.85);max-width:580px;font-weight:300}
+.hero .ctas{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.hero .cta{padding:16px 32px;background:var(--cyan);color:#070C18;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--cyan)}
+.hero .cta.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.hero-foot{position:absolute;left:64px;right:64px;bottom:80px;display:flex;justify-content:space-between;align-items:end;z-index:4;flex-wrap:wrap;gap:24px}
+.hero-foot .now{display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600}
+.hero-foot .now::before{content:"●";color:var(--cyan)}
+.hero-foot .scroll{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;display:flex;align-items:center;gap:14px}
+.hero-foot .scroll::after{content:"";width:1px;height:40px;background:rgba(255,255,255,0.3);margin-left:14px}
+@media (max-width:900px){.hero-inner{padding:100px 24px}.hero-foot{left:24px;right:24px;bottom:64px}}
+
+/* MANIFESTO — quote on dark */
+.manifesto{padding:140px 64px;border-bottom:1px solid var(--line);text-align:center;background:var(--bg-2);position:relative;overflow:hidden}
+.manifesto::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,159,227,0.1) 0%,transparent 60%)}
+.manifesto blockquote{position:relative;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:clamp(40px,5.5vw,84px);line-height:1.15;letter-spacing:-0.025em;color:#fff;max-width:1280px;margin:0 auto}
+.manifesto blockquote em{color:var(--cyan);font-weight:400}
+.manifesto cite{position:relative;display:block;margin-top:48px;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600}
+
+/* CHAPTERS - Cinematic */
+.chapters{padding:120px 64px;border-bottom:1px solid var(--line)}
+.ch-head{margin-bottom:80px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px}
+.ch-head h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(40px,5vw,80px);line-height:0.98;letter-spacing:-0.035em;color:#fff;max-width:880px}
+.ch-head h2 em{font-style:italic;color:var(--cyan)}
+.ch-head .mono{color:rgba(255,255,255,0.55)}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.chapter{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:transform .25s}
+.chapter:hover{transform:translateY(-4px)}
+.chapter .bgi{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(7,12,24,0.2) 0%,rgba(7,12,24,0.95) 80%);}
+.chapter.c1 .bgi{background:
+  radial-gradient(circle at 50% 35%,rgba(0,159,227,0.3),transparent 50%),
+  linear-gradient(180deg,rgba(11,26,51,0.7) 0%,rgba(7,12,24,0.95) 100%),
+  repeating-linear-gradient(0deg,#1B2438 0,#1B2438 2px,#243150 2px,#243150 6px);}
+.chapter.c2 .bgi{background:
+  radial-gradient(circle at 30% 60%,rgba(39,120,188,0.35),transparent 55%),
+  linear-gradient(180deg,rgba(11,26,51,0.6) 0%,rgba(7,12,24,0.95) 100%),
+  repeating-linear-gradient(90deg,#1A2538 0,#1A2538 40px,#28304B 40px,#28304B 41px);}
+.chapter.c3 .bgi{background:
+  radial-gradient(circle at 70% 45%,rgba(0,159,227,0.3),transparent 50%),
+  linear-gradient(180deg,rgba(11,26,51,0.65) 0%,rgba(7,12,24,0.95) 100%);}
+.chapter .corner{position:absolute;top:14px;left:14px;width:22px;height:22px;border-top:1.5px solid var(--cyan);border-left:1.5px solid var(--cyan);z-index:3}
+.chapter .corner-tr{position:absolute;top:14px;right:14px;width:22px;height:22px;border-top:1.5px solid var(--cyan);border-right:1.5px solid var(--cyan);z-index:3}
+.chapter .num{position:absolute;top:32px;right:32px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:600;z-index:3}
+.chapter .content{position:absolute;left:32px;right:32px;bottom:32px;z-index:3}
+.chapter .lbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:14px}
+.chapter h4{font-family:'Source Serif 4',serif;font-weight:400;font-size:28px;letter-spacing:-0.015em;color:#fff;line-height:1.15;margin-bottom:10px}
+.chapter h4 em{font-style:italic;color:var(--cyan)}
+.chapter p{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.55}
+.chapter .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,159,227,0.15);backdrop-filter:blur(8px);border:1px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:22px;z-index:3;transition:transform .2s}
+.chapter:hover .play{transform:translate(-50%,-50%) scale(1.1)}
+@media (max-width:900px){.chapters{padding:64px 24px}.ch-grid{grid-template-columns:1fr;gap:16px}.chapter{aspect-ratio:16/10}}
+
+/* CTA panel */
+.cta{padding:160px 64px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:var(--bg-2)}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(0,159,227,0.2) 0%,transparent 50%)}
+.cta-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+.cta h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(56px,7.5vw,128px);line-height:0.92;letter-spacing:-0.04em;color:#fff}
+.cta h2 em{font-style:italic;color:var(--cyan)}
+.cta-info{padding-left:48px;border-left:1px solid var(--line)}
+.cta-info .row{display:grid;grid-template-columns:auto 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.cta-info .row:last-of-type{border-bottom:none}
+.cta-info .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600;min-width:120px}
+.cta-info .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:24px;color:#fff;letter-spacing:-0.015em}
+.cta-info .v:hover{color:var(--cyan)}
+.cta-info .cta-btn{margin-top:24px;display:inline-flex;padding:16px 32px;background:var(--cyan);color:#070C18;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase}
+@media (max-width:900px){.cta{padding:96px 24px}.cta-inner{grid-template-columns:1fr;gap:32px}.cta-info{padding-left:0;border-left:none;padding-top:24px;border-top:1px solid var(--line)}}
+
+.foot{padding:24px 40px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="bar">
+  <a href="#" class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <div class="nv">
+    <a href="#kapitel">Kapitel</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <a href="#kontakt" class="btn">Anfrage →</a>
+</header>
+
+<section class="hero">
+  <div class="bg"></div>
+  <div class="top-bar"></div>
+  <div class="bot-bar"></div>
+  <div class="hero-inner">
+    <span class="mono"><span class="bar-line"></span>LeXpersonal · An Original Production · Münster 2026</span>
+    <h1>Wer den<br>Werks­boden<br><em>kennt,</em><br>versteht <span class="out">Personal.</span></h1>
+    <p class="sub">Ein Dokumentarfilm in vier Kapiteln über achtzehn Jahre Personal­dienstleistung — und das, was zwischen Brief und Werkbank passiert.</p>
+    <div class="ctas">
+      <a href="#kontakt" class="cta">Anfrage stellen →</a>
+      <a href="#kapitel" class="cta ghost">Kapitel ansehen ▶</a>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span class="now">Now Playing · 01 / 04 · LeXpersonal — Münster</span>
+    <span class="scroll">SCROLL <span style="font-size:18px">↓</span></span>
+  </div>
+</section>
+
+<section class="manifesto">
+  <blockquote>„Wir glauben nicht an Datenbank-Matching.<br>Wir glauben an <em>Menschen,</em> die einander zuhören."</blockquote>
+  <cite>— Grundsatz LeXpersonal · seit Anno 2008</cite>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters" id="kapitel">
+  <div class="ch-head">
+    <h2>Vier Kapitel.<br><em>Achtzehn</em> Jahre.<br>Eine Marke.</h2>
+    <span class="mono">— Episoden 01 — 04 · gefilmt im Münsterland</span>
+  </div>
+  <div class="ch-grid">
+    <article class="chapter c1">
+      <div class="bgi"></div>
+      <span class="corner"></span><span class="corner-tr"></span>
+      <span class="num">Ep. 01</span>
+      <span class="play">▶</span>
+      <div class="content">
+        <span class="lbl">— Kapitel I · Werks­boden</span>
+        <h4>Wo gute<br>Vermittlung <em>anfängt.</em></h4>
+        <p>Eine Reportage aus einer Werkshalle, in der wir 140 Fachkräfte in acht Monaten platziert haben — ohne Produktions­stopp.</p>
+      </div>
+    </article>
+    <article class="chapter c2">
+      <div class="bgi"></div>
+      <span class="corner"></span><span class="corner-tr"></span>
+      <span class="num">Ep. 02</span>
+      <span class="play">▶</span>
+      <div class="content">
+        <span class="lbl">— Kapitel II · Pipeline</span>
+        <h4>2.400 Talente,<br>von Hand <em>gesehen.</em></h4>
+        <p>Wir öffnen unser Sourcing-Team und zeigen, wie aus Anruf­listen vorgeprüfte Kandidat:innen werden — Mensch für Mensch.</p>
+      </div>
+    </article>
+    <article class="chapter c3">
+      <div class="bgi"></div>
+      <span class="corner"></span><span class="corner-tr"></span>
+      <span class="num">Ep. 03</span>
+      <span class="play">▶</span>
+      <div class="content">
+        <span class="lbl">— Kapitel III · Haltung</span>
+        <h4>Drei Sätze, die uns<br><em>tragen.</em></h4>
+        <p>Achtung &amp; Respekt. Spitzenleistungen. Dienst am Kunden. Wie aus drei Sätzen seit 2008 ein Geschäft geworden ist.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="kontakt">
+  <div class="cta-inner">
+    <h2>Vorhang auf<br>für Ihr <em>nächstes</em><br>Kapitel.</h2>
+    <div class="cta-info">
+      <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+      <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+      <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+      <a href="#" class="cta-btn">Bedarfsanalyse anfragen →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · An Original Production</span>
+  <span>Konzept · Cinematic / Documentary</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>

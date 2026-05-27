@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F7F8FB;
+  --paper-3:#F0F2F6;
+  --ink:#0B1A33;
+  --text:#1F2937;
+  --muted:#697288;
+  --line:#E7EAF0;
+  --line-strong:#D4DAE3;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --green:#10B981;
+  --amber:#F59E0B;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em}
+code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--paper-3);padding:2px 6px;border-radius:4px;color:var(--blue)}
+
+/* TOP BAR */
+.top{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);display:grid;grid-template-columns:280px 1fr auto;align-items:center;height:56px;padding:0 16px 0 24px}
+.top .l{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:15px;letter-spacing:0.06em}
+.top .l strong{font-weight:600;color:var(--blue)}
+.top .l svg{width:20px;height:25px}
+.top .l .tag{margin-left:10px;padding:2px 8px;background:var(--paper-3);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:var(--blue);border-radius:4px;font-weight:600;text-transform:uppercase}
+.top .search{display:flex;align-items:center;gap:10px;background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:7px 12px;max-width:560px;width:100%;justify-self:center;color:var(--muted);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer}
+.top .search:hover{border-color:var(--line-strong)}
+.top .search .ico{font-family:'JetBrains Mono',monospace}
+.top .search .key{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:2px 6px;border-radius:4px}
+.top .r{display:flex;align-items:center;gap:8px}
+.top .r .btn{padding:7px 14px;font-size:13px;font-weight:600;background:var(--ink);color:#fff;border-radius:6px;font-family:'Inter',sans-serif}
+.top .r .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+@media (max-width:900px){.top{grid-template-columns:auto 1fr auto}.top .search{display:none}.top .l .tag{display:none}}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:280px 1fr 240px;min-height:calc(100vh - 56px)}
+@media (max-width:1100px){.layout{grid-template-columns:240px 1fr}.layout > aside.toc{display:none}}
+@media (max-width:768px){.layout{grid-template-columns:1fr}.layout > aside.sidebar{display:none}}
+
+/* SIDEBAR */
+.sidebar{padding:24px 16px;border-right:1px solid var(--line);background:var(--paper);overflow-y:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
+.sb-group{margin-bottom:24px}
+.sb-group h4{font-family:'Inter',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;margin-bottom:4px}
+.sb-group a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 12px;border-radius:6px;font-size:13.5px;color:var(--text);font-weight:400}
+.sb-group a:hover{background:var(--paper-2);color:var(--ink)}
+.sb-group a.active{background:rgba(0,159,227,0.1);color:var(--blue);font-weight:500}
+.sb-group a .badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:1px 6px;border-radius:99px;background:var(--paper-3);color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+.sb-group a .badge.new{background:rgba(0,159,227,0.15);color:var(--blue)}
+.sb-group a .badge.stable{background:rgba(16,185,129,0.12);color:var(--green)}
+.sb-group a .badge.beta{background:rgba(245,158,11,0.12);color:var(--amber)}
+
+/* MAIN */
+.main{padding:48px 56px 80px;max-width:1080px;width:100%}
+.crumbs{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-bottom:24px;font-family:'Inter',sans-serif}
+.crumbs a:hover{color:var(--blue)}
+.crumbs .sep{opacity:0.5}
+.h1{font-family:'Inter',sans-serif;font-weight:600;font-size:42px;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin-bottom:16px}
+.lede{font-family:'Inter',sans-serif;font-weight:400;font-size:19px;line-height:1.55;color:var(--muted);margin-bottom:40px;max-width:780px}
+
+.meta-row{display:flex;gap:24px;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.meta-row .item{display:flex;align-items:center;gap:6px}
+.meta-row .item strong{color:var(--ink);font-weight:500}
+
+.h2{font-family:'Inter',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;color:var(--ink);margin:48px 0 16px;scroll-margin-top:72px}
+.h2 .anchor{color:var(--muted);font-weight:400;margin-right:8px;font-size:22px;opacity:0.5}
+.h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.015em;color:var(--ink);margin:32px 0 12px}
+
+.main p{margin-bottom:16px;max-width:780px}
+.main p strong{color:var(--ink);font-weight:500}
+
+/* ALERT / CALLOUT */
+.callout{padding:18px 22px;border-radius:8px;background:rgba(0,159,227,0.06);border-left:3px solid var(--blue);margin:24px 0;font-size:14.5px;color:var(--text);max-width:780px}
+.callout strong{color:var(--blue);text-transform:uppercase;letter-spacing:0.04em;font-size:11px;font-weight:700;display:block;margin-bottom:6px;font-family:'JetBrains Mono',monospace}
+.callout.warn{background:rgba(245,158,11,0.06);border-color:var(--amber)}
+.callout.warn strong{color:var(--amber)}
+.callout.good{background:rgba(16,185,129,0.06);border-color:var(--green)}
+.callout.good strong{color:var(--green)}
+
+/* TABLE */
+.tbl{width:100%;border:1px solid var(--line);border-radius:8px;border-collapse:separate;border-spacing:0;margin:24px 0;font-size:14px;overflow:hidden;max-width:880px}
+.tbl thead{background:var(--paper-2)}
+.tbl th{padding:11px 16px;text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;color:var(--ink);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--line)}
+.tbl td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td .badge{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+.tbl td .badge.green{background:rgba(16,185,129,0.12);color:var(--green)}
+.tbl td .badge.blue{background:rgba(0,159,227,0.12);color:var(--blue)}
+.tbl td code{background:var(--paper-3)}
+
+/* CODE BLOCK / DEFINITION CARD */
+.def-card{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:24px 0;max-width:880px}
+.def-head{padding:12px 18px;border-bottom:1px solid var(--line);background:var(--paper);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);font-weight:500}
+.def-head strong{color:var(--ink);font-weight:600}
+.def-body{padding:18px 22px}
+.def-body .row{display:grid;grid-template-columns:140px 1fr;gap:18px;padding:8px 0;font-size:14px}
+.def-body .row + .row{border-top:1px dashed var(--line)}
+.def-body .k{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);font-weight:600}
+.def-body .v code{font-size:13px}
+
+/* TOC right */
+.toc{padding:48px 24px;border-left:1px solid var(--line);background:var(--paper);overflow-y:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
+.toc h5{font-family:'Inter',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.toc a{display:block;padding:5px 0;font-size:13px;color:var(--muted);border-left:2px solid transparent;padding-left:10px;margin-left:-10px}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--blue);border-color:var(--blue);font-weight:500}
+.toc a.indent{padding-left:24px;font-size:12.5px}
+
+/* Footer */
+.foot{padding:32px 56px;border-top:1px solid var(--line);background:var(--paper-2);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;letter-spacing:0.04em}
+.foot a{color:var(--blue)}
+@media (max-width:900px){.main{padding:32px 24px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <a href="#" class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL <span class="tag">DOCS</span></a>
+  <div class="search">
+    <span class="ico">⌕</span>
+    <span>Suche in Leistungen, Branchen, Modelle …</span>
+    <span class="key">⌘ K</span>
+  </div>
+  <div class="r">
+    <a href="#" class="btn btn-ghost">Bewerben</a>
+    <a href="#" class="btn">Anfrage stellen →</a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-group">
+      <h4>— Übersicht</h4>
+      <a href="#" class="active">Was ist LeXpersonal?</a>
+      <a href="#">Grundprinzipien</a>
+      <a href="#">Standards &amp; Compliance <span class="badge stable">stable</span></a>
+    </div>
+    <div class="sb-group">
+      <h4>— Modelle</h4>
+      <a href="#">M-01 · Arbeitnehmer­überlassung</a>
+      <a href="#">M-02 · Personal­vermittlung</a>
+      <a href="#">M-03 · Werkverträge</a>
+      <a href="#">Modell-Kombinationen <span class="badge new">new</span></a>
+    </div>
+    <div class="sb-group">
+      <h4>— Branchen</h4>
+      <a href="#">Industrie &amp; Metall</a>
+      <a href="#">Logistik</a>
+      <a href="#">Office &amp; Verwaltung</a>
+      <a href="#">Pflege</a>
+      <a href="#">Handwerk</a>
+      <a href="#">Bau</a>
+      <a href="#">Gastronomie</a>
+    </div>
+    <div class="sb-group">
+      <h4>— Prozess</h4>
+      <a href="#">P-01 · Briefing</a>
+      <a href="#">P-02 · Sourcing</a>
+      <a href="#">P-03 · Match</a>
+      <a href="#">P-04 · Onboarding</a>
+    </div>
+    <div class="sb-group">
+      <h4>— Referenzen</h4>
+      <a href="#">Case Studies</a>
+      <a href="#">Stimmen aus dem Werk</a>
+    </div>
+    <div class="sb-group">
+      <h4>— Kontakt</h4>
+      <a href="#">Anfrage stellen</a>
+      <a href="#">Direkter Draht</a>
+      <a href="#">Standort Münster</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <nav class="crumbs">
+      <a href="#">Docs</a>
+      <span class="sep">/</span>
+      <a href="#">Übersicht</a>
+      <span class="sep">/</span>
+      <span style="color:var(--ink)">Was ist LeXpersonal?</span>
+    </nav>
+
+    <h1 class="h1">Was ist LeXpersonal?</h1>
+    <p class="lede">LeXpersonal ist ein Personaldienstleister aus Münster, der produzierenden Unternehmen, Industrie und Mittelstand qualifiziertes Personal liefert — flexibel überlassen, dauerhaft vermittelt oder im Werkvertrag abgewickelt. Dieser Abschnitt erklärt, was das im Detail bedeutet.</p>
+
+    <div class="meta-row">
+      <div class="item"><span>Operativ seit</span><strong>2008</strong></div>
+      <div class="item"><span>·</span></div>
+      <div class="item"><span>Letztes Update</span><strong>27. Mai 2026</strong></div>
+      <div class="item"><span>·</span></div>
+      <div class="item"><span>Lesezeit</span><strong>~ 7 Min.</strong></div>
+      <div class="item"><span>·</span></div>
+      <div class="item"><span>Version</span><strong>18.2</strong></div>
+    </div>
+
+    <h2 class="h2" id="ueberblick"><span class="anchor">#</span>Überblick</h2>
+    <p>Wir bieten <strong>drei Modelle</strong> — Arbeitnehmer­überlassung (<code>M-01</code>), Personal­vermittlung (<code>M-02</code>) und Werkverträge (<code>M-03</code>) — die je nach Lastprofil Ihres Hauses einzeln oder kombiniert eingesetzt werden können. Anders als bei vielen Dienstleistern beraten wir Sie ehrlich, welches Modell zu Ihrem konkreten Bedarf passt — auch wenn das im Einzelfall heißt, dass wir Ihnen ein anderes Modell empfehlen, als Sie zunächst angefragt haben.</p>
+
+    <div class="callout">
+      <strong>Quick Facts</strong>
+      18+ Jahre Erfahrung · 2.430 vorgeprüfte Talente · Ø Time-to-Fill 4–7 Tage · 98 % Folgeauftrags­quote · tarifgebunden iGZ / DGB · unbefristete ANÜ-Erlaubnis.
+    </div>
+
+    <h2 class="h2" id="prinzipien"><span class="anchor">#</span>Drei Grundprinzipien</h2>
+    <p>Alles, was wir tun, ruht auf drei Sätzen — seit der Gründung 2008 unverändert. Sie sind keine Floskel, sondern messbar:</p>
+
+    <div class="def-card">
+      <div class="def-head"><strong>Grundprinzipien · v18.2</strong><span>seit 2008 unverändert</span></div>
+      <div class="def-body">
+        <div class="row"><span class="k">i. respect</span><span class="v">Achtung &amp; Respekt für unsere Mitarbeitenden. <code>iGZ-Tarif</code>, faire Pausen, persönliche Ansprache.</span></div>
+        <div class="row"><span class="k">ii. excellence</span><span class="v">Spitzenleistungen — messbar und wieder­holbar. Time-to-Fill <code>4–7 d</code>, Folgeauftrag <code>98 %</code>.</span></div>
+        <div class="row"><span class="k">iii. service</span><span class="v">Dienst am Kunden, der den Namen verdient. Antwortzeit <code>&lt; 24 h</code> durch echte Person.</span></div>
+      </div>
+    </div>
+
+    <h2 class="h2" id="modelle"><span class="anchor">#</span>Modelle im Vergleich</h2>
+    <p>Welches Modell zu Ihnen passt, hängt von Last, Dauer und Verantwortungs­tiefe ab. Die folgende Tabelle gibt einen ersten Überblick — vollständige Details unter den verlinkten Spezifikationen.</p>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:80px">ID</th>
+          <th>Modell</th>
+          <th>Einsatzdauer</th>
+          <th>Verantwortung</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>M-01</code></td>
+          <td><strong>Arbeitnehmer­überlassung</strong><br><span style="color:var(--muted);font-size:13px">Flexibel überlassen, iGZ-Tarif</span></td>
+          <td>Tag bis &gt; 1 Jahr</td>
+          <td>LeXpersonal bleibt Arbeitgeber</td>
+          <td><span class="badge green">aktiv</span></td>
+        </tr>
+        <tr>
+          <td><code>M-02</code></td>
+          <td><strong>Personal­vermittlung</strong><br><span style="color:var(--muted);font-size:13px">Direkte Festanstellung, erfolgsbasiert</span></td>
+          <td>Festanstellung</td>
+          <td>Kunde wird Arbeitgeber</td>
+          <td><span class="badge green">aktiv</span></td>
+        </tr>
+        <tr>
+          <td><code>M-03</code></td>
+          <td><strong>Werkverträge</strong><br><span style="color:var(--muted);font-size:13px">Definierter Auftrag, eigene Steuerung</span></td>
+          <td>Projekt bis Dauer­linie</td>
+          <td>LeXpersonal trägt Ergebnis</td>
+          <td><span class="badge blue">geprüft</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="h2" id="schnellstart"><span class="anchor">#</span>Schnellstart für Einkauf &amp; HR</h2>
+    <p>Wenn Sie Ihren Bedarf bereits kennen, ist der schnellste Weg eine Bedarfsanalyse anzufragen. Dieser Schritt ist unverbindlich und kostenfrei.</p>
+
+    <div class="def-card">
+      <div class="def-head"><strong>Schnellstart · 3 Schritte</strong><span>~ 24 h bis Termin</span></div>
+      <div class="def-body">
+        <div class="row"><span class="k">1 · request</span><span class="v">Anfrage absenden über das Formular oder per E-Mail an <code>info@lexpersonal.de</code></span></div>
+        <div class="row"><span class="k">2 · response</span><span class="v">Antwort innerhalb von <strong>24 h</strong> durch eine echte Person — keine Auto-Responder.</span></div>
+        <div class="row"><span class="k">3 · briefing</span><span class="v">Wir kommen ins Haus oder telefonieren. Bedarfs­analyse erstellt Anforderungs­profil.</span></div>
+      </div>
+    </div>
+
+    <h3 class="h3">Compliance &amp; Vor­qualifizierung</h3>
+    <p>Für Konzern-Einkauf stellen wir auf Anfrage ein konsolidiertes Compliance-Dossier zur Verfügung — iGZ-Mitgliedschaft, ANÜ-Erlaubnis, DSGVO, Lieferanten­fähigkeit (SAP Fieldglass u. a.).</p>
+
+    <div class="callout good">
+      <strong>Empfehlung für Konzern-Einkauf</strong>
+      Fordern Sie das Compliance-Dossier vorab unter <code>compliance@lexpersonal.de</code> an — damit ist Ihre Lieferanten­bewertung in der Regel innerhalb eines Werktages abgeschlossen.
+    </div>
+
+    <h2 class="h2" id="weiter"><span class="anchor">#</span>Weiterführend</h2>
+    <p>Wenn Sie eines der drei Modelle im Detail studieren möchten, finden Sie die Spezifikationen unter <a href="#" style="color:var(--blue);font-weight:500">M-01 · Arbeitnehmer­überlassung</a>, <a href="#" style="color:var(--blue);font-weight:500">M-02 · Personal­vermittlung</a> und <a href="#" style="color:var(--blue);font-weight:500">M-03 · Werkverträge</a>. Für Branchen­spezifika nutzen Sie die Sidebar links.</p>
+
+  </main>
+
+  <!-- TOC right -->
+  <aside class="toc">
+    <h5>— Auf dieser Seite</h5>
+    <a href="#ueberblick">Überblick</a>
+    <a href="#prinzipien">Drei Grundprinzipien</a>
+    <a href="#modelle" class="active">Modelle im Vergleich</a>
+    <a href="#schnellstart">Schnellstart</a>
+    <a href="#weiter">Weiterführend</a>
+    <h5 style="margin-top:32px">— Verwandte Seiten</h5>
+    <a href="#" class="indent">M-01 · ANÜ</a>
+    <a href="#" class="indent">M-02 · Vermittlung</a>
+    <a href="#" class="indent">M-03 · Werkvertrag</a>
+    <a href="#" class="indent">Compliance-Dossier</a>
+  </aside>
+
+</div>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · Docs v18.2 · Stand 27.05.2026</span>
+  <span><a href="#">Diese Seite bearbeiten</a> · <a href="#">Feedback</a></span>
+  <span>Konzept · Documentation Sidebar</span>
+</footer>
+
+</body>
+</html>
