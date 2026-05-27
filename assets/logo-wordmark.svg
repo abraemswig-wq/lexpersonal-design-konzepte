@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" fill="none" aria-label="LeXpersonal">
+  <text x="0" y="58" font-family="Montserrat, 'Source Sans Pro', sans-serif" font-weight="300" font-size="48" letter-spacing="2" fill="#424141">LEX</text>
+  <g transform="translate(118 14)">
+    <path d="M0 0 L11 0 L52 52 L41 52 Z" fill="#009FE3"/>
+    <path d="M52 0 L41 0 L0 52 L11 52 Z" fill="#2778BC"/>
+  </g>
+  <text x="182" y="58" font-family="Montserrat, 'Source Sans Pro', sans-serif" font-weight="300" font-size="48" letter-spacing="2" fill="#424141">PERSONAL</text>
+</svg>

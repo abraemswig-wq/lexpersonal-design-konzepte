@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Memphis Maximalist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caprasimo&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FFF9EE;
+  --paper-warm:#FBEFD4;
+  --ink:#0E2244;
+  --ink-soft:#2D3D5E;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --cyan-light:#7AD0F2;
+  --acid:#F5E11E;
+  --coral:#FF6B5A;
+  --pink:#FF8AA3;
+  --mint:#7CD9B6;
+  --plum:#5B3A7A;
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-cyan:6px 6px 0 var(--cyan);
+}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+.fancy{font-family:'Caprasimo',serif}
+.mono{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+
+/* Background Patterns */
+.bg-shapes{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.shape{position:absolute}
+.shape.dots{
+  background-image:radial-gradient(var(--ink) 1.5px,transparent 1.6px);
+  background-size:18px 18px;
+  width:240px;height:240px;
+  top:14%;right:6%;opacity:0.18;
+}
+.shape.zigzag{
+  width:180px;height:60px;top:62%;left:4%;opacity:0.35;
+}
+.shape.squiggle{
+  width:280px;height:50px;top:35%;left:48%;opacity:0.45;
+}
+.shape.circle-out{
+  width:180px;height:180px;border-radius:50%;border:5px solid var(--coral);
+  bottom:10%;right:8%;opacity:0.8;
+}
+.shape.triangle{
+  width:0;height:0;border-left:60px solid transparent;border-right:60px solid transparent;border-bottom:100px solid var(--acid);
+  top:80%;left:38%;transform:rotate(-15deg);opacity:0.85;
+}
+
+/* Sticky Header */
+.head{
+  position:relative;z-index:5;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 32px;
+  background:var(--paper);border-bottom:3px solid var(--ink);
+}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Caprasimo',serif;font-size:24px;color:var(--ink)}
+.logo .x{color:var(--cyan);font-size:32px;line-height:1;display:inline-block;transform:rotate(-8deg)}
+.logo-svg{width:30px;height:36px}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font-weight:500;font-size:15px;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav a:hover::after{transform:scaleX(1)}
+.cta{
+  background:var(--ink);color:var(--paper);padding:12px 22px;
+  border-radius:99px;font-weight:600;font-size:14px;
+  border:3px solid var(--ink);box-shadow:4px 4px 0 var(--cyan);
+  transition:transform .15s,box-shadow .15s;
+}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--cyan)}
+@media (max-width:768px){.nav a{display:none}.nav .cta{display:inline-block}}
+
+/* HERO */
+.hero{position:relative;z-index:2;padding:80px 32px 120px;max-width:1320px;margin:0 auto}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:var(--acid);color:var(--ink);padding:6px 16px;border:3px solid var(--ink);border-radius:99px;font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;margin-bottom:32px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--ink)}
+.hero-title{
+  font-family:'Caprasimo',serif;
+  font-size:clamp(72px,11vw,180px);
+  line-height:0.92;letter-spacing:-0.025em;
+  color:var(--ink);
+}
+.hero-title .word{display:inline-block;position:relative}
+.hero-title .word.tilt-l{transform:rotate(-3deg)}
+.hero-title .word.tilt-r{transform:rotate(2deg);color:var(--coral)}
+.hero-title .word.tilt-r2{display:block;transform:rotate(-1deg);color:var(--cyan);margin-top:-12px}
+.hero-title .word .under{position:absolute;left:-4%;right:-4%;bottom:6%;height:14px;background:var(--acid);z-index:-1;border-radius:2px}
+.hero-title .word .circle-mark{position:absolute;inset:-12% -10%;border:5px solid var(--cyan);border-radius:50%;z-index:-1}
+.hero-sub{margin-top:32px;font-size:19px;line-height:1.55;max-width:520px;color:var(--ink-soft)}
+.hero-cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 24px;border-radius:99px;
+  background:var(--cyan);color:#fff;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
+  border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  transition:all .15s;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn.coral{background:var(--coral)}
+.btn.paper{background:var(--paper);color:var(--ink)}
+.btn.ink{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--cyan)}
+.btn.ink:hover{box-shadow:8px 8px 0 var(--cyan)}
+
+/* Hero visual */
+.hero-art{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.hero-art .blob{position:absolute;width:90%;height:90%;background:var(--cyan-light);border-radius:62% 38% 55% 45% / 50% 60% 40% 50%;animation:morph 12s ease-in-out infinite}
+@keyframes morph{0%,100%{border-radius:62% 38% 55% 45% / 50% 60% 40% 50%}50%{border-radius:38% 62% 35% 65% / 60% 40% 60% 40%}}
+.hero-art .x-big{position:relative;z-index:2;width:60%;height:auto;filter:drop-shadow(8px 8px 0 var(--ink))}
+.hero-art .deco-tri{position:absolute;top:12%;right:-4%;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:50px solid var(--acid);transform:rotate(20deg);filter:drop-shadow(3px 3px 0 var(--ink))}
+.hero-art .deco-dot{position:absolute;bottom:8%;left:0;width:50px;height:50px;background:var(--coral);border-radius:50%;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.hero-art .deco-cross{position:absolute;top:8%;left:-4%;font-family:'Caprasimo';font-size:80px;color:var(--plum);transform:rotate(-12deg)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:400px;margin:0 auto}}
+
+/* Ticker */
+.ticker{
+  background:var(--ink);color:var(--paper);
+  padding:18px 0;overflow:hidden;white-space:nowrap;
+  border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+  position:relative;z-index:2;
+}
+.ticker-inner{display:inline-flex;gap:32px;animation:scroll 30s linear infinite;font-family:'Caprasimo',serif;font-size:30px}
+.ticker-inner span{display:inline-flex;align-items:center;gap:32px}
+.ticker-inner em{font-style:normal;color:var(--acid)}
+.ticker-inner em.coral{color:var(--coral)}
+.ticker-inner em.cyan{color:var(--cyan)}
+.ticker-inner .star{color:var(--coral);font-size:24px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTION */
+.sec{position:relative;z-index:2;padding:120px 32px;max-width:1320px;margin:0 auto}
+.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--paper);padding:6px 16px;border:3px solid var(--ink);border-radius:99px;font-family:'DM Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;transform:rotate(-1.5deg);box-shadow:4px 4px 0 var(--ink);margin-bottom:16px}
+.sec-eyebrow.acid{background:var(--acid);color:var(--ink)}
+.sec-eyebrow.mint{background:var(--mint);color:var(--ink)}
+.sec-eyebrow.pink{background:var(--pink);color:var(--ink)}
+.sec-head h2{font-family:'Caprasimo',serif;font-size:clamp(48px,7vw,96px);line-height:0.95;letter-spacing:-0.02em;color:var(--ink)}
+.sec-head h2 .squig{display:inline-block;position:relative}
+.sec-head h2 .squig::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:14px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' fill='none'><path d='M0 7 Q 25 0 50 7 T 100 7 T 150 7 T 200 7' stroke='%23FF6B5A' stroke-width='4' fill='none'/></svg>") repeat-x center / 200px 14px}
+.sec-head h2 .cyan{color:var(--cyan)}
+.sec-head h2 .coral{color:var(--coral)}
+.sec-head h2 .acid{background:var(--acid);padding:0 8px;display:inline-block;transform:rotate(-1deg)}
+.sec-head p{max-width:380px;font-size:17px;color:var(--ink-soft)}
+
+/* SERVICES — wild card grid */
+.svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
+.svc-card{
+  background:var(--paper);border:3px solid var(--ink);border-radius:24px;
+  padding:36px 28px;position:relative;
+  box-shadow:8px 8px 0 var(--ink);
+  transition:transform .2s,box-shadow .2s;
+}
+.svc-card:nth-child(1){transform:rotate(-1.5deg);background:var(--cyan-light)}
+.svc-card:nth-child(2){transform:rotate(0.8deg);background:var(--acid)}
+.svc-card:nth-child(3){transform:rotate(-0.5deg);background:var(--coral);color:var(--paper)}
+.svc-card:hover{transform:translate(-4px,-4px) rotate(0deg);box-shadow:12px 12px 0 var(--ink)}
+.svc-card .badge{
+  position:absolute;top:-18px;left:24px;
+  background:var(--ink);color:var(--paper);
+  padding:6px 14px;border-radius:99px;
+  font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;
+}
+.svc-card:nth-child(3) .badge{background:var(--paper);color:var(--ink)}
+.svc-card .ico{
+  width:56px;height:56px;border-radius:16px;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px;
+  border:3px solid var(--ink);
+}
+.svc-card:nth-child(3) .ico{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.svc-card h3{font-family:'Caprasimo',serif;font-size:32px;line-height:1.05;margin-bottom:14px;letter-spacing:-0.02em}
+.svc-card p{font-size:15px;line-height:1.6}
+.svc-card .more{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600;border-bottom:2px solid currentColor;padding-bottom:2px;font-size:14px;font-family:'Space Grotesk',sans-serif}
+@media (max-width:900px){.svc-row{grid-template-columns:1fr;gap:48px}.svc-card{transform:rotate(0deg) !important}}
+
+/* PHILOSOPHIE - 3 stickers */
+.phil{position:relative;background:var(--paper-warm);padding:120px 32px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);z-index:2;overflow:hidden}
+.phil-inner{max-width:1320px;margin:0 auto;position:relative;z-index:2}
+.phil-shapes .bigC{position:absolute;width:200px;height:200px;border-radius:50%;background:var(--mint);bottom:-80px;right:8%;opacity:0.6}
+.phil-shapes .bigT{position:absolute;width:0;height:0;border-left:80px solid transparent;border-right:80px solid transparent;border-bottom:140px solid var(--pink);top:20px;right:30%;transform:rotate(15deg);opacity:0.6}
+.stickers{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px;position:relative;z-index:2}
+.sticker{background:var(--paper);border:3px solid var(--ink);border-radius:24px;padding:32px;position:relative;box-shadow:8px 8px 0 var(--ink);transform:rotate(-2deg)}
+.sticker:nth-child(2){transform:rotate(1deg);background:var(--cyan);color:var(--paper)}
+.sticker:nth-child(3){transform:rotate(-1deg);background:var(--ink);color:var(--paper)}
+.sticker .badge{position:absolute;top:-18px;right:24px;background:var(--coral);color:var(--paper);padding:6px 14px;border-radius:99px;border:3px solid var(--ink);font-family:'Caprasimo',serif;font-size:18px;transform:rotate(8deg)}
+.sticker:nth-child(2) .badge{background:var(--acid);color:var(--ink)}
+.sticker:nth-child(3) .badge{background:var(--paper);color:var(--ink)}
+.sticker h3{font-family:'Caprasimo',serif;font-size:30px;letter-spacing:-0.015em;line-height:1.1;margin-bottom:12px}
+.sticker p{font-size:15px;line-height:1.55}
+@media (max-width:900px){.stickers{grid-template-columns:1fr;gap:32px}.sticker{transform:rotate(0deg) !important}}
+
+/* TRIANGLE */
+.tri{position:relative;z-index:2;padding:120px 32px;max-width:1320px;margin:0 auto;overflow:hidden}
+.tri-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.tri-grid h2{font-family:'Caprasimo',serif;font-size:clamp(40px,5vw,72px);line-height:1.0;letter-spacing:-0.02em;margin-bottom:24px}
+.tri-grid h2 .pink{color:var(--pink)}
+.tri-grid h2 .cyan{color:var(--cyan)}
+.tri-grid p{font-size:17px;line-height:1.6;color:var(--ink-soft);margin-bottom:14px;max-width:480px}
+.tri-visual{aspect-ratio:1/1;position:relative;background:var(--cyan-light);border:3px solid var(--ink);border-radius:32px;padding:40px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.tri-visual .pole{position:absolute;background:var(--paper);border:3px solid var(--ink);border-radius:99px;padding:10px 20px;font-family:'Caprasimo',serif;font-size:18px;color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.tri-visual .pole.t1{top:8%;left:50%;transform:translateX(-50%) rotate(-3deg)}
+.tri-visual .pole.t2{bottom:8%;left:0;transform:rotate(-4deg)}
+.tri-visual .pole.t3{bottom:8%;right:0;transform:rotate(3deg)}
+.tri-visual .center-x{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:122px;filter:drop-shadow(6px 6px 0 var(--ink))}
+.tri-visual svg.tri-lines{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:900px){.tri-grid{grid-template-columns:1fr}}
+
+/* PATHS - two big stickers */
+.paths{position:relative;z-index:2;padding:80px 32px 120px;max-width:1320px;margin:0 auto}
+.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.path-tile{position:relative;border:3px solid var(--ink);border-radius:32px;padding:48px 40px;box-shadow:10px 10px 0 var(--ink);min-height:380px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.path-tile.a{background:var(--coral);color:var(--paper);transform:rotate(-1deg)}
+.path-tile.b{background:var(--ink);color:var(--paper);transform:rotate(1deg)}
+.path-tile.b .acc{color:var(--acid)}
+.path-tile.a .acc{color:var(--acid)}
+.path-tile .tag{display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--ink);padding:6px 16px;border-radius:99px;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);align-self:flex-start}
+.path-tile h3{font-family:'Caprasimo',serif;font-size:clamp(36px,4.5vw,60px);line-height:1;letter-spacing:-0.02em;margin:20px 0}
+.path-tile p{font-size:16px;line-height:1.55;max-width:380px;opacity:0.9}
+.path-tile .path-cta{display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--ink);padding:14px 24px;border-radius:99px;font-weight:700;font-size:14px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);align-self:flex-start;margin-top:28px;transition:all .15s;font-family:'Space Grotesk',sans-serif}
+.path-tile .path-cta:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.path-tile .deco{position:absolute;font-family:'Caprasimo',serif;font-size:280px;opacity:0.08;right:-30px;bottom:-100px;line-height:1}
+@media (max-width:900px){.paths-grid{grid-template-columns:1fr;gap:24px}.path-tile{transform:rotate(0deg)}}
+
+/* CONTACT */
+.contact{position:relative;z-index:2;background:var(--ink);color:var(--paper);padding:120px 32px;border-top:3px solid var(--ink);overflow:hidden}
+.contact-inner{max-width:1320px;margin:0 auto;position:relative;z-index:2}
+.contact-shapes{position:absolute;inset:0;pointer-events:none;z-index:1}
+.contact-shapes .s1{position:absolute;top:10%;right:5%;width:120px;height:120px;border-radius:50%;background:var(--coral);border:3px solid var(--paper)}
+.contact-shapes .s2{position:absolute;bottom:15%;left:5%;width:0;height:0;border-left:50px solid transparent;border-right:50px solid transparent;border-bottom:90px solid var(--acid);transform:rotate(15deg)}
+.contact-shapes .s3{position:absolute;top:40%;right:30%;width:60px;height:60px;background:var(--cyan);transform:rotate(45deg)}
+.contact h2{font-family:'Caprasimo',serif;font-size:clamp(60px,9vw,140px);line-height:0.92;letter-spacing:-0.025em}
+.contact h2 .acid{color:var(--acid)}
+.contact h2 .coral{color:var(--coral)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px;padding-top:32px;border-top:3px solid rgba(255,249,238,0.25)}
+.contact-grid h5{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;font-weight:500}
+.contact-grid a,.contact-grid p{font-family:'Caprasimo',serif;font-size:24px;line-height:1.3}
+.contact-grid a:hover{color:var(--cyan)}
+.contact-foot{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,249,238,0.2);display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,249,238,0.5);flex-wrap:wrap;gap:16px}
+@media (max-width:768px){.contact-grid{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+
+<!-- X symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- Background shapes -->
+<div class="bg-shapes">
+  <div class="shape dots"></div>
+  <svg class="shape zigzag" viewBox="0 0 180 60" fill="none"><path d="M0 30 L20 10 L40 50 L60 10 L80 50 L100 10 L120 50 L140 10 L160 50 L180 30" stroke="#2778BC" stroke-width="4" stroke-linejoin="round" fill="none"/></svg>
+  <svg class="shape squiggle" viewBox="0 0 280 50" fill="none"><path d="M0 25 Q 35 -5 70 25 T 140 25 T 210 25 T 280 25" stroke="#FF8AA3" stroke-width="5" fill="none"/></svg>
+  <div class="shape circle-out"></div>
+  <div class="shape triangle"></div>
+</div>
+
+<!-- HEADER -->
+<header class="head">
+  <a href="#" class="logo">
+    <svg class="logo-svg"><use href="#lex-x"/></svg>
+    LE<span class="x">X</span>PERSONAL
+  </a>
+  <nav class="nav">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#philosophie">Haltung</a>
+    <a href="#paths">Bewerber & Firmen</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#" class="cta">Jetzt loslegen →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-eyebrow">✦ Personal aus Münster · seit 2008</span>
+      <h1 class="hero-title">
+        <span class="word tilt-l">Starke<span class="under"></span></span><br>
+        <span class="word tilt-r">Jobs</span>
+        <span class="word tilt-r2">für alle.<span class="circle-mark"></span></span>
+      </h1>
+      <p class="hero-sub">
+        Wir sind <strong>keine Datenbank</strong> und kein anonymes Großbüro. Wir sind eine Handvoll Personalexperten in Münster, die seit 2008 daran glauben, dass gute Jobs aus echten Gesprächen entstehen.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn coral">Personal anfragen →</a>
+        <a href="#" class="btn paper">Jobs entdecken</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="blob"></div>
+      <span class="deco-cross">✦</span>
+      <span class="deco-tri"></span>
+      <span class="deco-dot"></span>
+      <svg class="x-big"><use href="#lex-x"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Starke Jobs für <em>alle</em> ✦</span>
+    <span>seit <em class="coral">2008</em> aus Münster ✦</span>
+    <span>Achtung, Respekt, <em class="cyan">Spitzenleistungen</em> ✦</span>
+    <span>kein Datenbank-<em>Matching</em> ✦</span>
+    <span>Starke Jobs für <em>alle</em> ✦</span>
+    <span>seit <em class="coral">2008</em> aus Münster ✦</span>
+    <span>Achtung, Respekt, <em class="cyan">Spitzenleistungen</em> ✦</span>
+    <span>kein Datenbank-<em>Matching</em> ✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec" id="leistungen">
+  <div class="sec-head">
+    <div>
+      <span class="sec-eyebrow">▼ Drei Leistungen</span>
+      <h2>Was wir tun?<br>Drei Dinge — <span class="squig">richtig</span> <span class="acid">gut</span>.</h2>
+    </div>
+    <p>Flexibel überlassen, dauerhaft vermittelt oder als Werkvertrag abgewickelt — du wählst, wir liefern.</p>
+  </div>
+
+  <div class="svc-row">
+    <article class="svc-card">
+      <span class="badge">01 / SVC</span>
+      <div class="ico">⇄</div>
+      <h3>Arbeitnehmer­überlassung</h3>
+      <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Von der Tagesspitze bis zur langfristigen Verstärkung — wir bleiben Arbeitgeber, du gewinnst Beweglichkeit.</p>
+      <span class="more">Mehr →</span>
+    </article>
+    <article class="svc-card">
+      <span class="badge">02 / SVC</span>
+      <div class="ico">→</div>
+      <h3>Personal­vermittlung</h3>
+      <p>Direkte Vermittlung in Festanstellung — diskret, kulturbewusst, mit langem Atem. Wir matchen Menschen, keine Datenbankzeilen.</p>
+      <span class="more">Mehr →</span>
+    </article>
+    <article class="svc-card">
+      <span class="badge">03 / SVC</span>
+      <div class="ico">◆</div>
+      <h3>Werkverträge</h3>
+      <p>Definierte Aufträge, definierte Verantwortung. Wir übernehmen Abwicklung & Ergebnis — du fokussierst dich aufs Kerngeschäft.</p>
+      <span class="more">Mehr →</span>
+    </article>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="phil" id="philosophie">
+  <div class="phil-shapes">
+    <div class="bigC"></div>
+    <div class="bigT"></div>
+  </div>
+  <div class="phil-inner">
+    <div class="sec-head" style="margin-bottom:32px">
+      <div>
+        <span class="sec-eyebrow acid">★ Unsere Haltung</span>
+        <h2>Drei Sätze.<br>Eine <span class="cyan">Lebens­einstellung</span>.</h2>
+      </div>
+      <p>Wir hängen sie nicht im Flur auf. Wir leben sie — in jedem Anruf, in jedem Vertrag, in jedem Match.</p>
+    </div>
+    <div class="stickers">
+      <div class="sticker">
+        <span class="badge">No. 1</span>
+        <h3>Achtung & Respekt</h3>
+        <p>Für jede:n Mitarbeiter:in. Kein Lippenbekenntnis — sondern wie wir Verträge schreiben, anrufen und zuhören.</p>
+      </div>
+      <div class="sticker">
+        <span class="badge">No. 2</span>
+        <h3>Spitzen­leistungen</h3>
+        <p>Messbar, nachhaltig, wiederholbar. Wer halbgar liefert, hat den falschen Job — bei uns und beim Kunden.</p>
+      </div>
+      <div class="sticker">
+        <span class="badge">No. 3</span>
+        <h3>Dienst am Kunden</h3>
+        <p>Der den Namen verdient. Erreichbar sein, mitdenken, geradestehen — auch wenn's ungemütlich wird.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIANGLE -->
+<section class="tri">
+  <div class="tri-grid">
+    <div>
+      <span class="sec-eyebrow pink">↑ Unser Modell</span>
+      <h2>Eine lebendige<br><span class="pink">Dreiecks-</span><br><span class="cyan">Beziehung.</span></h2>
+      <p>Wir glauben nicht an Datenbank-Matching. Wir glauben an Menschen, die einander zuhören.</p>
+      <p>Unternehmen, Kandidat:in und Berater:in — drei Eckpunkte, die nur gemeinsam tragen.</p>
+    </div>
+    <div class="tri-visual">
+      <svg class="tri-lines" viewBox="0 0 400 400" fill="none">
+        <path d="M200 70 L340 320 L60 320 Z" stroke="#0E2244" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="200" cy="70" r="8" fill="#FF6B5A" stroke="#0E2244" stroke-width="3"/>
+        <circle cx="340" cy="320" r="8" fill="#F5E11E" stroke="#0E2244" stroke-width="3"/>
+        <circle cx="60" cy="320" r="8" fill="#FF8AA3" stroke="#0E2244" stroke-width="3"/>
+      </svg>
+      <span class="pole t1">Unternehmen</span>
+      <span class="pole t2">Kandidat:in</span>
+      <span class="pole t3">Berater:in</span>
+      <svg class="center-x"><use href="#lex-x"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- PATHS -->
+<section class="paths" id="paths">
+  <div class="sec-head" style="margin-bottom:32px">
+    <div>
+      <span class="sec-eyebrow mint">✓ Zwei Wege</span>
+      <h2>Was bringt<br>dich <span class="coral">hier</span> her?</h2>
+    </div>
+  </div>
+  <div class="paths-grid">
+    <div class="path-tile a">
+      <div>
+        <span class="tag">→ Für Bewerber:innen</span>
+        <h3>Dein nächster<br>Schritt — <span class="acc">jetzt.</span></h3>
+        <p>Wir nehmen uns Zeit für deine Geschichte und finden den Job, der zu dir passt — nicht umgekehrt.</p>
+      </div>
+      <a href="#" class="path-cta">Bewerbung starten →</a>
+      <span class="deco">B</span>
+    </div>
+    <div class="path-tile b">
+      <div>
+        <span class="tag">→ Für Unternehmen</span>
+        <h3>Personal,<br>das <span class="acc">wirklich</span><br>trägt.</h3>
+        <p>Wir verstehen deine Branche, deine Kultur und deine Engpässe — und liefern Menschen, die Verantwortung übernehmen.</p>
+      </div>
+      <a href="#" class="path-cta">Anfrage stellen →</a>
+      <span class="deco" style="color:var(--cyan)">U</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="contact-shapes">
+    <div class="s1"></div>
+    <div class="s2"></div>
+    <div class="s3"></div>
+  </div>
+  <div class="contact-inner">
+    <span class="sec-eyebrow">✉ Kontakt</span>
+    <h2 style="margin-top:24px">Hallo!<br>Lass uns <span class="acid">reden</span> — über <span class="coral">starke Jobs</span>.</h2>
+    <div class="contact-grid">
+      <div>
+        <h5>↳ Anrufen</h5>
+        <a href="tel:+492512652490">0251 — 26 52 49 20</a>
+      </div>
+      <div>
+        <h5>↳ Mailen</h5>
+        <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+      </div>
+      <div>
+        <h5>↳ Besuchen</h5>
+        <p>An den Loddenbüschen 95<br>D-48155 Münster</p>
+      </div>
+    </div>
+    <div class="contact-foot">
+      <span>© LeXpersonal GmbH · 2026</span>
+      <span>Konzept · Memphis / Maximalist Pop v1</span>
+      <span>Impressum · Datenschutz · AGB</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

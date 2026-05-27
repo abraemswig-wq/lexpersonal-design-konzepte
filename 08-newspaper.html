@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Der LeX·Personal·Anzeiger — Mai 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=UnifrakturCook:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F0EAD7;
+  --paper-light:#F7F2E2;
+  --ink:#15161A;
+  --ink-soft:#3F3E3A;
+  --rule:#15161A;
+  --muted:#6F6B5F;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --red:#9A2422;
+}
+body{
+  background:#D9D1B5;
+  color:var(--ink);
+  font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  font-size:15px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:1240px;margin:24px auto;
+  background:var(--paper);
+  padding:32px 40px 48px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25),inset 0 0 80px rgba(0,0,0,0.03);
+  background-image:
+    radial-gradient(ellipse at top left,rgba(0,0,0,0.02) 0%,transparent 50%),
+    radial-gradient(ellipse at bottom right,rgba(0,0,0,0.025) 0%,transparent 60%);
+}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Playfair Display',serif}
+.uni{font-family:'UnifrakturCook',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase}
+
+.rule{border-top:1px solid var(--rule);margin:8px 0}
+.rule-thick{border-top:3px double var(--rule);margin:14px 0}
+
+/* MASTHEAD */
+.masthead{padding-bottom:16px}
+.masthead-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+.masthead-top span{display:flex;gap:8px;align-items:center}
+.masthead-title{
+  font-family:'UnifrakturCook','Playfair Display',serif;
+  font-size:clamp(64px,11vw,140px);
+  line-height:1;letter-spacing:-0.005em;font-weight:700;
+  text-align:center;padding:24px 0 18px;
+}
+.masthead-title .ink-x{color:var(--blue);font-style:italic}
+.masthead-tagline{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-top:1px solid var(--rule);border-bottom:3px double var(--rule);font-family:'Playfair Display',serif;font-style:italic;font-size:14px}
+.masthead-tagline .center{text-align:center;font-style:italic;font-weight:400}
+.masthead-tagline strong{font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.06em;font-size:11px}
+
+/* NAV */
+.subnav{display:flex;justify-content:center;gap:32px;padding:10px 0;border-bottom:1px solid var(--rule);font-family:'Playfair Display',serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;flex-wrap:wrap}
+.subnav a:hover{color:var(--blue);font-style:italic}
+.subnav .sep{color:var(--blue)}
+
+/* MAIN HEADLINE - splash */
+.splash{padding:48px 0 32px;border-bottom:3px double var(--rule);text-align:center;position:relative}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:20px;font-weight:500}
+.kicker::before,.kicker::after{content:" — "}
+.splash h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(56px,9vw,128px);
+  font-weight:900;line-height:0.95;letter-spacing:-0.025em;
+  margin-bottom:24px;
+}
+.splash h1 em{font-style:italic;font-weight:400;color:var(--blue)}
+.splash .dek{font-family:'Source Serif 4',serif;font-size:22px;font-style:italic;font-weight:300;max-width:780px;margin:0 auto;line-height:1.4;color:var(--ink-soft)}
+.splash .byline{margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.splash .byline em{color:var(--ink);font-style:normal;font-weight:500}
+
+/* LEAD ARTICLE - 3 columns */
+.lead{padding:36px 0;border-bottom:3px double var(--rule)}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;position:relative}
+.lead-grid::before,.lead-grid::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
+.lead-grid::before{left:33.33%;transform:translateX(50%)}
+.lead-grid::after{left:66.66%;transform:translateX(50%)}
+.lead-col p{margin-bottom:14px;font-size:15.5px;line-height:1.55;text-align:justify;hyphens:auto}
+.lead-col p:first-child::first-letter{
+  font-family:'Playfair Display',serif;font-size:64px;line-height:0.85;
+  float:left;font-weight:700;margin:6px 8px -2px 0;color:var(--blue);
+}
+.lead-col .pullquote{
+  padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  margin:18px 0;
+  font-family:'Playfair Display',serif;font-style:italic;font-size:20px;line-height:1.35;
+  text-align:center;color:var(--ink);
+}
+@media (max-width:768px){.lead-grid{grid-template-columns:1fr}.lead-grid::before,.lead-grid::after{display:none}}
+
+/* SECTION TITLE */
+.sec-title{
+  text-align:center;padding:24px 0;
+  border-top:3px double var(--rule);border-bottom:3px double var(--rule);
+  margin-top:36px;
+}
+.sec-title .kicker{margin-bottom:8px}
+.sec-title h2{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;letter-spacing:-0.02em;line-height:1}
+.sec-title h2 em{font-style:italic;color:var(--blue);font-weight:400}
+.sec-title .dek{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;color:var(--ink-soft);margin-top:8px}
+
+/* SERVICES - department style */
+.dept{padding:36px 0;border-bottom:3px double var(--rule)}
+.dept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
+.dept-grid::before,.dept-grid::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
+.dept-grid::before{left:33.33%;transform:translateX(50%)}
+.dept-grid::after{left:66.66%;transform:translateX(50%)}
+.dept-art{
+  display:block;width:100%;aspect-ratio:5/3;
+  background:
+    repeating-radial-gradient(circle at 30% 40%,var(--ink) 0,var(--ink) 1px,transparent 1.5px,transparent 5px),
+    var(--paper-light);
+  border:1px solid var(--rule);position:relative;overflow:hidden;
+  margin-bottom:14px;
+}
+.dept-art .label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--ink);color:var(--paper);
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:4px 10px;
+}
+.dept-art .x-frame{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:42%;height:80%;background:var(--paper);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+}
+.dept-art .x-frame svg{width:60%;height:80%}
+.dept .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:6px}
+.dept h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;line-height:1.05;letter-spacing:-0.015em;margin-bottom:8px}
+.dept h3 em{font-style:italic;font-weight:400;color:var(--blue)}
+.dept .sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:var(--ink-soft);margin-bottom:12px;line-height:1.35}
+.dept p{font-size:14.5px;line-height:1.55;text-align:justify;hyphens:auto;margin-bottom:10px}
+.dept .more{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:13px;color:var(--blue);border-bottom:1px solid var(--blue);padding-bottom:1px}
+@media (max-width:768px){.dept-grid{grid-template-columns:1fr;gap:36px}.dept-grid::before,.dept-grid::after{display:none}}
+
+/* INTERVIEW / Q&A */
+.interview{padding:36px 0;border-bottom:3px double var(--rule)}
+.interview-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start}
+.interview-portrait{
+  aspect-ratio:3/4;
+  background:
+    repeating-linear-gradient(45deg,rgba(21,22,26,0.06) 0,rgba(21,22,26,0.06) 1px,transparent 1px,transparent 4px),
+    radial-gradient(circle at 50% 35%,var(--ink) 0%,var(--ink) 8%,transparent 9%),
+    radial-gradient(ellipse at 50% 75%,var(--ink) 0%,var(--ink) 18%,transparent 19%),
+    var(--paper-light);
+  border:1px solid var(--rule);position:relative;overflow:hidden;
+}
+.interview-portrait .cap{position:absolute;bottom:8px;left:8px;right:8px;font-family:'Source Serif 4',serif;font-style:italic;font-size:11px;color:var(--ink-soft);text-align:center}
+.interview-portrait .frame{
+  position:absolute;inset:14px;border:1px solid var(--blue);pointer-events:none;
+}
+.interview-content h3{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;letter-spacing:-0.015em;line-height:1.05;margin-bottom:6px}
+.interview-content h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.interview-content .dek{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;color:var(--ink-soft);margin-bottom:24px;line-height:1.4}
+.qa{display:flex;gap:14px;margin-bottom:14px}
+.qa .q{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;color:var(--red);min-width:20px;font-size:18px}
+.qa .a{font-family:'Playfair Display',serif;font-weight:900;color:var(--blue);min-width:20px;font-size:18px}
+.qa p{font-size:15px;line-height:1.6;flex:1}
+.qa p em{font-style:italic;color:var(--blue)}
+@media (max-width:768px){.interview-grid{grid-template-columns:1fr}}
+
+/* CLASSIFIEDS */
+.classifieds{padding:36px 0;border-bottom:3px double var(--rule);background:var(--paper-light);margin:0 -40px;padding-left:40px;padding-right:40px}
+.classifieds .sec-title{border-top:none;border-bottom:1px solid var(--rule);padding-top:0;margin-top:0}
+.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.class{padding:14px 0;border-bottom:1px dotted var(--rule)}
+.class .badge{display:inline-block;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:2px 8px;margin-bottom:6px}
+.class .badge.blue{background:var(--blue)}
+.class .badge.red{background:var(--red)}
+.class h5{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.15;margin-bottom:4px}
+.class h5 em{font-style:italic;font-weight:400}
+.class p{font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+.class .meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--muted);margin-top:6px}
+@media (max-width:900px){.class-grid{grid-template-columns:1fr 1fr;gap:14px}}
+@media (max-width:520px){.class-grid{grid-template-columns:1fr}}
+
+/* FEATURE - 2 columns big */
+.feature{padding:36px 0;border-bottom:3px double var(--rule)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;position:relative}
+.feature-grid::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:1px;background:var(--rule)}
+.feature-side .kicker{margin-bottom:8px}
+.feature-side h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1.05;letter-spacing:-0.015em;margin-bottom:8px}
+.feature-side h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.feature-side .sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:16px;color:var(--ink-soft);margin-bottom:18px}
+.feature-side p{font-size:14.5px;line-height:1.6;margin-bottom:10px;text-align:justify;hyphens:auto}
+.feature-side .cta{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:15px;color:var(--blue);border-bottom:1px solid var(--blue);padding-bottom:1px;display:inline-block;margin-top:12px}
+@media (max-width:768px){.feature-grid{grid-template-columns:1fr}.feature-grid::before{display:none}}
+
+/* WEATHER / SIDEBAR BOX */
+.almanac{padding:36px 0;border-bottom:3px double var(--rule)}
+.almanac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.almanac-cell{padding:0 14px;border-right:1px solid var(--rule)}
+.almanac-cell:last-child{border-right:none}
+.almanac-cell .num{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;line-height:1;letter-spacing:-0.02em;color:var(--blue)}
+.almanac-cell .num em{font-style:italic;font-weight:400;color:var(--red)}
+.almanac-cell .label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.almanac-cell .sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:var(--ink-soft);margin-top:4px}
+@media (max-width:768px){.almanac-grid{grid-template-columns:1fr 1fr;gap:24px 14px}.almanac-cell{border-right:none;border-bottom:1px solid var(--rule);padding:14px}.almanac-cell:nth-child(odd){border-right:1px solid var(--rule)}}
+
+/* CONTACT BLOCK */
+.contact-block{padding:36px 0;text-align:center}
+.contact-block h3{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);font-weight:900;line-height:1;letter-spacing:-0.025em}
+.contact-block h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.contact-block .dek{font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;color:var(--ink-soft);margin-top:14px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid var(--rule)}
+.contact-grid .item{padding:0 14px;border-right:1px solid var(--rule)}
+.contact-grid .item:last-child{border-right:none}
+.contact-grid h6{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.contact-grid a,.contact-grid p{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+.contact-grid a:hover{color:var(--blue);font-style:italic}
+@media (max-width:768px){.contact-grid{grid-template-columns:1fr;gap:24px}.contact-grid .item{border-right:none;border-bottom:1px solid var(--rule);padding-bottom:24px}.contact-grid .item:last-child{border-bottom:none}}
+
+/* FOOTER */
+.colophon{padding:24px 0 0;border-top:3px double var(--rule);text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.colophon p{margin-bottom:6px}
+
+/* tiny X logo */
+.tiny-x{display:inline-block;width:14px;height:18px;vertical-align:middle;margin:0 4px}
+</style>
+</head>
+<body>
+
+<!-- X symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<div class="sheet">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>· Mittwoch, 27. Mai 2026 ·</span>
+      <span>· Volume XVIII · No. 02 ·</span>
+      <span>· Münster, NRW · DE ·</span>
+    </div>
+    <h1 class="masthead-title">Der Le<span class="ink-x">X</span>·Personal·Anzeiger</h1>
+    <div class="masthead-tagline">
+      <strong>Gegr. 2008</strong>
+      <span class="center">— Personaldienstleistung mit Haltung, gedruckt fürs Münsterland und darüber hinaus —</span>
+      <strong>Edition Münster</strong>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="subnav">
+    <a href="#">Leitartikel</a>
+    <span class="sep">·</span>
+    <a href="#leistungen">Leistungen</a>
+    <span class="sep">·</span>
+    <a href="#haltung">Haltung</a>
+    <span class="sep">·</span>
+    <a href="#stellen">Stellen­angebote</a>
+    <span class="sep">·</span>
+    <a href="#kontakt">Kontakt &amp; Impressum</a>
+  </nav>
+
+  <!-- SPLASH -->
+  <section class="splash">
+    <div class="kicker">Leitartikel · Mai 2026</div>
+    <h1>Starke Jobs<br>für <em>alle.</em></h1>
+    <p class="dek">Wie eine Personaldienstleistung in Münster seit 2008 beweist, dass Mensch und Markt keine Gegensätze sind — eine Reportage in fünf Teilen.</p>
+    <div class="byline">Von der Redaktion · <em>LeXpersonal GmbH</em> · Münster</div>
+  </section>
+
+  <!-- LEAD - 3 col -->
+  <section class="lead">
+    <div class="lead-grid">
+      <div class="lead-col">
+        <p>Als <strong>LeXpersonal</strong> im Jahr 2008 in Münster gegründet wurde, war die Branche der Personaldienstleistung nicht eben für ihre Sanftheit bekannt. Zeitarbeit galt vielen als anonym, austauschbar, kalt. Eine Adresse für Lebensläufe, keine Adresse für Lebensläufe mit Geschichte.</p>
+        <p>Genau hier setzte das Versprechen an, das bis heute jeden Geschäftstag eröffnet: <em>„Starke Jobs für alle."</em> Vier Worte, die sich in einen Anspruch übersetzen lassen — nämlich, dass Personalentscheidungen Zeit brauchen, weil sie Menschen betreffen.</p>
+      </div>
+      <div class="lead-col">
+        <p>Drei Leistungen bietet das Haus an: <strong>Arbeitnehmer­überlassung</strong>, <strong>Personalvermittlung</strong> und die Abwicklung von <strong>Werkverträgen</strong>. Drei Wege, die in der Theorie standardisiert klingen — und im Münsteraner Büro An den Loddenbüschen 95 alles andere als das sind.</p>
+        <div class="pullquote">„Wir glauben nicht an Datenbank-Matching. Wir glauben an Menschen, die einander zuhören."</div>
+        <p>So fasst die Geschäftsführung das Selbstverständnis zusammen, das sich in einer einfachen Geometrie niederschlägt: einer lebendigen Dreiecksbeziehung.</p>
+      </div>
+      <div class="lead-col">
+        <p>An den drei Eckpunkten stehen das <em>Unternehmen</em>, der <em>Kandidat</em> und der <em>Berater</em>. Keine Ecke hält ohne die anderen. Das klingt nach Theorie — und ist in Wahrheit der Grund, warum <strong>Kund:innen wiederkommen</strong>, oft jahrelang.</p>
+        <p>Drei Grundprinzipien tragen die Arbeit: Achtung und Respekt für die Mitarbeitenden. Spitzenleistungen, messbar und nachhaltig. Und Dienst am Kunden, der den Namen verdient. Klingt einfach. Ist es nicht. <em>Aber es funktioniert.</em></p>
+        <p style="text-align:right;font-style:italic;color:var(--muted);font-size:13px;margin-top:8px">— Fortsetzung im Inneren →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALMANAC / NUMBERS -->
+  <section class="almanac">
+    <div class="almanac-grid">
+      <div class="almanac-cell">
+        <div class="num">18<em>+</em></div>
+        <div class="label">Jahre Erfahrung</div>
+        <div class="sub">seit Anno 2008</div>
+      </div>
+      <div class="almanac-cell">
+        <div class="num">2,4<em>K</em></div>
+        <div class="label">aktive Talente</div>
+        <div class="sub">vorgeprüft, regional</div>
+      </div>
+      <div class="almanac-cell">
+        <div class="num">4–7</div>
+        <div class="label">Tage Time-to-Hire</div>
+        <div class="sub">schneller als der Schnitt</div>
+      </div>
+      <div class="almanac-cell">
+        <div class="num">98<em>%</em></div>
+        <div class="label">Kund:innen-Treue</div>
+        <div class="sub">basierend auf Folgeaufträgen</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES DEPARTMENTS -->
+  <div class="sec-title" id="leistungen">
+    <div class="kicker">Ressort I · Leistungen</div>
+    <h2>Drei Wege, <em>ein</em> Versprechen.</h2>
+    <p class="dek">Was wir leisten — und wie wir es tun. Eine Übersicht für Kundschaft und Bewerberschaft gleichermaßen.</p>
+  </div>
+
+  <section class="dept">
+    <div class="dept-grid">
+      <article>
+        <div class="dept-art">
+          <div class="x-frame"><svg><use href="#lex-x"/></svg></div>
+          <div class="label">Abb. 01 · Arbeitnehmerüberlassung</div>
+        </div>
+        <div class="num">§ 01 · Ressort I</div>
+        <h3>Arbeitnehmer­<em>überlassung</em></h3>
+        <div class="sub">Flexibel überlassen — qualifiziert geliefert.</div>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen von der Tagesspitze bis zur langfristigen Verstärkung. Wir bleiben Arbeitgeber und tragen die Pflichten — Sie gewinnen Beweglichkeit und behalten den Fokus.</p>
+        <p>Die Vergütung folgt Tarif, die Abwicklung folgt Ihrer Realität. Wer schon einmal kurzfristig Hände gebraucht hat, weiß, wie viel das wert ist.</p>
+        <span class="more">Weiterlesen →</span>
+      </article>
+      <article>
+        <div class="dept-art">
+          <div class="x-frame"><svg><use href="#lex-x"/></svg></div>
+          <div class="label">Abb. 02 · Personalvermittlung</div>
+        </div>
+        <div class="num">§ 02 · Ressort I</div>
+        <h3>Personal­<em>vermittlung</em></h3>
+        <div class="sub">Direkte Vermittlung, mit langem Atem.</div>
+        <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst und mit dem nötigen langen Atem für beide Seiten. Wir matchen Menschen, keine Stichworte. Und wir bleiben erreichbar, wenn der Vertrag unterschrieben ist.</p>
+        <p>Wo andere Lebensläufe sortieren, sortieren wir Zusammenpassen. Das dauert manchmal länger — und hält dann auch.</p>
+        <span class="more">Weiterlesen →</span>
+      </article>
+      <article>
+        <div class="dept-art">
+          <div class="x-frame"><svg><use href="#lex-x"/></svg></div>
+          <div class="label">Abb. 03 · Werkverträge</div>
+        </div>
+        <div class="num">§ 03 · Ressort I</div>
+        <h3>Werk­<em>verträge</em></h3>
+        <div class="sub">Definierter Auftrag, klares Ergebnis.</div>
+        <p>Definierte Aufträge, definierte Verantwortung. Wir übernehmen Abwicklung, Steuerung und Ergebnis — Sie konzentrieren sich aufs Kerngeschäft. Schlüsselfertig, transparent, fair.</p>
+        <p>Wer einen Werkvertrag mit uns schließt, schließt ihn mit klaren Liefergrößen. Und mit jemandem, der für sein Wort einsteht.</p>
+        <span class="more">Weiterlesen →</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- INTERVIEW -->
+  <div class="sec-title" id="haltung">
+    <div class="kicker">Ressort II · Im Gespräch</div>
+    <h2>„<em>Mehr</em> als ein Dienstleister."</h2>
+    <p class="dek">Drei Prinzipien, die nichts mit Hochglanz zu tun haben — und alles mit Alltag.</p>
+  </div>
+
+  <section class="interview">
+    <div class="interview-grid">
+      <div class="interview-portrait">
+        <div class="frame"></div>
+        <div class="cap">Abb. 04 · Aus dem Hause LeXpersonal, Münster</div>
+      </div>
+      <div class="interview-content">
+        <h3>„Wir hängen die <em>Prinzipien</em> nicht im Flur auf."</h3>
+        <p class="dek">Ein Gespräch über Achtung, Spitzenleistungen und das, was Dienst am Kunden wirklich heißt.</p>
+        <div class="qa">
+          <span class="q">F.</span>
+          <p>Was unterscheidet Sie von anderen Personaldienstleistern?</p>
+        </div>
+        <div class="qa">
+          <span class="a">A.</span>
+          <p>Wir sind <em>mehr als ein Dienstleister.</em> Wir denken Personal vom Menschen aus, nicht vom Skill-Profil. Das ist anstrengender — und der einzige Weg, der hält.</p>
+        </div>
+        <div class="qa">
+          <span class="q">F.</span>
+          <p>Drei Grundprinzipien, sagen Sie. Welche?</p>
+        </div>
+        <div class="qa">
+          <span class="a">A.</span>
+          <p>Erstens <em>Achtung und Respekt</em> für unsere Mitarbeiter. Zweitens <em>Spitzenleistungen</em> — messbar, nachhaltig. Drittens <em>Dienst am Kunden</em>, der den Namen verdient.</p>
+        </div>
+        <div class="qa">
+          <span class="q">F.</span>
+          <p>Klingt wie ein Leitbild.</p>
+        </div>
+        <div class="qa">
+          <span class="a">A.</span>
+          <p>Klingt so. Ist aber Alltag. <em>Wer das nicht mitträgt, ist nicht lange bei uns.</em> Und das ist gut so.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE - bewerber / unternehmen -->
+  <div class="sec-title" id="stellen">
+    <div class="kicker">Ressort III · Zwei Wege</div>
+    <h2>Bewerber.<br>Unternehmen.<br><em>Beide herzlich</em> willkommen.</h2>
+  </div>
+
+  <section class="feature">
+    <div class="feature-grid">
+      <div class="feature-side">
+        <div class="kicker">— für Bewerber:innen —</div>
+        <h3>Dein nächster <em>Schritt</em> — wir gehen mit.</h3>
+        <p class="sub">Wiedereinstieg, Wechsel oder Neuanfang? Wir nehmen uns Zeit für deine Geschichte.</p>
+        <p>Egal, ob du gerade einen Strich unter ein altes Kapitel ziehst oder zum ersten Mal vor einer Bewerbungsmappe sitzt: Wir hören zu, bevor wir vorschlagen. Du bekommst Jobs, die zu deiner Geschichte passen — nicht nur zu deinem Lebenslauf.</p>
+        <p>Persönliches Erstgespräch in 48 Stunden. Transparente Konditionen. Begleitung über den Vertragsstart hinaus. So einfach. So gemeint.</p>
+        <a href="#" class="cta">Initiativbewerbung starten →</a>
+      </div>
+      <div class="feature-side">
+        <div class="kicker">— für Unternehmen —</div>
+        <h3>Personal, das Ihr Team <em>wirklich</em> trägt.</h3>
+        <p class="sub">Branche, Kultur, Engpässe — wir verstehen, was Sie meinen, bevor Sie es ausführen.</p>
+        <p>Wir liefern Menschen, die nicht nur Stellen, sondern Verantwortung füllen. Wir wissen, dass eine schlechte Einstellung teurer ist als eine späte gute. Also nehmen wir uns die Tage, die nötig sind — und keinen mehr.</p>
+        <p>Bedarfsanalyse in 24 Stunden. Vorgeprüfte Kandidat:innen in 4–7 Tagen. Faire, transparente Konditionen. Und ein Anruf nach zwei Wochen, ob es passt.</p>
+        <a href="#" class="cta">Anfrage stellen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSIFIEDS -->
+  <div class="sec-title">
+    <div class="kicker">Ressort IV · Stellen-Anzeiger</div>
+    <h2>Aktuelle <em>Stellen­angebote</em></h2>
+    <p class="dek">Eine Auswahl aus dem aktuellen Bestand. Vollständige Übersicht unter jobs.lexpersonal.de.</p>
+  </div>
+
+  <section class="classifieds">
+    <div class="class-grid">
+      <article class="class">
+        <span class="badge blue">VOLLZEIT</span>
+        <h5>Fachkraft <em>Lager­logistik</em> (m/w/d)</h5>
+        <p>Etabliertes Industrieunternehmen im Münsterland sucht erfahrene Lagerlogistiker:in mit Stapler­schein.</p>
+        <div class="meta">📍 Münster · ab sofort · § 01</div>
+      </article>
+      <article class="class">
+        <span class="badge red">SOFORT</span>
+        <h5>Helfer:in <em>Produktion</em> (m/w/d)</h5>
+        <p>Tagesspitze in der Lebensmittelproduktion. Schicht­bereitschaft erforderlich. Tariflohn.</p>
+        <div class="meta">📍 Greven · sofort · § 01</div>
+      </article>
+      <article class="class">
+        <span class="badge">FEST</span>
+        <h5>Sachbearbeitung <em>Office</em> (m/w/d)</h5>
+        <p>Kanzlei in zentraler Lage sucht zuverlässige Sachbearbeitung in Direkt­vermittlung.</p>
+        <div class="meta">📍 Münster Zentrum · ab Juli · § 02</div>
+      </article>
+      <article class="class">
+        <span class="badge blue">VOLLZEIT</span>
+        <h5>Elektroniker:in <em>Betriebstechnik</em></h5>
+        <p>Mittelständischer Maschinenbauer sucht Elektroniker:in für Betriebs­technik. Schicht­zulage.</p>
+        <div class="meta">📍 Telgte · ab sofort · § 01</div>
+      </article>
+      <article class="class">
+        <span class="badge">FEST</span>
+        <h5>Pflegefachkraft <em>Altenpflege</em></h5>
+        <p>Modernes Pflegeheim sucht examinierte Pflegefachkraft in Direkt­vermittlung. Übertarif.</p>
+        <div class="meta">📍 Münster-Hiltrup · ab Juni · § 02</div>
+      </article>
+      <article class="class">
+        <span class="badge red">SOFORT</span>
+        <h5>CNC-Fräser:in <em>Metallbau</em></h5>
+        <p>Erfahrene:r CNC-Fräser:in für Werkvertrag-Projekt im Maschinen­bau gesucht.</p>
+        <div class="meta">📍 Coesfeld · sofort · § 03</div>
+      </article>
+      <article class="class">
+        <span class="badge blue">VOLLZEIT</span>
+        <h5>Buchhaltung <em>Industrie</em></h5>
+        <p>Familien­geführter Industrie­betrieb sucht erfahrene Buchhaltungs­kraft. 38h-Woche.</p>
+        <div class="meta">📍 Steinfurt · ab Juli · § 02</div>
+      </article>
+      <article class="class">
+        <span class="badge">FEST</span>
+        <h5>Service­techniker:in <em>(m/w/d)</em></h5>
+        <p>Service­techniker:in für Aufzugs­anlagen. Führer­schein Klasse B erforderlich.</p>
+        <div class="meta">📍 Münsterland · ab sofort · § 01</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-block" id="kontakt">
+    <div class="kicker">Ressort V · Kontakt &amp; Impressum</div>
+    <h3>Es schreibt sich leichter,<br>wenn man <em>redet.</em></h3>
+    <p class="dek">Anrufen, schreiben, vorbeikommen — alle drei Wege sind richtig.</p>
+
+    <div class="contact-grid">
+      <div class="item">
+        <h6>Telefonisch</h6>
+        <a href="tel:+492512652490">0251 — 26 52 49 20</a>
+      </div>
+      <div class="item">
+        <h6>Schriftlich</h6>
+        <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+      </div>
+      <div class="item">
+        <h6>Vor Ort</h6>
+        <p>An den Loddenbüschen 95<br>D-48155 Münster</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <p>Herausgeber: LeXpersonal GmbH · An den Loddenbüschen 95 · 48155 Münster · Tel. 0251 — 26 52 49 20</p>
+    <p>Redaktion: Eigenverlag · Erscheinungsweise: kontinuierlich · Gegründet Anno 2008</p>
+    <p style="margin-top:10px">© LeXpersonal GmbH · MMXXVI · Konzept · Newspaper / Print v1 · Impressum · Datenschutz · AGB</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

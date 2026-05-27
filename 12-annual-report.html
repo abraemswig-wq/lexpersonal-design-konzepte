@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Annual Report 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --paper:#FBFAF6;
+  --paper-2:#F4F2EC;
+  --ink:#0B1A33;
+  --ink-2:#13265D;
+  --text:#23304A;
+  --muted:#6E7585;
+  --line:rgba(11,26,51,0.12);
+  --line-strong:rgba(11,26,51,0.4);
+  --blue:#2778BC;
+  --blue-deep:#13265D;
+  --cyan:#009FE3;
+  --gold:#B89146;
+  --gold-soft:#D4B57A;
+}
+body{
+  background:var(--paper);color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4','Times New Roman',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500}
+
+/* Page wrapper — like a bound report */
+.report{max-width:1440px;margin:32px auto;background:var(--paper);box-shadow:0 30px 80px -20px rgba(11,26,51,0.18),0 1px 0 rgba(11,26,51,0.05)}
+
+/* Header / Spine */
+.spine{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;padding:18px 56px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+  position:sticky;top:0;z-index:50;
+}
+.spine-left{display:flex;align-items:center;gap:14px}
+.spine-left svg{width:26px;height:32px}
+.spine-left .lex{font-family:'Inter',sans-serif;font-weight:300;font-size:16px;letter-spacing:0.08em;color:var(--ink)}
+.spine-left .lex strong{font-weight:600;color:var(--blue)}
+.spine-center{text-align:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.spine-center strong{color:var(--ink);font-weight:600}
+.spine-right{display:flex;gap:12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.spine-right a{padding:4px 10px;border:1px solid var(--line);color:var(--ink);font-weight:600}
+.spine-right a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media (max-width:900px){.spine{grid-template-columns:1fr;gap:8px;padding:14px 24px;text-align:center}.spine-left{justify-content:center}.spine-right{justify-content:center}}
+
+/* COVER */
+.cover{padding:96px 56px 80px;border-bottom:1px solid var(--line);background:var(--paper);position:relative;overflow:hidden;min-height:90vh;display:flex;flex-direction:column;justify-content:space-between}
+.cover-top{display:grid;grid-template-columns:1fr 1fr 1fr;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:48px;align-items:start}
+.cover-top .center{text-align:center}
+.cover-top .right{text-align:right}
+.cover-top strong{color:var(--ink);display:block;margin-top:6px;font-weight:600;letter-spacing:0.06em;font-size:13px}
+.cover-rule{height:1px;background:var(--ink);margin-bottom:64px}
+.cover-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.cover-meta .bar{width:48px;height:2px;background:var(--gold)}
+.cover h1{
+  font-family:'Source Serif 4',serif;font-weight:300;
+  font-size:clamp(80px,12vw,200px);
+  line-height:0.9;letter-spacing:-0.03em;color:var(--ink);
+  margin-bottom:48px;
+}
+.cover h1 em{font-style:italic;font-weight:300;color:var(--blue)}
+.cover h1 strong{font-weight:600}
+.cover-sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:26px;font-weight:300;color:var(--text);max-width:780px;line-height:1.4}
+.cover-bottom{display:grid;grid-template-columns:1fr auto auto;align-items:end;margin-top:120px;gap:48px}
+.cover-bottom .imprint{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+.cover-bottom .imprint strong{color:var(--ink);font-weight:600}
+.cover-bottom .year{font-family:'Source Serif 4',serif;font-weight:300;font-size:96px;line-height:0.9;color:var(--ink);letter-spacing:-0.04em}
+.cover-bottom .year em{font-style:italic;color:var(--gold)}
+.cover-x{position:absolute;right:80px;top:50%;transform:translateY(-50%);width:200px;height:244px;opacity:0.08;pointer-events:none}
+.cover-edition{position:absolute;right:56px;top:56px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7}
+.cover-edition strong{color:var(--gold);font-weight:600;font-size:13px}
+@media (max-width:900px){.cover{padding:48px 24px}.cover-top{grid-template-columns:1fr;gap:12px;text-align:left}.cover-top .center,.cover-top .right{text-align:left}.cover-bottom{grid-template-columns:1fr;gap:24px}.cover-x{display:none}}
+
+/* TOC */
+.toc{padding:80px 56px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.toc-head{display:grid;grid-template-columns:auto 1fr;gap:48px;margin-bottom:48px;align-items:end}
+.toc-head h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:48px;letter-spacing:-0.025em;color:var(--ink)}
+.toc-head h2 em{font-style:italic;color:var(--blue);font-weight:300}
+.toc-head .info{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:right}
+.toc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px}
+.toc-item{display:grid;grid-template-columns:48px 1fr auto;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;color:var(--ink)}
+.toc-item:last-child{border-bottom:1px solid var(--line)}
+.toc-item .ch{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:24px;color:var(--blue)}
+.toc-item .nm{font-family:'Inter',sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.01em}
+.toc-item .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:2px}
+.toc-item .pg{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;font-weight:600}
+.toc-item:hover .nm{color:var(--blue)}
+@media (max-width:900px){.toc{padding:48px 24px}.toc-list{grid-template-columns:1fr;gap:0}}
+
+/* PAGE wrappers */
+.page{padding:96px 56px;border-bottom:1px solid var(--line);position:relative}
+.page-header{display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:end;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:64px}
+.page-header .ch-num{font-family:'Source Serif 4',serif;font-weight:300;font-size:48px;line-height:1;color:var(--blue);font-style:italic;letter-spacing:-0.02em}
+.page-header h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(36px,4.5vw,64px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink)}
+.page-header h2 em{font-style:italic;color:var(--blue);font-weight:300}
+.page-header h2 strong{font-weight:600}
+.page-header .ch-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;padding-bottom:8px}
+@media (max-width:900px){.page{padding:48px 24px}.page-header{grid-template-columns:1fr;gap:8px}.page-header .ch-meta{text-align:left}}
+
+/* CEO LETTER */
+.letter{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.letter-portrait{position:sticky;top:120px}
+.letter-portrait .frame{
+  aspect-ratio:3/4;
+  background:
+    repeating-linear-gradient(45deg,rgba(11,26,51,0.05) 0,rgba(11,26,51,0.05) 1px,transparent 1px,transparent 4px),
+    radial-gradient(circle at 50% 36%,var(--ink) 0%,var(--ink) 16%,transparent 17%),
+    radial-gradient(ellipse at 50% 76%,var(--ink) 0%,var(--ink) 28%,transparent 29%),
+    var(--paper-2);
+  border:1px solid var(--line);
+  position:relative;
+}
+.letter-portrait .frame::after{
+  content:"";position:absolute;top:14px;left:14px;width:24px;height:24px;
+  border-top:2px solid var(--gold);border-left:2px solid var(--gold);
+}
+.letter-portrait .cap{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+.letter-portrait .cap strong{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;letter-spacing:-0.01em;color:var(--ink);text-transform:none;margin-bottom:6px}
+.letter-body{font-family:'Source Serif 4',serif;font-weight:400;line-height:1.7}
+.letter-body p{font-size:18.5px;color:var(--text);margin-bottom:20px;text-align:justify;hyphens:auto}
+.letter-body p:first-child::first-letter{
+  font-family:'Source Serif 4',serif;font-weight:300;font-size:88px;
+  line-height:0.85;float:left;margin:8px 14px -4px 0;color:var(--blue);font-style:italic;
+}
+.letter-body p strong{color:var(--ink);font-weight:600}
+.letter-body p em{color:var(--blue-deep);font-style:italic;font-weight:400}
+.letter-sign{margin-top:48px;padding-top:32px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
+.letter-sign .sig{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:32px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
+.letter-sign .nm{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+.letter-sign .nm strong{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--ink);text-transform:none;letter-spacing:-0.01em;display:block;margin-bottom:4px}
+@media (max-width:900px){.letter{grid-template-columns:1fr;gap:32px}.letter-portrait{position:static}.letter-portrait .frame{max-width:300px}}
+
+/* KEY FIGURES (KPIs) */
+.kpi-page{background:var(--ink);color:var(--paper)}
+.kpi-page .page-header h2{color:var(--paper)}
+.kpi-page .page-header h2 em{color:var(--gold-soft)}
+.kpi-page .page-header .ch-num{color:var(--gold)}
+.kpi-page .page-header{border-bottom-color:rgba(255,255,255,0.15)}
+.kpi-page .page-header .ch-meta{color:rgba(255,255,255,0.55)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);margin-bottom:48px}
+.kpi-cell{padding:36px;background:var(--ink);display:flex;flex-direction:column;gap:14px;position:relative}
+.kpi-cell .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.kpi-cell .v{font-family:'Source Serif 4',serif;font-weight:300;font-size:64px;line-height:1;letter-spacing:-0.035em;color:var(--paper)}
+.kpi-cell .v strong{font-weight:500;color:var(--gold-soft)}
+.kpi-cell .v sub{font-size:18px;color:rgba(255,255,255,0.6);font-weight:300;vertical-align:baseline;margin-left:8px}
+.kpi-cell .change{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.55);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12)}
+.kpi-cell .change .delta{color:#5CD672;font-weight:600}
+.kpi-narrative{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.15)}
+.kpi-narrative .col h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
+.kpi-narrative .col p{font-family:'Source Serif 4',serif;font-size:18px;line-height:1.6;color:rgba(255,255,255,0.85);font-weight:400}
+.kpi-narrative .col p em{color:var(--gold-soft);font-style:italic}
+@media (max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}.kpi-narrative{grid-template-columns:1fr}}
+
+/* CHART page (revenue/placements split) */
+.chart-page{background:var(--paper)}
+.chart-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.chart-card{background:var(--paper-2);border:1px solid var(--line);padding:48px}
+.chart-card h4{font-family:'Source Serif 4',serif;font-weight:400;font-size:22px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:6px}
+.chart-card .sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:36px}
+.bars{display:flex;align-items:flex-end;gap:24px;height:320px;padding-bottom:32px;border-bottom:1px solid var(--line);position:relative}
+.bars::before{content:"";position:absolute;left:0;right:0;top:25%;height:1px;background:var(--line)}
+.bars::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.bar-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;position:relative;z-index:2}
+.bar-col .bar{width:100%;background:var(--blue-deep);position:relative;display:flex;flex-direction:column;justify-content:flex-end}
+.bar-col .bar .ovrl{position:absolute;left:0;right:0;bottom:0;background:var(--cyan);height:38%}
+.bar-col .bar .ovrl2{position:absolute;left:0;right:0;background:var(--gold);height:18%;bottom:38%}
+.bar-col .val{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--ink);letter-spacing:-0.01em}
+.bar-col .yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;font-weight:500}
+.legend{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.legend .item{display:flex;align-items:center;gap:8px}
+.legend .item .sw{width:14px;height:14px}
+.legend .item.deep .sw{background:var(--blue-deep)}
+.legend .item.cyan .sw{background:var(--cyan)}
+.legend .item.gold .sw{background:var(--gold)}
+
+.share-card{background:var(--ink);color:var(--paper);padding:48px;position:relative;overflow:hidden}
+.share-card .bg-x{position:absolute;right:-60px;bottom:-60px;width:240px;height:293px;opacity:0.08;pointer-events:none}
+.share-card h4{font-family:'Source Serif 4',serif;font-weight:400;font-size:22px;color:var(--paper);margin-bottom:6px}
+.share-card .sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;font-weight:600}
+.share-list{display:flex;flex-direction:column;gap:20px;position:relative;z-index:2}
+.share-row{display:grid;grid-template-columns:120px 1fr 56px;gap:18px;align-items:center}
+.share-row .nm{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--paper)}
+.share-row .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:400;margin-top:2px}
+.share-row .track{height:8px;background:rgba(255,255,255,0.1);position:relative}
+.share-row .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.share-row .pct{font-family:'Source Serif 4',serif;font-weight:400;font-size:18px;color:var(--gold-soft);text-align:right;letter-spacing:-0.01em}
+@media (max-width:900px){.chart-grid{grid-template-columns:1fr;gap:32px}.bars{height:240px;gap:12px}.share-row{grid-template-columns:80px 1fr 40px;gap:12px}}
+
+/* SEGMENT page — business areas */
+.segment-page{background:var(--paper-2)}
+.segments{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.segment{background:var(--paper);padding:48px 40px;display:flex;flex-direction:column;gap:24px;min-height:480px}
+.segment .seg-num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:40px;line-height:1;color:var(--blue);letter-spacing:-0.02em}
+.segment .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.segment h3{font-family:'Source Serif 4',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-0.02em;color:var(--ink)}
+.segment h3 em{font-style:italic;color:var(--blue);font-weight:300}
+.segment p{font-size:14.5px;line-height:1.7;color:var(--text)}
+.segment .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px;border-top:1px solid var(--line);margin-top:auto}
+.segment .fig{display:flex;flex-direction:column;gap:4px}
+.segment .fig .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:28px;line-height:1;color:var(--ink);letter-spacing:-0.02em}
+.segment .fig .v strong{font-weight:500;color:var(--blue)}
+.segment .fig .k{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+@media (max-width:900px){.segments{grid-template-columns:1fr}}
+
+/* PRINCIPLES / Values */
+.values{padding:96px 56px;border-bottom:1px solid var(--line);background:var(--paper)}
+.values-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.values-grid .left h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(40px,5vw,64px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);margin-bottom:24px}
+.values-grid .left h3 em{font-style:italic;color:var(--blue);font-weight:300}
+.values-grid .left p{font-family:'Source Serif 4',serif;font-size:19px;line-height:1.6;color:var(--text);font-weight:400}
+.values-list{display:flex;flex-direction:column;gap:0}
+.val-row{display:grid;grid-template-columns:60px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--line);align-items:start}
+.val-row:first-child{border-top:1px solid var(--ink);padding-top:32px}
+.val-row:last-child{border-bottom:1px solid var(--ink)}
+.val-row .roman{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:32px;color:var(--gold);letter-spacing:-0.01em}
+.val-row h4{font-family:'Source Serif 4',serif;font-weight:400;font-size:26px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:8px}
+.val-row h4 em{font-style:italic;color:var(--blue)}
+.val-row p{font-size:15.5px;line-height:1.65;color:var(--text);max-width:680px}
+@media (max-width:900px){.values{padding:48px 24px}.values-grid{grid-template-columns:1fr;gap:32px}}
+
+/* COMPLIANCE */
+.compliance-page{background:var(--paper-2)}
+.cmp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cmp-card{background:var(--paper);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:220px}
+.cmp-card .seal{width:48px;height:48px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:18px;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300}
+.cmp-card .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cmp-card h5{font-family:'Source Serif 4',serif;font-weight:500;font-size:18px;letter-spacing:-0.015em;color:var(--ink);line-height:1.25}
+.cmp-card p{font-size:13px;color:var(--text);line-height:1.55}
+@media (max-width:900px){.cmp-grid{grid-template-columns:1fr 1fr}}
+
+/* OUTLOOK */
+.outlook{background:var(--ink);color:var(--paper);padding:120px 56px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.outlook .bg-x{position:absolute;right:-100px;top:-100px;width:520px;height:640px;opacity:0.05;pointer-events:none}
+.outlook .page-header{border-bottom-color:rgba(255,255,255,0.15)}
+.outlook .page-header h2{color:var(--paper)}
+.outlook .page-header h2 em{color:var(--gold-soft)}
+.outlook .page-header .ch-num{color:var(--gold)}
+.outlook .page-header .ch-meta{color:rgba(255,255,255,0.55)}
+.outlook-body{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;position:relative;z-index:2}
+.outlook-body .left .lede{font-family:'Source Serif 4',serif;font-weight:300;font-size:32px;line-height:1.3;color:var(--paper);letter-spacing:-0.015em}
+.outlook-body .left .lede em{font-style:italic;color:var(--gold-soft);font-weight:300}
+.outlook-body .left .lede strong{color:var(--gold);font-weight:500}
+.outlook-priorities{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,0.15)}
+.priority{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.15);align-items:start}
+.priority .yr{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:24px;color:var(--gold)}
+.priority h5{font-family:'Source Serif 4',serif;font-weight:400;font-size:20px;color:var(--paper);margin-bottom:6px;letter-spacing:-0.01em}
+.priority p{font-size:14.5px;color:rgba(255,255,255,0.7);line-height:1.6}
+@media (max-width:900px){.outlook{padding:48px 24px}.outlook-body{grid-template-columns:1fr;gap:32px}}
+
+/* CONTACT / Imprint final page */
+.imprint-page{padding:96px 56px;background:var(--paper);border-bottom:1px solid var(--line)}
+.imprint-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
+.imprint-grid h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(48px,7vw,120px);line-height:0.95;letter-spacing:-0.035em;color:var(--ink)}
+.imprint-grid h2 em{font-style:italic;color:var(--blue);font-weight:300}
+.imprint-grid .right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;gap:24px;border-left:1px solid var(--line);padding-left:48px}
+.imprint-grid .right .row{display:flex;flex-direction:column;gap:6px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.imprint-grid .right .row:last-child{border-bottom:none}
+.imprint-grid .right .row .k{font-weight:500}
+.imprint-grid .right .row .v{font-family:'Source Serif 4',serif;font-style:normal;font-weight:400;font-size:20px;letter-spacing:-0.01em;color:var(--ink);text-transform:none}
+.imprint-grid .right .row .v:hover{color:var(--blue)}
+.imprint-cta{margin-top:32px;display:inline-flex;align-items:center;gap:12px;padding:14px 28px;background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.02em;border:1px solid var(--ink);transition:all .15s}
+.imprint-cta:hover{background:var(--blue);border-color:var(--blue)}
+@media (max-width:900px){.imprint-page{padding:48px 24px}.imprint-grid{grid-template-columns:1fr;gap:32px}.imprint-grid .right{border-left:none;padding-left:0;padding-top:24px;border-top:1px solid var(--line)}}
+
+/* COLOPHON / Back cover */
+.colophon{padding:64px 56px;background:var(--ink);color:rgba(255,255,255,0.7);position:relative;overflow:hidden}
+.colophon .bg-x{position:absolute;left:-60px;bottom:-60px;width:240px;height:293px;opacity:0.06;pointer-events:none}
+.col-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;position:relative;z-index:2}
+.col-grid .brand{color:var(--paper)}
+.col-grid .brand svg{width:30px;height:36px;margin-bottom:14px}
+.col-grid .brand .lex{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.08em;color:var(--paper);margin-bottom:12px}
+.col-grid .brand .lex strong{font-weight:600;color:var(--gold-soft)}
+.col-grid .brand p{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.5;max-width:380px;color:rgba(255,255,255,0.85)}
+.col-grid h6{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;font-weight:600}
+.col-grid ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.col-grid ul a{font-size:14px;color:rgba(255,255,255,0.8)}
+.col-grid ul a:hover{color:var(--gold-soft)}
+.col-bottom{max-width:1440px;margin:48px 0 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+@media (max-width:900px){.colophon{padding:32px 24px}.col-grid{grid-template-columns:1fr;gap:32px}}
+</style>
+</head>
+<body>
+
+<!-- X symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+  <symbol id="lex-x-mono" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="currentColor" opacity="0.9"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="currentColor" opacity="0.55"/>
+  </symbol>
+</svg>
+
+<div class="report">
+
+  <!-- SPINE / NAV -->
+  <header class="spine">
+    <div class="spine-left">
+      <svg><use href="#lex-x"/></svg>
+      <span class="lex">LE<strong>X</strong>PERSONAL</span>
+    </div>
+    <div class="spine-center">Annual Report · 2026 · <strong>Volume XVIII</strong></div>
+    <div class="spine-right">
+      <a href="#imprint">→ Kontakt</a>
+      <a href="#" style="background:var(--ink);color:var(--paper);border-color:var(--ink)">↓ PDF</a>
+    </div>
+  </header>
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="cover-edition">
+      <span>Edition 2026</span><br>
+      <strong>Volume XVIII</strong>
+    </div>
+    <svg class="cover-x"><use href="#lex-x"/></svg>
+
+    <div>
+      <div class="cover-top">
+        <div>
+          <span>LeXpersonal GmbH</span>
+          <strong>Personaldienstleistung</strong>
+        </div>
+        <div class="center">
+          <span>Geschäfts­bericht</span>
+          <strong>für das Jahr 2025</strong>
+        </div>
+        <div class="right">
+          <span>Veröffentlicht</span>
+          <strong>27. Mai 2026</strong>
+        </div>
+      </div>
+      <div class="cover-rule"></div>
+
+      <div class="cover-meta">
+        <span class="bar"></span>
+        <span>Geschäftsbericht — Eigenverlag</span>
+      </div>
+
+      <h1>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h1>
+
+      <p class="cover-sub">Ein Geschäftsbericht über achtzehn Jahre Personal­dienstleistung in Münster — und das, was sich daraus für 2026 und darüber hinaus ableiten lässt.</p>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="imprint">
+        <strong>LeXpersonal GmbH</strong>
+        An den Loddenbüschen 95<br>
+        D—48155 Münster<br>
+        T. +49 251 26 52 49 20
+      </div>
+      <div class="year">20<em>26</em></div>
+    </div>
+  </section>
+
+  <!-- TOC -->
+  <section class="toc">
+    <div class="toc-head">
+      <h2><em>Inhalt</em></h2>
+      <div class="info">Sechs Kapitel · ca. 12 Min. Lesezeit</div>
+    </div>
+    <div class="toc-list">
+      <a href="#letter" class="toc-item">
+        <span class="ch">I.</span>
+        <span class="nm">Brief der Geschäftsführung<small>An unsere Kund:innen und Partner:innen</small></span>
+        <span class="pg">S. 04</span>
+      </a>
+      <a href="#kpi" class="toc-item">
+        <span class="ch">II.</span>
+        <span class="nm">Kennzahlen im Überblick<small>Die wichtigsten Größen 2025 in einem Blick</small></span>
+        <span class="pg">S. 08</span>
+      </a>
+      <a href="#chart" class="toc-item">
+        <span class="ch">III.</span>
+        <span class="nm">Geschäfts­entwicklung<small>Vermittlungen, Einsatzstunden, Branchenmix</small></span>
+        <span class="pg">S. 12</span>
+      </a>
+      <a href="#segments" class="toc-item">
+        <span class="ch">IV.</span>
+        <span class="nm">Geschäfts­felder<small>Drei Modelle: Überlassung · Vermittlung · Werkvertrag</small></span>
+        <span class="pg">S. 18</span>
+      </a>
+      <a href="#values" class="toc-item">
+        <span class="ch">V.</span>
+        <span class="nm">Werte &amp; Grundprinzipien<small>Was uns trägt, seit dem ersten Geschäftstag</small></span>
+        <span class="pg">S. 24</span>
+      </a>
+      <a href="#outlook" class="toc-item">
+        <span class="ch">VI.</span>
+        <span class="nm">Compliance &amp; Ausblick<small>Zertifizierungen und strategische Prioritäten 2026</small></span>
+        <span class="pg">S. 30</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CEO LETTER -->
+  <section class="page" id="letter">
+    <div class="page-header">
+      <span class="ch-num">I.</span>
+      <h2>Brief der<br><em>Geschäfts­führung —</em><br>an unsere <strong>Partner:innen.</strong></h2>
+      <div class="ch-meta">Kapitel I<br>Seite 04</div>
+    </div>
+
+    <div class="letter">
+      <aside class="letter-portrait">
+        <div class="frame"></div>
+        <div class="cap">
+          <strong>Die Geschäftsführung</strong>
+          LeXpersonal GmbH<br>
+          Münster · Geschäftsjahr 2025
+        </div>
+      </aside>
+      <div class="letter-body">
+        <p>Wenn wir uns die letzten achtzehn Jahre ansehen, dann fällt uns vor allem eines auf: <strong>Die Branche hat sich verändert — wir uns weniger.</strong> Was 2008 mit dem Anspruch begonnen hat, Personalentscheidungen mit Sorgfalt zu treffen, gilt heute unverändert. Und es wird auch in zehn Jahren noch gelten.</p>
+
+        <p>Das Geschäftsjahr 2025 war für uns kein gewöhnliches. Wir haben mit einem Industriebetrieb im Münsterland eine Werks­erweiterung begleitet, bei der wir in acht Monaten 140 Fachkräfte überlassen und 38 davon nach Probelauf direkt vermittelt haben — bei <em>null Produktionsausfall</em>. Solche Engagements zeigen, was möglich ist, wenn drei Eckpunkte zusammenpassen: <strong>Auftraggeber, Kandidat:in und unser Beratungsteam.</strong></p>
+
+        <p>Wir nennen das die <em>lebendige Dreiecksbeziehung</em>. Sie ist kein Marketing-Begriff — sie ist die geometrische Wahrheit unserer Arbeit. Fällt eine Ecke aus, bricht die Personal­entscheidung. Deshalb investieren wir in jede Ecke gleichermaßen.</p>
+
+        <p>Für 2026 nehmen wir uns drei Dinge vor: <strong>Wir bauen unsere Pipeline auf 3.000 vorgeprüfte Talente aus.</strong> Wir investieren in unsere Disposition, damit Time-to-Fill weiter sinkt. Und wir bleiben das, was wir immer waren — ein Münsteraner Unternehmen mit persönlichen Ansprech­partner:innen, die Sie beim Namen kennen.</p>
+
+        <p>Wir danken unseren Kund:innen, die uns ihr Vertrauen aussprechen, indem sie wieder anrufen. Wir danken unseren Mitarbeitenden, die jeden Tag dafür sorgen, dass „starke Jobs für alle" mehr ist als ein Satz auf einer Website.</p>
+
+        <div class="letter-sign">
+          <span class="sig">L. Mustermann</span>
+          <div class="nm">
+            <strong>Geschäftsführung</strong>
+            LeXpersonal GmbH<br>
+            Münster, im Mai 2026
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI -->
+  <section class="page kpi-page" id="kpi">
+    <div class="page-header">
+      <span class="ch-num">II.</span>
+      <h2>Kennzahlen<br><em>im Überblick —</em><br><strong>Geschäfts­jahr 2025.</strong></h2>
+      <div class="ch-meta">Kapitel II<br>Seite 08</div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-cell">
+        <span class="lbl">— 01 · Betriebsjahre</span>
+        <span class="v"><strong>18</strong></span>
+        <span class="change">↑ seit Gründung 2008</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 02 · Pipeline-Volumen</span>
+        <span class="v"><strong>2.430</strong></span>
+        <span class="change"><span class="delta">+ 12,4 %</span> ggü. 2024</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 03 · Vermittlungen 2025</span>
+        <span class="v"><strong>312</strong></span>
+        <span class="change"><span class="delta">+ 18,2 %</span> ggü. 2024</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 04 · Folgeauftragsquote</span>
+        <span class="v">98<sub>%</sub></span>
+        <span class="change"><span class="delta">+ 1,3 PP</span> ggü. 2024</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 05 · Time-to-Fill</span>
+        <span class="v">4–7<sub> Tage</sub></span>
+        <span class="change">stabil seit 2023</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 06 · Aktive Kund:innen</span>
+        <span class="v"><strong>147</strong></span>
+        <span class="change"><span class="delta">+ 22</span> Neukund:innen 2025</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 07 · Mitarbeitende</span>
+        <span class="v"><strong>620</strong></span>
+        <span class="change">Ø über das Geschäftsjahr</span>
+      </div>
+      <div class="kpi-cell">
+        <span class="lbl">— 08 · Verbleibsquote</span>
+        <span class="v">86<sub>%</sub></span>
+        <span class="change">Fest­vermittlungen nach 18 Mo.</span>
+      </div>
+    </div>
+
+    <div class="kpi-narrative">
+      <div class="col">
+        <h4>— Was die Zahlen zeigen</h4>
+        <p>2025 war das Jahr, in dem wir <em>312 Vermittlungen</em> abgeschlossen haben — der höchste Wert seit Gründung. Wir wachsen — aber kontrolliert. Wir haben mehr Kund:innen abgesagt als jemals zuvor, weil wir nicht skalieren wollten, was wir nicht in Qualität halten können.</p>
+      </div>
+      <div class="col">
+        <h4>— Worauf es ankommt</h4>
+        <p>Die wichtigste Zahl ist nicht in der Tabelle: Es ist die <em>Verbleibsquote von 86 %</em>. Sie sagt uns, dass die Menschen, die wir vermitteln, auch nach 18 Monaten noch an Bord sind — und Personal­entscheidungen damit zu echten Investitionen werden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHART page -->
+  <section class="page chart-page" id="chart">
+    <div class="page-header">
+      <span class="ch-num">III.</span>
+      <h2>Geschäfts­entwicklung —<br><em>Vermittlungen</em><br><strong>nach Modell.</strong></h2>
+      <div class="ch-meta">Kapitel III<br>Seite 12</div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h4>Vermittlungen je Geschäftsjahr</h4>
+        <div class="sub">— Stand 31.12.2025 · in absoluten Zahlen</div>
+        <div class="bars">
+          <div class="bar-col">
+            <span class="val">189</span>
+            <div class="bar" style="height:42%"></div>
+            <span class="yr">2021</span>
+          </div>
+          <div class="bar-col">
+            <span class="val">221</span>
+            <div class="bar" style="height:55%"></div>
+            <span class="yr">2022</span>
+          </div>
+          <div class="bar-col">
+            <span class="val">248</span>
+            <div class="bar" style="height:68%"></div>
+            <span class="yr">2023</span>
+          </div>
+          <div class="bar-col">
+            <span class="val">264</span>
+            <div class="bar" style="height:78%"></div>
+            <span class="yr">2024</span>
+          </div>
+          <div class="bar-col">
+            <span class="val">312</span>
+            <div class="bar" style="height:100%"></div>
+            <span class="yr">2025</span>
+          </div>
+        </div>
+        <div class="legend">
+          <span class="item deep"><span class="sw"></span> Überlassung</span>
+          <span class="item cyan"><span class="sw"></span> Vermittlung</span>
+          <span class="item gold"><span class="sw"></span> Werkvertrag</span>
+        </div>
+      </div>
+
+      <div class="share-card">
+        <svg class="bg-x" style="color:#fff"><use href="#lex-x-mono"/></svg>
+        <h4>Branchenmix 2025</h4>
+        <div class="sub">— Anteil aktiver Einsätze</div>
+        <div class="share-list">
+          <div class="share-row">
+            <span class="nm">Industrie<small>Metall · Produktion</small></span>
+            <span class="track"><span class="fill" style="width:32%"></span></span>
+            <span class="pct">32 %</span>
+          </div>
+          <div class="share-row">
+            <span class="nm">Logistik<small>Lager · Versand</small></span>
+            <span class="track"><span class="fill" style="width:22%"></span></span>
+            <span class="pct">22 %</span>
+          </div>
+          <div class="share-row">
+            <span class="nm">Office<small>Sachbearbeitung</small></span>
+            <span class="track"><span class="fill" style="width:18%"></span></span>
+            <span class="pct">18 %</span>
+          </div>
+          <div class="share-row">
+            <span class="nm">Handwerk<small>Gewerke</small></span>
+            <span class="track"><span class="fill" style="width:12%"></span></span>
+            <span class="pct">12 %</span>
+          </div>
+          <div class="share-row">
+            <span class="nm">Pflege<small>Heim · Klinik</small></span>
+            <span class="track"><span class="fill" style="width:8%"></span></span>
+            <span class="pct">8 %</span>
+          </div>
+          <div class="share-row">
+            <span class="nm">Übrige<small>Bau · Gastro · u.&nbsp;a.</small></span>
+            <span class="track"><span class="fill" style="width:8%"></span></span>
+            <span class="pct">8 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGMENTS -->
+  <section class="page segment-page" id="segments">
+    <div class="page-header">
+      <span class="ch-num">IV.</span>
+      <h2>Geschäfts­felder —<br><em>drei Modelle,</em><br><strong>ein Versprechen.</strong></h2>
+      <div class="ch-meta">Kapitel IV<br>Seite 18</div>
+    </div>
+
+    <div class="segments">
+      <article class="segment">
+        <span class="seg-num">i.</span>
+        <span class="lbl">— Segment 01</span>
+        <h3>Arbeitnehmer­<em>überlassung</em></h3>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen — von der Tagesspitze bis zur langfristigen Verstärkung. Tarifgebunden nach iGZ/DGB, mit unbefristeter ANÜ-Erlaubnis. Bereitstellung in der Regel unter 48 Stunden.</p>
+        <div class="fig-row">
+          <div class="fig">
+            <span class="v"><strong>62</strong> %</span>
+            <span class="k">Anteil 2025</span>
+          </div>
+          <div class="fig">
+            <span class="v">+9 %</span>
+            <span class="k">ggü. Vorjahr</span>
+          </div>
+        </div>
+      </article>
+      <article class="segment">
+        <span class="seg-num">ii.</span>
+        <span class="lbl">— Segment 02</span>
+        <h3>Personal­<em>vermittlung</em></h3>
+        <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst, mit langem Atem. Honorar erfolgsbasiert, vier Monate Nach­besetzungs­garantie, aktives Search-Verfahren. Verbleibsquote nach 18 Monaten: 86 %.</p>
+        <div class="fig-row">
+          <div class="fig">
+            <span class="v"><strong>28</strong> %</span>
+            <span class="k">Anteil 2025</span>
+          </div>
+          <div class="fig">
+            <span class="v">+18 %</span>
+            <span class="k">ggü. Vorjahr</span>
+          </div>
+        </div>
+      </article>
+      <article class="segment">
+        <span class="seg-num">iii.</span>
+        <span class="lbl">— Segment 03</span>
+        <h3>Werk­<em>verträge</em></h3>
+        <p>Definierte Aufträge mit eigener Steuerung, fester Ergebnis­vereinbarung und rechtssicherer Abgrenzung. Skalierbar von Einzelprojekt bis Dauerlinie. Wachstums­segment 2025 — Industrie und Pflege als Treiber.</p>
+        <div class="fig-row">
+          <div class="fig">
+            <span class="v"><strong>10</strong> %</span>
+            <span class="k">Anteil 2025</span>
+          </div>
+          <div class="fig">
+            <span class="v">+34 %</span>
+            <span class="k">ggü. Vorjahr</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values" id="values">
+    <div class="page-header">
+      <span class="ch-num">V.</span>
+      <h2>Werte &amp;<br><em>Grund­prinzipien —</em><br>seit <strong>2008</strong> unverändert.</h2>
+      <div class="ch-meta">Kapitel V<br>Seite 24</div>
+    </div>
+
+    <div class="values-grid">
+      <div class="left">
+        <h3>Drei Sätze,<br>die nie auf eine<br><em>Folie</em> wandern.</h3>
+        <p>Wir hängen unsere Grundprinzipien nicht im Flur. Sie sind in jeder Vertragsabwicklung, jedem Telefonat und jeder Personal­entscheidung präsent. Wenn sie es nicht wären, würden wir uns von einem beliebigen Personaldienstleister nur durch das Logo unterscheiden.</p>
+      </div>
+      <div class="values-list">
+        <div class="val-row">
+          <span class="roman">i.</span>
+          <div>
+            <h4>Achtung &amp; <em>Respekt</em> für unsere Mitarbeitenden.</h4>
+            <p>Wer für uns arbeitet, wird gehört — nicht verwaltet. Das beginnt beim Stundenlohn und endet bei der Art, wie wir nach zwei Wochen anrufen. Wir sind Arbeitgeber, nicht Vermittler. Das ist eine Haltung, keine Formalie.</p>
+          </div>
+        </div>
+        <div class="val-row">
+          <span class="roman">ii.</span>
+          <div>
+            <h4><em>Spitzen­leistungen —</em> messbar, wieder­holbar, nachhaltig.</h4>
+            <p>Wer halbgar liefert, hat den falschen Job. Bei uns, bei unseren Mitarbeitenden, bei unseren Kund:innen. Das ist anstrengend — und der einzige Weg, der über achtzehn Jahre hält. Qualität ist keine Position. Sie ist eine Praxis.</p>
+          </div>
+        </div>
+        <div class="val-row">
+          <span class="roman">iii.</span>
+          <div>
+            <h4><em>Dienst am Kunden,</em> der den Namen verdient.</h4>
+            <p>Erreichbar sein. Mitdenken. Gerade­stehen, auch wenn es ungemütlich wird. Der Begriff „Dienst­leistung" steckt im Wort „Dienst" — wir nehmen ihn ernst, auch wenn er manchmal heißt, einen Auftrag nicht anzunehmen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE / OUTLOOK -->
+  <section class="page outlook" id="outlook">
+    <svg class="bg-x" style="color:#fff"><use href="#lex-x-mono"/></svg>
+    <div class="page-header">
+      <span class="ch-num">VI.</span>
+      <h2>Compliance &amp;<br><em>Ausblick —</em><br><strong>2026.</strong></h2>
+      <div class="ch-meta">Kapitel VI<br>Seite 30</div>
+    </div>
+
+    <div class="outlook-body">
+      <div class="left">
+        <p class="lede">Wir wachsen <em>kontrolliert.</em> Wir bleiben tarifgebunden. Wir bleiben in Münster. Und wir bleiben das, was wir immer waren — <strong>persönlich.</strong></p>
+
+        <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.15)">
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px">— Compliance &amp; Mitgliedschaften</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div style="padding:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px">iGZ</div>
+              <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:15px;color:var(--paper)">Mitglied · Tarif­bindung iGZ/DGB</div>
+            </div>
+            <div style="padding:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px">BA</div>
+              <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:15px;color:var(--paper)">Unbefristete ANÜ-Erlaubnis</div>
+            </div>
+            <div style="padding:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px">DSGVO</div>
+              <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:15px;color:var(--paper)">Geprüfte Verfahrens­verzeichnisse</div>
+            </div>
+            <div style="padding:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px">SAP</div>
+              <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:15px;color:var(--paper)">Fieldglass-gelistet &amp; qualifiziert</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outlook-priorities">
+        <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;padding:0 0 20px 0;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:0">— Strategische Prioritäten 2026</h4>
+        <div class="priority">
+          <span class="yr">Q1</span>
+          <div>
+            <h5>Pipeline-Ausbau auf 3.000 Talente</h5>
+            <p>Aktives Sourcing in Industrie und Logistik. Ziel: 25 % Wachstum in der vorgeprüften Pipeline gegenüber 2025.</p>
+          </div>
+        </div>
+        <div class="priority">
+          <span class="yr">Q2</span>
+          <div>
+            <h5>Werkvertrag-Segment skalieren</h5>
+            <p>Aufbau eines dedizierten Werkvertrag-Steuerungs­teams. Fokus auf Pflege und Industrie. Zielwachstum: +40 %.</p>
+          </div>
+        </div>
+        <div class="priority">
+          <span class="yr">Q3</span>
+          <div>
+            <h5>Time-to-Fill weiter senken</h5>
+            <p>Investition in die Disposition und Tools. Ziel: durchschnittliche Time-to-Fill von aktuell 4–7 Tagen auf 3–5 Tage.</p>
+          </div>
+        </div>
+        <div class="priority">
+          <span class="yr">Q4</span>
+          <div>
+            <h5>Brand &amp; Online-Präsenz</h5>
+            <p>Modernisierung der Außen­wirkung — bei voller Beibehaltung des persönlichen Beratungs­ansatzes. Erste Etappe: neue Website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPRINT / Contact -->
+  <section class="imprint-page" id="imprint">
+    <div class="imprint-grid">
+      <h2>Für ein<br>nächstes <em>Kapitel —</em><br><strong>sprechen Sie uns an.</strong></h2>
+      <div class="right">
+        <div class="row">
+          <span class="k">— Anschrift</span>
+          <span class="v">LeXpersonal GmbH<br>An den Loddenbüschen 95<br>D—48155 Münster</span>
+        </div>
+        <div class="row">
+          <span class="k">— Telefon</span>
+          <a href="tel:+492512652490" class="v">+49 (0) 251 — 26 52 49 20</a>
+        </div>
+        <div class="row">
+          <span class="k">— E-Mail</span>
+          <a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a>
+        </div>
+        <div class="row">
+          <span class="k">— Geschäfts­zeiten</span>
+          <span class="v">Mo – Fr · 08:00 – 17:00 Uhr<br>Termine nach Vereinbarung</span>
+        </div>
+        <a href="#" class="imprint-cta">Bedarfsanalyse anfragen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON / Back -->
+  <footer class="colophon">
+    <svg class="bg-x" style="color:#fff"><use href="#lex-x-mono"/></svg>
+    <div class="col-grid">
+      <div class="brand">
+        <svg><use href="#lex-x"/></svg>
+        <div class="lex">LE<strong>X</strong>PERSONAL</div>
+        <p>„Starke Jobs für alle." — Personal­dienstleistung mit Haltung, seit 2008 aus Münster fürs Münsterland und Nordrhein-Westfalen.</p>
+      </div>
+      <div>
+        <h6>Geschäftsfelder</h6>
+        <ul>
+          <li><a href="#segments">Arbeitnehmer­überlassung</a></li>
+          <li><a href="#segments">Personalvermittlung</a></li>
+          <li><a href="#segments">Werkverträge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Bericht</h6>
+        <ul>
+          <li><a href="#letter">I. Brief der Geschäftsführung</a></li>
+          <li><a href="#kpi">II. Kennzahlen</a></li>
+          <li><a href="#chart">III. Geschäfts­entwicklung</a></li>
+          <li><a href="#values">V. Werte</a></li>
+          <li><a href="#outlook">VI. Ausblick</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-bottom">
+      <span>© LeXpersonal GmbH · 2026 · Annual Report Vol. XVIII</span>
+      <span>Konzept · Annual Report</span>
+      <span>Impressum · Datenschutz · AGB · Lieferantenkodex</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

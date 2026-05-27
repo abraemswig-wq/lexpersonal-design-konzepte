@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Bento Modular Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Fraunces:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#F2F2F2;
+  --bg-2:#E5EEF6;
+  --card:#FFFFFF;
+  --ink:#1A1F2E;
+  --ink-soft:#424141;
+  --muted:#6B6B6B;
+  --line:rgba(39,120,188,0.10);
+  --blue:#2778BC;
+  --blue-deep:#13265D;
+  --cyan:#009FE3;
+  --cyan-bright:#1DB4F0;
+  --soft-blue:#CFE6F6;
+  --pale:#EAF4FB;
+  --shadow:0 1px 2px rgba(39,120,188,0.06),0 8px 24px -8px rgba(39,120,188,0.12);
+  --shadow-lg:0 1px 2px rgba(39,120,188,0.06),0 16px 48px -12px rgba(39,120,188,0.18);
+}
+body{background:var(--bg);color:var(--ink);font-family:'Source Sans Pro',sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.heading{font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:-0.02em}
+.serif{font-family:'Fraunces',serif;font-weight:400}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:16px;z-index:50;margin:16px auto 0;max-width:1240px;display:flex;justify-content:space-between;align-items:center;padding:8px 12px 8px 16px;background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:99px;box-shadow:var(--shadow)}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.08em;color:var(--ink-soft)}
+.logo strong{font-weight:600;color:var(--blue)}
+.logo-x{width:24px;height:30px}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav ul a{font-size:14px;color:var(--ink-soft);font-weight:500}
+.nav ul a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:99px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;background:var(--blue);color:#fff;border:none;cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--cyan);transform:translateY(-1px)}
+.btn-light{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn-light:hover{background:var(--blue);color:#fff}
+@media (max-width:768px){.nav ul{display:none}}
+
+/* BENTO */
+.hero{padding:48px 0 32px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px}
+.tile{background:var(--card);border-radius:22px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.tile-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:inline-flex;align-items:center;gap:8px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+
+/* Hero main */
+.t-hero{grid-column:span 8;grid-row:span 4;background:var(--blue-deep);color:#fff;padding:48px;justify-content:space-between;position:relative;overflow:hidden}
+.t-hero .hero-x-bg{position:absolute;right:-80px;bottom:-100px;width:380px;height:464px;opacity:0.18;pointer-events:none}
+.t-hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,5.2vw,76px);line-height:1;letter-spacing:-0.035em;font-weight:600;position:relative;z-index:2}
+.t-hero h1 .ser{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--cyan-bright)}
+.t-hero h1 .ser.s2{color:#fff;opacity:0.85}
+.t-hero p{max-width:480px;color:rgba(255,255,255,0.75);font-size:16px;margin-top:20px;position:relative;z-index:2}
+.t-hero .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);font-size:12px;align-self:flex-start;position:relative;z-index:2}
+.t-hero .badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--cyan-bright);box-shadow:0 0 0 4px rgba(29,180,240,0.25)}
+.t-hero .cta-row{display:flex;gap:8px;margin-top:24px;position:relative;z-index:2}
+.t-hero .btn{background:var(--cyan);color:#fff}
+.t-hero .btn:hover{background:#fff;color:var(--blue-deep)}
+.t-hero .btn-light{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.2)}
+
+/* Stat tiles */
+.t-stat-1{grid-column:span 4;grid-row:span 2;background:var(--cyan);color:#fff}
+.t-stat-1 .big{font-family:'Montserrat',sans-serif;font-size:64px;line-height:1;letter-spacing:-0.04em;font-weight:600;margin-top:auto}
+.t-stat-1 .big sup{font-size:0.5em}
+.t-stat-1 small{margin-top:8px;font-size:13px;opacity:0.9}
+
+.t-stat-2{grid-column:span 4;grid-row:span 2;background:var(--soft-blue);color:var(--blue-deep)}
+.t-stat-2 .big{font-family:'Fraunces',serif;font-size:56px;line-height:1;letter-spacing:-0.03em;font-weight:400;font-style:italic;margin-top:auto}
+.t-stat-2 small{margin-top:8px;font-size:13px;color:var(--blue)}
+
+/* Tags */
+.t-tags{grid-column:span 6;grid-row:span 2;background:var(--pale)}
+.t-tags h3{font-family:'Montserrat',sans-serif;font-size:22px;letter-spacing:-0.02em;font-weight:600;margin-bottom:auto;color:var(--ink)}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.t-pill{padding:6px 12px;border-radius:99px;background:var(--card);border:1px solid var(--line);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;color:var(--ink-soft)}
+.t-pill.dark{background:var(--blue);color:#fff;border:none}
+
+/* Quote */
+.t-quote{grid-column:span 6;grid-row:span 2;background:var(--blue);color:#fff}
+.t-quote blockquote{font-family:'Fraunces',serif;font-size:24px;line-height:1.28;letter-spacing:-0.01em;margin-top:auto}
+.t-quote blockquote em{font-style:italic;color:var(--cyan-bright)}
+.t-quote cite{font-size:12px;font-style:normal;margin-top:14px;display:block;opacity:0.7;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+
+@media (max-width:900px){
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+  .t-hero,.t-stat-1,.t-stat-2,.t-tags,.t-quote{grid-column:span 2;grid-row:auto}
+  .t-hero{padding:32px}
+}
+
+/* SECTION HEAD */
+.sec{padding:80px 0 32px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head h2{font-family:'Montserrat',sans-serif;font-size:clamp(36px,4.5vw,56px);line-height:1;letter-spacing:-0.035em;font-weight:600;max-width:680px}
+.sec-head h2 .ser{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--blue)}
+.sec-head p{color:var(--ink-soft);max-width:380px}
+
+/* SERVICES BENTO */
+.svc-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-rows:180px}
+.svc-1{grid-column:span 3;grid-row:span 2}
+.svc-2{grid-column:span 3;grid-row:span 2}
+.svc-3{grid-column:span 3;grid-row:span 2}
+.svc-img{grid-column:span 3;grid-row:span 2;background:linear-gradient(135deg,#009FE3 0%,#2778BC 100%);position:relative;overflow:hidden;color:#fff}
+.svc h3{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.02em;margin-bottom:10px;margin-top:auto}
+.svc p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.svc-x{width:44px;height:54px}
+.svc-img .visual{position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(29,180,240,0.6),transparent 50%),radial-gradient(circle at 30% 80%,rgba(255,255,255,0.15),transparent 40%)}
+.svc-img .x-big{position:absolute;right:-30px;bottom:-60px;width:280px;height:340px;opacity:0.25}
+.svc-img .label{position:relative;z-index:2;margin-top:auto;font-family:'Fraunces',serif;font-style:italic;font-size:28px;letter-spacing:-0.01em}
+@media (max-width:900px){.svc-bento{grid-template-columns:1fr;grid-auto-rows:auto}.svc-1,.svc-2,.svc-3,.svc-img{grid-column:span 1;grid-row:auto}}
+
+/* PHILOSOPHIE */
+.phil-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-rows:160px}
+.p-main{grid-column:span 4;grid-row:span 3;background:var(--blue-deep);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.p-main .px-bg{position:absolute;right:-40px;top:-60px;width:280px;height:340px;opacity:0.15;pointer-events:none}
+.p-main h2{font-family:'Montserrat',sans-serif;font-size:clamp(36px,3.8vw,48px);line-height:1.05;letter-spacing:-0.025em;font-weight:600;position:relative;z-index:2}
+.p-main h2 .ser{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--cyan-bright)}
+.p-main p{color:rgba(255,255,255,0.75);max-width:420px;margin-top:16px;position:relative;z-index:2}
+.p-val{grid-column:span 2;grid-row:span 1;background:var(--card)}
+.p-val .num{font-family:'Fraunces',serif;font-style:italic;font-size:40px;color:var(--blue);line-height:1}
+.p-val h4{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:600;margin-top:8px}
+.p-val p{font-size:13px;color:var(--ink-soft);margin-top:4px}
+@media (max-width:900px){.phil-bento{grid-template-columns:1fr;grid-auto-rows:auto}.p-main,.p-val{grid-column:span 1;grid-row:auto}}
+
+/* PATHWAYS */
+.pw-bento{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;grid-auto-rows:380px}
+.pw{padding:40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.pw-a{background:var(--cyan);color:#fff}
+.pw-b{background:var(--blue-deep);color:#fff}
+.pw h3{font-family:'Montserrat',sans-serif;font-size:clamp(28px,3vw,40px);line-height:1.05;letter-spacing:-0.025em;font-weight:600;position:relative;z-index:2}
+.pw h3 .ser{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+.pw p{margin-top:14px;max-width:380px;font-size:15px;opacity:0.9;position:relative;z-index:2}
+.pw .pw-cta{display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:99px;background:#fff;color:var(--blue-deep);font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;align-self:flex-start;margin-top:24px;position:relative;z-index:2;transition:transform .2s}
+.pw .pw-cta:hover{transform:translateX(4px)}
+.pw-b .pw-cta{background:var(--cyan-bright);color:#fff}
+.pw .x-deco{position:absolute;right:-50px;bottom:-80px;width:320px;height:390px;opacity:0.15;pointer-events:none}
+@media (max-width:900px){.pw-bento{grid-template-columns:1fr;grid-auto-rows:auto}.pw{min-height:340px}}
+
+/* PROCESS */
+.proc-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:240px}
+.proc{padding:24px;background:var(--card);display:flex;flex-direction:column;justify-content:space-between}
+.proc .step-circle{width:36px;height:36px;border-radius:50%;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600}
+.proc:nth-child(1) .step-circle{background:var(--cyan);color:#fff}
+.proc:nth-child(2) .step-circle{background:var(--soft-blue);color:var(--blue-deep)}
+.proc:nth-child(3) .step-circle{background:var(--blue);color:#fff}
+.proc:nth-child(4) .step-circle{background:var(--blue-deep);color:#fff}
+.proc h4{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600;letter-spacing:-0.01em}
+.proc p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+@media (max-width:900px){.proc-bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}}
+
+/* CONTACT */
+.ct-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-rows:160px}
+.ct-main{grid-column:span 4;grid-row:span 3;background:var(--blue-deep);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.ct-main .ct-x-bg{position:absolute;right:-50px;top:-50px;width:340px;height:415px;opacity:0.15;pointer-events:none}
+.ct-main h2{font-family:'Montserrat',sans-serif;font-size:clamp(40px,5vw,68px);line-height:1;letter-spacing:-0.035em;font-weight:600;position:relative;z-index:2}
+.ct-main h2 .ser{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
+.ct-main p{color:rgba(255,255,255,0.75);max-width:380px;margin-top:14px;position:relative;z-index:2}
+.ct-side{grid-column:span 2;grid-row:span 1;background:var(--card)}
+.ct-side h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ct-side a,.ct-side p{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600;letter-spacing:-0.01em}
+.ct-side.cyan{background:var(--cyan);color:#fff}
+.ct-side.cyan h5{color:rgba(255,255,255,0.8)}
+.ct-side.blue{background:var(--blue);color:#fff}
+.ct-side.blue h5{color:rgba(255,255,255,0.8)}
+@media (max-width:900px){.ct-bento{grid-template-columns:1fr;grid-auto-rows:auto}.ct-main,.ct-side{grid-column:span 1;grid-row:auto;min-height:160px;padding:32px}}
+
+.foot{padding:32px 0;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);flex-wrap:wrap;gap:16px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- X symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+  <symbol id="lex-x-white" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#fff" opacity="0.9"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#fff" opacity="0.6"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="logo">
+    <svg class="logo-x"><use href="#lex-x"/></svg>
+    LE<strong>X</strong>PERSONAL
+  </a>
+  <ul>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#bewerber">Bewerber</a></li>
+    <li><a href="#unternehmen">Unternehmen</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#" class="btn">Jetzt anfragen →</a>
+</nav>
+
+<!-- HERO BENTO -->
+<section class="hero">
+  <div class="container">
+    <div class="bento">
+
+      <div class="tile t-hero">
+        <svg class="hero-x-bg"><use href="#lex-x-white"/></svg>
+        <span class="badge"><span class="pulse"></span> Personal aus Münster · seit 2008</span>
+        <h1>Starke <span class="ser">Jobs</span><br>für <span class="ser s2">alle</span>.</h1>
+        <div style="position:relative;z-index:2">
+          <p>Wir sind mehr als ein Dienstleister. Wir sind Personalexperten mit Leidenschaft — und denken jedes Match in einer lebendigen Dreiecksbeziehung aus Unternehmen, Kandidat und Berater.</p>
+          <div class="cta-row">
+            <a href="#" class="btn">Personal anfragen →</a>
+            <a href="#" class="btn btn-light">Jobs entdecken</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-stat-1">
+        <span class="tile-eyebrow" style="color:rgba(255,255,255,0.85)"><span class="dot" style="background:#fff"></span> Aktive Talente</span>
+        <div class="big">2.400<sup>+</sup></div>
+        <small>vorgeprüft, gesprächsbereit, regional</small>
+      </div>
+
+      <div class="tile t-stat-2">
+        <span class="tile-eyebrow" style="color:var(--blue)"><span class="dot" style="background:var(--blue)"></span> Time-to-Hire</span>
+        <div class="big">4–7 Tage</div>
+        <small>schneller als der Branchenschnitt</small>
+      </div>
+
+      <div class="tile t-tags">
+        <span class="tile-eyebrow"><span class="dot"></span> Branchen, die wir kennen</span>
+        <h3>Industrie · Handwerk · Logistik · Pflege · Office.</h3>
+        <div class="tag-list">
+          <span class="t-pill dark">Industrie</span>
+          <span class="t-pill">Handwerk</span>
+          <span class="t-pill">Logistik</span>
+          <span class="t-pill">Pflege</span>
+          <span class="t-pill">Office</span>
+          <span class="t-pill">Gastronomie</span>
+          <span class="t-pill">Bau</span>
+        </div>
+      </div>
+
+      <div class="tile t-quote">
+        <span class="tile-eyebrow" style="color:rgba(255,255,255,0.7)"><span class="dot" style="background:var(--cyan-bright)"></span> Unsere Haltung</span>
+        <blockquote>„Achtung & Respekt für unsere Mitarbeiter, <em>Spitzenleistungen</em> und Dienst am Kunden — das tragen wir jeden Tag."</blockquote>
+        <cite>— Grundprinzipien LeXpersonal</cite>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="leistungen">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Drei Leistungen — <span class="ser">ein</span> Versprechen.</h2>
+      <p>Egal welcher Weg: Du bekommst Menschen, die wir vorher selbst getroffen haben. Punkt.</p>
+    </div>
+    <div class="svc-bento">
+      <div class="tile svc svc-1">
+        <svg class="svc-x"><use href="#lex-x"/></svg>
+        <div>
+          <h3>Arbeitnehmer­überlassung</h3>
+          <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Von der Tagesspitze bis zum langen Atem.</p>
+        </div>
+      </div>
+      <div class="tile svc svc-2">
+        <svg class="svc-x"><use href="#lex-x"/></svg>
+        <div>
+          <h3>Personal­vermittlung</h3>
+          <p>Direkte Vermittlung in Festanstellung — diskret, kulturbewusst, mit langem Atem für beide Seiten.</p>
+        </div>
+      </div>
+      <div class="tile svc svc-3">
+        <svg class="svc-x"><use href="#lex-x"/></svg>
+        <div>
+          <h3>Werkverträge</h3>
+          <p>Definierte Aufträge, klare Verantwortung. Wir steuern, du fokussierst dich aufs Kerngeschäft.</p>
+        </div>
+      </div>
+      <div class="tile svc svc-img">
+        <div class="visual"></div>
+        <svg class="x-big"><use href="#lex-x-white"/></svg>
+        <div class="label">„Der Mensch macht den Unterschied."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Eine lebendige <span class="ser">Dreiecks­beziehung</span>.</h2>
+      <p>Drei Eckpunkte, die nur gemeinsam tragen: Unternehmen, Kandidat:in, Berater:in.</p>
+    </div>
+    <div class="phil-bento">
+      <div class="tile p-main">
+        <svg class="px-bg"><use href="#lex-x-white"/></svg>
+        <div style="position:relative;z-index:2">
+          <span class="tile-eyebrow" style="color:rgba(255,255,255,0.7)"><span class="dot" style="background:var(--cyan-bright)"></span> Unser Ansatz</span>
+          <h2>Wir glauben an <span class="ser">Menschen</span>, die einander zuhören.</h2>
+          <p>Kein Datenbank-Matching, kein Skill-Tinder. Wir nehmen uns Zeit, weil Personalentscheidungen Zeit brauchen — sonst kommen sie als Fluktuation zurück.</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;position:relative;z-index:2;flex-wrap:wrap">
+          <span class="t-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff">Unternehmen</span>
+          <span style="color:rgba(255,255,255,0.5)">↔</span>
+          <span class="t-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff">Kandidat:in</span>
+          <span style="color:rgba(255,255,255,0.5)">↔</span>
+          <span class="t-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff">Berater:in</span>
+        </div>
+      </div>
+      <div class="tile p-val">
+        <div class="num">i.</div>
+        <h4>Achtung & Respekt</h4>
+        <p>für jede:n Mitarbeiter:in.</p>
+      </div>
+      <div class="tile p-val">
+        <div class="num">ii.</div>
+        <h4>Spitzenleistungen</h4>
+        <p>messbar und nachhaltig.</p>
+      </div>
+      <div class="tile p-val">
+        <div class="num">iii.</div>
+        <h4>Dienst am Kunden</h4>
+        <p>der den Namen verdient.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHWAYS -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Was bringt dich <span class="ser">hierher</span>?</h2>
+      <p>Wähl deinen Weg — beide führen zu Menschen, die zuhören.</p>
+    </div>
+    <div class="pw-bento">
+      <div class="tile pw pw-a" id="bewerber">
+        <svg class="x-deco"><use href="#lex-x-white"/></svg>
+        <div style="position:relative;z-index:2">
+          <span class="tile-eyebrow" style="color:rgba(255,255,255,0.85)"><span class="dot" style="background:#fff"></span> Für Bewerber:innen</span>
+          <h3 style="margin-top:14px">Dein nächster <span class="ser">Schritt</span> — wir gehen mit.</h3>
+          <p>Wir nehmen uns Zeit für deine Geschichte und finden den Job, der zu dir passt — nicht umgekehrt.</p>
+        </div>
+        <a href="#" class="pw-cta">Bewerbung starten →</a>
+      </div>
+      <div class="tile pw pw-b" id="unternehmen">
+        <svg class="x-deco"><use href="#lex-x-white"/></svg>
+        <div style="position:relative;z-index:2">
+          <span class="tile-eyebrow" style="color:rgba(255,255,255,0.7)"><span class="dot" style="background:var(--cyan-bright)"></span> Für Unternehmen</span>
+          <h3 style="margin-top:14px">Personal, das dein Team <span class="ser">wirklich</span> trägt.</h3>
+          <p>Wir verstehen deine Branche, deine Kultur, deine Engpässe — und liefern Menschen, die Verantwortung übernehmen.</p>
+        </div>
+        <a href="#" class="pw-cta">Anfrage stellen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <h2>In <span class="ser">vier</span> Schritten zum Match.</h2>
+      <p>Effizient ohne Hetze — sorgfältig ohne Bürokratie.</p>
+    </div>
+    <div class="proc-bento">
+      <div class="tile proc">
+        <div class="step-circle">01</div>
+        <div>
+          <h4>Briefing</h4>
+          <p>Wir verstehen, was du brauchst — fachlich, menschlich, kulturell.</p>
+        </div>
+      </div>
+      <div class="tile proc">
+        <div class="step-circle">02</div>
+        <div>
+          <h4>Vorauswahl</h4>
+          <p>Wir prüfen unsere Pipeline und sprechen Talente gezielt an.</p>
+        </div>
+      </div>
+      <div class="tile proc">
+        <div class="step-circle">03</div>
+        <div>
+          <h4>Match</h4>
+          <p>Du triffst nur Menschen, die wir vorher gesehen und gehört haben.</p>
+        </div>
+      </div>
+      <div class="tile proc">
+        <div class="step-circle">04</div>
+        <div>
+          <h4>Start & Check-in</h4>
+          <p>Saubere Abwicklung — und ein Anruf nach zwei Wochen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="kontakt">
+  <div class="container">
+    <div class="ct-bento">
+      <div class="tile ct-main">
+        <svg class="ct-x-bg"><use href="#lex-x-white"/></svg>
+        <div style="position:relative;z-index:2">
+          <span class="tile-eyebrow" style="color:rgba(255,255,255,0.7)"><span class="dot" style="background:var(--cyan-bright)"></span> Kontakt</span>
+          <h2>Lass uns über <span class="ser">starke Jobs</span> sprechen.</h2>
+          <p>Wir freuen uns auf deinen Anruf, deine Mail — oder den Besuch in Münster.</p>
+        </div>
+        <a href="#" class="btn" style="background:var(--cyan-bright);align-self:flex-start;position:relative;z-index:2">Erstgespräch buchen →</a>
+      </div>
+      <div class="tile ct-side cyan">
+        <h5>Telefon</h5>
+        <a href="tel:+492512652490">0251 — 26 52 49 20</a>
+      </div>
+      <div class="tile ct-side">
+        <h5>E-Mail</h5>
+        <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+      </div>
+      <div class="tile ct-side">
+        <h5>Büro</h5>
+        <p>An den Loddenbüschen 95<br>D-48155 Münster</p>
+      </div>
+      <div class="tile ct-side blue">
+        <h5>Öffnungszeiten</h5>
+        <p style="font-size:14px;font-weight:400">Mo–Fr · 08:00–17:00<br>Termine nach Vereinbarung</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="foot">
+    <span>© LeXpersonal GmbH · 2026</span>
+    <span>Konzept · Bento Modular v2 (CI)</span>
+    <span>Impressum · Datenschutz · AGB</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Engineering Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --paper:#F2EFE6;
+  --paper-2:#E8E4D6;
+  --paper-3:#DDD8C7;
+  --ink:#0E1726;
+  --ink-2:#1B2638;
+  --text:#2A3447;
+  --muted:#5A6479;
+  --line:#0E1726;
+  --line-soft:rgba(14,23,38,0.25);
+  --line-faint:rgba(14,23,38,0.12);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --red:#9A2422;
+}
+body{
+  background:var(--paper);color:var(--text);
+  font-family:'IBM Plex Sans','Inter',sans-serif;
+  font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(rgba(39,120,188,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(39,120,188,0.04) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'IBM Plex Mono',monospace}
+.t-mono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500}
+
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+
+/* HEADER drafting style */
+.draft-head{
+  position:sticky;top:0;z-index:50;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.draft-top{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;padding:6px 24px;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--muted);
+  border-bottom:1px dashed var(--line-soft);
+}
+.draft-top .center{text-align:center;color:var(--ink)}
+.draft-top .right{text-align:right;display:flex;gap:12px;justify-content:flex-end}
+.draft-top .rev{background:var(--ink);color:var(--paper);padding:2px 8px;font-weight:500}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--ink)}
+.logo svg{width:30px;height:36px}
+.logo-text{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.08em}
+.logo-text strong{font-weight:600;color:var(--blue)}
+.logo-text small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--muted);font-weight:400}
+.nav-mid{display:flex;gap:8px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+.nav-mid a{padding:8px 12px;color:var(--ink);border:1px solid transparent;font-weight:500}
+.nav-mid a:hover{border-color:var(--line);background:var(--paper-2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--paper);color:var(--ink)}
+.btn-blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--paper);color:var(--blue)}
+@media (max-width:900px){.nav-mid{display:none}}
+
+/* Drawing canvas wrapper */
+.sheet{
+  position:relative;
+  margin:0 24px 24px;
+  border:1px solid var(--line);
+  background:var(--paper);
+}
+.sheet-corner{position:absolute;width:20px;height:20px;border:1px solid var(--line);background:var(--paper);z-index:3}
+.sheet-corner.tl{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.sheet-corner.tr{top:-1px;right:-1px;border-left:none;border-bottom:none}
+.sheet-corner.bl{bottom:-1px;left:-1px;border-right:none;border-top:none}
+.sheet-corner.br{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+/* TITLE BLOCK */
+.title-block{
+  display:grid;grid-template-columns:auto 1fr auto auto auto;
+  align-items:stretch;
+  border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--muted);
+}
+.title-block > div{padding:10px 16px;border-right:1px solid var(--line-soft);display:flex;flex-direction:column;justify-content:center;gap:4px}
+.title-block > div:last-child{border-right:none}
+.title-block .lbl{color:var(--muted);font-size:9px}
+.title-block .val{color:var(--ink);font-weight:600;font-size:11px}
+
+/* HERO blueprint */
+.hero{padding:80px 64px 96px;position:relative;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end;position:relative;z-index:2}
+.section-id{display:inline-block;padding:4px 12px;border:1px solid var(--ink);background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:32px}
+.hero h1{
+  font-family:'IBM Plex Sans',sans-serif;font-weight:300;
+  font-size:clamp(56px,8vw,124px);
+  line-height:0.95;letter-spacing:-0.035em;color:var(--ink);
+}
+.hero h1 strong{font-weight:600}
+.hero h1 .blue{color:var(--blue);font-weight:300}
+.hero h1 .it{font-style:italic;font-weight:300;color:var(--blue)}
+.hero-aside{padding-left:48px;border-left:1px solid var(--line-soft);padding-bottom:8px}
+.hero-aside p{font-size:16px;line-height:1.6;color:var(--text);max-width:380px}
+.hero-aside .row{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin-top:32px;font-size:13px;font-family:'IBM Plex Mono',monospace}
+.hero-aside .row .k{color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-size:10px}
+.hero-aside .row .v{color:var(--ink);font-weight:500;font-size:12px}
+.hero-aside .cta-row{display:flex;gap:8px;margin-top:32px;flex-wrap:wrap}
+
+/* Crosshairs and measurement marks */
+.dim-h{position:absolute;left:64px;right:64px;display:flex;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;pointer-events:none}
+.dim-h.top{top:20px}
+.dim-h.bottom{bottom:20px}
+.dim-h .line{flex:1;border-top:1px dashed var(--line-soft);margin:0 8px;position:relative}
+.dim-h .line::before,.dim-h .line::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--line-soft)}
+.dim-h .line::before{left:0}
+.dim-h .line::after{right:0}
+.dim-v{position:absolute;top:120px;bottom:120px;display:flex;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);writing-mode:vertical-rl;text-transform:uppercase;letter-spacing:0.1em;pointer-events:none}
+.dim-v.left{left:20px;flex-direction:column}
+.dim-v.right{right:20px;flex-direction:column}
+.dim-v .line{flex:1;border-left:1px dashed var(--line-soft);margin:8px 0;width:1px}
+
+.hero-x-tech{position:absolute;right:48px;top:30%;width:120px;height:148px;opacity:0.95;z-index:1}
+.hero-x-tech .crosshair{position:absolute;inset:-12px;border:1px dashed var(--blue);pointer-events:none}
+.hero-x-tech .crosshair::before,.hero-x-tech .crosshair::after{content:"";position:absolute;background:var(--blue)}
+.hero-x-tech .crosshair::before{left:50%;top:-8px;bottom:-8px;width:1px}
+.hero-x-tech .crosshair::after{top:50%;left:-8px;right:-8px;height:1px}
+.hero-x-tech .corner-mark{position:absolute;width:8px;height:8px;border:1px solid var(--blue)}
+.hero-x-tech .corner-mark.tl{top:-12px;left:-12px}
+.hero-x-tech .corner-mark.tr{top:-12px;right:-12px}
+.hero-x-tech .corner-mark.bl{bottom:-12px;left:-12px}
+.hero-x-tech .corner-mark.br{bottom:-12px;right:-12px}
+.hero-x-tech .spec{position:absolute;top:100%;left:0;right:0;text-align:center;padding-top:24px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.4}
+
+@media (max-width:900px){
+  .hero{padding:60px 24px 64px}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-aside{border-left:none;padding-left:0;padding-top:24px;border-top:1px solid var(--line-soft)}
+  .hero-x-tech{display:none}
+  .dim-v{display:none}
+}
+
+/* SPECIFICATIONS BAR */
+.specs{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--line);
+}
+.spec-cell{padding:32px 28px;border-right:1px solid var(--line);position:relative}
+.spec-cell:last-child{border-right:none}
+.spec-cell::before{content:"+";position:absolute;top:-7px;left:-7px;width:14px;height:14px;background:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink);line-height:1}
+.spec-cell .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+.spec-cell .v{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:44px;line-height:1;letter-spacing:-0.035em;color:var(--ink)}
+.spec-cell .v strong{font-weight:600;color:var(--blue)}
+.spec-cell .v sub{font-size:14px;color:var(--muted);vertical-align:baseline;font-weight:400;margin-left:6px}
+.spec-cell .sub{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.5;font-family:'IBM Plex Mono',monospace}
+@media (max-width:900px){.specs{grid-template-columns:1fr 1fr}}
+
+/* SECTION */
+.sec{position:relative;padding:80px 64px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;margin-bottom:64px;align-items:end}
+.sec-head h2{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.0;letter-spacing:-0.035em;color:var(--ink)}
+.sec-head h2 strong{font-weight:600}
+.sec-head h2 .blue{color:var(--blue);font-weight:300}
+.sec-head .lede{font-size:17px;line-height:1.6;color:var(--text);max-width:480px;padding-bottom:8px}
+@media (max-width:900px){.sec{padding:48px 24px}.sec-head{grid-template-columns:1fr;gap:24px}}
+
+/* MODULES (services as technical modules) */
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);position:relative}
+.modules::before{content:"M-01 / M-02 / M-03";position:absolute;top:-9px;left:32px;background:var(--paper);padding:0 8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.module{padding:36px 28px;border-right:1px solid var(--line-soft);display:flex;flex-direction:column;gap:20px;position:relative}
+.module:last-child{border-right:none}
+.module .id{display:inline-block;padding:3px 10px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;align-self:flex-start}
+.module h3{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-0.02em;color:var(--ink)}
+.module p{font-size:14.5px;line-height:1.6;color:var(--text)}
+.module .specs-table{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px}
+.module .specs-table .k{color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-size:10px}
+.module .specs-table .v{color:var(--ink);font-weight:500}
+.module .link{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);border-bottom:1px solid var(--blue);padding-bottom:2px;align-self:flex-start;margin-top:8px}
+@media (max-width:900px){.modules{grid-template-columns:1fr}.module{border-right:none;border-bottom:1px solid var(--line-soft)}}
+
+/* SCHEMATIC */
+.schematic{padding:80px 64px;background:var(--paper-2);border-bottom:1px solid var(--line);position:relative}
+.schematic-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center}
+.schematic-grid h2{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);margin-bottom:24px}
+.schematic-grid h2 strong{font-weight:600}
+.schematic-grid h2 .blue{color:var(--blue);font-weight:300}
+.schematic-grid p{font-size:16px;line-height:1.65;color:var(--text);max-width:440px;margin-bottom:14px}
+.schematic-grid .legend{margin-top:32px;display:flex;flex-direction:column;gap:8px;padding-top:24px;border-top:1px dashed var(--line-soft)}
+.schematic-grid .legend .item{display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text)}
+.schematic-grid .legend .mark{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);background:var(--paper);font-weight:600;font-size:10px}
+.schematic-visual{aspect-ratio:4/3;background:var(--paper);border:1px solid var(--line);position:relative;padding:32px;overflow:hidden}
+.schematic-visual .crosshair{position:absolute;inset:0;background-image:linear-gradient(rgba(14,23,38,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(14,23,38,0.06) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.schematic-visual .border-marks{position:absolute;inset:8px;border:1px dashed var(--line-soft);pointer-events:none}
+.schematic-visual svg{width:100%;height:100%;position:relative;z-index:2}
+.schematic-visual .label{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);background:var(--paper);padding:4px 10px;border:1px solid var(--ink);z-index:3;font-weight:600}
+@media (max-width:900px){.schematic{padding:48px 24px}.schematic-grid{grid-template-columns:1fr;gap:32px}}
+
+/* PROCESS - timeline drafting */
+.process{padding:80px 64px;border-bottom:1px solid var(--line)}
+.timeline{position:relative;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.timeline::before{content:"";position:absolute;top:48px;left:0;right:0;border-top:1px dashed var(--line-soft)}
+.timeline-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.tl-step{padding:0 24px;border-right:1px solid var(--line-soft);position:relative;padding-bottom:24px}
+.tl-step:last-child{border-right:none}
+.tl-step .tag{display:inline-block;padding:4px 12px;background:var(--paper);border:1px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:24px;position:relative;z-index:2}
+.tl-step .timing{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--blue);margin-bottom:8px;font-weight:600}
+.tl-step h4{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:8px}
+.tl-step p{font-size:13.5px;line-height:1.55;color:var(--text)}
+@media (max-width:900px){.process{padding:48px 24px}.timeline-row{grid-template-columns:1fr;gap:24px}.timeline::before{display:none}.tl-step{border-right:none;padding:0 0 24px;border-bottom:1px dashed var(--line-soft)}}
+
+/* DATA TABLE / Sectors */
+.data-tbl{padding:80px 64px;border-bottom:1px solid var(--line)}
+.tbl{width:100%;border:1px solid var(--line);border-collapse:collapse;font-family:'IBM Plex Sans',sans-serif}
+.tbl thead{background:var(--ink);color:var(--paper)}
+.tbl th{padding:14px 18px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;border-right:1px solid rgba(255,255,255,0.15)}
+.tbl th:last-child{border-right:none}
+.tbl td{padding:18px;border-bottom:1px solid var(--line-soft);border-right:1px solid var(--line-soft);font-size:14.5px;vertical-align:top}
+.tbl td:last-child{border-right:none}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover{background:var(--paper-2)}
+.tbl .id{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue);font-size:12px;letter-spacing:0.06em}
+.tbl .nm{font-weight:500;color:var(--ink)}
+.tbl .ds{color:var(--text);font-size:14px}
+.tbl .num{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--ink);text-align:right}
+.tbl .stat .badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:rgba(0,159,227,0.1);border:1px solid var(--blue);color:var(--blue);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+.tbl .stat .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+@media (max-width:900px){.data-tbl{padding:48px 24px;overflow-x:auto}.tbl{min-width:680px}}
+
+/* COMPLIANCE / TRUST */
+.compliance{padding:80px 64px;background:var(--ink);color:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.compliance .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,159,227,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,159,227,0.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.compliance-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center}
+.compliance h3{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-0.03em;color:var(--paper);margin-bottom:16px}
+.compliance h3 strong{font-weight:600}
+.compliance h3 .blue{color:var(--cyan);font-weight:300}
+.compliance p{color:rgba(242,239,230,0.7);max-width:380px;font-size:15px}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cert{padding:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);position:relative}
+.cert::before{content:"+";position:absolute;top:-8px;left:-8px;width:16px;height:16px;background:var(--ink);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1}
+.cert .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:10px}
+.cert .nm{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:17px;color:var(--paper);letter-spacing:-0.01em;margin-bottom:6px}
+.cert .ds{font-size:12.5px;color:rgba(242,239,230,0.6);line-height:1.5}
+@media (max-width:900px){.compliance{padding:48px 24px}.compliance-inner{grid-template-columns:1fr;gap:32px}.cert-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{padding:80px 64px;border-bottom:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact h3{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-0.035em;color:var(--ink)}
+.contact h3 strong{font-weight:600}
+.contact h3 .blue{color:var(--blue);font-weight:300}
+.contact .right{display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--line-soft);padding-left:48px}
+.contact .right .row{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:14px 0;border-bottom:1px dashed var(--line-soft);align-items:baseline}
+.contact .right .row:last-of-type{border-bottom:none}
+.contact .right .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.contact .right .v{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:19px;letter-spacing:-0.01em;color:var(--ink)}
+.contact .right .v a:hover{color:var(--blue)}
+.contact .right .cta-row{margin-top:24px;display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:900px){.contact{padding:48px 24px}.contact-grid{grid-template-columns:1fr;gap:32px}.contact .right{border-left:none;padding-left:0;padding-top:24px;border-top:1px solid var(--line-soft)}}
+
+/* FOOTER drafting */
+.foot{padding:24px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot a{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- X symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="draft-head">
+  <div class="draft-top">
+    <span>· DOC. lexpersonal–overview ·</span>
+    <span class="center">— Personaldienstleistung · technische Übersicht · 2026/Q2 —</span>
+    <span class="right">
+      <span class="rev">REV. 18.2</span>
+      <span>· DIN A0 ·</span>
+    </span>
+  </div>
+  <nav class="nav">
+    <a href="#" class="logo">
+      <svg><use href="#lex-x"/></svg>
+      <span class="logo-text">LE<strong>X</strong>PERSONAL<small>PERSONNEL ENGINEERING · MÜNSTER · EST. 2008</small></span>
+    </a>
+    <div class="nav-mid">
+      <a href="#mod">M-Modules</a>
+      <a href="#sch">Schematic</a>
+      <a href="#prc">Process</a>
+      <a href="#sec">Sector data</a>
+      <a href="#cmp">Compliance</a>
+      <a href="#ct">Contact</a>
+    </div>
+    <a href="#ct" class="btn btn-blue">→ Anfrage senden</a>
+  </nav>
+</header>
+
+<!-- SHEET -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span>
+  <span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span>
+  <span class="sheet-corner br"></span>
+
+  <!-- TITLE BLOCK -->
+  <div class="title-block">
+    <div><span class="lbl">Document</span><span class="val">LEX-OV-2026</span></div>
+    <div><span class="lbl">Subject</span><span class="val">Capabilities Overview · Personal·dienst·leistung</span></div>
+    <div><span class="lbl">Scale</span><span class="val">1 : 1</span></div>
+    <div><span class="lbl">Date</span><span class="val">2026-05-27</span></div>
+    <div><span class="lbl">Sheet</span><span class="val">01 / 06</span></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="dim-h top"><span>00</span><span class="line"></span><span>1280</span></div>
+    <div class="dim-v left"><span>00</span><span class="line"></span><span>720</span></div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="section-id">SEC-00 · ÜBERSICHT</span>
+        <h1>
+          Personal,<br>
+          gebaut wie<br>
+          <strong>eine <span class="it">Maschine.</span></strong><br>
+          <span class="blue">Bedient wie ein Mensch.</span>
+        </h1>
+      </div>
+      <aside class="hero-aside">
+        <p>LeXpersonal liefert produzierenden Unternehmen, Industriebetrieben und Mittelstand qualifiziertes Personal — kurzfristig überlassen, dauerhaft vermittelt oder im Werkvertrag. Mit der Sorgfalt eines Ingenieurs­büros und der Geschwindigkeit einer Disposition.</p>
+        <div class="row">
+          <span class="k">Standort</span><span class="v">Münster, NRW</span>
+          <span class="k">Operativ seit</span><span class="v">Januar 2008</span>
+          <span class="k">Tarifbindung</span><span class="v">iGZ / DGB</span>
+          <span class="k">ANÜ-Erlaubnis</span><span class="v">unbefristet, BA</span>
+        </div>
+        <div class="cta-row">
+          <a href="#ct" class="btn btn-blue">→ Bedarfsanalyse</a>
+          <a href="#sec" class="btn">→ Datenblatt PDF</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="hero-x-tech">
+      <svg viewBox="0 0 180 220" style="width:100%;height:auto;display:block">
+        <use href="#lex-x"/>
+      </svg>
+      <span class="crosshair">
+        <span class="corner-mark tl"></span>
+        <span class="corner-mark tr"></span>
+        <span class="corner-mark bl"></span>
+        <span class="corner-mark br"></span>
+      </span>
+      <span class="spec">Asset · L:220 · W:180<br>Brand mark, scale 1:1</span>
+    </div>
+
+    <div class="dim-h bottom"><span>x</span><span class="line"></span><span>y</span></div>
+  </section>
+
+  <!-- SPECIFICATIONS -->
+  <section class="specs">
+    <div class="spec-cell">
+      <div class="lbl">Spec · 01 · Operating since</div>
+      <div class="v"><strong>2008</strong></div>
+      <div class="sub">→ 18+ years field<br>experience, Münsterland</div>
+    </div>
+    <div class="spec-cell">
+      <div class="lbl">Spec · 02 · Active pipeline</div>
+      <div class="v">2.400<strong>+</strong></div>
+      <div class="sub">→ pre-screened candidates<br>across all sectors</div>
+    </div>
+    <div class="spec-cell">
+      <div class="lbl">Spec · 03 · Ø Time-to-fill</div>
+      <div class="v">4–7<sub> d</sub></div>
+      <div class="sub">→ from brief to first<br>placement on-site</div>
+    </div>
+    <div class="spec-cell">
+      <div class="lbl">Spec · 04 · Client retention</div>
+      <div class="v">98<strong>%</strong></div>
+      <div class="sub">→ follow-up assignment<br>rate, last 24 months</div>
+    </div>
+  </section>
+</div>
+
+<!-- MODULES -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">02 / 06</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-01 · Leistungs­module M-01 ··· M-03</span></div>
+    <div><span class="lbl">Modules</span><span class="val">3</span></div>
+    <div><span class="lbl">Status</span><span class="val">PRODUCTION</span></div>
+  </div>
+
+  <section class="sec" id="mod">
+    <div class="sec-head">
+      <div>
+        <span class="section-id">SEC-01 · LEISTUNGS­MODULE</span>
+        <h2>Drei <span class="blue">Module —</span><br><strong>je nach Last­profil</strong> einsetzbar.</h2>
+      </div>
+      <p class="lede">Jedes Modul ist auf einen anderen Personal-Bedarf zugeschnitten. Wir kombinieren sie, wenn nötig — und beraten ehrlich, welches Sie wirklich brauchen.</p>
+    </div>
+
+    <div class="modules">
+      <article class="module">
+        <span class="id">M-01 · ANÜ</span>
+        <h3>Arbeitnehmer­überlassung</h3>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen — von der Tagesspitze bis zur langfristigen Verstärkung. Wir bleiben Arbeitgeber, tragen alle Pflichten.</p>
+        <div class="specs-table">
+          <span class="k">Tarif</span><span class="v">iGZ / DGB</span>
+          <span class="k">Bereitstellung</span><span class="v">&lt; 48 h</span>
+          <span class="k">Equal-Pay</span><span class="v">ab Monat 9</span>
+          <span class="k">Übernahme</span><span class="v">jederzeit</span>
+        </div>
+        <a href="#" class="link">→ Datenblatt</a>
+      </article>
+      <article class="module">
+        <span class="id">M-02 · VRM</span>
+        <h3>Personal­vermittlung</h3>
+        <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst, mit langem Atem für beide Seiten. Wir matchen Menschen, nicht Lebensläufe.</p>
+        <div class="specs-table">
+          <span class="k">Honorar</span><span class="v">erfolgsbasiert</span>
+          <span class="k">Garantie</span><span class="v">4 Monate</span>
+          <span class="k">Search</span><span class="v">aktiv + diskret</span>
+          <span class="k">Vorlauf</span><span class="v">10–14 d</span>
+        </div>
+        <a href="#" class="link">→ Datenblatt</a>
+      </article>
+      <article class="module">
+        <span class="id">M-03 · WV</span>
+        <h3>Werk­verträge</h3>
+        <p>Definierte Aufträge, definierte Verantwortung. Wir übernehmen Abwicklung, Steuerung und Ergebnis — Sie konzentrieren sich aufs Kerngeschäft.</p>
+        <div class="specs-table">
+          <span class="k">Modell</span><span class="v">Festpreis o. T&amp;M</span>
+          <span class="k">Steuerung</span><span class="v">eigene Aufsicht</span>
+          <span class="k">Skalierung</span><span class="v">Projekt → Linie</span>
+          <span class="k">Compliance</span><span class="v">rechts­sicher</span>
+        </div>
+        <a href="#" class="link">→ Datenblatt</a>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- SCHEMATIC -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">03 / 06</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-02 · Beziehungs-Schema · Trinity</span></div>
+    <div><span class="lbl">Nodes</span><span class="val">3</span></div>
+    <div><span class="lbl">Status</span><span class="val">GRUND­PRINZIP</span></div>
+  </div>
+
+  <section class="schematic" id="sch">
+    <div class="schematic-grid">
+      <div>
+        <span class="section-id">SEC-02 · SCHEMATIC</span>
+        <h2 style="margin-top:24px"><strong>Drei Knoten,</strong><br>ein <span class="blue">tragender Verbund.</span></h2>
+        <p>Wir glauben nicht an Datenbank-Matching. Wir glauben an Menschen, die einander zuhören. Unsere Arbeit ruht auf einer geometrischen Wahrheit: drei Knoten halten nur, wenn alle drei tragen.</p>
+        <p>Fällt einer aus, bricht das Dreieck — und mit ihm die Personal­entscheidung. Deshalb investieren wir Zeit in jeden Knoten.</p>
+
+        <div class="legend">
+          <div class="item"><span class="mark">A</span><span>Unternehmen · Auftraggeber</span></div>
+          <div class="item"><span class="mark">B</span><span>Kandidat:in · Talent</span></div>
+          <div class="item"><span class="mark">C</span><span>Berater:in · LeXpersonal</span></div>
+          <div class="item"><span class="mark" style="background:var(--blue);color:#fff;border-color:var(--blue)">X</span><span>Schnitt­punkt · Match</span></div>
+        </div>
+      </div>
+      <div class="schematic-visual">
+        <div class="crosshair"></div>
+        <div class="border-marks"></div>
+        <span class="label" style="top:14px;left:14px">FIG. 02-A · TRINITY DIAGRAM</span>
+        <span class="label" style="bottom:14px;right:14px">SCALE 1 : 1</span>
+        <svg viewBox="0 0 600 450" fill="none">
+          <!-- Triangle -->
+          <path d="M300 60 L520 380 L80 380 Z" stroke="#0E1726" stroke-width="1.5"/>
+          <!-- Center construction lines -->
+          <line x1="300" y1="60" x2="300" y2="273" stroke="#2778BC" stroke-dasharray="4 4" stroke-width="1"/>
+          <line x1="520" y1="380" x2="190" y2="220" stroke="#2778BC" stroke-dasharray="4 4" stroke-width="1"/>
+          <line x1="80" y1="380" x2="410" y2="220" stroke="#2778BC" stroke-dasharray="4 4" stroke-width="1"/>
+          <!-- Nodes A, B, C -->
+          <circle cx="300" cy="60" r="14" fill="#F2EFE6" stroke="#0E1726" stroke-width="2"/>
+          <text x="300" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" font-weight="600" fill="#0E1726">A</text>
+          <circle cx="80" cy="380" r="14" fill="#F2EFE6" stroke="#0E1726" stroke-width="2"/>
+          <text x="80" y="386" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" font-weight="600" fill="#0E1726">B</text>
+          <circle cx="520" cy="380" r="14" fill="#F2EFE6" stroke="#0E1726" stroke-width="2"/>
+          <text x="520" y="386" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" font-weight="600" fill="#0E1726">C</text>
+          <!-- Center X -->
+          <g transform="translate(266 240)">
+            <rect x="-4" y="-4" width="76" height="68" fill="#F2EFE6" stroke="#2778BC" stroke-dasharray="3 3"/>
+            <svg x="0" y="0" width="68" height="60" viewBox="0 0 180 220">
+              <use href="#lex-x"/>
+            </svg>
+          </g>
+          <!-- Labels -->
+          <text x="300" y="42" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0E1726" letter-spacing="1">UNTERNEHMEN</text>
+          <text x="80" y="412" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0E1726" letter-spacing="1">KANDIDAT:IN</text>
+          <text x="520" y="412" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0E1726" letter-spacing="1">BERATER:IN</text>
+          <!-- Dimension marks -->
+          <text x="200" y="200" font-family="IBM Plex Mono" font-size="9" fill="#5A6479" letter-spacing="1">d₁</text>
+          <text x="395" y="200" font-family="IBM Plex Mono" font-size="9" fill="#5A6479" letter-spacing="1">d₂</text>
+          <text x="300" y="160" font-family="IBM Plex Mono" font-size="9" fill="#5A6479" letter-spacing="1">d₃</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PROCESS -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">04 / 06</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-03 · Prozess-Sequenz · Briefing → Onboarding</span></div>
+    <div><span class="lbl">Steps</span><span class="val">04</span></div>
+    <div><span class="lbl">Status</span><span class="val">VERIFIZIERT</span></div>
+  </div>
+  <section class="process" id="prc">
+    <div class="sec-head">
+      <div>
+        <span class="section-id">SEC-03 · PROZESS</span>
+        <h2>Vier Schritte —<br><strong>keiner</strong> <span class="blue">übersprungen.</span></h2>
+      </div>
+      <p class="lede">Sorgfalt schlägt Geschwindigkeit — und ist dabei schnell. Jeder Schritt hat eine definierte Output-Gate.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="tl-step">
+          <span class="tag">P-01 / Briefing</span>
+          <div class="timing">↳ Tag 0–1 · &lt; 24 h</div>
+          <h4>Briefing &amp; Bedarfsanalyse</h4>
+          <p>Wir verstehen Branche, Kultur, konkrete Engpass-Position — fachlich und menschlich. Output: Anforderungs­profil.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tag">P-02 / Sourcing</span>
+          <div class="timing">↳ Tag 2–4</div>
+          <h4>Active Sourcing &amp; Screening</h4>
+          <p>Wir prüfen Pipeline, sprechen aktiv Talente an, screenen fundiert. Output: Long- und Shortlist.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tag">P-03 / Match</span>
+          <div class="timing">↳ Tag 5–6</div>
+          <h4>Match &amp; Vorstellung</h4>
+          <p>Sie sehen nur Kandidat:innen, die wir vorher selbst gesprochen haben. Output: Auswahl­treffen.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tag">P-04 / Onboarding</span>
+          <div class="timing">↳ Tag 7 + Follow-up</div>
+          <h4>Onboarding &amp; Check-in</h4>
+          <p>Saubere Vertrags­abwicklung. Persönlicher Anruf nach 2 Wochen. Output: stabile Besetzung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- DATA TABLE / Sectors -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">05 / 06</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-04 · Branchen-Datenblatt · Pipeline-Status</span></div>
+    <div><span class="lbl">Rows</span><span class="val">07</span></div>
+    <div><span class="lbl">Updated</span><span class="val">2026-05-27</span></div>
+  </div>
+
+  <section class="data-tbl" id="sec">
+    <div class="sec-head">
+      <div>
+        <span class="section-id">SEC-04 · BRANCHEN-PIPELINE</span>
+        <h2>Sieben Branchen.<br><strong>Stand <span class="blue">Q2 / 2026.</span></strong></h2>
+      </div>
+      <p class="lede">Live-Daten unserer aktiven Pipeline. Stand wöchentlich aktualisiert. Anfragen werden innerhalb von 24 Stunden mit konkretem Vorschlag beantwortet.</p>
+    </div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:60px">ID</th>
+          <th>Branche</th>
+          <th>Schwerpunkt</th>
+          <th style="width:110px;text-align:right">Pipeline</th>
+          <th style="width:140px;text-align:right">Ø Lead-time</th>
+          <th style="width:120px">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="id">B-01</td>
+          <td class="nm">Industrie &amp; Metall</td>
+          <td class="ds">Produktion, Instandhaltung, Schicht</td>
+          <td class="num">420</td>
+          <td class="num">3 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-02</td>
+          <td class="nm">Handwerk</td>
+          <td class="ds">Maler, Elektro, Mechatronik</td>
+          <td class="num">380</td>
+          <td class="num">4 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-03</td>
+          <td class="nm">Logistik</td>
+          <td class="ds">Lager, Versand, Stapler</td>
+          <td class="num">290</td>
+          <td class="num">2 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-04</td>
+          <td class="nm">Pflege</td>
+          <td class="ds">Examiniert, Heim &amp; Klinik</td>
+          <td class="num">210</td>
+          <td class="num">5 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-05</td>
+          <td class="nm">Office &amp; Verwaltung</td>
+          <td class="ds">Sachbearbeitung, Buchhaltung</td>
+          <td class="num">350</td>
+          <td class="num">4 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-06</td>
+          <td class="nm">Gastronomie</td>
+          <td class="ds">Service, Küche, Events</td>
+          <td class="num">170</td>
+          <td class="num">2 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+        <tr>
+          <td class="id">B-07</td>
+          <td class="nm">Bau</td>
+          <td class="ds">Roh-, Aus- und Tiefbau</td>
+          <td class="num">240</td>
+          <td class="num">5 d</td>
+          <td class="stat"><span class="badge">aktiv</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<!-- COMPLIANCE -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">06 / 06</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-05 · Compliance · Zertifizierungen · Mitgliedschaften</span></div>
+    <div><span class="lbl">Standards</span><span class="val">DIN / iGZ / DSGVO</span></div>
+    <div><span class="lbl">Status</span><span class="val">AUDITIERT</span></div>
+  </div>
+  <section class="compliance" id="cmp">
+    <div class="grid"></div>
+    <div class="compliance-inner">
+      <div>
+        <span class="section-id" style="background:var(--cyan);border-color:var(--cyan);color:#fff">SEC-05 · COMPLIANCE</span>
+        <h3 style="margin-top:24px">Audit-Track.<br><strong>Keine</strong> <span class="blue">Überraschungen</span> für die Einkaufs-Compliance.</h3>
+        <p>Wir sind iGZ-Mitglied, tarifgebunden, ANÜ-zugelassen und DSGVO-konform aufgestellt. Die Dokumente liefern wir mit der ersten Anfrage — nicht nach Nachhaken.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert">
+          <div class="lbl">Cert · 01</div>
+          <div class="nm">iGZ-Mitgliedschaft</div>
+          <div class="ds">Interessenverband Deutscher Zeitarbeits­unternehmen · Tarif­bindung iGZ/DGB.</div>
+        </div>
+        <div class="cert">
+          <div class="lbl">Cert · 02</div>
+          <div class="nm">ANÜ-Erlaubnis BA</div>
+          <div class="ds">Unbefristete Erlaubnis zur Arbeit­nehmer­überlassung durch die Bundes­agentur für Arbeit.</div>
+        </div>
+        <div class="cert">
+          <div class="lbl">Cert · 03</div>
+          <div class="nm">DSGVO-Konformität</div>
+          <div class="ds">Geprüfte Verfahrens­verzeichnisse, Auftrags­verarbeitung, Datenschutz­beauftragte:r.</div>
+        </div>
+        <div class="cert">
+          <div class="lbl">Cert · 04</div>
+          <div class="nm">Lieferanten­fähigkeit</div>
+          <div class="ds">Auf gängigen Lieferanten­plattformen (SAP Fieldglass etc.) gelistet und qualifiziert.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="sheet">
+  <span class="sheet-corner tl"></span><span class="sheet-corner tr"></span>
+  <span class="sheet-corner bl"></span><span class="sheet-corner br"></span>
+  <div class="title-block">
+    <div><span class="lbl">Sheet</span><span class="val">— / END</span></div>
+    <div><span class="lbl">Subject</span><span class="val">SEC-06 · Kontakt · Auftrags­anfrage</span></div>
+    <div><span class="lbl">Channel</span><span class="val">OPEN</span></div>
+    <div><span class="lbl">Response</span><span class="val">&lt; 24 H</span></div>
+  </div>
+
+  <section class="contact" id="ct">
+    <div class="contact-grid">
+      <div>
+        <span class="section-id">SEC-06 · KONTAKT</span>
+        <h3 style="margin-top:24px">Anfrage<br><strong>versenden —</strong><br><span class="blue">Antwort &lt; 24 h.</span></h3>
+        <p style="margin-top:20px;max-width:380px">Sie schildern uns Bedarf, Modell und Branche. Wir prüfen ehrlich und melden uns mit einer konkreten Antwort — keine Auto-Responder, keine Sales-Schleife.</p>
+      </div>
+      <div class="right">
+        <div class="row">
+          <span class="k">— Telefon</span>
+          <span class="v"><a href="tel:+492512652490">0251 — 26 52 49 20</a></span>
+        </div>
+        <div class="row">
+          <span class="k">— E-Mail</span>
+          <span class="v"><a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a></span>
+        </div>
+        <div class="row">
+          <span class="k">— Standort</span>
+          <span class="v">An den Loddenbüschen 95<br>48155 Münster</span>
+        </div>
+        <div class="row">
+          <span class="k">— Sprechzeit</span>
+          <span class="v">Mo – Fr · 08:00 – 17:00<br>Termine nach Vereinbarung</span>
+        </div>
+        <div class="cta-row">
+          <a href="#" class="btn btn-blue">→ Anfrageformular öffnen</a>
+          <a href="#" class="btn">→ Datenblatt PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · DOC. LEX-OV-2026 REV.18.2</span>
+  <span>Konzept · Engineering Blueprint</span>
+  <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">AGB</a> · <a href="#">Lieferantenkodex</a></span>
+</footer>
+
+</body>
+</html>

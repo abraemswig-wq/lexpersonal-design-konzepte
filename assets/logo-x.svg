@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" fill="none" aria-label="LeXpersonal X">
+  <!-- Band 1: top-left → bottom-right (front) -->
+  <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+  <!-- Band 2: top-right → bottom-left (over) -->
+  <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+  <!-- Fold highlights -->
+  <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+  <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+  <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+  <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+</svg>
