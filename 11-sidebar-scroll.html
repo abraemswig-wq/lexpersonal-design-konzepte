@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Sticky Sidebar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F4F1EC;
+  --paper-2:#EAE5D8;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#2D3447;
+  --muted:#6B7080;
+  --line:rgba(11,26,51,0.12);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500}
+
+/* LAYOUT — Sticky Sidebar Left */
+.layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh;background:var(--paper)}
+@media (max-width:1100px){.layout{grid-template-columns:280px 1fr}}
+@media (max-width:768px){.layout{grid-template-columns:1fr}}
+
+/* SIDEBAR — Replaces header */
+.sidebar{position:sticky;top:0;left:0;width:100%;height:100vh;background:var(--ink-deep);color:var(--paper);padding:40px 36px;display:flex;flex-direction:column;border-right:1px solid var(--line);overflow:hidden}
+.sidebar::before{content:"";position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:320px;height:391px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 220'><path d='M0 0 L34 0 L180 220 L146 220 Z' fill='%23009FE3' opacity='0.9'/><path d='M180 0 L146 0 L0 220 L34 220 Z' fill='%232778BC' opacity='0.55'/></svg>") no-repeat;background-size:contain;opacity:0.06;pointer-events:none}
+.side-top{position:relative;z-index:2}
+.sidebar .logo{display:flex;align-items:center;gap:12px;color:var(--paper);margin-bottom:32px}
+.sidebar .logo svg{width:30px;height:36px}
+.sidebar .logo-text{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.08em}
+.sidebar .logo-text strong{font-weight:600;color:var(--cyan)}
+.sidebar .tagline{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.4;color:rgba(244,241,236,0.85);margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(244,241,236,0.15)}
+.side-nav{position:relative;z-index:2;display:flex;flex-direction:column;gap:2px;margin-bottom:32px}
+.side-nav .nv-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(244,241,236,0.4);font-weight:600;margin-bottom:12px;padding-left:14px}
+.side-nav a{display:flex;align-items:center;gap:14px;padding:11px 14px;font-size:14.5px;color:rgba(244,241,236,0.7);border-radius:6px;font-weight:500;transition:all .15s;position:relative}
+.side-nav a:hover{background:rgba(255,255,255,0.04);color:var(--paper)}
+.side-nav a .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(244,241,236,0.4);font-weight:600;letter-spacing:0.06em}
+.side-nav a.active{background:rgba(0,159,227,0.12);color:var(--cyan)}
+.side-nav a.active::before{content:"";position:absolute;left:-4px;top:8px;bottom:8px;width:2px;background:var(--cyan)}
+.side-nav a.active .num{color:var(--cyan)}
+.side-bottom{margin-top:auto;position:relative;z-index:2;padding-top:24px;border-top:1px solid rgba(244,241,236,0.15);display:flex;flex-direction:column;gap:14px}
+.side-bottom .mono{color:rgba(244,241,236,0.5);font-weight:500;font-size:9.5px;letter-spacing:0.14em}
+.side-bottom .contact a,.side-bottom .contact p{font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--paper);letter-spacing:-0.005em;line-height:1.5;display:block}
+.side-bottom .contact a:hover{color:var(--cyan)}
+.side-bottom .cta{display:inline-flex;justify-content:center;padding:12px 16px;background:var(--cyan);color:var(--ink-deep);font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.02em;border-radius:6px;margin-top:8px}
+.side-bottom .cta:hover{background:var(--paper);color:var(--ink-deep)}
+
+@media (max-width:768px){
+  .sidebar{position:static;height:auto;padding:24px}
+  .side-nav{display:none}
+  .side-bottom{margin-top:24px}
+}
+
+/* MAIN CONTENT */
+.main{padding:64px 80px}
+.main-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:64px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;flex-wrap:wrap;gap:12px}
+.main-top strong{color:var(--ink);font-weight:600}
+
+/* SECTIONS */
+.sec{padding:48px 0 96px;border-bottom:1px solid var(--line)}
+.sec:last-of-type{border-bottom:none}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.sec-num .bar{width:32px;height:1px;background:var(--cyan)}
+.sec h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(40px,5vw,76px);line-height:1.0;letter-spacing:-0.035em;color:var(--ink);max-width:1080px}
+.sec h2 strong{font-weight:600}
+.sec h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+
+/* Hero / 00 */
+.hero h1{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(56px,7.5vw,124px);line-height:0.95;letter-spacing:-0.04em;color:var(--ink);max-width:1240px;margin-bottom:32px}
+.hero h1 strong{font-weight:600}
+.hero h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.hero .lede{font-family:'Source Serif 4',serif;font-style:italic;font-size:22px;line-height:1.5;color:var(--text);max-width:680px;font-weight:300;margin-bottom:48px}
+.hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero-metrics .st .v{font-family:'Inter',sans-serif;font-weight:300;font-size:48px;line-height:1;letter-spacing:-0.035em;color:var(--ink)}
+.hero-metrics .st .v strong{font-weight:500;color:var(--blue)}
+.hero-metrics .st .v sub{font-size:14px;color:var(--muted);font-weight:300;vertical-align:baseline;margin-left:4px}
+.hero-metrics .st .l{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* Sec content */
+.sec p.lede{margin-top:24px;font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--text);max-width:680px;font-weight:300}
+.sec-body{margin-top:48px}
+.sec-body p{font-size:17px;line-height:1.7;color:var(--text);margin-bottom:18px;max-width:780px}
+.sec-body p strong{color:var(--ink);font-weight:500}
+.sec-body p em{font-style:italic;color:var(--blue)}
+
+/* Modelle */
+.models{display:flex;flex-direction:column;gap:0;margin-top:48px;border-top:1px solid var(--ink)}
+.model{display:grid;grid-template-columns:100px 1fr auto;gap:48px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start;transition:padding .2s}
+.model:hover{padding-left:14px}
+.model:last-child{border-bottom:1px solid var(--ink)}
+.model .id{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:600;padding-top:8px}
+.model .ct h4{font-family:'Inter',sans-serif;font-weight:500;font-size:30px;letter-spacing:-0.02em;color:var(--ink);line-height:1.1;margin-bottom:8px}
+.model .ct h4 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.model .ct p{font-size:15.5px;line-height:1.65;color:var(--text);max-width:680px;margin-bottom:14px}
+.model .ct .meta{display:flex;gap:24px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.model .ct .meta strong{color:var(--ink);font-weight:700}
+.model .arr{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:36px;color:var(--blue);padding-top:6px}
+@media (max-width:900px){.model{grid-template-columns:1fr;gap:14px}.model .arr{display:none}}
+
+/* References table */
+.refs{margin-top:48px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.ref-row{display:grid;grid-template-columns:90px 1.4fr 1fr 100px;gap:24px;padding:18px 24px;border-bottom:1px solid var(--line);align-items:center}
+.ref-row:last-child{border-bottom:none}
+.ref-row.head{background:var(--paper-2);border-bottom:1px solid var(--ink)}
+.ref-row.head span{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.ref-row .yr{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--blue);font-weight:700}
+.ref-row .nm{font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--ink);letter-spacing:-0.015em}
+.ref-row .nm small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px;letter-spacing:0}
+.ref-row .br{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);font-weight:500}
+.ref-row .vol{text-align:right;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
+@media (max-width:900px){.ref-row{grid-template-columns:1fr 1fr;gap:14px}.ref-row.head{display:none}}
+
+/* Process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:48px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.proc .stp{background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:14px}
+.proc .stp .num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:48px;line-height:1;color:var(--blue);letter-spacing:-0.025em}
+.proc .stp h5{font-family:'Inter',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.015em;color:var(--ink)}
+.proc .stp p{font-size:13.5px;line-height:1.55;color:var(--text)}
+.proc .stp .timing{margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:700}
+@media (max-width:900px){.proc{grid-template-columns:1fr}}
+
+/* Quote bar */
+.quote{margin-top:48px;padding:36px 36px;background:var(--paper-2);border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.quote blockquote{font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;font-size:24px;line-height:1.4;color:var(--ink);max-width:780px}
+.quote blockquote em{color:var(--blue);font-weight:400}
+.quote cite{margin-top:18px;display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+@media (max-width:900px){.main{padding:40px 32px}.hero-metrics{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:600px){.main{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<div class="layout">
+
+  <!-- STICKY SIDEBAR (replaces header) -->
+  <aside class="sidebar">
+    <div class="side-top">
+      <a href="#" class="logo">
+        <svg><use href="#lex-x"/></svg>
+        <span class="logo-text">LE<strong>X</strong>PERSONAL</span>
+      </a>
+      <p class="tagline">„Personal, auf das sich Industrie verlässt." — Aus Münster, seit Anno 2008.</p>
+    </div>
+
+    <nav class="side-nav">
+      <div class="nv-label">— Auf dieser Seite</div>
+      <a href="#hero" class="active"><span class="num">00</span>Übersicht</a>
+      <a href="#about"><span class="num">01</span>Über LeXpersonal</a>
+      <a href="#modelle"><span class="num">02</span>Drei Modelle</a>
+      <a href="#process"><span class="num">03</span>Vorgehen</a>
+      <a href="#refs"><span class="num">04</span>Referenzen</a>
+      <a href="#kontakt"><span class="num">05</span>Kontakt</a>
+    </nav>
+
+    <div class="side-bottom">
+      <div class="contact">
+        <span class="mono">— Direkter Draht</span>
+        <a href="tel:+492512652490">0251 — 26 52 49 20</a>
+        <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+        <p style="font-size:13px;color:rgba(244,241,236,0.6);margin-top:8px">An den Loddenbüschen 95<br>48155 Münster</p>
+      </div>
+      <a href="#kontakt" class="cta">Anfrage stellen →</a>
+      <div class="mono" style="color:rgba(244,241,236,0.35);text-align:center;margin-top:4px">© 2026 · Edition VII</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-top">
+      <span>· Dokument 2026 / 005 ·</span>
+      <span><strong>EDITION VII · 27. MAI 2026</strong></span>
+      <span>· Konzern-Übersicht ·</span>
+    </div>
+
+    <!-- HERO -->
+    <section class="sec hero" id="hero" style="padding-top:0;border-bottom:1px solid var(--line)">
+      <div class="sec-num"><span class="bar"></span><span>00 · Übersicht</span></div>
+      <h1>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h1>
+      <p class="lede">Wir liefern produzierenden Unternehmen, Mittelstand und Industrie qualifiziertes Personal — flexibel überlassen, dauerhaft vermittelt oder im Werkvertrag abgewickelt. Seit Anno 2008. Aus Münster.</p>
+      <div class="hero-metrics">
+        <div class="st"><span class="v"><strong>2008</strong></span><div class="l">Operativ seit</div></div>
+        <div class="st"><span class="v">2.4<strong>K</strong>+</span><div class="l">Aktive Pipeline</div></div>
+        <div class="st"><span class="v">4–7<sub>d</sub></span><div class="l">Time-to-Fill</div></div>
+        <div class="st"><span class="v">98<sub>%</sub></span><div class="l">Folgeauftrag</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec" id="about">
+      <div class="sec-num"><span class="bar"></span><span>01 · Über LeXpersonal</span></div>
+      <h2>Mehr als ein<br><em>Dienstleister</em> —<br><strong>seit 2008.</strong></h2>
+      <p class="lede">Wir sind Personalexperten mit Leidenschaft. Unsere Arbeit ruht auf drei Grundprinzipien, die nicht im Flur hängen — sondern in jeder Vertragsabwicklung und jedem Telefonat präsent sind.</p>
+      <div class="sec-body">
+        <p>Achtzehn Jahre nach unserer Gründung sind wir das, was Berater in <em>strategiegeschwängerten Konzern­zentralen</em> gern „ankerstabil" nennen: ein Mittelständler, der Konzern-Mittelständler trägt. Vorrangig Industrie. Vorrangig Münsterland. Vorrangig diejenigen, die wissen, dass <strong>Personalentscheidungen Zeit brauchen.</strong></p>
+        <p>Wir sind iGZ-tarifgebunden, verfügen über die <strong>unbefristete ANÜ-Erlaubnis</strong> und sind auf den gängigen Lieferantenplattformen für Konzern-Einkauf gelistet. Unsere Compliance-Unterlagen senden wir Ihnen auf Anfrage in einem konsolidierten Dossier zu.</p>
+      </div>
+      <div class="quote">
+        <blockquote>„Wir glauben nicht an Datenbank-Matching. Wir glauben an <em>Menschen,</em> die einander zuhören."</blockquote>
+        <cite>— Grundsatz LeXpersonal, seit 2008</cite>
+      </div>
+    </section>
+
+    <!-- MODELLE -->
+    <section class="sec" id="modelle">
+      <div class="sec-num"><span class="bar"></span><span>02 · Drei Modelle</span></div>
+      <h2>Je nach <em>Lastprofil</em><br>Ihres Hauses —<br><strong>passend gewählt.</strong></h2>
+      <p class="lede">Wir liefern nicht nach Schema F. Sie wählen das Modell — wir beraten Sie ehrlich, welches in Ihrer konkreten Situation zum Ziel führt.</p>
+
+      <div class="models">
+        <article class="model">
+          <span class="id">M·01</span>
+          <div class="ct">
+            <h4>Arbeitnehmer­<em>überlassung</em></h4>
+            <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Wir bleiben Arbeitgeber und tragen alle Pflichten. Sie behalten Beweglichkeit ohne fixe Personal­kosten.</p>
+            <div class="meta"><span>Bereitstellung <strong>&lt; 48 h</strong></span><span>Tarif <strong>iGZ/DGB</strong></span><span>Übernahme <strong>jederzeit</strong></span></div>
+          </div>
+          <span class="arr">→</span>
+        </article>
+        <article class="model">
+          <span class="id">M·02</span>
+          <div class="ct">
+            <h4>Personal­<em>vermittlung</em></h4>
+            <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst, mit langem Atem. Honorar erst bei Erfolg, vier Monate Nachbesetzungs­garantie.</p>
+            <div class="meta"><span>Honorar <strong>erfolgsbasiert</strong></span><span>Garantie <strong>4 Monate</strong></span><span>Verbleib 18 Mo. <strong>86 %</strong></span></div>
+          </div>
+          <span class="arr">→</span>
+        </article>
+        <article class="model">
+          <span class="id">M·03</span>
+          <div class="ct">
+            <h4>Werk­<em>verträge</em></h4>
+            <p>Definierte Aufträge mit eigener Steuerung und rechtssicherer Abgrenzung. Wir übernehmen Abwicklung, Steuerung und Ergebnis — Sie konzentrieren sich aufs Kerngeschäft.</p>
+            <div class="meta"><span>Modell <strong>Festpreis o. T&amp;M</strong></span><span>Steuerung <strong>eigene Aufsicht</strong></span><span>Compliance <strong>rechtssicher</strong></span></div>
+          </div>
+          <span class="arr">→</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sec" id="process">
+      <div class="sec-num"><span class="bar"></span><span>03 · Vorgehen</span></div>
+      <h2>Vier Schritte —<br><strong>keiner</strong><br><em>übersprungen.</em></h2>
+      <p class="lede">Sorgfalt schlägt Geschwindigkeit — und ist dabei schnell. Jeder Schritt hat eine definierte Output-Gate.</p>
+
+      <div class="proc">
+        <div class="stp">
+          <span class="num">i.</span>
+          <h5>Briefing &amp; Bedarfsanalyse</h5>
+          <p>Wir kommen ins Haus, sprechen mit Geschäftsleitung und Disponent:in. Output: Anforderungs­profil.</p>
+          <span class="timing">↳ &lt; 24 h</span>
+        </div>
+        <div class="stp">
+          <span class="num">ii.</span>
+          <h5>Active Sourcing</h5>
+          <p>Pipeline-Aktivierung, gezielte Ansprache, fachliche und persönliche Eignungsprüfung. Output: Shortlist.</p>
+          <span class="timing">↳ Tag 2–4</span>
+        </div>
+        <div class="stp">
+          <span class="num">iii.</span>
+          <h5>Match &amp; Vorstellung</h5>
+          <p>Sie sehen ausschließlich Kandidat:innen, die wir vorher selbst gesprochen haben.</p>
+          <span class="timing">↳ Tag 5–6</span>
+        </div>
+        <div class="stp">
+          <span class="num">iv.</span>
+          <h5>Onboarding &amp; Check-in</h5>
+          <p>Saubere Vertragsabwicklung. Persönlicher Anruf nach zwei Wochen. Output: stabile Besetzung.</p>
+          <span class="timing">↳ Tag 7 + Follow-up</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="sec" id="refs">
+      <div class="sec-num"><span class="bar"></span><span>04 · Referenzen</span></div>
+      <h2>Belegt durch <em>Praxis —</em><br>nicht durch<br><strong>Marketing.</strong></h2>
+      <p class="lede">Eine Auswahl aktiver Engagements aus den letzten 24 Monaten. Vollständige Referenz­liste auf Anfrage.</p>
+
+      <div class="refs">
+        <div class="ref-row head"><span>Zeitraum</span><span>Kunde &amp; Branche</span><span>Modell</span><span style="text-align:right">Volumen</span></div>
+        <div class="ref-row"><span class="yr">2024–25</span><span class="nm">Industriebetrieb · Münsterland<small>Werkserweiterung Metallproduktion</small></span><span class="br">ANÜ + Vermittlung</span><span class="vol">140 MA</span></div>
+        <div class="ref-row"><span class="yr">2024</span><span class="nm">Logistikdienstleister · Greven<small>Saisonale Peak-Skalierung Q4</small></span><span class="br">ANÜ</span><span class="vol">28 MA / 3 Wo.</span></div>
+        <div class="ref-row"><span class="yr">2025</span><span class="nm">Steuerkanzlei · Münster Zentrum<small>Direktvermittlung Office &amp; Leitung</small></span><span class="br">Vermittlung</span><span class="vol">4 Festeinst.</span></div>
+        <div class="ref-row"><span class="yr">2024+</span><span class="nm">Pflegeeinrichtung · NRW<small>Nachtdienst-Auslagerung</small></span><span class="br">Werkvertrag</span><span class="vol">12 MA · 18 Mo.</span></div>
+        <div class="ref-row"><span class="yr">2025</span><span class="nm">Mittelständischer Maschinenbau · Coesfeld<small>CNC-Fachkräfte Werkvertrag</small></span><span class="br">Werkvertrag</span><span class="vol">8 MA · 6 Mo.</span></div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="sec" id="kontakt" style="border-bottom:none">
+      <div class="sec-num"><span class="bar"></span><span>05 · Kontakt</span></div>
+      <h2>Sprechen wir<br><em>persönlich —</em><br>nicht algorithmisch.</h2>
+      <p class="lede">Sie schildern uns Bedarf, Modell und Branche. Wir prüfen ehrlich und melden uns innerhalb von 24 Stunden mit einer konkreten Antwort.</p>
+      <div class="sec-body" style="margin-top:32px">
+        <p>Sie finden alle Kontaktdaten dauerhaft in der linken Sidebar. Für eine direkte Bedarfs­analyse <a href="#" style="color:var(--blue);font-weight:600;border-bottom:1px solid var(--blue)">starten Sie hier den Anfrageprozess</a> — oder rufen Sie uns einfach an.</p>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

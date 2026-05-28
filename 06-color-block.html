@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Color Blocks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F4F1EC;
+  --cream:#EAE4D5;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --cyan-bright:#1DB4F0;
+  --sand:#D4B57A;
+  --text:#2D3447;
+  --muted:#6B7080;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500}
+
+/* HEADER — Floating Pill rechts oben */
+.head-wrap{position:fixed;top:24px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;padding:0 32px;pointer-events:none}
+.head-wrap > *{pointer-events:auto}
+.head-strip{display:flex;align-items:center;gap:12px;padding:10px 18px;background:rgba(244,241,236,0.85);backdrop-filter:blur(12px);border:1px solid rgba(11,26,51,0.1);border-radius:99px;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500}
+.head-strip svg{width:20px;height:25px}
+.head-strip strong{font-weight:600;color:var(--blue);text-transform:none;letter-spacing:0.04em;font-family:'Inter',sans-serif;font-size:14px}
+.head-nav{display:flex;gap:8px;align-items:center}
+.head-nav a{padding:10px 18px;background:rgba(244,241,236,0.85);backdrop-filter:blur(12px);border:1px solid rgba(11,26,51,0.1);border-radius:99px;color:var(--ink);font-size:13px;font-weight:500;letter-spacing:-0.005em}
+.head-nav a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.head-nav a.cta{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:600}
+.head-nav a.cta:hover{background:var(--ink);border-color:var(--ink)}
+@media (max-width:900px){.head-wrap{padding:0 16px}.head-nav a:not(.cta){display:none}}
+
+/* COLOR BLOCK base */
+.block{min-height:100vh;padding:120px 64px 80px;display:flex;align-items:center;position:relative;overflow:hidden}
+.block-inner{max-width:1320px;margin:0 auto;width:100%}
+.block-meta{position:absolute;top:28px;left:64px;right:64px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;opacity:0.55}
+.block-meta strong{opacity:1;font-weight:700}
+
+/* === Block 1 — Paper Cream, Hero === */
+.b1{background:var(--paper);color:var(--ink);min-height:100vh}
+.b1 .block-meta{color:var(--muted)}
+.b1 .block-meta strong{color:var(--ink)}
+.b1 h1{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(64px,10vw,180px);line-height:0.92;letter-spacing:-0.045em;color:var(--ink);max-width:1280px}
+.b1 h1 strong{font-weight:500}
+.b1 h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.b1 .sub{margin-top:32px;font-family:'Source Serif 4',serif;font-style:italic;font-size:24px;line-height:1.5;color:var(--text);max-width:680px;font-weight:300}
+.b1 .row{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.b1 .row .btn{padding:14px 28px;background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;border-radius:99px;transition:all .15s}
+.b1 .row .btn:hover{background:var(--blue)}
+.b1 .row .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.b1 .row .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Indicator left-bar — number */
+.idx{position:absolute;left:64px;bottom:48px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;opacity:0.6}
+.idx .big{font-family:'Inter',sans-serif;font-weight:300;font-size:60px;line-height:0.9;letter-spacing:-0.04em;opacity:1}
+.idx .of{font-size:14px;font-weight:400;opacity:0.7;letter-spacing:0}
+
+/* === Block 2 — Royal Blue full-screen statement === */
+.b2{background:var(--blue);color:#fff}
+.b2 .block-meta{color:rgba(255,255,255,0.55)}
+.b2 .block-meta strong{color:#fff}
+.b2 .grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
+.b2 h2{font-family:'Source Serif 4',serif;font-weight:300;font-style:italic;font-size:clamp(48px,7vw,128px);line-height:1.0;letter-spacing:-0.03em;color:#fff}
+.b2 h2 em{font-style:normal;color:var(--sand);font-weight:400}
+.b2 .body p{font-size:18.5px;line-height:1.75;color:rgba(255,255,255,0.88);margin-bottom:18px;max-width:520px}
+.b2 .body p strong{color:#fff;font-weight:500}
+.b2 .body .stats{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.2)}
+.b2 .body .st .v{font-family:'Inter',sans-serif;font-weight:300;font-size:56px;line-height:1;letter-spacing:-0.035em;color:#fff}
+.b2 .body .st .v strong{font-weight:500;color:var(--sand)}
+.b2 .body .st .l{margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);font-weight:600}
+
+/* === Block 3 — Cream + Tiefblau-Karten === */
+.b3{background:var(--cream);color:var(--ink);min-height:auto;padding-top:140px;padding-bottom:140px}
+.b3 .block-meta{color:var(--muted)}
+.b3 .block-meta strong{color:var(--ink)}
+.b3 .head-row{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;margin-bottom:64px;align-items:end}
+.b3 h2{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(40px,5.5vw,84px);line-height:0.98;letter-spacing:-0.035em;color:var(--ink)}
+.b3 h2 strong{font-weight:500}
+.b3 h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.b3 .head-row p{font-size:18px;line-height:1.65;color:var(--text);max-width:480px;padding-bottom:8px}
+.b3 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.b3 .card{background:var(--ink);color:var(--paper);padding:36px 32px;border-radius:8px;display:flex;flex-direction:column;gap:18px;min-height:380px;transition:transform .25s,background .25s}
+.b3 .card:hover{transform:translateY(-4px);background:var(--ink-deep)}
+.b3 .card .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan-bright);font-weight:600}
+.b3 .card h3{font-family:'Inter',sans-serif;font-weight:300;font-size:32px;line-height:1.05;letter-spacing:-0.025em;color:#fff}
+.b3 .card h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan-bright);font-weight:300}
+.b3 .card p{font-size:14.5px;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:auto}
+.b3 .card .arrow{margin-top:auto;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:32px;color:var(--cyan-bright)}
+@media (max-width:900px){.b3 .head-row{grid-template-columns:1fr;gap:24px}.b3 .cards{grid-template-columns:1fr}}
+
+/* === Block 4 — Cyan-Bright full screen === */
+.b4{background:var(--cyan);color:#fff}
+.b4 .block-meta{color:rgba(255,255,255,0.65)}
+.b4 .block-meta strong{color:#fff}
+.b4 blockquote{font-family:'Source Serif 4',serif;font-weight:300;font-style:italic;font-size:clamp(48px,7.5vw,140px);line-height:1.1;letter-spacing:-0.025em;color:#fff;max-width:1280px;text-shadow:0 4px 30px rgba(11,26,51,0.15)}
+.b4 blockquote em{font-style:normal;color:var(--ink);font-weight:500}
+.b4 cite{margin-top:48px;display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75);font-weight:600;display:flex;align-items:center;gap:14px}
+.b4 cite::before{content:"";width:48px;height:2px;background:var(--ink)}
+
+/* === Block 5 — Sand split === */
+.b5{background:var(--sand);color:var(--ink);min-height:auto;padding-top:140px;padding-bottom:140px}
+.b5 .block-meta{color:rgba(11,26,51,0.55)}
+.b5 .block-meta strong{color:var(--ink)}
+.b5 .grid{display:grid;grid-template-columns:1fr 1.4fr;gap:96px;align-items:center}
+.b5 h2{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(40px,5.5vw,80px);line-height:1.0;letter-spacing:-0.035em;color:var(--ink);margin-bottom:24px}
+.b5 h2 strong{font-weight:500}
+.b5 h2 em{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;color:var(--ink-deep)}
+.b5 p{font-size:17px;line-height:1.7;color:var(--text);max-width:380px}
+.b5 .points{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink)}
+.b5 .pt{display:grid;grid-template-columns:60px 1fr 100px;gap:24px;padding:24px 0;border-bottom:1px solid rgba(11,26,51,0.18);align-items:start}
+.b5 .pt:last-child{border-bottom:1px solid var(--ink)}
+.b5 .pt .num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:32px;line-height:1;color:var(--ink-deep);letter-spacing:-0.02em}
+.b5 .pt h4{font-family:'Inter',sans-serif;font-weight:500;font-size:20px;letter-spacing:-0.015em;color:var(--ink);line-height:1.2;margin-bottom:6px}
+.b5 .pt p{font-size:14.5px;line-height:1.6;color:var(--text);max-width:540px}
+.b5 .pt .val{text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-deep);font-weight:700;padding-top:8px}
+@media (max-width:900px){.b5 .grid{grid-template-columns:1fr;gap:32px}.b5 .pt{grid-template-columns:1fr;gap:6px}.b5 .pt .val{text-align:left}}
+
+/* === Block 6 — Final Ink-Deep, Kontakt === */
+.b6{background:var(--ink-deep);color:var(--paper)}
+.b6 .block-meta{color:rgba(244,241,236,0.55)}
+.b6 .block-meta strong{color:var(--paper)}
+.b6 .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:96px;align-items:end}
+.b6 h2{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(56px,9vw,156px);line-height:0.92;letter-spacing:-0.04em;color:#fff}
+.b6 h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:300}
+.b6 .info{padding-top:18px;display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(255,255,255,0.2)}
+.b6 .row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.12);align-items:baseline}
+.b6 .row:last-of-type{border-bottom:none}
+.b6 .row .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600}
+.b6 .row .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:22px;color:#fff;letter-spacing:-0.01em}
+.b6 .row .v a:hover{color:var(--cyan)}
+.b6 .cta{margin-top:24px;padding:14px 28px;background:var(--cyan);color:var(--ink-deep);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;border-radius:99px;align-self:flex-start;display:inline-block}
+
+@media (max-width:900px){
+  .block{padding:96px 24px 64px;min-height:auto}
+  .block-meta{left:24px;right:24px;top:18px}
+  .idx{left:24px;bottom:32px}
+  .b2 .grid,.b6 .grid{grid-template-columns:1fr;gap:32px}
+  .b2 .body .stats{grid-template-columns:1fr 1fr;gap:24px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- FLOATING PILL HEADER -->
+<header class="head-wrap">
+  <a href="#" class="head-strip">
+    <svg><use href="#lex-x"/></svg>
+    <strong>LE<span style="color:var(--ink)">X</span>PERSONAL</strong>
+    <span style="opacity:0.6">· MÜNSTER</span>
+  </a>
+  <nav class="head-nav">
+    <a href="#b2">Profil</a>
+    <a href="#b3">Modelle</a>
+    <a href="#b5">Referenzen</a>
+    <a href="#b6" class="cta">Anfrage stellen →</a>
+  </nav>
+</header>
+
+<!-- 01 / HERO -->
+<section class="block b1" id="b1">
+  <div class="block-meta"><span>· Edition 2026 · LeXpersonal GmbH</span><span><strong>BLOCK 01 / 06</strong></span><span>Münster · NRW · DE</span></div>
+  <div class="block-inner">
+    <h1>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h1>
+    <p class="sub">Wir liefern produzierenden Unternehmen, Industrie und Mittelstand qualifiziertes Personal — flexibel überlassen, dauerhaft vermittelt, im Werkvertrag abgewickelt. Seit 2008. Aus Münster.</p>
+    <div class="row">
+      <a href="#b6" class="btn">Bedarfsanalyse →</a>
+      <a href="#b2" class="btn ghost">Mehr erfahren ↓</a>
+    </div>
+  </div>
+  <div class="idx"><span class="big">01</span><span class="of">/ 06 Blocks</span></div>
+</section>
+
+<!-- 02 / Royal Blue — Profil -->
+<section class="block b2" id="b2">
+  <div class="block-meta"><span>· Profil ·</span><span><strong>BLOCK 02 / 06</strong></span><span>Personnel since 2008</span></div>
+  <div class="block-inner">
+    <div class="grid">
+      <h2>Achtzehn Jahre<br>belegen, dass<br>es <em>funktioniert.</em></h2>
+      <div class="body">
+        <p>LeXpersonal liefert seit Anno 2008 Personal an produzierende Unternehmen, Mittelstand und Industrie. Unsere Pipeline umfasst <strong>2.430 vorgeprüfte Talente</strong> in sieben Branchen.</p>
+        <p>Wir sind <strong>iGZ-tarifgebunden</strong>, verfügen über die unbefristete ANÜ-Erlaubnis und sind auf den gängigen Lieferantenplattformen für Konzern-Einkauf gelistet.</p>
+        <div class="stats">
+          <div class="st"><span class="v"><strong>18</strong>+</span><div class="l">Jahre Erfahrung</div></div>
+          <div class="st"><span class="v"><strong>2.4</strong>K+</span><div class="l">Aktive Pipeline</div></div>
+          <div class="st"><span class="v">4–7<strong> d</strong></span><div class="l">Time-to-Fill</div></div>
+          <div class="st"><span class="v"><strong>98</strong>%</span><div class="l">Folgeauftrag</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="idx"><span class="big" style="color:#fff">02</span><span class="of" style="color:rgba(255,255,255,0.7)">/ 06 Blocks</span></div>
+</section>
+
+<!-- 03 / Cream — Drei Modelle -->
+<section class="block b3" id="b3">
+  <div class="block-meta"><span>· Leistungen ·</span><span><strong>BLOCK 03 / 06</strong></span><span>M-01 · M-02 · M-03</span></div>
+  <div class="block-inner">
+    <div class="head-row">
+      <h2>Drei Modelle —<br>je nach <em>Lastprofil</em><br><strong>Ihres Hauses.</strong></h2>
+      <p>Wir liefern nicht nach Schema F. Sie wählen — wir beraten ehrlich, welches Modell zu Ihrem konkreten Bedarf passt. Auch wenn das im Einzelfall bedeutet, etwas anderes vorzuschlagen, als ursprünglich angefragt.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="id">M-01 · ANÜ</span>
+        <h3>Arbeitnehmer­<em>überlassung.</em></h3>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Tariflich nach iGZ/DGB. Bereitstellung &lt; 48 h. Jederzeit Übernahme­option.</p>
+        <span class="arrow">→</span>
+      </article>
+      <article class="card">
+        <span class="id">M-02 · Vermittlung</span>
+        <h3>Personal­<em>vermittlung.</em></h3>
+        <p>Direkte Festanstellung in Ihrem Haus. Diskretes Search-Verfahren. Honorar erst bei Erfolg. 4 Monate Nachbesetzungs­garantie.</p>
+        <span class="arrow">→</span>
+      </article>
+      <article class="card">
+        <span class="id">M-03 · Werkvertrag</span>
+        <h3>Werk­<em>verträge.</em></h3>
+        <p>Definierte Aufträge, eigene Steuerung. Rechtssichere Abgrenzung. Skalierbar von Einzel­projekt bis Dauer­linie. Ergebnis­vereinbarung verbindlich.</p>
+        <span class="arrow">→</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 / Cyan — Quote -->
+<section class="block b4" id="b4">
+  <div class="block-meta"><span>· Haltung ·</span><span><strong>BLOCK 04 / 06</strong></span><span>Grundsatz seit 2008</span></div>
+  <div class="block-inner">
+    <blockquote>„Wir glauben nicht an<br>Datenbank-Matching.<br>Wir glauben an <em>Menschen,</em><br>die einander zuhören."</blockquote>
+    <cite>Grundsatz LeXpersonal · Anno 2008</cite>
+  </div>
+  <div class="idx"><span class="big" style="color:#fff">04</span><span class="of" style="color:rgba(255,255,255,0.75)">/ 06 Blocks</span></div>
+</section>
+
+<!-- 05 / Sand — Referenz / Beleg -->
+<section class="block b5" id="b5">
+  <div class="block-meta"><span>· Belegt ·</span><span><strong>BLOCK 05 / 06</strong></span><span>Industrie-Referenz · 2024/25</span></div>
+  <div class="block-inner">
+    <div class="grid">
+      <div>
+        <span class="mono">Referenz · Metallindustrie</span>
+        <h2 style="margin-top:14px">140 Fachkräfte.<br>8 Monate.<br><em>Null</em> Ausfall.</h2>
+        <p>Ein mittelständischer Industriebetrieb stand vor einer Werks­erweiterung. Wir lieferten 140 Fach­kräfte in acht Monaten — 38 davon direkt in Festanstellung übernommen. Produktions­ausfall: null Stunden.</p>
+      </div>
+      <div class="points">
+        <div class="pt"><span class="num">i.</span><div><h4>Briefing &amp; Bedarfsanalyse</h4><p>Erstgespräch im Werk, Anforderungs­profil mit Vorgesetzten, Schicht­modell-Check.</p></div><span class="val">&lt; 24 h</span></div>
+        <div class="pt"><span class="num">ii.</span><div><h4>Active Sourcing</h4><p>Pipeline-Aktivierung in der Region, Vorgespräche, fachliche &amp; persönliche Eignungs­prüfung.</p></div><span class="val">3 Tage</span></div>
+        <div class="pt"><span class="num">iii.</span><div><h4>Roll-out in 4 Wellen</h4><p>Wir starteten mit 30 Personen pro Welle, jeweils mit Werks-Onboarding und Schicht­einweisung.</p></div><span class="val">35 / Welle</span></div>
+        <div class="pt"><span class="num">iv.</span><div><h4>Übernahme nach Probelauf</h4><p>Nach drei Monaten direkter Übernahme von 38 Personen in Festanstellung — ohne zusätzliche Honorare.</p></div><span class="val">38 / 140</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 / Ink Deep — Kontakt -->
+<section class="block b6" id="b6">
+  <div class="block-meta"><span>· Anfrage ·</span><span><strong>BLOCK 06 / 06</strong></span><span>&lt; 24 h Antwortzeit</span></div>
+  <div class="block-inner">
+    <div class="grid">
+      <h2>Schreiben<br>wir das<br>nächste<br><em>Kapitel?</em></h2>
+      <div class="info">
+        <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+        <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+        <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+        <div class="row"><span class="k">— Sprechzeit</span><span class="v">Mo–Fr · 08:00–17:00<br>Termine n. V.</span></div>
+        <a href="#" class="cta">Bedarfsanalyse starten →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:24px 32px;background:var(--ink-deep);color:rgba(244,241,236,0.5);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.12)">
+  <span>© LeXpersonal GmbH · 2026 · Edition 2026</span>
+  <span>Konzept · Color-Block Statements</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>

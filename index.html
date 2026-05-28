@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LeXpersonal — 24 Design-Konzepte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:wght@700;900&family=UnifrakturCook:wght@700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -38,7 +38,6 @@ a{color:inherit;text-decoration:none}
 .head h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
 .head p{font-size:17px;color:var(--muted);max-width:780px;margin-top:20px;position:relative;z-index:2;line-height:1.65}
 
-/* B2B Recommendation Block */
 .reco{margin-top:40px;padding:24px 28px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;position:relative;z-index:2}
 .reco .icon{width:48px;height:48px;border-radius:12px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;letter-spacing:0.02em}
 .reco h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
@@ -53,7 +52,6 @@ a{color:inherit;text-decoration:none}
 .group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
 .group-header .badge.b2b{color:var(--cyan-bright);border-color:var(--cyan-bright);background:rgba(0,159,227,0.08)}
 .group-header .badge.std{color:var(--muted);border-color:var(--muted)}
-.group-header .badge.edit{color:var(--gold);border-color:var(--gold);background:rgba(212,181,122,0.05)}
 .group-header .badge.spc{color:#B895E0;border-color:#B895E0;background:rgba(184,149,224,0.06)}
 
 /* GRID */
@@ -65,6 +63,7 @@ a{color:inherit;text-decoration:none}
 .card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 20px 60px -20px rgba(0,159,227,0.2)}
 .card.b2b-rec{border-color:rgba(0,159,227,0.25)}
 .card.b2b-rec::after{content:"B2B";position:absolute;top:12px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--cyan);color:#fff;font-weight:700;z-index:3}
+.card.new::before{content:"NEU";position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:#fff;color:var(--bg);font-weight:700;z-index:3}
 .card-preview{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
 .card-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
@@ -84,7 +83,6 @@ a{color:inherit;text-decoration:none}
 .prev-edit .title{font-family:'Fraunces',serif;font-size:42px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
 .prev-edit .title em{font-style:italic;color:#2778BC;font-weight:300}
 .prev-edit .title .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-edit .x-bg{position:absolute;right:-20px;top:30%;transform:translateY(-50%);width:120px;height:147px;opacity:0.08;pointer-events:none}
 .prev-edit .ft{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6B6B6B;letter-spacing:0.1em;padding-top:6px;border-top:1px solid #1A1F2E}
 
 /* 02 Dark Tech */
@@ -113,7 +111,6 @@ a{color:inherit;text-decoration:none}
 .prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
 .prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 3px}
 .prev-brut .mid h3 .o{-webkit-text-stroke:1px #13265D;color:transparent;font-style:italic;font-weight:600}
-.prev-brut .x-corner{position:absolute;right:-12px;bottom:-20px;width:64px;height:78px;opacity:0.08}
 .prev-brut .bot{background:#009FE3;color:#fff;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
 
 /* 05 Scroll Story */
@@ -129,17 +126,23 @@ a{color:inherit;text-decoration:none}
 .prev-story .mid h3 .cy{font-style:italic;color:#009FE3;font-weight:300}
 .prev-story .bot{padding:8px 18px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
 
-/* 06 Newspaper */
-.prev-news{background:#F0EAD7;color:#15161A;padding:10px 14px;font-family:'Source Serif 4',Georgia,serif;display:flex;flex-direction:column;gap:5px}
-.prev-news .ntop{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6B5F;padding-bottom:3px;border-bottom:1px solid #15161A}
-.prev-news .mast{font-family:'UnifrakturCook',serif;font-size:26px;line-height:1;font-weight:700;text-align:center;padding:4px 0}
-.prev-news .mast .ink-x{color:#2778BC;font-style:italic}
-.prev-news .nrule{border-top:1px solid #15161A;border-bottom:3px double #15161A;padding:2px 0;display:flex;justify-content:space-between;font-style:italic;font-size:8px}
-.prev-news .splash{text-align:center;padding:3px 0}
-.prev-news .splash .kick{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;color:#9A2422;margin-bottom:3px}
-.prev-news .splash h3{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;letter-spacing:-0.025em;line-height:0.92}
-.prev-news .splash h3 em{font-style:italic;font-weight:400;color:#2778BC}
-.prev-news .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:7px;line-height:1.4;text-align:justify;padding-top:4px;border-top:3px double #15161A;color:#3F3E3A}
+/* 06 NEW Color-Block */
+.prev-cb{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);font-family:'Inter',sans-serif}
+.prev-cb .blk{padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.prev-cb .b1{background:#F4F1EC;color:#0B1A33;grid-column:span 2;grid-row:span 1}
+.prev-cb .b1 h4{font-family:'Inter',sans-serif;font-weight:200;font-size:22px;line-height:0.92;letter-spacing:-0.04em}
+.prev-cb .b1 h4 strong{font-weight:600}
+.prev-cb .b1 h4 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-cb .b2{background:#2778BC;color:#fff;grid-row:span 1}
+.prev-cb .b2 h4{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:0.95;letter-spacing:-0.025em}
+.prev-cb .b2 h4 em{font-style:normal;color:#D4B57A;font-weight:400}
+.prev-cb .b3{background:#EAE4D5;color:#0B1A33;grid-row:span 1}
+.prev-cb .b3 .id{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;color:#2778BC;font-weight:700}
+.prev-cb .b3 h4{font-family:'Inter',sans-serif;font-weight:300;font-size:14px;line-height:1;margin-top:4px}
+.prev-cb .b4{background:#009FE3;color:#fff;grid-column:span 2;grid-row:span 1;display:flex;align-items:center}
+.prev-cb .b4 h4{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:17px;line-height:1.15;letter-spacing:-0.02em}
+.prev-cb .b4 h4 em{font-style:normal;color:#0B1A33;font-weight:500}
+.prev-cb .blk .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;opacity:0.55}
 
 /* 07 Corporate */
 .prev-corp{background:#FFFFFF;color:#0B1F3A;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto}
@@ -208,16 +211,29 @@ a{color:inherit;text-decoration:none}
 .prev-split h4 em{font-style:italic;color:#2778BC}
 .prev-split .b h4 em{color:#009FE3}
 
-/* 11 Magazine */
-.prev-mag{background:#F1ECE0;color:#15171C;padding:10px 14px;font-family:'Source Serif 4',serif;display:grid;grid-template-rows:auto 1fr auto;gap:6px}
-.prev-mag .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#7A7B7C}
-.prev-mag .mast{text-align:center;font-style:italic;font-size:16px;padding:3px 0;border-top:1px solid #15171C;border-bottom:3px double #15171C;font-weight:400}
-.prev-mag .mast strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600;color:#2778BC;letter-spacing:0.02em}
-.prev-mag .body{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
-.prev-mag .body h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:32px;line-height:0.95;letter-spacing:-0.035em}
-.prev-mag .body h3 em{font-style:italic;color:#2778BC}
-.prev-mag .vis{aspect-ratio:1/1;background:radial-gradient(circle at 50% 35%,rgba(11,26,51,0.6) 0%,transparent 35%),radial-gradient(circle at 50% 78%,rgba(11,26,51,0.8) 0%,transparent 45%),linear-gradient(180deg,#cfc6ac 0%,#766c54 100%);border:1px solid #15171C}
-.prev-mag .ft{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#7A7B7C;display:flex;justify-content:space-between;padding-top:3px;border-top:1px solid rgba(0,0,0,0.15)}
+/* 11 NEW Sidebar-Scroll */
+.prev-sb{display:grid;grid-template-columns:90px 1fr;font-family:'Inter',sans-serif;font-size:8px;color:#0B1A33;background:#F4F1EC}
+.prev-sb .side{background:#070C18;color:#F4F1EC;padding:10px 8px;display:flex;flex-direction:column}
+.prev-sb .side .logo{display:flex;align-items:center;gap:4px;color:#fff;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;margin-bottom:10px}
+.prev-sb .side .logo svg{width:10px;height:13px}
+.prev-sb .side .logo strong{font-weight:600;color:#009FE3}
+.prev-sb .side .tg{font-family:'Source Serif 4',serif;font-style:italic;font-size:8px;line-height:1.3;color:rgba(244,241,236,0.7);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(244,241,236,0.15)}
+.prev-sb .side nav{display:flex;flex-direction:column;gap:1px;flex:1}
+.prev-sb .side nav a{padding:3px 4px;font-size:7px;color:rgba(244,241,236,0.7);border-radius:2px;font-weight:500;display:flex;align-items:center;gap:6px}
+.prev-sb .side nav a.act{background:rgba(0,159,227,0.15);color:#009FE3}
+.prev-sb .side nav a .n{color:rgba(244,241,236,0.4);font-family:'JetBrains Mono',monospace;font-size:6px;font-weight:600}
+.prev-sb .side nav a.act .n{color:#009FE3}
+.prev-sb .side .cta{margin-top:auto;padding:5px;background:#009FE3;color:#070C18;text-align:center;font-weight:700;font-size:7px;letter-spacing:0.04em;text-transform:uppercase;border-radius:3px}
+.prev-sb .main{padding:14px;display:flex;flex-direction:column;gap:6px}
+.prev-sb .main .top{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;padding-bottom:5px;border-bottom:1px solid rgba(11,26,51,0.12)}
+.prev-sb .main h3{font-family:'Inter',sans-serif;font-weight:200;font-size:24px;line-height:0.95;letter-spacing:-0.04em;color:#0B1A33;margin-top:4px}
+.prev-sb .main h3 strong{font-weight:600}
+.prev-sb .main h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-sb .main .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(11,26,51,0.12)}
+.prev-sb .main .stats .st{font-size:6px}
+.prev-sb .main .stats .st .v{font-weight:300;font-size:14px;color:#0B1A33;letter-spacing:-0.03em}
+.prev-sb .main .stats .st .v strong{color:#2778BC;font-weight:500}
+.prev-sb .main .stats .st .l{color:#6B7080;font-family:'JetBrains Mono',monospace;font-weight:600}
 
 /* 12 Minimalist */
 .prev-min{background:#FFFFFF;color:#0E1322;padding:24px;display:flex;flex-direction:column;justify-content:center;font-family:'Inter',sans-serif}
@@ -241,27 +257,48 @@ a{color:inherit;text-decoration:none}
 .prev-horiz .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25)}
 .prev-horiz .dot.act{background:#009FE3;width:14px;border-radius:99px}
 
-/* 14 Team */
-.prev-team{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
-.prev-team .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;display:flex;align-items:center;gap:8px}
-.prev-team .num .bar{width:18px;height:1px;background:#009FE3}
-.prev-team h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
-.prev-team h3 em{font-style:italic;color:#2778BC}
-.prev-team .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto}
-.prev-team .ppl{aspect-ratio:3/4;background:radial-gradient(circle at 50% 32%,#0B1A33 0%,#0B1A33 18%,transparent 19%),radial-gradient(ellipse at 50% 78%,#0B1A33 0%,#0B1A33 30%,transparent 31%),#E8E2D5;border:1px solid rgba(11,26,51,0.12);position:relative}
-.prev-team .ppl::after{content:"";position:absolute;top:4px;left:4px;width:6px;height:6px;border-top:1px solid #2778BC;border-left:1px solid #2778BC}
+/* 14 NEW Executive Briefing */
+.prev-eb{background:#FAFAF6;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr auto;font-family:'Inter',sans-serif}
+.prev-eb .topbar{background:#070C18;color:#fff;padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;align-items:center}
+.prev-eb .topbar .l{display:flex;align-items:center;gap:5px;color:#fff;text-transform:none;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
+.prev-eb .topbar .l svg{width:10px;height:12px}
+.prev-eb .topbar .l strong{color:#009FE3;font-weight:600}
+.prev-eb .topbar .ctr{text-align:center;color:#009FE3}
+.prev-eb .topbar .ctr strong{color:#fff}
+.prev-eb .topbar .dl{background:#009FE3;color:#070C18;padding:2px 6px;font-weight:700;letter-spacing:0.05em;border-radius:3px}
+.prev-eb .doc{padding:10px 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-bottom:1px solid rgba(11,26,51,0.12)}
+.prev-eb .doc .it .k{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;font-weight:600;margin-bottom:2px}
+.prev-eb .doc .it .v{font-weight:500;font-size:9px;color:#0B1A33}
+.prev-eb .doc .it .v strong{font-weight:700;color:#2778BC}
+.prev-eb .body{padding:14px;display:flex;flex-direction:column;gap:8px}
+.prev-eb .body h3{font-family:'Inter',sans-serif;font-weight:300;font-size:24px;line-height:0.95;letter-spacing:-0.035em;color:#0B1A33}
+.prev-eb .body h3 strong{font-weight:600}
+.prev-eb .body h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-eb .tldr{background:#0B1A33;color:#fff;padding:10px 12px;border-radius:5px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;margin-top:auto}
+.prev-eb .tldr .l{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;color:#009FE3;font-weight:700;border-right:1px solid rgba(255,255,255,0.18);padding-right:10px;line-height:1.3}
+.prev-eb .tldr .l span{display:block;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:14px;color:#fff;letter-spacing:-0.015em;text-transform:none;margin-top:2px}
+.prev-eb .tldr ul{list-style:none;display:flex;flex-direction:column;gap:3px;font-size:8px}
+.prev-eb .tldr ul li{display:flex;gap:4px;line-height:1.4;color:rgba(255,255,255,0.85)}
+.prev-eb .tldr ul li::before{content:"›";color:#009FE3;font-weight:700}
 
-/* 15 Timeline */
-.prev-time{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;font-family:'Inter',sans-serif;gap:8px}
-.prev-time .top{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#2778BC;font-weight:600}
-.prev-time h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em;margin-bottom:4px}
-.prev-time h3 em{font-style:italic;color:#2778BC}
-.prev-time .line{position:relative;flex:1;padding:8px 0}
-.prev-time .line::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(11,26,51,0.18)}
-.prev-time .pt{position:relative;z-index:2;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6E7585;padding:4px 0;font-weight:600;letter-spacing:0.08em}
-.prev-time .pt.l{flex-direction:row-reverse;text-align:right}
-.prev-time .pt .dot{width:8px;height:8px;border-radius:50%;background:#fff;border:1.5px solid #2778BC;flex-shrink:0;margin:0 auto}
-.prev-time .pt strong{color:#0B1A33;font-family:'Source Serif 4',serif;font-style:italic;font-size:10px;font-weight:400}
+/* 15 NEW Comparison */
+.prev-cmp{display:grid;grid-template-columns:1fr 1fr;font-family:'Inter',sans-serif;color:#0B1A33}
+.prev-cmp .head{grid-column:span 2;background:#FAFAF6;border-bottom:1px solid #0B1A33;padding:8px 14px;text-align:center}
+.prev-cmp .head .b{display:inline-flex;padding:2px 8px;background:rgba(0,159,227,0.08);border:1px solid rgba(0,159,227,0.25);color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border-radius:99px;margin-bottom:4px}
+.prev-cmp .head h3{font-family:'Inter',sans-serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
+.prev-cmp .head h3 strong{font-weight:600}
+.prev-cmp .head h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-cmp .col{padding:10px 12px;display:flex;flex-direction:column;gap:4px;border-right:1px solid #0B1A33;font-size:7px}
+.prev-cmp .col:last-child{border-right:none}
+.prev-cmp .col.l{background:#EBE9E0;color:#0B1A33}
+.prev-cmp .col.r{background:#0B1A33;color:#fff;position:relative}
+.prev-cmp .col .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
+.prev-cmp .col.l .lab{color:#C24F3A}
+.prev-cmp .col.r .lab{color:#10B981}
+.prev-cmp .col h5{font-family:'Inter',sans-serif;font-weight:600;font-size:10px;letter-spacing:-0.015em;line-height:1.2;color:inherit}
+.prev-cmp .col.r h5{color:#fff}
+.prev-cmp .col p{font-size:7px;line-height:1.5;opacity:0.85}
+.prev-cmp .col .mt{margin-top:auto;padding-top:5px;border-top:1px dashed currentColor;opacity:0.7;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700}
 
 /* 16 ESG */
 .prev-esg{background:#F4F5F0;color:#0E2230;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
@@ -353,30 +390,60 @@ a{color:inherit;text-decoration:none}
 .prev-inst .seal svg{width:20px;height:25px;margin-bottom:2px}
 .prev-inst .seal small{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.16em;text-transform:uppercase;color:#13242E;font-weight:600;line-height:1}
 
-/* 23 Architecture */
-.prev-arch{background:#0E1218;color:#F4F1EC;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
-.prev-arch .bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,18,24,0.4) 0%,rgba(14,18,24,0.95) 100%),radial-gradient(circle at 60% 60%,#3D4A60 0%,#1F2530 60%,#0E1218 100%)}
-.prev-arch .lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none}
-.prev-arch .top{position:relative;z-index:2;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
-.prev-arch .top .l{display:flex;align-items:center;gap:5px;color:#F4F1EC;text-transform:none}
-.prev-arch .top .l svg{width:10px;height:13px}
-.prev-arch .top .l span{font-family:'Inter',sans-serif;font-weight:200;font-size:8px;letter-spacing:0.1em}
-.prev-arch .top .l strong{font-weight:500;color:#009FE3}
-.prev-arch .mid{position:relative;z-index:2;padding:14px;display:flex;flex-direction:column;justify-content:center}
-.prev-arch .lbl{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-arch .lbl::before{content:"";width:16px;height:1px;background:#009FE3}
-.prev-arch h3{font-family:'Inter',sans-serif;font-weight:200;font-size:32px;line-height:0.95;letter-spacing:-0.04em;text-shadow:0 4px 20px rgba(0,0,0,0.4)}
-.prev-arch h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#009FE3;font-weight:300}
-.prev-arch .ft{position:relative;z-index:2;padding:6px 14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);border-top:1px solid rgba(255,255,255,0.1)}
+/* 23 NEW Onboarding Journey */
+.prev-oj{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Inter',sans-serif}
+.prev-oj .top{background:#fff;padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid rgba(11,26,51,0.12)}
+.prev-oj .top .l{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#0B1A33}
+.prev-oj .top .l svg{width:11px;height:13px}
+.prev-oj .top .l strong{font-weight:600;color:#2778BC}
+.prev-oj .top .ctr{text-align:center;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;font-weight:600}
+.prev-oj .top .ctr strong{color:#0B1A33}
+.prev-oj .top .btn{background:#070C18;color:#fff;padding:3px 8px;border-radius:99px;font-size:7px;font-weight:600}
+.prev-oj .steps{background:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:relative;border-bottom:1px solid rgba(11,26,51,0.12)}
+.prev-oj .steps::before{content:"";position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);height:1px;background:rgba(11,26,51,0.12);z-index:1}
+.prev-oj .steps .st{position:relative;z-index:2;width:14px;height:14px;border-radius:50%;background:#F4F1EC;border:1.5px solid rgba(11,26,51,0.18);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;color:#6B7080}
+.prev-oj .steps .st.done{background:#2778BC;border-color:#2778BC;color:#fff}
+.prev-oj .steps .st.act{background:#fff;border:1.5px solid #009FE3;color:#2778BC;box-shadow:0 0 0 2px rgba(0,159,227,0.18)}
+.prev-oj .mid{padding:12px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.prev-oj .mid .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:700}
+.prev-oj .mid h3{font-family:'Inter',sans-serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.04em}
+.prev-oj .mid h3 strong{font-weight:600}
+.prev-oj .mid h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
 
-/* 24 Photography */
-.prev-photo{background:linear-gradient(180deg,rgba(30,27,20,0.1),rgba(30,27,20,0.55) 80%,rgba(30,27,20,0.75)),radial-gradient(circle at 30% 35%,#1E1B14 0%,#1E1B14 14%,transparent 15%),radial-gradient(ellipse at 30% 72%,#252114 0%,#252114 24%,transparent 25%),radial-gradient(circle at 75% 45%,#3A331E 0%,#3A331E 12%,transparent 13%),radial-gradient(ellipse at 75% 75%,#1E1B14 0%,#1E1B14 24%,transparent 25%),linear-gradient(180deg,#C0B49A 0%,#9C8E72 40%,#5E5440 80%,#2A2418 100%);color:#F1EDE3;padding:14px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Cormorant Garamond',serif;position:relative;overflow:hidden}
-.prev-photo::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay;pointer-events:none}
-.prev-photo .top{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,237,227,0.7);font-weight:500}
-.prev-photo .top strong{color:#F1EDE3;font-weight:600}
-.prev-photo h3{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:30px;line-height:1.0;letter-spacing:-0.015em;text-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.prev-photo h3 em{font-style:normal;color:#F1EDE3;font-weight:400}
-.prev-photo .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,237,227,0.7);font-weight:500}
+/* 24 NEW Press Kit */
+.prev-pk{background:#F5F4F0;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Inter',sans-serif}
+.prev-pk .top{background:#070C18;color:#fff;display:grid;grid-template-rows:auto auto}
+.prev-pk .top .strip{padding:3px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;border-bottom:1px solid rgba(255,255,255,0.12)}
+.prev-pk .top .strip strong{color:#009FE3}
+.prev-pk .top .main{padding:7px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.prev-pk .top .main .l{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#fff}
+.prev-pk .top .main .l svg{width:11px;height:13px}
+.prev-pk .top .main .l strong{font-weight:600;color:#009FE3}
+.prev-pk .top .main .l .tag{margin-left:4px;background:#009FE3;color:#070C18;font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;padding:1px 5px;border-radius:2px;letter-spacing:0.1em;text-transform:uppercase}
+.prev-pk .top .main .search{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:3px;padding:3px 8px;display:flex;align-items:center;gap:5px;color:rgba(255,255,255,0.55);font-size:7px;justify-self:stretch}
+.prev-pk .top .main .btn{padding:3px 8px;background:#009FE3;color:#070C18;font-size:7px;font-weight:700;border-radius:2px;letter-spacing:0.05em}
+.prev-pk .hero{padding:10px 12px;background:#fff;display:grid;grid-template-columns:1.4fr 1fr;gap:10px;align-items:center;border-bottom:1px solid rgba(11,26,51,0.08)}
+.prev-pk .hero .lab{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.16em;text-transform:uppercase;color:#2778BC;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:4px}
+.prev-pk .hero .lab .bar{width:10px;height:1px;background:#009FE3}
+.prev-pk .hero h3{font-family:'Inter',sans-serif;font-weight:300;font-size:20px;line-height:0.95;letter-spacing:-0.04em}
+.prev-pk .hero h3 strong{font-weight:600}
+.prev-pk .hero h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-pk .hero .dl{padding:6px 9px;background:#009FE3;color:#070C18;border-radius:4px;font-family:'Inter',sans-serif;font-size:7px;font-weight:700;letter-spacing:0.02em;text-align:left;line-height:1.3}
+.prev-pk .hero .dl small{display:block;font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;margin-top:1px}
+.prev-pk .assets{padding:8px 12px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#F5F4F0}
+.prev-pk .asst{aspect-ratio:1/1.1;background:#fff;border:1px solid rgba(11,26,51,0.12);border-radius:3px;display:flex;align-items:center;justify-content:center;padding:4px}
+.prev-pk .asst.dark{background:#070C18}
+.prev-pk .asst svg{width:14px;height:18px}
+.prev-pk .asst .lex{display:flex;align-items:center;gap:2px;font-family:'Inter',sans-serif;font-weight:300;font-size:5px;color:#0B1A33;letter-spacing:0.04em}
+.prev-pk .asst .lex svg{width:7px;height:9px}
+.prev-pk .asst .lex strong{font-weight:600;color:#2778BC}
+.prev-pk .asst.dark .lex{color:#fff}
+.prev-pk .asst.dark .lex strong{color:#009FE3}
+.prev-pk .asst.colors{padding:0;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;overflow:hidden}
+.prev-pk .asst.colors span:nth-child(1){background:#2778BC}
+.prev-pk .asst.colors span:nth-child(2){background:#009FE3}
+.prev-pk .asst.colors span:nth-child(3){background:#0B1A33}
+.prev-pk .asst.colors span:nth-child(4){background:#F5F4F0}
 
 /* FOOTER */
 .foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
@@ -400,33 +467,33 @@ a{color:inherit;text-decoration:none}
 <section class="head">
   <svg class="bg-x"><use href="#lex-x"/></svg>
   <div class="head-meta mono">
-    <span><span style="color:var(--cyan)">●</span> 2026 · Edition 06 · 24 Konzepte</span>
+    <span><span style="color:var(--cyan)">●</span> 2026 · Edition 07 · 24 Konzepte</span>
     <span>LeXpersonal GmbH · Münster</span>
-    <span>Für Konzern- &amp; Industriekund:innen</span>
+    <span>+ 6 neue · alle B2B-tauglich</span>
   </div>
   <div class="head-logo">
     <svg><use href="#lex-x"/></svg>
     LE<strong>X</strong>PERSONAL
   </div>
-  <h1>Vier­undzwanzig Designs.<br>Vier <em>klare Spielarten</em>.</h1>
-  <p>Vier Tier-Gruppen: <strong style="color:var(--text)">B2B-Premium</strong> für Konzern- und Industrie­einkauf, <strong style="color:var(--text)">moderne Standards</strong> für eine zeitgemäße Marketing-Page, <strong style="color:var(--text)">Editorial / Story</strong> für Markenpositionierung und <strong style="color:var(--text)">Statement-Designs</strong> mit klarer Differenzierung. Alle im echten LeXpersonal-CI (X-Symbol, Blautöne, Montserrat).</p>
+  <h1>Vier­undzwanzig Designs.<br>Drei <em>klare Tiers</em>.</h1>
+  <p>In dieser Runde sind sechs Konzepte ausgetauscht: Timeline, Team Portrait, Magazine, Photography, Newspaper und Architecture sind raus — dafür neu hinzugekommen: <strong style="color:var(--text)">Color-Block, Sticky Sidebar, Executive Briefing, Direct Comparison, Onboarding Journey, Press Kit</strong>. Alle B2B-tauglich, alle im echten CI, jedes mit eigener Header-Architektur.</p>
 
   <div class="reco">
     <div class="icon">B2B</div>
     <div>
       <h3>Empfehlung für Konzern- &amp; Industriekund:innen</h3>
-      <p>Wenn die Seite vor allem große Auftraggeber gewinnen soll, sind die <strong>Konzepte 07, 08, 09, 16, 18, 21 und 22</strong> die ersten Adressen. Sie sind speziell auf HR- und Einkaufs-Entscheider:innen zugeschnitten — mit Daten, Cases, Compliance und Premium-Anmutung.</p>
+      <p>Engste Auswahl für Konzern-Vertrieb: <strong>Konzepte 07, 08, 09, 14, 16, 18, 21, 22, 24</strong>. Speziell auf HR- und Einkaufs-Entscheider:innen zugeschnitten — mit Daten, Cases, Compliance-Belegen, Vergleichs­tabellen und Premium-Anmutung.</p>
     </div>
   </div>
 </section>
 
-<!-- TIER 1 — B2B PREMIUM -->
+<!-- TIER A — B2B PREMIUM -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 1 — <em>B2B Premium</em></h2>
+    <h2>Tier A — <em>B2B Premium</em></h2>
     <p class="sub">Für Konzerne, Industriebetriebe und Mittelstand mit professionellem Einkauf. Maximaler Vertrauensaufbau über Daten, Cases, Compliance-Belege und Premium-Anmutung.</p>
   </div>
-  <span class="badge b2b">▲ Konzern-tauglich</span>
+  <span class="badge b2b">▲ Konzern-tauglich · 9 Konzepte</span>
 </div>
 
 <section class="grid">
@@ -472,6 +539,23 @@ a{color:inherit;text-decoration:none}
       <h2>Annual Report</h2>
       <div class="vibe">DAX-Geschäftsbericht · BMW · Siemens</div>
       <p>Cover + Inhaltsverzeichnis + CEO-Brief + Kennzahlen + Charts + Werte + Compliance &amp; Outlook. Höchstes Trust-Niveau.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="14-executive-briefing.html" class="card b2b-rec new">
+    <div class="card-preview prev-eb">
+      <div class="topbar"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">EXECUTIVE BRIEFING <strong>№ 003</strong></span><span class="dl">↓ PDF</span></div>
+      <div class="doc"><div class="it"><div class="k">Briefing</div><div class="v"><strong>BR-2026/003</strong></div></div><div class="it"><div class="k">Datum</div><div class="v">27.05.26</div></div><div class="it"><div class="k">Pages</div><div class="v">4</div></div><div class="it"><div class="k">Read</div><div class="v">5 min</div></div></div>
+      <div class="body"><h3>LeXpersonal —<br>Personal für<br><em>Industrie</em><br><strong>im Briefing.</strong></h3>
+        <div class="tldr"><div class="l">— TL;DR<span>30 Sek.</span></div><ul><li><strong>Aus Münster, seit 2008.</strong> 3 Modelle.</li><li><strong>2.430 Talente</strong> in 7 Branchen.</li><li>iGZ · ANÜ · DSGVO · Compliance.</li></ul></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[14] · B2B Premium · NEU</span>
+      <h2>Executive Briefing</h2>
+      <div class="vibe">C-Level Briefing · TL;DR-Style</div>
+      <p>Verdichteter Top-Management-Brief mit Klassifizierung, TL;DR-Box, In-30-Sek-Callouts und Entscheidungs-Optionen. 4 Seiten, 5 Min.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -554,22 +638,51 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
+  <a href="24-press-kit.html" class="card b2b-rec new">
+    <div class="card-preview prev-pk">
+      <div class="top">
+        <div class="strip"><span>● PRESS · <strong>27.05.2026</strong></span><span>DE · EN</span></div>
+        <div class="main">
+          <span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL<span class="tag">PRESS</span></span>
+          <span class="search">⌕ Suche …</span>
+          <span class="btn">↓ Kit</span>
+        </div>
+      </div>
+      <div class="hero">
+        <div><div class="lab"><span class="bar"></span>Press &amp; Media Hub</div><h3>Materialien<br>für die<br><em>Berichterstattung</em><br><strong>über uns.</strong></h3></div>
+        <div class="dl">↓ Press-Kit (komplett)<small>17,4 MB · ZIP</small></div>
+      </div>
+      <div class="assets">
+        <div class="asst"><div class="lex"><svg><use href="#lex-x"/></svg>LE<strong>X</strong></div></div>
+        <div class="asst dark"><div class="lex"><svg><use href="#lex-x"/></svg>LE<strong>X</strong></div></div>
+        <div class="asst"><svg><use href="#lex-x"/></svg></div>
+        <div class="asst colors"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[24] · B2B Premium · NEU</span>
+      <h2>Press Kit / Media Hub</h2>
+      <div class="vibe">Corporate Press · Media Library</div>
+      <p>Funktional gestaltete Press-Page mit Suche, Sprach­wechsel, Logo-Downloads, Boilerplate, Kennzahlen, Pressemitteilungen und dediziertem Pressekontakt.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
 </section>
 
-<!-- TIER 2 — MODERN STANDARDS -->
+<!-- TIER B — MODERN STANDARDS -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 2 — <em>Moderne Standards</em></h2>
-    <p class="sub">Neun zeitgemäße Marketing-Page-Stile mit klar unterscheidbarer Bildsprache — solide B2B-tauglich, weniger spezifisch auf Konzern-Einkauf zugeschnitten.</p>
+    <h2>Tier B — <em>Moderne Standards</em></h2>
+    <p class="sub">Zehn zeitgemäße Marketing-Page-Stile mit klar unterscheidbarer Bildsprache und Header-Architektur — solide B2B-tauglich, vielseitig einsetzbar.</p>
   </div>
-  <span class="badge std">○ Standard B2B</span>
+  <span class="badge std">○ Standard B2B · 10 Konzepte</span>
 </div>
 
 <section class="grid">
 
   <a href="01-editorial.html" class="card">
     <div class="card-preview prev-edit">
-      <svg class="x-bg"><use href="#lex-x"/></svg>
       <div class="top"><span><svg><use href="#lex-x"/></svg>LE<strong>X</strong>PERSONAL</span><span>NO. 01 — MÜNSTER</span></div>
       <div class="title">Starke<br><em>Jobs</em> für<br><span class="cy">alle.</span></div>
       <div class="ft"><span>↳ ÜBERLASSUNG</span><span>↳ VERMITTLUNG</span><span>↳ WERKVERTRAG</span></div>
@@ -619,7 +732,7 @@ a{color:inherit;text-decoration:none}
   <a href="04-swiss-brutalist.html" class="card">
     <div class="card-preview prev-brut">
       <div class="top"><span>● MÜNSTER</span><span>2026 / ED. 01</span></div>
-      <div class="mid"><h3>Starke<br><span class="a">Jobs.</span><br>Für <span class="o">alle</span>.</h3><svg class="x-corner"><use href="#lex-x"/></svg></div>
+      <div class="mid"><h3>Starke<br><span class="a">Jobs.</span><br>Für <span class="o">alle</span>.</h3></div>
       <div class="bot"><span>[01] LEIST.</span><span>[02] HALTUNG</span><span>[03] PATHS</span></div>
     </div>
     <div class="card-body">
@@ -627,6 +740,22 @@ a{color:inherit;text-decoration:none}
       <h2>Swiss Brutalist</h2>
       <div class="vibe">Pentagram · Awwwards</div>
       <p>Strenges Grid mit Tiefblau und Cyan-Signal. Oversized Headlines, selbstbewusst.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="06-color-block.html" class="card new">
+    <div class="card-preview prev-cb">
+      <div class="blk b1"><span class="lab">01 / Hero</span><h4>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h4></div>
+      <div class="blk b3"><span class="id">— 03</span><h4>Drei Modelle</h4></div>
+      <div class="blk b2"><span class="lab" style="color:rgba(255,255,255,0.6)">02 / Profil</span><h4>Achtzehn Jahre<br><em>belegen.</em></h4></div>
+      <div class="blk b4"><h4>„Wir glauben an <em>Menschen.</em>"</h4></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[06] · Standard · NEU</span>
+      <h2>Color-Block Statements</h2>
+      <div class="vibe">Bauhaus · Modulor · Color-Block</div>
+      <p>Sechs Vollbild-Farbblöcke mit großen Statements. Floating-Pill-Header, jede Sektion in eigener CI-Farbe. Sehr selbstbewusst.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -645,6 +774,40 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
+  <a href="11-sidebar-scroll.html" class="card new">
+    <div class="card-preview prev-sb">
+      <div class="side">
+        <div class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</div>
+        <div class="tg">„Personal, auf das sich Industrie verlässt." — Seit 2008.</div>
+        <nav>
+          <a class="act"><span class="n">00</span>Übersicht</a>
+          <a><span class="n">01</span>Über uns</a>
+          <a><span class="n">02</span>Modelle</a>
+          <a><span class="n">03</span>Vorgehen</a>
+          <a><span class="n">04</span>Referenzen</a>
+        </nav>
+        <div class="cta">Anfrage →</div>
+      </div>
+      <div class="main">
+        <div class="top">DOK 2026 / 005 · 27.05.</div>
+        <h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3>
+        <div class="stats">
+          <div class="st"><div class="v"><strong>2008</strong></div><div class="l">SEIT</div></div>
+          <div class="st"><div class="v">2.4<strong>K</strong></div><div class="l">PIPE</div></div>
+          <div class="st"><div class="v">4–7<strong>d</strong></div><div class="l">TTF</div></div>
+          <div class="st"><div class="v">98<strong>%</strong></div><div class="l">RET</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[11] · Standard · NEU</span>
+      <h2>Sticky Sidebar Scroll</h2>
+      <div class="vibe">Linear Doc · Notion · Side-Nav</div>
+      <p>Fixe linke Sidebar (Logo, Navigation, Kontakt, CTA) — ersetzt klassischen Header. Rechte Spalte scrollt durch Sektionen.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
   <a href="12-minimalist.html" class="card">
     <div class="card-preview prev-min">
       <div class="num">01 · seit 2008</div>
@@ -659,39 +822,30 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
-  <a href="14-team-portrait.html" class="card">
-    <div class="card-preview prev-team">
-      <div class="num"><span class="bar"></span>HINTER JEDER VERMITTLUNG</div>
-      <h3>Hinter jedem<br>Match steht<br>ein <em>Mensch.</em></h3>
-      <div class="grid">
-        <div class="ppl"></div><div class="ppl"></div><div class="ppl"></div><div class="ppl"></div>
+  <a href="15-comparison.html" class="card new">
+    <div class="card-preview prev-cmp">
+      <div class="head">
+        <div class="b">● DIREKTER VERGLEICH</div>
+        <h3>Wir machen es<br><em>anders.</em> <strong>Hier sehen Sie wie.</strong></h3>
+      </div>
+      <div class="col l">
+        <span class="lab">— A · Üblich</span>
+        <h5>Anonyme Vermittlung.</h5>
+        <p>Stunden­satz im Vordergrund.</p>
+        <span class="mt"><span>Verbleib</span><span>~ 64 %</span></span>
+      </div>
+      <div class="col r">
+        <span class="lab">— B · LeXpersonal</span>
+        <h5>Kultur-Match-fokussiert.</h5>
+        <p>Wir vermitteln <em>nur,</em> wo es passt.</p>
+        <span class="mt"><span>Verbleib</span><span>86 %</span></span>
       </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[14] · Standard</span>
-      <h2>Team Portrait Focus</h2>
-      <div class="vibe">Boutique Agency · People First</div>
-      <p>Team und Personen im Mittelpunkt: Hero-Gruppenbild, individuelle Portraits, „Sie sprechen mit Menschen mit Namen".</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="15-timeline.html" class="card">
-    <div class="card-preview prev-time">
-      <div class="top">— 18 Jahre Chronologie</div>
-      <h3>Von <em>2008</em><br>bis heute.</h3>
-      <div class="line">
-        <div class="pt l"><strong>2008</strong> Gründung<span class="dot"></span></div>
-        <div class="pt"><span class="dot"></span><strong>2017</strong> 500 MA</div>
-        <div class="pt l"><strong>2022</strong> 2.000 Pipeline<span class="dot"></span></div>
-        <div class="pt"><span class="dot"></span><strong>2026</strong> Heute</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[15] · Standard</span>
-      <h2>Timeline / 18 Jahre</h2>
-      <div class="vibe">Chronologie · Heritage</div>
-      <p>Vertikale Chronologie 2008 → 2026 mit Meilensteinen. Erzählt die Marken-Geschichte und zeigt Substanz.</p>
+      <span class="card-num">[15] · Standard · NEU</span>
+      <h2>Direct Comparison</h2>
+      <div class="vibe">Why Us vs. Others · Side-by-Side</div>
+      <p>Split-Tone-Header und Side-by-Side-Tabelle „Branchen­üblich vs. LeXpersonal" in vier Vergleichsgruppen. Direkter Sales-Pitch, sachlich.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -717,13 +871,13 @@ a{color:inherit;text-decoration:none}
 
 </section>
 
-<!-- TIER 3 — EDITORIAL / STORY -->
+<!-- TIER C — SPEZIAL-LAYOUTS -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 3 — <em>Editorial &amp; Story</em></h2>
-    <p class="sub">Vier visuell und narrativ getriebene Layouts — für Markenarbeit, Image-Kampagnen oder Microsites neben der Hauptseite.</p>
+    <h2>Tier C — <em>Spezial-Layouts</em></h2>
+    <p class="sub">Fünf eigenständige Layout-Welten mit klar abweichender Architektur — für Image-Kampagnen, Microsites oder spezialisierte Subseiten.</p>
   </div>
-  <span class="badge edit">★ Editorial</span>
+  <span class="badge spc">◆ Differenzierend · 5 Konzepte</span>
 </div>
 
 <section class="grid">
@@ -736,86 +890,10 @@ a{color:inherit;text-decoration:none}
       <div class="bot"><span>© 2008</span><span>↓ scrollen</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[05] · Editorial</span>
+      <span class="card-num">[05] · Spezial</span>
       <h2>Long-Form Scroll Story</h2>
       <div class="vibe">Apple Newsroom · Cartier</div>
       <p>Vertikal erzähltes Manifest in 7 Kapiteln. Dropcaps, Pull-Quotes, Single-Statement-Chapters. Slow Reading.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="11-magazine-spread.html" class="card">
-    <div class="card-preview prev-mag">
-      <div class="top"><span>· Ausgabe 02 ·</span><span>· No. 18 ·</span></div>
-      <div class="mast">Le<strong>X</strong>·Personal·<em>Magazin</em></div>
-      <div class="body"><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3><div class="vis"></div></div>
-      <div class="ft"><span>RESSORT I</span><span>REPORTAGE</span></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[11] · Editorial</span>
-      <h2>Magazine Spread</h2>
-      <div class="vibe">Brand Eins · Monocle</div>
-      <p>Hochwertiges Business-Magazin mit Cover, Reportage, Pull-Quote, Interview-Q&amp;A und Faktblock.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="17-cinematic.html" class="card">
-    <div class="card-preview prev-cine">
-      <div class="b"></div>
-      <div class="mid"><div class="inner"><div class="lbl">An Original Production · Münster 2026</div><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3></div></div>
-      <div class="b"></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[17] · Editorial</span>
-      <h2>Cinematic / Documentary</h2>
-      <div class="vibe">Apple TV+ · Dokumentar­film</div>
-      <p>Vollbild-Hero mit Letterbox-Bars, Kapitel-Episoden im Filmstill-Look. Sehr atmosphärisch.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="24-photography-editorial.html" class="card">
-    <div class="card-preview prev-photo">
-      <div class="top"><span>VOL. XVIII · <strong>2026</strong></span><span>· REPORTAGE ·</span></div>
-      <h3>Was zwischen<br>Brief und <em>Werk­bank</em><br>passiert.</h3>
-      <div class="ft"><span>PHOTOGRAPHY EDITORIAL</span><span>↓ SCROLLEN</span></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[24] · Editorial</span>
-      <h2>Photography Editorial</h2>
-      <div class="vibe">Kinfolk · Apartamento · Cereal</div>
-      <p>Foto-getriebene Reportage mit warmen Halftone-Bildern, Cormorant-Serif, Pull-Quotes. Lifestyle-Magazin-Anmutung.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-</section>
-
-<!-- TIER 4 — STATEMENT / SPEZIAL -->
-<div class="group-header">
-  <div class="left">
-    <h2>Runde 4 — <em>Statement-Designs</em></h2>
-    <p class="sub">Vier eigenständige Layout-Welten mit klar abweichender Architektur — für Differenzierung im Wettbewerb oder fokussierte Microsites.</p>
-  </div>
-  <span class="badge spc">◆ Differenzierend</span>
-</div>
-
-<section class="grid">
-
-  <a href="06-newspaper.html" class="card">
-    <div class="card-preview prev-news">
-      <div class="ntop"><span>· 27.05.2026 ·</span><span>· Vol. XVIII ·</span><span>· Münster ·</span></div>
-      <div class="mast">Der Le<span class="ink-x">X</span>·Personal·Anzeiger</div>
-      <div class="nrule"><strong>GEGR. 2008</strong><span>— mit Haltung —</span><strong>MÜNSTER</strong></div>
-      <div class="splash"><div class="kick">LEITARTIKEL · MAI 2026</div><h3>Starke Jobs für <em>alle.</em></h3></div>
-      <div class="cols"><div>Als LeXpersonal 2008 gegründet wurde, war die Branche…</div><div>Drei Leistungen bietet das Haus: ANÜ, Vermittlung…</div><div>Drei Prinzipien: Achtung, Spitzen­leistungen, Dienst…</div></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[06] · Statement</span>
-      <h2>Newspaper / Print</h2>
-      <div class="vibe">FAZ · NYT Print · Tageszeitung</div>
-      <p>Klassische Zeitungsoptik mit Fraktur-Masthead, 3-Spalten-Leitartikel, klassifizierten Stellenanzeigen.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -827,10 +905,25 @@ a{color:inherit;text-decoration:none}
       <div class="ft"><span>← PREV</span><div class="dots"><span class="dot act"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span>NEXT →</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[13] · Statement</span>
+      <span class="card-num">[13] · Spezial</span>
       <h2>Horizontal Stories</h2>
       <div class="vibe">Apple Stories · Snap-Scroll</div>
       <p>Horizontale Story-Navigation in 6 Panels mit Snap-Scrolling, Dots-Indicator und Pfeil-Steuerung.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="17-cinematic.html" class="card">
+    <div class="card-preview prev-cine">
+      <div class="b"></div>
+      <div class="mid"><div class="inner"><div class="lbl">An Original Production · Münster 2026</div><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3></div></div>
+      <div class="b"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[17] · Spezial</span>
+      <h2>Cinematic / Documentary</h2>
+      <div class="vibe">Apple TV+ · Dokumentar­film</div>
+      <p>Vollbild-Hero mit Letterbox-Bars, Kapitel-Episoden im Filmstill-Look. Sehr atmosphärisch.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -842,7 +935,7 @@ a{color:inherit;text-decoration:none}
       <div class="opts"><div class="opt"><strong>Personal suchen</strong>für Unternehmen</div><div class="opt"><strong>Job suchen</strong>als Bewerber</div></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[19] · Statement</span>
+      <span class="card-num">[19] · Spezial</span>
       <h2>Conversational Q-Driven</h2>
       <div class="vibe">Frage-Antwort · Beratungs­ansatz</div>
       <p>Die Seite leitet durch Fragen statt durch Sektionen. Persönlich, fast wie eine Beratung in Schrift.</p>
@@ -850,18 +943,22 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
-  <a href="23-architecture.html" class="card">
-    <div class="card-preview prev-arch">
-      <div class="bg"></div><div class="lines"></div>
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span><span>EST. 2008</span></div>
-      <div class="mid"><div class="lbl">Built since 2008</div><h3>Personal,<br>gebaut für<br><em>Bestand.</em></h3></div>
-      <div class="ft"><span>SELECTED WORK</span><span>↓</span></div>
+  <a href="23-onboarding-journey.html" class="card new">
+    <div class="card-preview prev-oj">
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">ONBOARDING · <strong>30 TAGE</strong></span><span class="btn">Anfrage →</span></div>
+      <div class="steps">
+        <div class="st done">01</div><div class="st done">02</div><div class="st act">03</div><div class="st">04</div><div class="st">05</div><div class="st">06</div>
+      </div>
+      <div class="mid">
+        <span class="lbl">— Onboarding Journey</span>
+        <h3>Vom <em>Briefing</em><br>bis zum<br><strong>Produktiv-Start.</strong></h3>
+      </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[23] · Statement</span>
-      <h2>Architecture Studio</h2>
-      <div class="vibe">Foster · Snøhetta · Architekturbüro</div>
-      <p>Dunkle, hi-res Vollbild-Anmutung mit Blueprint-Grid. Personal als Architektur — sehr ruhig, sehr B2B-tauglich.</p>
+      <span class="card-num">[23] · Spezial · NEU</span>
+      <h2>Onboarding Journey</h2>
+      <div class="vibe">30-Tage-Roadmap · Step-by-Step</div>
+      <p>Header mit Progress-Bar (6 Stationen, 30 Tage), vertikale Roadmap mit Karten je Milestone, definierte Outputs &amp; Check-ins.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -871,21 +968,21 @@ a{color:inherit;text-decoration:none}
 <section style="padding:32px 0 48px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
   <div>
     <span class="mono" style="color:var(--cyan)">Für Konzern-Vertrieb</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Engste Auswahl: <strong style="color:var(--text)">07 Corporate</strong>, <strong style="color:var(--text)">08 Case Portfolio</strong>, <strong style="color:var(--text)">09 Annual Report</strong>, <strong style="color:var(--text)">21 Whitepaper</strong>, <strong style="color:var(--text)">22 Institutionell</strong>.</p>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Top-Auswahl: <strong style="color:var(--text)">07 Corporate</strong>, <strong style="color:var(--text)">09 Annual Report</strong>, <strong style="color:var(--text)">14 Executive Briefing</strong>, <strong style="color:var(--text)">22 Institutionell</strong>, <strong style="color:var(--text)">24 Press Kit</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Für Markenarbeit</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Für strategische Markenpositionierung neben der Hauptseite: <strong style="color:var(--text)">05 Scroll Story</strong>, <strong style="color:var(--text)">11 Magazin</strong>, <strong style="color:var(--text)">17 Cinematic</strong>, <strong style="color:var(--text)">24 Photography</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Für Sales-Pitch</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Direkter Vertrieb &amp; Konversion: <strong style="color:var(--text)">15 Comparison</strong>, <strong style="color:var(--text)">20 SaaS Pricing</strong>, <strong style="color:var(--text)">23 Onboarding Journey</strong>.</p>
   </div>
   <div>
     <span class="mono" style="color:var(--cyan)">Für Differenzierung</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Maximale Abhebung von der grauen Personaldienstleister-Masse: <strong style="color:var(--text)">06 Newspaper</strong> (regional), <strong style="color:var(--text)">14 Team</strong> (menschlich), <strong style="color:var(--text)">23 Architecture</strong> (ruhig premium).</p>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Klare Abhebung vom Markt: <strong style="color:var(--text)">06 Color-Block</strong>, <strong style="color:var(--text)">11 Sticky Sidebar</strong>, <strong style="color:var(--text)">17 Cinematic</strong>.</p>
   </div>
 </section>
 
 <div class="foot-bar">
-  <span>© 2026 · 24 Design-Konzepte für LeXpersonal GmbH</span>
-  <span>4 Tier · 1 CI · Münster</span>
+  <span>© 2026 · 24 Design-Konzepte für LeXpersonal GmbH · Edition 07</span>
+  <span>3 Tier · 1 CI · Münster</span>
 </div>
 
 </div>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Press Kit / Media Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F5F4F0;
+  --paper-3:#EBE9E0;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:rgba(11,26,51,0.12);
+  --line-strong:rgba(11,26,51,0.22);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --green:#10B981;
+}
+body{background:var(--paper-2);color:var(--text);font-family:'Inter',sans-serif;font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+
+/* HEADER — funktional, Press-Page-Style */
+.head{position:sticky;top:0;z-index:50;background:var(--ink-deep);color:var(--paper)}
+.head-top{padding:8px 32px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,250,246,0.7);font-weight:600;border-bottom:1px solid rgba(244,250,246,0.12)}
+.head-top span strong{color:var(--cyan)}
+.head-top .langs{display:flex;gap:14px}
+.head-top .langs a{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.04em;color:rgba(244,250,246,0.6);font-weight:500;text-transform:none}
+.head-top .langs a.active{color:var(--cyan)}
+.head-top .langs a:hover{color:#fff}
+.head-main{padding:14px 32px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+.head-main .l{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'Inter',sans-serif;font-weight:300;font-size:16px;letter-spacing:0.08em}
+.head-main .l svg{width:22px;height:27px}
+.head-main .l strong{font-weight:600;color:var(--cyan)}
+.head-main .l .tag{margin-left:10px;padding:2px 8px;background:var(--cyan);color:var(--ink-deep);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.1em;border-radius:3px;text-transform:uppercase}
+.head-main .search{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:8px 14px;display:flex;align-items:center;gap:10px;color:rgba(244,250,246,0.6);font-size:13px;max-width:480px;width:100%;justify-self:center;cursor:pointer}
+.head-main .search:hover{border-color:rgba(255,255,255,0.25)}
+.head-main .search .icon{font-family:'JetBrains Mono',monospace}
+.head-main .search .key{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(244,250,246,0.4);background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:3px;letter-spacing:0.04em}
+.head-main .actions{display:flex;gap:8px;align-items:center}
+.head-main .actions .btn{padding:8px 16px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;border-radius:5px;letter-spacing:0.01em}
+.head-main .actions .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.18)}
+.head-main .actions .btn-ghost:hover{background:rgba(255,255,255,0.06)}
+.head-main .actions .btn-prim{background:var(--cyan);color:var(--ink-deep)}
+.head-main .actions .btn-prim:hover{background:#fff}
+@media (max-width:900px){.head-main{grid-template-columns:auto 1fr;gap:12px}.head-main .search{display:none}.head-main .l .tag{display:none}}
+
+/* HERO */
+.hero{padding:88px 32px 64px;background:var(--paper);border-bottom:1px solid var(--line)}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end}
+.hero .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero .lab .bar{width:32px;height:2px;background:var(--cyan)}
+.hero h1{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(48px,7vw,108px);line-height:0.95;letter-spacing:-0.04em;color:var(--ink)}
+.hero h1 strong{font-weight:600}
+.hero h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.hero p{margin-top:24px;font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;line-height:1.5;color:var(--text);max-width:580px;font-weight:300}
+.hero .actions{padding-bottom:8px;display:flex;flex-direction:column;gap:14px}
+.hero .actions .btn-big{padding:18px 24px;background:var(--ink);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.01em;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.hero .actions .btn-big:hover{background:var(--blue)}
+.hero .actions .btn-big.prim{background:var(--cyan);color:var(--ink-deep)}
+.hero .actions .btn-big.prim:hover{background:var(--blue);color:#fff}
+.hero .actions .btn-big .ico{font-family:'JetBrains Mono',monospace;font-size:16px}
+.hero .actions .btn-big small{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-top:2px}
+@media (max-width:900px){.hero{padding:48px 20px}.hero-inner{grid-template-columns:1fr;gap:32px}}
+
+/* QUICK FACTS / Boilerplate */
+.facts{padding:64px 32px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.facts-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.facts h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(28px,3.5vw,44px);line-height:1.05;letter-spacing:-0.025em;color:var(--ink);margin-bottom:14px}
+.facts h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.facts .lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:14px}
+.facts > .facts-inner > div:first-child p{font-size:16px;color:var(--text);line-height:1.65;max-width:380px}
+.boilerplate{background:#fff;border:1px solid var(--line);border-radius:8px;padding:0;overflow:hidden}
+.boilerplate-h{padding:14px 20px;background:var(--paper-3);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.boilerplate-h .copy{padding:5px 12px;background:var(--blue);color:#fff;border-radius:4px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;cursor:pointer}
+.boilerplate-h .copy:hover{background:var(--ink)}
+.boilerplate-body{padding:24px 28px;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.75;color:var(--text);max-height:none}
+.boilerplate-body strong{color:var(--ink);font-weight:600}
+.boilerplate-body em{font-style:italic;color:var(--blue)}
+.boilerplate-body p{margin-bottom:12px}
+.boilerplate-body p:last-child{margin-bottom:0}
+@media (max-width:900px){.facts{padding:48px 20px}.facts-inner{grid-template-columns:1fr;gap:32px}}
+
+/* KEY FACTS GRID */
+.kf-grid{padding:64px 32px;border-bottom:1px solid var(--line);background:var(--paper)}
+.kf-inner{max-width:1280px;margin:0 auto}
+.kf-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;flex-wrap:wrap;gap:12px;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.kf-head h3{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;letter-spacing:-0.02em;color:var(--ink)}
+.kf-head h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.kf-head .info{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kfs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.kf{background:#fff;padding:22px 20px;display:flex;flex-direction:column;gap:6px}
+.kf .l{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:1.4}
+.kf .v{font-family:'Inter',sans-serif;font-weight:300;font-size:32px;line-height:1;letter-spacing:-0.035em;color:var(--ink);margin-top:4px}
+.kf .v strong{font-weight:600;color:var(--blue)}
+.kf .v sub{font-size:13px;color:var(--muted);vertical-align:baseline;font-weight:300;margin-left:3px}
+@media (max-width:900px){.kf-grid{padding:48px 20px}.kfs{grid-template-columns:1fr 1fr}}
+
+/* DOWNLOADS — Brand Assets */
+.dl{padding:80px 32px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.dl-inner{max-width:1280px;margin:0 auto}
+.dl-head{margin-bottom:48px;max-width:880px}
+.dl-head .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.dl-head .lab .bar{width:32px;height:2px;background:var(--cyan)}
+.dl-head h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(32px,4.5vw,56px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);margin-bottom:14px}
+.dl-head h2 strong{font-weight:600}
+.dl-head h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.dl-head p{font-size:16px;color:var(--text);line-height:1.6;max-width:580px}
+
+.dl-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dl-cat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:all .2s;cursor:pointer}
+.dl-cat:hover{border-color:var(--line-strong);transform:translateY(-3px);box-shadow:0 12px 32px -12px rgba(11,26,51,0.18)}
+.dl-cat .preview{height:130px;background:var(--paper-3);border-radius:6px;border:1px solid var(--line);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.dl-cat .preview.dark{background:var(--ink-deep);border-color:var(--ink-deep)}
+.dl-cat .preview svg{width:48px;height:58px}
+.dl-cat .preview .wordmark{display:flex;align-items:center;gap:8px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.06em}
+.dl-cat .preview.dark .wordmark{color:#fff}
+.dl-cat .preview .wordmark strong{font-weight:600;color:var(--blue)}
+.dl-cat .preview.dark .wordmark strong{color:var(--cyan)}
+.dl-cat .preview .wordmark svg{width:20px;height:24px}
+.dl-cat .preview .photo{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(11,26,51,0.7) 0%,transparent 24%),radial-gradient(ellipse at 50% 78%,rgba(11,26,51,0.85) 0%,transparent 42%),linear-gradient(180deg,#cfc6ac 0%,#766c54 100%)}
+.dl-cat .preview .colors{display:flex;width:100%;height:100%}
+.dl-cat .preview .colors span{flex:1}
+.dl-cat .preview .colors .c1{background:#2778BC}
+.dl-cat .preview .colors .c2{background:#009FE3}
+.dl-cat .preview .colors .c3{background:#0B1A33}
+.dl-cat .preview .colors .c4{background:#F5F4F0}
+.dl-cat .nm{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.015em;color:var(--ink)}
+.dl-cat .ds{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1}
+.dl-cat .row{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.dl-cat .formats{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--muted);font-weight:600}
+.dl-cat .formats span{color:var(--ink);font-weight:700}
+.dl-cat .dl-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:700;display:inline-flex;align-items:center;gap:6px}
+@media (max-width:1080px){.dl-cats{grid-template-columns:1fr 1fr;gap:12px}}
+@media (max-width:520px){.dl-cats{grid-template-columns:1fr}}
+
+/* PRESS RELEASES / News */
+.news{padding:80px 32px;border-bottom:1px solid var(--line);background:var(--paper)}
+.news-inner{max-width:1280px;margin:0 auto}
+.news-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;flex-wrap:wrap;gap:16px;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.news-head h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(28px,4vw,48px);line-height:1.05;letter-spacing:-0.025em;color:var(--ink)}
+.news-head h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.news-head .filter{display:flex;gap:6px;flex-wrap:wrap}
+.news-head .filter .tab{padding:6px 12px;background:transparent;border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-radius:4px;font-weight:600;cursor:pointer}
+.news-head .filter .tab.act{background:var(--ink);border-color:var(--ink);color:#fff}
+.news-list{display:flex;flex-direction:column;gap:0}
+.nw{display:grid;grid-template-columns:120px 1fr 200px auto;gap:32px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center;transition:padding .2s}
+.nw:hover{padding-left:14px}
+.nw .date{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);font-weight:700;line-height:1.4}
+.nw .date small{display:block;font-size:9.5px;color:var(--muted);font-weight:600;margin-top:2px;letter-spacing:0.1em}
+.nw .ttl h4{font-family:'Inter',sans-serif;font-weight:500;font-size:17px;letter-spacing:-0.015em;color:var(--ink);line-height:1.3;margin-bottom:3px}
+.nw .ttl h4 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.nw .ttl p{font-size:13.5px;color:var(--muted);line-height:1.5}
+.nw .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);background:var(--paper-3);padding:4px 10px;border-radius:99px;font-weight:600;justify-self:start}
+.nw .dl-link{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:700;text-align:right}
+.nw .dl-link:hover{color:var(--ink)}
+@media (max-width:900px){.nw{grid-template-columns:1fr;gap:8px}.nw .date,.nw .dl-link,.nw .tag{justify-self:start}}
+
+/* MEDIA CONTACT */
+.contact{padding:96px 32px;background:var(--ink-deep);color:var(--paper);border-bottom:1px solid var(--ink-deep)}
+.contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center}
+.contact .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.contact .lab .bar{width:32px;height:2px;background:var(--cyan)}
+.contact h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(36px,5.5vw,80px);line-height:0.98;letter-spacing:-0.035em;color:#fff}
+.contact h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:300}
+.contact .person{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:32px;display:grid;grid-template-columns:90px 1fr;gap:24px;align-items:start}
+.contact .person .avatar{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 50% 32%,#fff 0%,#fff 16%,transparent 17%),radial-gradient(ellipse at 50% 76%,#fff 0%,#fff 28%,transparent 29%),linear-gradient(135deg,var(--blue),var(--cyan));border:2px solid rgba(255,255,255,0.18);position:relative}
+.contact .person .info h4{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;color:#fff;letter-spacing:-0.015em;margin-bottom:4px}
+.contact .person .info .role{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:18px}
+.contact .person .info .rows{display:flex;flex-direction:column;gap:8px}
+.contact .person .info .rows .row{display:grid;grid-template-columns:90px 1fr;gap:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.12);align-items:baseline}
+.contact .person .info .rows .row:last-child{border-bottom:none}
+.contact .person .info .rows .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,250,246,0.5);font-weight:600}
+.contact .person .info .rows .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:17px;color:#fff;letter-spacing:-0.005em}
+.contact .person .info .rows .v a:hover{color:var(--cyan)}
+@media (max-width:900px){.contact{padding:48px 20px}.contact-inner{grid-template-columns:1fr;gap:32px}.contact .person{grid-template-columns:1fr;gap:18px}}
+
+.foot{padding:24px 32px;background:var(--ink-deep);color:rgba(244,250,246,0.4);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(244,250,246,0.12);font-weight:600}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="head">
+  <div class="head-top">
+    <span>● PRESS &amp; MEDIA · <strong>Update 27.05.2026</strong> · 12 Assets verfügbar</span>
+    <div class="langs"><a href="#" class="active">DE</a><a href="#">EN</a></div>
+  </div>
+  <div class="head-main">
+    <a href="#" class="l">
+      <svg><use href="#lex-x"/></svg>
+      LE<strong>X</strong>PERSONAL
+      <span class="tag">Press · Media</span>
+    </a>
+    <div class="search">
+      <span class="icon">⌕</span>
+      <span>Suche in Pressemitteilungen, Logos, Boilerplate …</span>
+      <span class="key">⌘ K</span>
+    </div>
+    <div class="actions">
+      <a href="#contact" class="btn btn-ghost">Pressekontakt</a>
+      <a href="#" class="btn btn-prim">↓ Komplettes Press-Kit</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="lab"><span class="bar"></span><span>Press &amp; Media Hub · Edition 2026</span></span>
+      <h1>Materialien<br>für die<br><em>Berichterstattung</em><br><strong>über uns.</strong></h1>
+      <p>Logos, Boilerplate, Kennzahlen, Pressemitteilungen, druckfähige Bilder und Sprecher-Profile — alles, was Sie für eine Veröffentlichung brauchen, an einer Stelle.</p>
+    </div>
+    <div class="actions">
+      <a href="#" class="btn-big prim">
+        <div>↓ Press-Kit (komplett)<small>17,4 MB · ZIP · Stand 27.05.2026</small></div>
+        <span class="ico">→</span>
+      </a>
+      <a href="#downloads" class="btn-big">
+        <div>Einzel-Assets ansehen<small>Logo · Foto · Boilerplate · Charts</small></div>
+        <span class="ico">↓</span>
+      </a>
+      <a href="#contact" class="btn-big" style="background:#fff;color:var(--ink);border:1px solid var(--line)">
+        <div>Pressekontakt direkt<small>Antwort &lt; 24 h durch echte Person</small></div>
+        <span class="ico">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BOILERPLATE -->
+<section class="facts">
+  <div class="facts-inner">
+    <div>
+      <span class="lab">— Boilerplate</span>
+      <h2>Über <em>LeXpersonal</em> —<br>in 80 Wörtern.</h2>
+      <p>Der Boilerplate-Text liegt in deutscher und englischer Sprache vor. Sie können ihn direkt aus der Box rechts kopieren und in Ihre Pressemitteilung übernehmen.</p>
+    </div>
+    <div class="boilerplate">
+      <div class="boilerplate-h">
+        <span>● BOILERPLATE · DE · 80 WÖRTER · STAND 27.05.2026</span>
+        <span class="copy">↳ Kopieren</span>
+      </div>
+      <div class="boilerplate-body">
+        <p><strong>Die LeXpersonal GmbH</strong> ist ein inhaber­geführter Personaldienstleister mit Sitz in Münster. Das Unternehmen wurde im Jahr 2008 gegründet und liefert produzierenden Unternehmen, Mittelstand und Industrie in Nordrhein-Westfalen qualifiziertes Personal — flexibel überlassen (Arbeitnehmer­überlassung), dauerhaft vermittelt (Personal­vermittlung) oder im Werkvertrag abgewickelt.</p>
+        <p>LeXpersonal beschäftigt im Durchschnitt 620 Mitarbeitende, ist iGZ-tarifgebunden und verfügt über die unbefristete ANÜ-Erlaubnis der Bundesagentur für Arbeit. Die aktive Talent-Pipeline umfasst über 2.400 vorgeprüfte Kandidat:innen in sieben Branchen.</p>
+        <p><em>Pressekontakt:</em> Pressestelle LeXpersonal, presse@lexpersonal.de, Tel. 0251 — 26 52 49 20.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FACTS -->
+<section class="kf-grid">
+  <div class="kf-inner">
+    <div class="kf-head">
+      <h3>Zahlen, <em>Daten,</em> Fakten</h3>
+      <span class="info">— Stand 31.12.2025 · zur freien Verwendung</span>
+    </div>
+    <div class="kfs">
+      <div class="kf"><div class="l">— Gegründet</div><div class="v"><strong>2008</strong></div></div>
+      <div class="kf"><div class="l">— Sitz</div><div class="v" style="font-size:22px;font-weight:500">Münster</div></div>
+      <div class="kf"><div class="l">— Mitarbeitende Ø</div><div class="v"><strong>620</strong></div></div>
+      <div class="kf"><div class="l">— Pipeline</div><div class="v">2.4<strong>K</strong>+</div></div>
+      <div class="kf"><div class="l">— Branchen</div><div class="v"><strong>7</strong></div></div>
+      <div class="kf"><div class="l">— Folgeauftrag</div><div class="v">98<sub>%</sub></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section class="dl" id="downloads">
+  <div class="dl-inner">
+    <div class="dl-head">
+      <span class="lab"><span class="bar"></span><span>— Brand &amp; Media Assets</span></span>
+      <h2>Logos, Bilder,<br><em>Markenrichtlinien —</em><br><strong>zum direkten Download.</strong></h2>
+      <p>Alle Assets stehen unter unserer Brand-Lizenz zur redaktionellen Nutzung. Bei Werbe- oder kommerziellem Einsatz bitte vorher Rücksprache.</p>
+    </div>
+
+    <div class="dl-cats">
+
+      <article class="dl-cat">
+        <div class="preview">
+          <div class="wordmark"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</div>
+        </div>
+        <div class="nm">Logo · Light Version</div>
+        <p class="ds">Wortmarke mit X-Symbol für helle Hintergründe. Original-Vektoren in SVG, EPS, PDF, PNG.</p>
+        <div class="row">
+          <span class="formats"><span>SVG · EPS · PDF · PNG</span></span>
+          <span class="dl-btn">↓ ZIP</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview dark">
+          <div class="wordmark"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</div>
+        </div>
+        <div class="nm">Logo · Dark Version</div>
+        <p class="ds">Wortmarke mit X-Symbol für dunkle Hintergründe. Mit Schutzraum- und Mindestgrößen-Vorgaben.</p>
+        <div class="row">
+          <span class="formats"><span>SVG · EPS · PDF · PNG</span></span>
+          <span class="dl-btn">↓ ZIP</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="background:#fff">
+          <svg><use href="#lex-x"/></svg>
+        </div>
+        <div class="nm">X-Symbol · Pur</div>
+        <p class="ds">Die Bildmarke (das X) ohne Schriftzug — für Avatare, Favicons, Social-Profile.</p>
+        <div class="row">
+          <span class="formats"><span>SVG · ICO · PNG</span></span>
+          <span class="dl-btn">↓ ZIP</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="padding:0;overflow:hidden">
+          <div class="colors"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></div>
+        </div>
+        <div class="nm">Farben &amp; Hex-Codes</div>
+        <p class="ds">CI-Palette: Royal-Blau #2778BC · Cyan #009FE3 · Tiefblau #0B1A33 · Paper #F4F1EC.</p>
+        <div class="row">
+          <span class="formats"><span>ASE · ACO · PDF</span></span>
+          <span class="dl-btn">↓ ZIP</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="padding:0;overflow:hidden"><div class="photo"></div></div>
+        <div class="nm">Bildmaterial · Werkshalle</div>
+        <p class="ds">Druckfähige Aufnahmen aus Industrie­halle und Logistik­zentrum — 300 DPI, redaktionell freigegeben.</p>
+        <div class="row">
+          <span class="formats"><span>JPG · TIFF (8 Stk.)</span></span>
+          <span class="dl-btn">↓ 124 MB</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="background:var(--ink);padding:0;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-style:italic;font-size:36px;font-weight:300">CI<span style="color:var(--cyan)">·</span>Guide</div>
+        <div class="nm">Brand Guidelines</div>
+        <p class="ds">Markenhandbuch (28 Seiten) mit Logo-Anwendung, Typografie, Farben, Bild­sprache, Schutz­räumen.</p>
+        <div class="row">
+          <span class="formats"><span>PDF · 28 Seiten</span></span>
+          <span class="dl-btn">↓ 4,2 MB</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="padding:18px;align-items:flex-start;justify-content:flex-start;flex-direction:column;text-align:left">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:700">FACTSHEET 2026</span>
+          <h5 style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--ink);margin-top:6px">Kennzahlen &amp; Compliance — Konzern-Edition</h5>
+          <p style="font-family:'Source Serif 4',serif;font-style:italic;font-size:11px;color:var(--text);line-height:1.4;margin-top:auto">— Vollständige Lieferanten-Vor­qualifikation</p>
+        </div>
+        <div class="nm">Fact Sheet · Konzern-Edition</div>
+        <p class="ds">Konsolidiertes Compliance- und Daten-Dossier für Konzern-Einkauf. iGZ, BA-Erlaubnis, DSGVO, AVV-Vorlage.</p>
+        <div class="row">
+          <span class="formats"><span>PDF · 12 Seiten</span></span>
+          <span class="dl-btn">↓ 1,8 MB</span>
+        </div>
+      </article>
+
+      <article class="dl-cat">
+        <div class="preview" style="background:#fff;align-items:flex-start;padding:14px;flex-direction:column;justify-content:flex-end">
+          <div style="display:flex;align-items:flex-end;gap:5px;height:60%;width:100%">
+            <div style="flex:1;background:#2778BC;height:42%"></div>
+            <div style="flex:1;background:#2778BC;height:55%"></div>
+            <div style="flex:1;background:#2778BC;height:68%"></div>
+            <div style="flex:1;background:#2778BC;height:78%"></div>
+            <div style="flex:1;background:#009FE3;height:100%"></div>
+          </div>
+        </div>
+        <div class="nm">Charts &amp; Diagramme</div>
+        <p class="ds">Vorbereitete Charts (Vermittlungen 2021–25, Branchenmix, KPIs) als PNG und editierbares SVG.</p>
+        <div class="row">
+          <span class="formats"><span>PNG · SVG (12 Stk.)</span></span>
+          <span class="dl-btn">↓ ZIP</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRESS RELEASES -->
+<section class="news">
+  <div class="news-inner">
+    <div class="news-head">
+      <h2>Aktuelle <em>Pressemitteilungen</em></h2>
+      <div class="filter">
+        <span class="tab act">Alle</span>
+        <span class="tab">Unternehmen</span>
+        <span class="tab">Branche</span>
+        <span class="tab">Auszeichnungen</span>
+      </div>
+    </div>
+    <div class="news-list">
+
+      <a href="#" class="nw">
+        <span class="date">27.05.2026<small>Pressemitteilung</small></span>
+        <div class="ttl">
+          <h4>Geschäftsbericht 2025: <em>Stärkstes Jahr</em> seit Gründung.</h4>
+          <p>312 Vermittlungen, 98 % Folgeauftragsquote — LeXpersonal legt Zahlen für Geschäftsjahr 2025 vor.</p>
+        </div>
+        <span class="tag">Unternehmen</span>
+        <span class="dl-link">↓ PDF + Bildmaterial</span>
+      </a>
+
+      <a href="#" class="nw">
+        <span class="date">14.04.2026<small>Pressemitteilung</small></span>
+        <div class="ttl">
+          <h4>Industrie-Referenz: 140 <em>Fachkräfte</em> in acht Monaten platziert.</h4>
+          <p>LeXpersonal begleitet Werks­erweiterung eines Münsterländer Industrie­betriebs — ohne Produktions­stopp.</p>
+        </div>
+        <span class="tag">Branche</span>
+        <span class="dl-link">↓ PDF + Bildmaterial</span>
+      </a>
+
+      <a href="#" class="nw">
+        <span class="date">22.02.2026<small>Pressemitteilung</small></span>
+        <div class="ttl">
+          <h4>Pipeline erreicht <em>2.400 vorgeprüfte</em> Talente.</h4>
+          <p>Aktive Talent-Pipeline wächst um 12,4 % gegenüber Vorjahr — Sourcing-Team verstärkt.</p>
+        </div>
+        <span class="tag">Unternehmen</span>
+        <span class="dl-link">↓ PDF</span>
+      </a>
+
+      <a href="#" class="nw">
+        <span class="date">10.12.2025<small>Auszeichnung</small></span>
+        <div class="ttl">
+          <h4>„Top-Lieferant <em>Personal 2025"</em> — Industrie-Branchenpreis NRW.</h4>
+          <p>LeXpersonal wird für 18 Jahre verlässliche Personal­dienstleistung im Münster­land ausgezeichnet.</p>
+        </div>
+        <span class="tag">Auszeichnungen</span>
+        <span class="dl-link">↓ PDF + Logo</span>
+      </a>
+
+      <a href="#" class="nw">
+        <span class="date">05.09.2025<small>Pressemitteilung</small></span>
+        <div class="ttl">
+          <h4>Werkvertrag-Segment wächst um <em>34 Prozent.</em></h4>
+          <p>Pflege und Industrie als Wachstums­treiber — LeXpersonal baut dediziertes Werkvertrag-Team auf.</p>
+        </div>
+        <span class="tag">Branche</span>
+        <span class="dl-link">↓ PDF</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <span class="lab"><span class="bar"></span><span>— Pressekontakt</span></span>
+      <h2>Wir <em>antworten —</em><br>immer innerhalb<br><strong>24 Stunden.</strong></h2>
+    </div>
+    <div class="person">
+      <div class="avatar"></div>
+      <div class="info">
+        <h4>Vorname Nachname</h4>
+        <div class="role">— Leitung Presse &amp; Kommunikation</div>
+        <div class="rows">
+          <div class="row"><span class="k">Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+          <div class="row"><span class="k">Mobil</span><a href="tel:+4915112345678" class="v">+49 (0) 151 — 1234 56 78</a></div>
+          <div class="row"><span class="k">E-Mail</span><a href="mailto:presse@lexpersonal.de" class="v">presse@lexpersonal.de</a></div>
+          <div class="row"><span class="k">Verfügbar</span><span class="v">Mo–Fr · 08:00–18:00<br>Pressedienst Mo–So bis 21:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · Press &amp; Media Hub · Stand 27.05.2026</span>
+  <span>Konzept · Press Kit / Media Hub</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>
