@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Card Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F4F1EC;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:rgba(11,26,51,0.12);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --gold:#D4B57A;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
+
+/* HEADER — Floating circular indicator */
+.nav-wrap{position:fixed;top:24px;left:0;right:0;z-index:60;padding:0 32px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.nav-wrap > *{pointer-events:auto}
+.nav-logo{display:flex;align-items:center;gap:10px;background:rgba(244,241,236,0.85);backdrop-filter:blur(14px);padding:10px 18px;border-radius:99px;border:1px solid rgba(11,26,51,0.08);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:15px;letter-spacing:0.08em}
+.nav-logo svg{width:20px;height:24px}
+.nav-logo strong{font-weight:600;color:var(--blue)}
+.nav-stack-ind{display:flex;align-items:center;gap:14px;background:rgba(244,241,236,0.85);backdrop-filter:blur(14px);padding:10px 18px;border-radius:99px;border:1px solid rgba(11,26,51,0.08);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.nav-stack-ind .pgr{display:flex;gap:5px}
+.nav-stack-ind .pgr span{width:7px;height:7px;border-radius:50%;background:rgba(11,26,51,0.18);transition:all .25s}
+.nav-stack-ind .pgr span.act{background:var(--blue);width:20px;border-radius:99px}
+.nav-cta{padding:10px 22px;background:var(--ink);color:#fff;border-radius:99px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.01em}
+.nav-cta:hover{background:var(--blue)}
+@media (max-width:768px){.nav-wrap{padding:0 16px}.nav-cta{display:none}}
+
+/* STACK CONTAINER */
+.stack-wrap{padding:120px 32px 80px;min-height:100vh;position:relative}
+.stack-intro{max-width:880px;margin:0 auto 64px;text-align:center}
+.stack-intro .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:20px;display:inline-flex;align-items:center;gap:14px}
+.stack-intro .lab::before,.stack-intro .lab::after{content:"";width:32px;height:1px;background:var(--blue)}
+.stack-intro h1{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(40px,5.5vw,88px);line-height:0.98;letter-spacing:-0.035em;color:var(--ink);margin-bottom:20px}
+.stack-intro h1 strong{font-weight:600}
+.stack-intro h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.stack-intro p{font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--text);font-weight:300;max-width:680px;margin:0 auto}
+
+/* STICKY STACK */
+.cards-section{position:relative;padding-bottom:200px}
+.cards-section .scroll-track{height:600vh;position:relative}
+.card-stack{position:sticky;top:96px;height:calc(100vh - 144px);display:flex;align-items:center;justify-content:center;perspective:2000px}
+.stack-card{position:absolute;width:min(880px,90vw);min-height:520px;border-radius:24px;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;transform-origin:center top;backdrop-filter:blur(20px);transition:none}
+.stack-card .card-no{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:14px}
+.stack-card .card-no .bar{width:28px;height:2px;background:currentColor}
+.stack-card h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.0;letter-spacing:-0.035em;margin:24px 0 24px}
+.stack-card h2 strong{font-weight:600}
+.stack-card h2 em{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300}
+.stack-card p{font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;line-height:1.45;font-weight:300;max-width:580px}
+.stack-card .meta{margin-top:auto;padding-top:24px;border-top:1px solid currentColor;border-color:rgba(0,0,0,0.15);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;opacity:1}
+.stack-card .m .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.6;font-weight:700;margin-bottom:6px}
+.stack-card .m .v{font-family:'Inter',sans-serif;font-weight:300;font-size:30px;line-height:1;letter-spacing:-0.03em}
+.stack-card .m .v strong{font-weight:500}
+
+/* Card backgrounds */
+.sc-1{background:var(--paper);color:var(--ink);box-shadow:0 30px 80px -20px rgba(11,26,51,0.25)}
+.sc-1 .card-no{color:var(--blue)}
+.sc-1 h2 em{color:var(--blue)}
+.sc-1 .meta{border-color:rgba(11,26,51,0.18)}
+.sc-1 .m .v strong{color:var(--blue)}
+
+.sc-2{background:var(--blue);color:#fff;box-shadow:0 30px 80px -20px rgba(39,120,188,0.4)}
+.sc-2 .card-no{color:var(--gold)}
+.sc-2 h2 em{color:var(--gold)}
+.sc-2 .meta{border-color:rgba(255,255,255,0.25)}
+.sc-2 .m .k{opacity:0.7}
+.sc-2 .m .v strong{color:var(--gold)}
+
+.sc-3{background:var(--ink);color:#fff;box-shadow:0 30px 80px -20px rgba(11,26,51,0.5)}
+.sc-3 .card-no{color:var(--cyan)}
+.sc-3 h2 em{color:var(--cyan)}
+.sc-3 .meta{border-color:rgba(255,255,255,0.2)}
+.sc-3 .m .k{opacity:0.55}
+.sc-3 .m .v strong{color:var(--cyan)}
+
+.sc-4{background:var(--cyan);color:var(--ink-deep);box-shadow:0 30px 80px -20px rgba(0,159,227,0.4)}
+.sc-4 .card-no{color:var(--ink-deep)}
+.sc-4 h2 em{color:var(--ink)}
+.sc-4 .meta{border-color:rgba(11,26,51,0.25)}
+
+.sc-5{background:#E8E2D5;color:var(--ink);box-shadow:0 30px 80px -20px rgba(11,26,51,0.2)}
+.sc-5 .card-no{color:var(--blue)}
+.sc-5 h2 em{color:var(--blue)}
+.sc-5 .meta{border-color:rgba(11,26,51,0.18)}
+.sc-5 .m .v strong{color:var(--blue)}
+
+.sc-6{background:var(--ink-deep);color:#fff;box-shadow:0 30px 80px -20px rgba(7,12,24,0.5)}
+.sc-6 .card-no{color:var(--gold)}
+.sc-6 h2 em{color:var(--gold)}
+.sc-6 .meta{border-color:rgba(255,255,255,0.2)}
+.sc-6 .m .k{opacity:0.55}
+.sc-6 .m .v strong{color:var(--gold)}
+
+/* Scroll hint */
+.scroll-hint{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:600;z-index:50;display:flex;align-items:center;gap:12px;background:rgba(244,241,236,0.85);backdrop-filter:blur(8px);padding:8px 16px;border-radius:99px;border:1px solid rgba(11,26,51,0.08);transition:opacity .3s}
+.scroll-hint .arrow{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+
+/* OUTRO / Contact */
+.outro{padding:120px 32px 96px;background:var(--ink-deep);color:#fff;border-top:1px solid rgba(255,255,255,0.1);position:relative;overflow:hidden}
+.outro::before{content:"";position:absolute;right:-100px;top:-50px;width:480px;height:586px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 220'><path d='M0 0 L34 0 L180 220 L146 220 Z' fill='%23ffffff' opacity='0.05'/><path d='M180 0 L146 0 L0 220 L34 220 Z' fill='%23ffffff' opacity='0.03'/></svg>") no-repeat;background-size:contain;pointer-events:none}
+.outro-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:end;position:relative;z-index:2}
+.outro h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(48px,7vw,108px);line-height:0.95;letter-spacing:-0.04em;color:#fff}
+.outro h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:300}
+.outro .info{padding-top:18px;display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.18)}
+.outro .row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.12);align-items:baseline}
+.outro .row:last-of-type{border-bottom:none}
+.outro .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700}
+.outro .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:22px;color:#fff;letter-spacing:-0.01em}
+.outro .v a:hover{color:var(--cyan)}
+.outro .cta{margin-top:18px;display:inline-flex;padding:14px 28px;background:var(--cyan);color:var(--ink-deep);font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;border-radius:99px;align-self:flex-start}
+@media (max-width:900px){.outro{padding:64px 24px}.outro-inner{grid-template-columns:1fr;gap:32px}}
+
+.foot{padding:24px 32px;background:var(--ink-deep);color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.1);font-weight:600}
+
+@media (max-width:768px){.stack-card{padding:32px 28px}.stack-card .meta{grid-template-columns:1fr 1fr;gap:18px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- FLOATING NAV -->
+<header class="nav-wrap">
+  <a href="#" class="nav-logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <div class="nav-stack-ind"><span>STACK</span><div class="pgr" id="pgr"><span class="act"></span><span></span><span></span><span></span><span></span><span></span></div><span><span id="cur">01</span> / 06</span></div>
+  <a href="#kontakt" class="nav-cta">Anfrage →</a>
+</header>
+
+<!-- INTRO -->
+<section class="stack-wrap">
+  <div class="stack-intro">
+    <span class="lab">Card Stack · Scroll-Choreographie</span>
+    <h1>Sechs Karten,<br>ein <em>Versprechen.</em><br><strong>Eine Geschichte.</strong></h1>
+    <p>Scrollen Sie — die Karten ordnen sich neu, schichten sich um und erzählen, wofür wir stehen. Sechs Statements zu Personaldienstleistung mit Haltung.</p>
+  </div>
+</section>
+
+<!-- STICKY CARD STACK -->
+<section class="cards-section">
+  <div class="scroll-track">
+    <div class="card-stack" id="cardStack">
+      <article class="stack-card sc-1" data-idx="0">
+        <div class="card-no"><span class="bar"></span><span>Card 01 · Wer wir sind</span></div>
+        <h2>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h2>
+        <p>Wir liefern produzierenden Unternehmen, Mittelstand und Industrie qualifiziertes Personal — seit 2008, aus Münster, mit Direktdurchwahl.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— Seit</div><div class="v"><strong>2008</strong></div></div>
+          <div class="m"><div class="k">— Sitz</div><div class="v" style="font-size:22px;font-weight:500">Münster</div></div>
+          <div class="m"><div class="k">— Branchen</div><div class="v"><strong>7</strong></div></div>
+        </div>
+      </article>
+
+      <article class="stack-card sc-2" data-idx="1">
+        <div class="card-no"><span class="bar"></span><span>Card 02 · Drei Modelle</span></div>
+        <h2>Drei Wege,<br>je nach <em>Lastprofil</em><br><strong>Ihres Hauses.</strong></h2>
+        <p>Arbeitnehmer­überlassung. Personalvermittlung. Werkverträge. Wir beraten Sie ehrlich, welches Modell zu Ihrer konkreten Situation passt.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— M-01 ANÜ</div><div class="v"><strong>&lt; 48 h</strong></div></div>
+          <div class="m"><div class="k">— M-02 Vermittl.</div><div class="v"><strong>4 Mo. Garantie</strong></div></div>
+          <div class="m"><div class="k">— M-03 Werkv.</div><div class="v"><strong>Festpr. / T&amp;M</strong></div></div>
+        </div>
+      </article>
+
+      <article class="stack-card sc-3" data-idx="2">
+        <div class="card-no"><span class="bar"></span><span>Card 03 · Belegt durch Praxis</span></div>
+        <h2>Achtzehn Jahre<br>belegen, dass<br>es <em>funktioniert.</em></h2>
+        <p>Unsere Pipeline umfasst 2.430 vorgeprüfte Talente. Ø Time-to-Fill: 4–7 Tage. Folgeauftrags­quote: 98 % — basierend auf 24-Monats-Rolling-Auswertung.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— Pipeline</div><div class="v"><strong>2.4K+</strong></div></div>
+          <div class="m"><div class="k">— Time-to-Fill</div><div class="v"><strong>4–7 d</strong></div></div>
+          <div class="m"><div class="k">— Folgeauftrag</div><div class="v"><strong>98 %</strong></div></div>
+        </div>
+      </article>
+
+      <article class="stack-card sc-4" data-idx="3">
+        <div class="card-no"><span class="bar"></span><span>Card 04 · Haltung</span></div>
+        <h2>Wir glauben<br>an <em>Menschen,</em><br><strong>die zuhören.</strong></h2>
+        <p>Nicht an Datenbank-Matching. Achtung &amp; Respekt für Mitarbeitende. Spitzenleistungen — messbar. Dienst am Kunden, der den Namen verdient.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— Tarif</div><div class="v"><strong>iGZ / DGB</strong></div></div>
+          <div class="m"><div class="k">— Equal-Pay</div><div class="v"><strong>Ab Mo. 9</strong></div></div>
+          <div class="m"><div class="k">— Verbleib 18 Mo.</div><div class="v"><strong>86 %</strong></div></div>
+        </div>
+      </article>
+
+      <article class="stack-card sc-5" data-idx="4">
+        <div class="card-no"><span class="bar"></span><span>Card 05 · Eine Referenz</span></div>
+        <h2>140 Fachkräfte<br>in 8 Monaten —<br><em>null</em> <strong>Ausfall.</strong></h2>
+        <p>Werks­erweiterung eines mittel­ständischen Industrie­betriebs im Münsterland — wir lieferten 140 Fachkräfte, 38 davon nach Probelauf direkt vermittelt. 0 % Produktions­ausfall.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— Branche</div><div class="v" style="font-size:22px;font-weight:500">Metall</div></div>
+          <div class="m"><div class="k">— Zeitraum</div><div class="v" style="font-size:22px;font-weight:500">Q2 24 – Q1 25</div></div>
+          <div class="m"><div class="k">— Übernahmen</div><div class="v"><strong>38 / 140</strong></div></div>
+        </div>
+      </article>
+
+      <article class="stack-card sc-6" data-idx="5">
+        <div class="card-no"><span class="bar"></span><span>Card 06 · Nächster Schritt</span></div>
+        <h2>Sprechen<br>wir <em>persönlich —</em><br><strong>nicht algorithmisch.</strong></h2>
+        <p>Antwortzeit unter 24 Stunden durch eine echte Person. Compliance-Dossier auf Anfrage. iGZ-Mitglied, ANÜ-Erlaubnis BA, DSGVO-konform.</p>
+        <div class="meta">
+          <div class="m"><div class="k">— Telefon</div><div class="v" style="font-size:18px;font-weight:500">0251 26 52 49 20</div></div>
+          <div class="m"><div class="k">— Mail</div><div class="v" style="font-size:18px;font-weight:500">info@lex…</div></div>
+          <div class="m"><div class="k">— Antwort</div><div class="v"><strong>&lt; 24 h</strong></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL HINT (hides after 1st card transition) -->
+<div class="scroll-hint" id="hint"><span class="arrow">↓</span><span>Scrollen für nächste Karte</span></div>
+
+<!-- OUTRO / Contact -->
+<section class="outro" id="kontakt">
+  <div class="outro-inner">
+    <h2>Bereit<br>für die<br>nächste<br><em>Karte?</em></h2>
+    <div class="info">
+      <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+      <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+      <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+      <a href="#" class="cta">Bedarfsanalyse anfragen →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · Card-Stack Edition</span>
+  <span>Konzept · Card Stack Choreographie</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+<script>
+const stack = document.getElementById('cardStack');
+const cards = stack.querySelectorAll('.stack-card');
+const totalCards = cards.length;
+const track = document.querySelector('.scroll-track');
+const pgr = document.querySelectorAll('#pgr span');
+const cur = document.getElementById('cur');
+const hint = document.getElementById('hint');
+
+function update(){
+  const rect = track.getBoundingClientRect();
+  const total = rect.height - window.innerHeight;
+  const progress = Math.max(0, Math.min(1, -rect.top / total));
+  const segPerCard = 1 / totalCards;
+  const activeIdx = Math.min(totalCards - 1, Math.floor(progress / segPerCard));
+
+  cards.forEach((card, i) => {
+    const segStart = i * segPerCard;
+    const segEnd = (i + 1) * segPerCard;
+    const segProgress = Math.max(0, Math.min(1, (progress - segStart) / segPerCard));
+
+    if (i < activeIdx) {
+      // Past — flipped away with rotation and translateY up
+      const past = Math.min(1, activeIdx - i);
+      card.style.transform = `translateY(${-60 * past}px) rotateX(${-12 * past}deg) scale(${1 - 0.05 * past})`;
+      card.style.opacity = Math.max(0, 1 - 0.5 * past);
+      card.style.zIndex = totalCards - i;
+      card.style.filter = `blur(${past * 1.5}px)`;
+    } else if (i === activeIdx) {
+      // Current — full visible, transitioning out as segProgress grows
+      const offset = segProgress < 0.85 ? 0 : (segProgress - 0.85) / 0.15;
+      card.style.transform = `translateY(${-60 * offset}px) rotateX(${-12 * offset}deg) scale(${1 - 0.05 * offset})`;
+      card.style.opacity = Math.max(0.4, 1 - 0.5 * offset);
+      card.style.zIndex = totalCards - i;
+      card.style.filter = `blur(${offset * 1.5}px)`;
+    } else {
+      // Upcoming — below, stacked
+      const stackOffset = i - activeIdx;
+      const visualStack = Math.min(3, stackOffset);
+      card.style.transform = `translateY(${visualStack * 14}px) scale(${1 - 0.03 * visualStack})`;
+      card.style.opacity = visualStack < 3 ? (1 - 0.18 * visualStack) : 0;
+      card.style.zIndex = totalCards - i;
+      card.style.filter = 'blur(0px)';
+    }
+  });
+
+  pgr.forEach((p, i) => p.classList.toggle('act', i === activeIdx));
+  cur.textContent = String(activeIdx + 1).padStart(2, '0');
+  hint.style.opacity = activeIdx === 0 && progress < segPerCard * 0.3 ? '1' : '0';
+}
+
+window.addEventListener('scroll', update, {passive: true});
+window.addEventListener('resize', update);
+update();
+</script>
+
+</body>
+</html>

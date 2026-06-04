@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Bauhaus Composition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F4F1EA;
+  --paper-2:#EDE7D5;
+  --ink:#0E1322;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:rgba(14,19,34,0.18);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --red:#D24B2F;
+  --yellow:#F0C24A;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.04em}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
+
+/* HEADER — Single thick line + corner mark */
+.head-bar{padding:18px 32px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;border-bottom:3px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:50}
+.head-bar .l{display:flex;align-items:center;gap:12px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:16px;letter-spacing:0.08em}
+.head-bar .l svg{width:22px;height:27px}
+.head-bar .l strong{font-weight:600;color:var(--blue)}
+.head-bar .l .marker{width:14px;height:14px;background:var(--red);margin-right:6px;border-radius:50%}
+.head-bar .nav{display:flex;gap:24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.head-bar .nav a:hover{color:var(--red)}
+.head-bar .btn{padding:9px 18px;background:var(--ink);color:var(--paper);border-radius:0;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.head-bar .btn::after{content:"";width:8px;height:8px;background:var(--yellow);border-radius:50%}
+.head-bar .btn:hover{background:var(--red)}
+@media (max-width:900px){.head-bar .nav{display:none}.head-bar{padding:14px 18px}}
+
+/* COMPOSITION 1 — Hero */
+.comp{padding:64px 32px;border-bottom:3px solid var(--ink);position:relative;overflow:hidden}
+.comp .num-mark{position:absolute;top:24px;right:32px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:10px}
+.comp .num-mark .v{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;color:var(--ink);font-size:32px;letter-spacing:-0.02em;line-height:1;text-transform:none;letter-spacing:0}
+
+.comp1{padding:80px 32px}
+.comp1-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:5fr 4fr 3fr;gap:48px;align-items:end;position:relative;min-height:540px}
+.comp1 .form{position:relative}
+.comp1 .form .circle{position:absolute;width:280px;height:280px;border-radius:50%;background:var(--red);bottom:0;right:0;z-index:1}
+.comp1 .form .square{position:absolute;width:180px;height:180px;background:var(--blue);top:60px;left:20px;z-index:2}
+.comp1 .form .yellow{position:absolute;width:140px;height:140px;background:var(--yellow);top:0;right:120px;z-index:3;border-radius:50%}
+.comp1 .form .triangle{position:absolute;top:80px;right:20px;width:0;height:0;border-left:55px solid transparent;border-right:55px solid transparent;border-bottom:95px solid var(--ink);z-index:4;transform:rotate(15deg)}
+.comp1 .form .line{position:absolute;top:30%;left:0;right:0;height:6px;background:var(--ink);z-index:0}
+.comp1 .form .line2{position:absolute;top:60%;left:0;right:30%;height:3px;background:var(--cyan);z-index:0}
+
+.comp1 h1{font-family:'Archivo Black',sans-serif;font-size:clamp(48px,7vw,128px);line-height:0.88;letter-spacing:-0.045em;color:var(--ink);text-transform:uppercase}
+.comp1 h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--red);font-weight:300;letter-spacing:-0.02em;text-transform:none}
+.comp1 h1 .blue{color:var(--blue)}
+.comp1 .lede{padding-top:24px;border-top:3px solid var(--ink);font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;line-height:1.45;color:var(--ink);font-weight:300;max-width:380px}
+.comp1 .lede small{display:block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+@media (max-width:900px){.comp1-inner{grid-template-columns:1fr;gap:32px;min-height:auto}.comp1 .form{height:240px}.comp1 .form .circle{width:160px;height:160px}.comp1 .form .square{width:120px;height:120px}.comp1 .form .yellow{width:80px;height:80px}}
+
+/* COMPOSITION 2 — Drei Modelle */
+.comp2{padding:64px 32px}
+.comp2-head{max-width:1280px;margin:0 auto 48px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:24px}
+.comp2-head .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);font-weight:700;padding:6px 12px;background:var(--yellow);align-self:start;display:inline-block}
+.comp2-head h2{font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.5vw,80px);line-height:0.92;letter-spacing:-0.04em;color:var(--ink);text-transform:uppercase}
+.comp2-head h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300;text-transform:none;letter-spacing:-0.02em}
+
+.comp2-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:60px;gap:14px}
+.comp2-grid > .item{background:#fff;border:2px solid var(--ink);padding:24px;position:relative;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.m1{grid-column:span 5;grid-row:span 5}
+.m2{grid-column:span 4;grid-row:span 5;background:var(--blue);color:#fff}
+.m3{grid-column:span 3;grid-row:span 5;background:var(--ink);color:var(--paper)}
+
+.comp2-grid .item .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:8px;align-self:flex-start}
+.comp2-grid .item .id .dot{width:10px;height:10px;border-radius:50%}
+.m1 .id{color:var(--red)}
+.m1 .id .dot{background:var(--red)}
+.m2 .id{color:var(--yellow)}
+.m2 .id .dot{background:var(--yellow)}
+.m3 .id{color:var(--cyan)}
+.m3 .id .dot{background:var(--cyan)}
+
+.comp2-grid .item h3{font-family:'Archivo Black',sans-serif;font-size:34px;line-height:0.95;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:6px}
+.m2 h3,.m3 h3{color:#fff}
+.comp2-grid .item h3 em{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;letter-spacing:-0.015em;text-transform:none}
+.m1 h3 em{color:var(--blue)}
+.m2 h3 em{color:var(--yellow)}
+.m3 h3 em{color:var(--cyan)}
+.comp2-grid .item p{font-size:14px;line-height:1.55;flex:1}
+.m2 p{color:rgba(255,255,255,0.85)}
+.m3 p{color:rgba(244,241,234,0.78)}
+.comp2-grid .item .specs{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;padding-top:14px;border-top:1.5px solid currentColor;border-color:rgba(0,0,0,0.18);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.06em}
+.m2 .specs,.m3 .specs{border-color:rgba(255,255,255,0.22)}
+.comp2-grid .item .specs .k{opacity:0.6;text-transform:uppercase;font-weight:600}
+.comp2-grid .item .specs .v{font-weight:700;text-align:right}
+.m1 .specs .v{color:var(--blue)}
+.m2 .specs .v{color:var(--yellow)}
+.m3 .specs .v{color:var(--cyan)}
+
+/* Decorative shapes in grid */
+.deco-circle{grid-column:span 3;grid-row:span 3;background:var(--yellow);border:2px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-style:italic;color:var(--ink);font-size:48px;font-weight:300}
+.deco-tri{grid-column:span 3;grid-row:span 3;background:var(--red);border:2px solid var(--ink);position:relative;display:flex;align-items:flex-end;padding:18px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
+.deco-tri::before{content:"";position:absolute;top:0;left:0;width:0;height:0;border-top:80px solid var(--ink);border-right:80px solid transparent}
+.deco-bar{grid-column:span 6;grid-row:span 3;background:#fff;border:2px solid var(--ink);padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.deco-bar .q{font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;font-size:22px;line-height:1.3;color:var(--ink)}
+.deco-bar .q em{color:var(--red)}
+.deco-bar .cite{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+@media (max-width:900px){.comp2-grid{grid-template-columns:1fr;grid-auto-rows:auto}.comp2-grid > *{grid-column:span 1 !important}}
+
+/* COMPOSITION 3 — KPIs / Geometric */
+.comp3{padding:64px 32px;background:var(--paper-2);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.comp3-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi-box{padding:32px 24px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px;border:2px solid var(--ink);position:relative;overflow:hidden}
+.kpi-box .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:8px}
+.kpi-box .l .dot{width:10px;height:10px;border-radius:50%;background:currentColor}
+.kpi-box .v{font-family:'Archivo Black',sans-serif;font-size:80px;line-height:0.9;letter-spacing:-0.05em;text-transform:uppercase;margin-top:auto}
+.kpi-box .v sub{font-size:20px;font-weight:400;opacity:0.6;vertical-align:baseline;margin-left:4px}
+.kpi-box .sub{margin-top:14px;padding-top:14px;border-top:2px solid currentColor;border-color:rgba(0,0,0,0.18);font-size:13px;line-height:1.45}
+.kpi-box.k1{background:var(--paper);color:var(--ink)}
+.kpi-box.k1 .l{color:var(--red)}
+.kpi-box.k1 .v em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300;text-transform:none}
+.kpi-box.k2{background:var(--blue);color:#fff;border-color:var(--blue)}
+.kpi-box.k2 .l{color:var(--yellow)}
+.kpi-box.k2 .sub{border-color:rgba(255,255,255,0.2)}
+.kpi-box.k3{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.kpi-box.k3 .l{color:var(--cyan)}
+.kpi-box.k3 .sub{border-color:rgba(244,241,234,0.2)}
+.kpi-box.k4{background:var(--yellow);color:var(--ink);border-color:var(--ink)}
+.kpi-box.k4 .l{color:var(--red)}
+@media (max-width:900px){.comp3-inner{grid-template-columns:1fr 1fr}}
+
+/* COMPOSITION 4 — Pull Quote */
+.comp4{padding:96px 32px;border-bottom:3px solid var(--ink);position:relative}
+.comp4-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.comp4 .vis{position:relative;aspect-ratio:1/1;max-width:320px}
+.comp4 .vis .c1{position:absolute;width:80%;height:80%;background:var(--blue);top:0;left:0;border-radius:50%}
+.comp4 .vis .c2{position:absolute;width:50%;height:50%;background:var(--red);bottom:0;right:0;border-radius:50%}
+.comp4 .vis .c3{position:absolute;top:50%;left:50%;width:40%;height:40%;background:var(--yellow);transform:translate(-50%,-50%);border-radius:50%}
+.comp4 .vis .line{position:absolute;top:50%;left:0;right:0;height:6px;background:var(--ink)}
+.comp4 .q{padding-left:32px;border-left:6px solid var(--red)}
+.comp4 blockquote{font-family:'Archivo Black',sans-serif;font-size:clamp(36px,5vw,68px);line-height:1.0;letter-spacing:-0.04em;color:var(--ink);text-transform:uppercase}
+.comp4 blockquote em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300;letter-spacing:-0.015em;text-transform:none}
+.comp4 blockquote .yellow{background:var(--yellow);padding:0 8px;color:var(--ink);display:inline-block}
+.comp4 cite{margin-top:24px;display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+@media (max-width:900px){.comp4{padding:48px 20px}.comp4-inner{grid-template-columns:1fr;gap:32px}.comp4 .vis{margin:0 auto}}
+
+/* COMPOSITION 5 — CTA */
+.comp5{padding:96px 32px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.comp5::before{content:"";position:absolute;top:-100px;right:-100px;width:380px;height:380px;border-radius:50%;background:var(--cyan)}
+.comp5::after{content:"";position:absolute;bottom:-50px;left:30%;width:240px;height:240px;background:var(--red);border-radius:50%}
+.comp5-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end;position:relative;z-index:2}
+.comp5 h2{font-family:'Archivo Black',sans-serif;font-size:clamp(48px,7vw,120px);line-height:0.92;letter-spacing:-0.045em;color:var(--paper);text-transform:uppercase}
+.comp5 h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--yellow);font-weight:300;text-transform:none;letter-spacing:-0.02em}
+.comp5 h2 .cyan{color:var(--cyan)}
+.comp5 .info{padding-top:18px;display:flex;flex-direction:column;gap:14px;border-top:2px solid rgba(244,241,234,0.25)}
+.comp5 .row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding-bottom:12px;border-bottom:1px solid rgba(244,241,234,0.18);align-items:baseline}
+.comp5 .row:last-of-type{border-bottom:none}
+.comp5 .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,241,234,0.5);font-weight:700}
+.comp5 .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:22px;color:var(--paper);letter-spacing:-0.01em}
+.comp5 .v a:hover{color:var(--cyan)}
+.comp5 .cta{margin-top:24px;display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:var(--yellow);color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;border-radius:0;align-self:flex-start}
+.comp5 .cta:hover{background:var(--cyan)}
+@media (max-width:900px){.comp5{padding:64px 20px}.comp5-inner{grid-template-columns:1fr;gap:32px}}
+
+.foot{padding:24px 32px;background:var(--ink);color:rgba(244,241,234,0.45);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(244,241,234,0.18);font-weight:600}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="head-bar">
+  <a href="#" class="l"><span class="marker"></span><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <nav class="nav">
+    <a href="#c2">[ I ] Modelle</a>
+    <a href="#c3">[ II ] Zahlen</a>
+    <a href="#c4">[ III ] Haltung</a>
+    <a href="#c5">[ IV ] Kontakt</a>
+  </nav>
+  <a href="#c5" class="btn">Anfrage</a>
+</header>
+
+<!-- COMPOSITION 1 — Hero -->
+<section class="comp comp1" id="c1">
+  <span class="num-mark">Composition · <span class="v">I.</span></span>
+  <div class="comp1-inner">
+    <div>
+      <h1>Personal,<br>auf das<br>sich <em>Industrie</em><br><span class="blue">verlässt.</span></h1>
+    </div>
+    <div class="form">
+      <div class="line"></div>
+      <div class="line2"></div>
+      <div class="square"></div>
+      <div class="circle"></div>
+      <div class="yellow"></div>
+      <div class="triangle"></div>
+    </div>
+    <div>
+      <p class="lede">Eine bauhaus­inspirierte Komposition über Personal­dienstleistung mit Haltung.<small>— Seit 2008 aus Münster · 5 Compositions</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPOSITION 2 — Drei Modelle -->
+<section class="comp comp2" id="c2">
+  <span class="num-mark">Composition · <span class="v">II.</span></span>
+  <div class="comp2-head">
+    <span class="label">— Modelle · M-01 / M-02 / M-03</span>
+    <h2>Drei Modelle.<br><em>Ein Versprechen.</em><br>Klare Form.</h2>
+  </div>
+  <div class="comp2-grid">
+    <article class="item m1">
+      <span class="id"><span class="dot"></span>M-01 · ANÜ</span>
+      <h3>Arbeit­<br>nehmer­<br><em>überlassung.</em></h3>
+      <p>Qualifizierte Fach- und Hilfs­kräfte, flexibel überlassen. Wir bleiben Arbeitgeber.</p>
+      <div class="specs">
+        <span class="k">Bereitst.</span><span class="v">&lt; 48 h</span>
+        <span class="k">Tarif</span><span class="v">iGZ/DGB</span>
+        <span class="k">Übernahme</span><span class="v">jederzeit</span>
+      </div>
+    </article>
+    <article class="item m2">
+      <span class="id"><span class="dot"></span>M-02 · Vermittlung</span>
+      <h3>Personal­<br><em>vermittlung.</em></h3>
+      <p>Direkte Fest­anstellung — diskret, kulturfit-bewusst. Honorar erst bei Erfolg.</p>
+      <div class="specs">
+        <span class="k">Honorar</span><span class="v">% Erfolg</span>
+        <span class="k">Garantie</span><span class="v">4 Mo.</span>
+        <span class="k">Verbleib</span><span class="v">86 %</span>
+      </div>
+    </article>
+    <article class="item m3">
+      <span class="id"><span class="dot"></span>M-03 · Werkv.</span>
+      <h3>Werk­<br><em>verträge.</em></h3>
+      <p>Definierter Auftrag, eigene Steuerung. Rechts­sichere Abgrenzung.</p>
+      <div class="specs">
+        <span class="k">Modell</span><span class="v">Festpr./T&amp;M</span>
+        <span class="k">Steuerung</span><span class="v">eigene</span>
+      </div>
+    </article>
+
+    <div class="deco-circle">i.</div>
+    <div class="deco-bar">
+      <p class="q">„Wir glauben nicht an Datenbank-<em>Matching.</em>"</p>
+      <span class="cite">— Grundsatz LeXpersonal · 2008</span>
+    </div>
+    <div class="deco-tri">— Compositional</div>
+  </div>
+</section>
+
+<!-- COMPOSITION 3 — KPIs geometric -->
+<section class="comp comp3" id="c3">
+  <span class="num-mark">Composition · <span class="v">III.</span></span>
+  <div class="comp3-inner">
+    <div class="kpi-box k1">
+      <span class="l"><span class="dot"></span>— Pipeline</span>
+      <div class="v">2.4<em>K+</em></div>
+      <p class="sub">vorgeprüfte Talente · ↑ 12,4 % gegenüber Vorjahr</p>
+    </div>
+    <div class="kpi-box k2">
+      <span class="l"><span class="dot"></span>— Time-to-Fill</span>
+      <div class="v">4–7<sub> d</sub></div>
+      <p class="sub">Briefing bis Einsatz · stabil seit 2023</p>
+    </div>
+    <div class="kpi-box k3">
+      <span class="l"><span class="dot"></span>— Folgeauftrag</span>
+      <div class="v">98<sub>%</sub></div>
+      <p class="sub">24-Monats-Rolling-Auswertung 2025</p>
+    </div>
+    <div class="kpi-box k4">
+      <span class="l"><span class="dot"></span>— Verbleib</span>
+      <div class="v">86<sub>%</sub></div>
+      <p class="sub">nach 18 Monaten · Direkt­vermittlungen</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPOSITION 4 — Pull Quote -->
+<section class="comp comp4" id="c4">
+  <span class="num-mark">Composition · <span class="v">IV.</span></span>
+  <div class="comp4-inner">
+    <div class="vis">
+      <div class="line"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+    </div>
+    <div class="q">
+      <blockquote>Wir glauben an<br><em>Menschen,</em><br>die einander<br><span class="yellow">zuhören.</span></blockquote>
+      <cite>— Grundsatz LeXpersonal, seit Anno 2008</cite>
+    </div>
+  </div>
+</section>
+
+<!-- COMPOSITION 5 — Contact -->
+<section class="comp comp5" id="c5">
+  <span class="num-mark" style="color:rgba(244,241,234,0.5)">Composition · <span class="v" style="color:#fff">V.</span></span>
+  <div class="comp5-inner">
+    <h2>Sprechen<br>wir <em>persön­lich</em><br>— <span class="cyan">geometrisch.</span></h2>
+    <div class="info">
+      <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+      <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+      <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+      <a href="#" class="cta">Bedarfsanalyse anfragen →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · Bauhaus Edition · 5 Compositions</span>
+  <span>Konzept · Bauhaus Composition</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Atlas Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F1ECDF;
+  --paper-2:#E6DFC9;
+  --paper-3:#D9D0B2;
+  --ink:#0E1424;
+  --text:#2D2F35;
+  --muted:#6F6957;
+  --line:rgba(14,20,36,0.18);
+  --line-soft:rgba(14,20,36,0.1);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --rust:#A85426;
+  --gold:#9F7E3E;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
+
+.container{max-width:1320px;margin:0 auto;padding:0 32px}
+
+/* TOP NAV — Atlas-Style Bar */
+.atlas-nav{position:sticky;top:0;z-index:50;padding:14px 32px;background:var(--paper);border-bottom:1px solid var(--ink);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.atlas-nav .l{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:16px;letter-spacing:0.08em;text-transform:none}
+.atlas-nav .l svg{width:22px;height:27px}
+.atlas-nav .l strong{font-weight:600;color:var(--blue)}
+.atlas-nav .center{text-align:center;color:var(--ink);font-family:'Source Serif 4',serif;font-style:italic;font-size:16px;font-weight:400;letter-spacing:-0.005em;text-transform:none}
+.atlas-nav .center strong{font-family:'JetBrains Mono',monospace;font-style:normal;color:var(--blue);letter-spacing:0.06em}
+.atlas-nav .right{text-align:right}
+.atlas-nav .btn{padding:9px 18px;background:var(--ink);color:var(--paper);border-radius:0;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.01em;text-transform:none}
+.atlas-nav .btn:hover{background:var(--blue)}
+@media (max-width:768px){.atlas-nav{grid-template-columns:1fr;gap:8px;text-align:center}.atlas-nav .center{display:none}}
+
+/* HERO */
+.hero{padding:80px 32px 48px;border-bottom:3px double var(--ink);position:relative;overflow:hidden}
+.hero-meta{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:48px;font-size:10.5px;flex-wrap:wrap;gap:12px}
+.hero-meta strong{color:var(--ink);font-weight:700}
+.hero h1{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(48px,7vw,120px);line-height:0.95;letter-spacing:-0.035em;color:var(--ink);max-width:1200px}
+.hero h1 em{font-style:italic;color:var(--blue);font-weight:300}
+.hero .dek{margin-top:32px;font-family:'Source Serif 4',serif;font-style:italic;font-size:22px;line-height:1.45;color:var(--text);max-width:780px;font-weight:300}
+.legend{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.legend .item{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.legend .pin{width:14px;height:14px;border-radius:50%;border:2px solid currentColor}
+.legend .pin.b{background:var(--blue);border-color:var(--blue)}
+.legend .pin.c{background:var(--cyan);border-color:var(--cyan)}
+.legend .pin.r{background:var(--rust);border-color:var(--rust)}
+.legend .pin.g{background:var(--gold);border-color:var(--gold)}
+
+/* MAP */
+.map-section{padding:48px 32px;border-bottom:1px solid var(--line);background:var(--paper)}
+.map-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;max-width:1320px;margin:0 auto;align-items:start}
+@media (max-width:1000px){.map-grid{grid-template-columns:1fr}}
+
+.map-wrap{position:relative;aspect-ratio:5/4;background:var(--paper-2);border:1px solid var(--ink);overflow:hidden}
+.map-wrap::before{content:"";position:absolute;inset:14px;border:1px dashed var(--line);pointer-events:none;z-index:5}
+.map-wrap .label-tl{position:absolute;top:18px;left:18px;background:var(--paper);padding:5px 10px;border:1px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:700;z-index:6}
+.map-wrap .label-br{position:absolute;bottom:18px;right:18px;background:var(--paper);padding:5px 10px;border:1px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:700;z-index:6}
+.map-wrap svg.map{width:100%;height:100%;display:block}
+.map-wrap .grid-lines{position:absolute;inset:14px;background-image:linear-gradient(rgba(14,20,36,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(14,20,36,0.07) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;mix-blend-mode:multiply}
+.map-wrap .compass{position:absolute;top:14px;right:14px;width:60px;height:60px;background:var(--paper);border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;color:var(--ink);font-size:11px;z-index:6;border-radius:50%}
+.map-wrap .compass::before{content:"";position:absolute;top:6px;bottom:6px;left:50%;width:1px;background:var(--ink);transform:translateX(-50%)}
+.map-wrap .compass::after{content:"N";position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;font-weight:700;background:var(--paper);padding:0 2px}
+
+.pin{position:absolute;width:14px;height:14px;border-radius:50%;cursor:pointer;z-index:4;transition:transform .15s}
+.pin::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid currentColor;opacity:0.3}
+.pin:hover{transform:scale(1.3)}
+.pin .lbl{position:absolute;top:-32px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:4px 8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border-radius:0;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none}
+.pin:hover .lbl{opacity:1}
+.pin.b{background:var(--blue);color:var(--blue)}
+.pin.c{background:var(--cyan);color:var(--cyan)}
+.pin.r{background:var(--rust);color:var(--rust)}
+.pin.g{background:var(--gold);color:var(--gold)}
+.pin.head{width:24px;height:24px;background:var(--ink);color:var(--ink);box-shadow:0 0 0 4px rgba(14,20,36,0.15)}
+.pin.head::after{inset:-10px;border:2px solid var(--ink)}
+
+/* INDEX */
+.index{padding-top:18px}
+.index h3{font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;font-size:28px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:18px;padding-bottom:14px;border-bottom:3px double var(--ink)}
+.index h3 strong{font-family:'JetBrains Mono',monospace;font-style:normal;font-weight:700;color:var(--blue);font-size:13px;letter-spacing:0.06em;margin-left:10px;text-transform:uppercase}
+.idx-list{display:flex;flex-direction:column;gap:0}
+.idx-row{display:grid;grid-template-columns:24px 1fr auto;gap:14px;padding:12px 0;border-bottom:1px dotted var(--line);align-items:center;font-size:13.5px}
+.idx-row:last-child{border-bottom:none}
+.idx-row .marker{width:14px;height:14px;border-radius:50%}
+.idx-row.b .marker{background:var(--blue)}
+.idx-row.c .marker{background:var(--cyan)}
+.idx-row.r .marker{background:var(--rust)}
+.idx-row.g .marker{background:var(--gold)}
+.idx-row.h .marker{background:var(--ink);width:18px;height:18px}
+.idx-row .nm{color:var(--ink);font-weight:500}
+.idx-row .nm small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:1px}
+.idx-row .coord{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);letter-spacing:0.05em;font-weight:600}
+
+.summary{margin-top:28px;padding:18px 22px;background:var(--paper-2);border:1px solid var(--ink)}
+.summary .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:8px}
+.summary p{font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.55;color:var(--ink)}
+.summary p em{font-style:italic;color:var(--blue);font-weight:500}
+
+/* TABELLE Branchen */
+.tafel{padding:64px 32px;border-bottom:1px solid var(--line)}
+.tafel-head{max-width:1280px;margin:0 auto 36px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:end}
+.tafel-head .num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:96px;line-height:0.85;color:var(--blue);letter-spacing:-0.025em}
+.tafel-head h2{font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(36px,5vw,68px);line-height:1.0;letter-spacing:-0.025em;color:var(--ink)}
+.tafel-head h2 em{font-style:italic;color:var(--blue)}
+.tafel-tbl{max-width:1280px;margin:0 auto;border:1px solid var(--ink);background:var(--paper)}
+.tafel-tbl table{width:100%;border-collapse:collapse}
+.tafel-tbl th,.tafel-tbl td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px}
+.tafel-tbl thead{background:var(--paper-2);border-bottom:1px solid var(--ink)}
+.tafel-tbl th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.tafel-tbl tr:last-child td{border-bottom:none}
+.tafel-tbl .id{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);font-weight:700;letter-spacing:0.04em}
+.tafel-tbl .nm{font-weight:600;color:var(--ink)}
+.tafel-tbl .ds{color:var(--text);font-size:14px}
+.tafel-tbl .num-c{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--ink)}
+.tafel-tbl .stat{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;background:rgba(39,120,188,0.1);color:var(--blue);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700}
+.tafel-tbl .stat::before{content:"●"}
+@media (max-width:768px){.tafel{padding:48px 20px}.tafel-tbl{overflow-x:auto}.tafel-tbl table{min-width:680px}.tafel-head{grid-template-columns:1fr;gap:14px}}
+
+/* CTA */
+.cta{padding:96px 32px;background:var(--ink);color:var(--paper);border-bottom:1px solid var(--ink)}
+.cta-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:end}
+.cta h2{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(48px,7vw,120px);line-height:0.92;letter-spacing:-0.04em;color:var(--paper)}
+.cta h2 em{font-style:italic;color:var(--cyan)}
+.cta .info{padding-top:18px;display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(241,236,223,0.2)}
+.cta .row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding-bottom:12px;border-bottom:1px solid rgba(241,236,223,0.12);align-items:baseline}
+.cta .row:last-of-type{border-bottom:none}
+.cta .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(241,236,223,0.5);font-weight:700}
+.cta .v{font-family:'Source Serif 4',serif;font-weight:400;font-size:21px;color:var(--paper);letter-spacing:-0.01em}
+.cta .v a:hover{color:var(--cyan)}
+@media (max-width:900px){.cta{padding:48px 20px}.cta-inner{grid-template-columns:1fr;gap:32px}}
+
+.foot{padding:24px 32px;background:var(--ink);color:rgba(241,236,223,0.4);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(241,236,223,0.12);font-weight:600}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="atlas-nav">
+  <a href="#" class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <span class="center">— <em>Atlas des Münsterlandes</em> · <strong>Edition 2026</strong> —</span>
+  <a href="#kontakt" class="right btn">Anfrage stellen →</a>
+</header>
+
+<section class="hero">
+  <div class="hero-meta mono">
+    <span>· DOKUMENT-NR. LEX-ATL-2026 ·</span>
+    <span><strong>BLATT 01 / 03</strong></span>
+    <span>· MAßSTAB 1 : 250.000 ·</span>
+  </div>
+  <h1>Ein <em>Atlas</em><br>der Personaldienst­<br>leistung im<br>Münsterland.</h1>
+  <p class="dek">— Standort, Einsatzgebiete, Branchen­schwerpunkte und ausgewählte Engagements. Stand 27. Mai 2026.</p>
+
+  <div class="legend">
+    <span class="item"><span class="pin head" style="position:static;width:14px;height:14px;background:var(--ink)"></span>Hauptsitz · LeXpersonal</span>
+    <span class="item"><span class="pin b" style="position:static;width:14px;height:14px"></span>Industrie &amp; Metall</span>
+    <span class="item"><span class="pin c" style="position:static;width:14px;height:14px"></span>Logistik</span>
+    <span class="item"><span class="pin r" style="position:static;width:14px;height:14px"></span>Pflege</span>
+    <span class="item"><span class="pin g" style="position:static;width:14px;height:14px"></span>Office &amp; Handwerk</span>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="map-grid">
+
+    <div class="map-wrap">
+      <span class="label-tl">Münsterland · NRW · DE</span>
+      <span class="label-br">© LeXpersonal · 1 : 250.000</span>
+      <span class="compass">↑</span>
+      <div class="grid-lines"></div>
+      <!-- Stylized Münsterland map -->
+      <svg class="map" viewBox="0 0 800 640" fill="none" preserveAspectRatio="xMidYMid meet">
+        <!-- Outline of Münsterland (stylized) -->
+        <path d="M120 180 Q140 130 220 110 Q300 90 400 100 Q500 95 580 130 Q650 165 700 220 Q720 280 700 360 Q680 440 620 490 Q540 540 460 545 Q380 555 300 530 Q220 510 170 460 Q120 410 110 340 Q100 260 120 180 Z" fill="#E6DFC9" stroke="#0E1424" stroke-width="1.5"/>
+        <!-- Inner districts (stylized) -->
+        <path d="M250 200 Q280 195 320 220 Q330 260 320 290 Q280 305 250 290 Q235 250 250 200 Z" fill="#D9D0B2" stroke="#0E1424" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.8"/>
+        <path d="M420 180 Q470 175 510 200 Q525 250 510 295 Q470 310 430 300 Q405 250 420 180 Z" fill="#D9D0B2" stroke="#0E1424" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.8"/>
+        <path d="M540 360 Q580 355 620 380 Q630 420 615 450 Q580 465 540 455 Q525 410 540 360 Z" fill="#D9D0B2" stroke="#0E1424" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.8"/>
+        <!-- River line -->
+        <path d="M150 250 Q280 280 410 330 Q540 380 670 410" stroke="#2778BC" stroke-width="1.5" fill="none" stroke-dasharray="3 2" opacity="0.5"/>
+        <!-- City labels -->
+        <text x="370" y="345" font-family="Source Serif 4, serif" font-size="14" font-style="italic" fill="#0E1424" font-weight="400">Münster</text>
+        <text x="248" y="174" font-family="JetBrains Mono, monospace" font-size="9" fill="#6F6957" letter-spacing="1">COESFELD</text>
+        <text x="190" y="430" font-family="JetBrains Mono, monospace" font-size="9" fill="#6F6957" letter-spacing="1">GREVEN</text>
+        <text x="475" y="170" font-family="JetBrains Mono, monospace" font-size="9" fill="#6F6957" letter-spacing="1">STEINFURT</text>
+        <text x="540" y="430" font-family="JetBrains Mono, monospace" font-size="9" fill="#6F6957" letter-spacing="1">HILTRUP</text>
+        <text x="600" y="270" font-family="JetBrains Mono, monospace" font-size="9" fill="#6F6957" letter-spacing="1">WARENDORF</text>
+      </svg>
+
+      <!-- Pins -->
+      <span class="pin head" style="top:54%;left:46%"><span class="lbl">Hauptsitz · An den Loddenbüschen 95</span></span>
+      <span class="pin b" style="top:31%;left:33%"><span class="lbl">Metallindustrie · 140 MA</span></span>
+      <span class="pin b" style="top:36%;left:60%"><span class="lbl">MS-Industriegruppe</span></span>
+      <span class="pin b" style="top:58%;left:71%"><span class="lbl">Schulte Industrie · Coesfeld</span></span>
+      <span class="pin c" style="top:67%;left:28%"><span class="lbl">NordLogistik · Greven</span></span>
+      <span class="pin c" style="top:64%;left:78%"><span class="lbl">WL Logistik · Warendorf</span></span>
+      <span class="pin r" style="top:72%;left:48%"><span class="lbl">VITA Pflege · Hiltrup</span></span>
+      <span class="pin r" style="top:42%;left:75%"><span class="lbl">Pflegeheim Warendorf</span></span>
+      <span class="pin g" style="top:48%;left:54%"><span class="lbl">Kramer &amp; Söhne · Steuerkanzlei</span></span>
+      <span class="pin g" style="top:25%;left:50%"><span class="lbl">HansaBau · Bau-Werkverträge</span></span>
+    </div>
+
+    <div class="index">
+      <h3>Index <strong>23 Einsätze · Q2/26</strong></h3>
+      <div class="idx-list">
+        <div class="idx-row h"><span class="marker"></span><span class="nm">LeXpersonal Hauptsitz<small>An den Loddenbüschen 95 · 48155 Münster</small></span><span class="coord">N 51°57'</span></div>
+        <div class="idx-row b"><span class="marker"></span><span class="nm">Metallwerk Münsterland<small>140 MA · Werkserweiterung Q2 24 – Q1 25</small></span><span class="coord">B-01</span></div>
+        <div class="idx-row b"><span class="marker"></span><span class="nm">MS Industriegruppe<small>Werkvertrag Industriewartung</small></span><span class="coord">B-02</span></div>
+        <div class="idx-row b"><span class="marker"></span><span class="nm">Schulte Industrie<small>Maschinenbau · CNC-Fachkräfte</small></span><span class="coord">B-03</span></div>
+        <div class="idx-row c"><span class="marker"></span><span class="nm">NordLogistik · Greven<small>Saisonale Peak-Skalierung Q4 / 2024</small></span><span class="coord">C-01</span></div>
+        <div class="idx-row c"><span class="marker"></span><span class="nm">WL Logistik · Warendorf<small>Lager &amp; Versand · ANÜ-Dauer­einsatz</small></span><span class="coord">C-02</span></div>
+        <div class="idx-row r"><span class="marker"></span><span class="nm">VITA Pflege · Hiltrup<small>Werkvertrag Nachtdienst · 18 Monate</small></span><span class="coord">R-01</span></div>
+        <div class="idx-row r"><span class="marker"></span><span class="nm">Pflegeheim Warendorf<small>Examinierte Vermittlung · Direkt</small></span><span class="coord">R-02</span></div>
+        <div class="idx-row g"><span class="marker"></span><span class="nm">Kramer &amp; Söhne · Steuerkanzlei<small>4 Festeinstellungen Q1 2025</small></span><span class="coord">G-01</span></div>
+        <div class="idx-row g"><span class="marker"></span><span class="nm">HansaBau · Münster<small>Werkvertrag Roh- &amp; Tiefbau</small></span><span class="coord">G-02</span></div>
+      </div>
+
+      <div class="summary">
+        <span class="lbl">— Summarisch · Stand Q2/2026</span>
+        <p><em>23 aktive Engagements</em> über das Münster­land verteilt — der Schwerpunkt liegt in Münster und Umgebung, mit deutlichen Industrie-Clustern in Steinfurt-Richtung und einem Logistik-Korridor entlang der A1.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TABELLE Branchen -->
+<section class="tafel">
+  <div class="tafel-head">
+    <span class="num">II.</span>
+    <h2>Branchen­tafel —<br><em>Pipeline-Status</em><br>nach Region.</h2>
+  </div>
+
+  <div class="tafel-tbl">
+    <table>
+      <thead><tr><th style="width:80px">ID</th><th>Branche</th><th>Schwerpunkt-Region</th><th style="width:120px;text-align:right">Pipeline</th><th style="width:140px;text-align:right">Ø Lead-time</th><th style="width:120px">Status</th></tr></thead>
+      <tbody>
+        <tr><td class="id">B-01</td><td class="nm">Industrie &amp; Metall</td><td class="ds">Münster · Coesfeld · Steinfurt</td><td class="num-c">420</td><td class="num-c">3 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-02</td><td class="nm">Logistik</td><td class="ds">Greven · A1-Korridor · Münster</td><td class="num-c">290</td><td class="num-c">2 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-03</td><td class="nm">Office &amp; Verwaltung</td><td class="ds">Münster · Zentrum</td><td class="num-c">350</td><td class="num-c">4 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-04</td><td class="nm">Handwerk</td><td class="ds">flächendeckend</td><td class="num-c">380</td><td class="num-c">4 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-05</td><td class="nm">Pflege</td><td class="ds">Münster · Hiltrup · Warendorf</td><td class="num-c">210</td><td class="num-c">5 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-06</td><td class="nm">Bau</td><td class="ds">Münster · Greven · Steinfurt</td><td class="num-c">240</td><td class="num-c">5 d</td><td><span class="stat">aktiv</span></td></tr>
+        <tr><td class="id">B-07</td><td class="nm">Gastronomie</td><td class="ds">Münster · Innenstadt</td><td class="num-c">170</td><td class="num-c">2 d</td><td><span class="stat">aktiv</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="kontakt">
+  <div class="cta-inner">
+    <h2>Schreiben<br>wir Ihre<br>Region in<br>den <em>Atlas?</em></h2>
+    <div class="info">
+      <div class="row"><span class="k">— Hauptsitz</span><span class="v">An den Loddenbüschen 95<br>D—48155 Münster</span></div>
+      <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+      <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+      <div class="row"><span class="k">— Sprechzeit</span><span class="v">Mo–Fr · 08:00–17:00 Uhr</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · LEX-ATL-2026 · Blatt 01/03</span>
+  <span>Konzept · Atlas Map</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>

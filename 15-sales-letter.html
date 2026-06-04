@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Sales Letter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FAFAF6;
+  --paper-2:#F1EFE7;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:rgba(11,26,51,0.14);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --highlight:#FFF1A8;
+  --green:#10B981;
+}
+body{background:var(--paper);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--blue);text-underline-offset:3px}
+.sans{font-family:'Inter',sans-serif;letter-spacing:-0.005em}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+
+.container{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* TOP — Slim sticky bar with personal letterhead */
+.letter-head{position:sticky;top:0;z-index:50;padding:10px 24px;background:rgba(250,250,246,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.letter-head .l{display:flex;align-items:center;gap:8px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:14px;letter-spacing:0.08em;text-transform:none}
+.letter-head .l svg{width:18px;height:22px}
+.letter-head .l strong{font-weight:600;color:var(--blue)}
+.letter-head .center{text-align:center}
+.letter-head .center strong{color:var(--ink)}
+.letter-head .btn{padding:7px 14px;background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.02em;border-radius:99px;text-transform:none}
+.letter-head .btn:hover{background:var(--blue)}
+@media (max-width:768px){.letter-head{grid-template-columns:1fr;text-align:center;gap:4px}.letter-head .center{display:none}}
+
+/* Letterhead block */
+.letterhead{padding:64px 24px 40px;text-align:left;border-bottom:1px solid var(--line)}
+.letterhead .from{display:flex;align-items:start;gap:16px;margin-bottom:32px}
+.letterhead .from svg{width:42px;height:51px;flex-shrink:0}
+.letterhead .from .info{font-family:'Inter',sans-serif;font-size:14px;line-height:1.5;color:var(--muted);font-weight:400}
+.letterhead .from .info strong{display:block;color:var(--ink);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;font-size:13px;margin-bottom:6px}
+.letterhead .doc-meta{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:32px;padding-bottom:24px;border-bottom:1px dashed var(--line)}
+.letterhead .doc-meta .k{font-weight:500}
+.letterhead .doc-meta .v{color:var(--ink);font-weight:700}
+.letterhead .salutation{font-family:'Source Serif 4',serif;font-size:21px;font-weight:400;color:var(--ink);margin-bottom:8px}
+
+/* HEADLINE */
+.headline{padding:24px 24px 48px;border-bottom:1px solid var(--line)}
+.headline .pre{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.headline .pre::before{content:"";width:32px;height:2px;background:var(--blue)}
+.headline h1{font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(40px,5.5vw,72px);line-height:1.08;letter-spacing:-0.025em;color:var(--ink);margin-bottom:18px}
+.headline h1 em{font-style:italic;color:var(--blue);font-weight:500}
+.headline h1 .hl{background:var(--highlight);padding:0 8px;display:inline-block}
+.headline .sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:23px;line-height:1.4;color:var(--ink);font-weight:400;max-width:680px}
+
+/* LETTER BODY */
+.body{padding:48px 24px;max-width:760px;margin:0 auto}
+.body p{font-size:18.5px;line-height:1.75;color:var(--text);margin-bottom:18px;font-weight:400}
+.body p strong{color:var(--ink);font-weight:600}
+.body p em{font-style:italic;color:var(--blue);font-weight:500}
+.body p .hl{background:var(--highlight);padding:0 4px}
+.body p:first-of-type::first-letter{font-family:'Source Serif 4',serif;font-weight:300;font-size:84px;line-height:0.85;float:left;margin:8px 14px -4px 0;color:var(--blue);font-style:italic}
+
+.h-sub{font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;color:var(--ink);margin:48px 0 18px;line-height:1.15}
+.h-sub em{font-style:italic;color:var(--blue);font-weight:500}
+
+.callout{padding:24px 28px;background:var(--paper-2);border-left:4px solid var(--blue);margin:32px 0;border-radius:0 6px 6px 0}
+.callout p{font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;line-height:1.45;color:var(--ink);font-weight:500}
+.callout p em{color:var(--blue)}
+.callout cite{display:block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+.proof{padding:28px;background:#fff;border:2px solid var(--ink);margin:32px 0}
+.proof h4{font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.proof .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.proof .kpi .v{font-family:'Source Serif 4',serif;font-weight:600;font-size:36px;line-height:1;letter-spacing:-0.03em;color:var(--ink)}
+.proof .kpi .v strong{color:var(--blue)}
+.proof .kpi .v sub{font-size:14px;color:var(--muted);font-weight:400;vertical-align:baseline;margin-left:3px}
+.proof .kpi .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:6px;line-height:1.4}
+.proof p{font-size:15.5px;line-height:1.6;color:var(--text);margin:0}
+.proof p strong{color:var(--ink)}
+@media (max-width:600px){.proof .kpis{grid-template-columns:1fr 1fr;gap:18px}}
+
+.bullets{margin:24px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.bullets li{display:grid;grid-template-columns:32px 1fr;gap:14px;font-size:17.5px;line-height:1.6;color:var(--text)}
+.bullets li::before{content:"✓";color:var(--green);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;margin-top:2px}
+.bullets li strong{color:var(--ink);font-weight:600}
+.bullets li em{font-style:italic;color:var(--blue);font-weight:500}
+
+.q-list{margin:32px 0;display:flex;flex-direction:column;gap:18px}
+.q-list .q{padding:18px 22px;background:var(--paper-2);border-radius:8px;display:flex;gap:14px;align-items:start;font-size:16px;line-height:1.6}
+.q-list .q::before{content:"?";color:var(--blue);font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;font-size:32px;line-height:0.9;flex-shrink:0;margin-top:-2px}
+.q-list .q strong{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+
+/* PS / signature */
+.signature{padding-top:32px;border-top:1px solid var(--line);margin-top:48px}
+.signature p{font-size:18.5px;line-height:1.65;margin-bottom:14px}
+.signature .sig{font-family:'Source Serif 4',serif;font-style:italic;font-weight:500;font-size:32px;color:var(--ink);letter-spacing:-0.015em;margin:14px 0 6px;display:block}
+.signature .role{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:1.7}
+.signature .role strong{color:var(--ink);font-weight:700;display:block;margin-top:6px;font-size:13px;letter-spacing:0.02em;text-transform:none;font-family:'Inter',sans-serif}
+.ps{margin-top:32px;padding:18px 22px;background:var(--highlight);border-radius:6px;font-size:17px;line-height:1.6;color:var(--ink)}
+.ps strong{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:700;margin-right:6px}
+.ps em{font-style:italic;color:var(--blue);font-weight:500}
+
+/* CTA BIG */
+.cta{padding:80px 24px;background:var(--ink-deep);color:var(--paper);text-align:center;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;right:-100px;top:-50px;width:380px;height:464px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 220'><path d='M0 0 L34 0 L180 220 L146 220 Z' fill='%23ffffff' opacity='0.04'/><path d='M180 0 L146 0 L0 220 L34 220 Z' fill='%23ffffff' opacity='0.02'/></svg>") no-repeat;background-size:contain;pointer-events:none}
+.cta-inner{max-width:680px;margin:0 auto;position:relative;z-index:2}
+.cta .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
+.cta .lab::before,.cta .lab::after{content:"";width:32px;height:1px;background:var(--cyan)}
+.cta h2{font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(36px,5vw,68px);line-height:1.05;letter-spacing:-0.03em;color:var(--paper);margin-bottom:18px}
+.cta h2 em{font-style:italic;color:var(--cyan);font-weight:500}
+.cta p{font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;line-height:1.5;color:rgba(250,250,246,0.85);max-width:520px;margin:0 auto 32px;font-weight:400}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;padding:18px 36px;background:var(--cyan);color:var(--ink-deep);font-family:'Inter',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.02em;border-radius:99px;margin-bottom:24px}
+.cta-btn:hover{background:var(--paper);text-decoration:none}
+.cta-alt{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,246,0.55);font-weight:600}
+.cta-alt a{color:rgba(250,250,246,0.85);text-decoration:none}
+.cta-alt a:hover{color:var(--cyan)}
+.cta-alt strong{color:var(--paper);font-weight:700}
+
+.foot{padding:24px;background:var(--ink-deep);color:rgba(250,250,246,0.4);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(250,250,246,0.12);font-weight:600;text-align:center}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="letter-head">
+  <a href="#" class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <span class="center"><strong>Offener Brief</strong> · An Geschäfts­führung &amp; Werks­leitung im Münsterland · 27.05.2026</span>
+  <a href="#cta" class="btn">Brief lesen ↓</a>
+</header>
+
+<!-- LETTERHEAD -->
+<section class="container letterhead">
+  <div class="from">
+    <svg><use href="#lex-x"/></svg>
+    <div class="info">
+      <strong>LeXpersonal GmbH · Münster</strong>
+      An den Loddenbüschen 95<br>
+      D—48155 Münster · Telefon 0251 — 26 52 49 20<br>
+      info@lexpersonal.de · www.lexpersonal.de
+    </div>
+  </div>
+
+  <div class="doc-meta">
+    <span class="k">— An</span><span class="v">Geschäftsführung &amp; Werksleitung</span>
+    <span class="k">— Betreff</span><span class="v">Personal — was Ihr aktueller Dienstleister Ihnen vermutlich nicht sagt</span>
+    <span class="k">— Datum</span><span class="v">27. Mai 2026</span>
+    <span class="k">— Dok-Nr.</span><span class="v">LEX-OB-2026/003 · Vertraulich</span>
+  </div>
+
+  <p class="salutation">Sehr geehrte Geschäftsführung,<br>sehr geehrte Werks- und Personalleitung,</p>
+</section>
+
+<!-- HEADLINE -->
+<section class="container headline">
+  <span class="pre">Ein offener Brief · von einem Münster­länder Personaldienstleister</span>
+  <h1>Wenn Ihr aktueller Dienstleister monatlich abrechnet — und Sie trotzdem <em>Fluktuation</em> haben — liegt das selten <span class="hl">am Markt.</span></h1>
+  <p class="sub">Es liegt an der Art, wie vermittelt wird. Und das lässt sich ändern. Drei Sätze. Acht Minuten Lesezeit. Ein konkretes Angebot.</p>
+</section>
+
+<!-- BODY -->
+<section class="body container">
+
+  <p>seit achtzehn Jahren beobachten wir Personal­märkte im Münsterland. In dieser Zeit haben wir <strong>312 Vermittlungen allein im letzten Geschäftsjahr</strong> abgeschlossen — und gleich­zeitig mehr Kund:innen abgesagt als jemals zuvor. Das klingt paradox. Es ist Strategie.</p>
+
+  <p>Wir schreiben Ihnen, weil Sie vermutlich gerade in einer der drei Situationen stecken, die wir hundert­fach erlebt haben: <em>Erstens —</em> Ihr aktueller Personal­dienstleister liefert pünktlich, aber die Fluktuation ist hoch. <em>Zweitens —</em> Sie zahlen einen attraktiven Stunden­satz, aber die Qualität sinkt mit jedem Quartal. <em>Drittens —</em> Sie haben mehrere Anbieter im Pool, weil niemand zuverlässig genug ist, um <span class="hl">allein gebucht zu werden.</span></p>
+
+  <p>In allen drei Fällen ist der eigentliche Engpass <strong>nicht der Markt</strong>. Es ist die Art, wie vermittelt wird.</p>
+
+  <h2 class="h-sub">Was Ihr aktueller Anbieter Ihnen <em>vermutlich nicht sagt.</em></h2>
+
+  <p>Die meisten Personaldienst­leister optimieren auf <strong>Time-to-Fill</strong>. Schnell liefern, Stunden in Rechnung stellen, weitermachen. Das ist nicht falsch — es ist nur die <em>halbe Wahrheit.</em> Die andere Hälfte heißt <strong>Verbleibsquote nach 18 Monaten</strong>. Und die wird selten gemessen, weil sie unbequem ist.</p>
+
+  <div class="callout">
+    <p>„Wir hatten mit drei Dienstleistern gearbeitet.<br><em>LeXpersonal war der einzige,</em> der die Fluktuation in den Griff bekam — wir buchen weiter."</p>
+    <cite>— Werks­leitung · Industrie­kunde Münsterland · Q1 2025</cite>
+  </div>
+
+  <p>Die Branchen­durchschnitte sind dokumentiert: <strong>78 % Folge­auftrag</strong> bei der typischen Personal­dienstleistung, <strong>64 % Verbleib nach 18 Monaten.</strong> Das klingt ordentlich — bis Sie die Rechnung machen. Jede Vermittlung, die in 18 Monaten ausfällt, kostet Sie Onboarding, Produktivität und in den meisten Fällen einen <em>neuen Vermittlungs­auftrag.</em></p>
+
+  <p>Unsere Zahlen, transparent veröffentlicht:</p>
+
+  <div class="proof">
+    <h4>— LeXpersonal · Geschäftsjahr 2025</h4>
+    <div class="kpis">
+      <div class="kpi"><div class="v"><strong>98</strong><sub>%</sub></div><div class="l">Folgeauftrag<br>24-Mo. Rolling</div></div>
+      <div class="kpi"><div class="v"><strong>86</strong><sub>%</sub></div><div class="l">Verbleib<br>nach 18 Mo.</div></div>
+      <div class="kpi"><div class="v">4–7<sub> d</sub></div><div class="l">Time-to-Fill<br>seit 2023 stabil</div></div>
+      <div class="kpi"><div class="v"><strong>2.4</strong>K+</div><div class="l">Aktive Pipeline<br>vorgeprüft</div></div>
+    </div>
+    <p>Quelle: Eigene Geschäfts­daten 2025. n = 312 Vermittlungen, 147 aktive Kund:innen, 620 Mitarbeitende. Vollständige Auswertung im Geschäfts­bericht auf Anfrage.</p>
+  </div>
+
+  <h2 class="h-sub">Warum unsere Zahlen <em>anders</em> aussehen.</h2>
+
+  <p>Drei Sätze trennen unsere Praxis von der branchen­üblichen:</p>
+
+  <ul class="bullets">
+    <li><strong>Wir hören zu, bevor wir vorschlagen.</strong> Briefing-Termin von <em>mindestens 30 Minuten</em> — vor jedem Angebot. Bei uns telefonieren Sie nicht mit einem Service-Desk, sondern mit der Person, die Ihr Werk später kennt.</li>
+    <li><strong>Wir matchen Menschen, nicht Stichworte.</strong> Sie sehen ausschließlich Kandidat:innen, die wir vorher selbst gesprochen haben — mit schriftlichen Notizen für Sie. Keine Datenbank-Tinder.</li>
+    <li><strong>Wir bleiben erreichbar.</strong> Ø Betriebs­zugehörigkeit unserer Berater:innen: <em>9,2 Jahre.</em> Sie sprechen über Jahre mit derselben Person — nicht jährlich mit jemand Neuem.</li>
+    <li><strong>Wir sagen ehrlich, wann wir der falsche Partner sind.</strong> Bei einer von vier Anfragen empfehlen wir einen anderen Dienstleister. Das ist anstrengend für unseren Umsatz — und der einzige Weg, der <em>über 18 Jahre</em> trägt.</li>
+  </ul>
+
+  <h2 class="h-sub">Was Sie sich vermutlich gerade <em>fragen.</em></h2>
+
+  <div class="q-list">
+    <div class="q"><div><strong>„Was kostet das?"</strong>Bei M-01 (ANÜ) einen Stunden­satz nach iGZ-Tarif. Bei M-02 (Vermittlung) ein Erfolgs­honorar — nur bei erfolgreicher Vermittlung fällig. Bei M-03 (Werkvertrag) Festpreis oder T&amp;M. Konkrete Konditionen nach kurzem Briefing.</div></div>
+    <div class="q"><div><strong>„Wie schnell können Sie liefern?"</strong>M-01 in der Regel &lt; 48 Stunden, M-02 in 10–14 Tagen ab Briefing, M-03 in 2–6 Wochen je nach Projekt­umfang. Wir kommunizieren immer einen verbindlichen Termin — und halten ihn.</div></div>
+    <div class="q"><div><strong>„Und die Compliance für unseren Einkauf?"</strong>iGZ-Mitglied, unbefristete ANÜ-Erlaubnis BA, DSGVO-konform, SAP-Fieldglass-Lieferant. Konsolidiertes Compliance-Dossier auf Anfrage innerhalb 24 Stunden.</div></div>
+    <div class="q"><div><strong>„Wir haben schon einen Anbieter — warum wechseln?"</strong>Müssen Sie nicht. Wir schlagen vor, dass Sie uns parallel an <em>einer einzigen Position</em> testen. Wenn wir liefern, was hier steht, sprechen wir weiter. Wenn nicht — kein Drama.</div></div>
+  </div>
+
+  <h2 class="h-sub">Unser konkretes <em>Angebot.</em></h2>
+
+  <p>Erstens: Wir senden Ihnen unser konsolidiertes Compliance- und Daten-Dossier (12 Seiten, PDF) innerhalb <strong>24 Stunden</strong>. Damit ist Ihre Lieferanten­vorqualifikation in der Regel an einem Werktag erledigt.</p>
+
+  <p>Zweitens: Wir kommen ins Haus für ein <em>30-minütiges Briefing.</em> Sie schildern uns eine konkrete Position oder einen konkreten Bedarf. Wir antworten mit einer ehrlichen Einschätzung — auch wenn das heißt, dass wir <span class="hl">nicht der richtige Partner</span> sind.</p>
+
+  <p>Drittens: Wenn beide Seiten weitersprechen wollen, vereinbaren wir einen <strong>Parallel-Test</strong> an einer einzigen Position. Sie behalten Ihren bestehenden Anbieter. Sie messen uns an den Kennzahlen, die <em>Sie</em> für relevant halten. Verbleibs­quote, Time-to-Fill, Antwort­zeit, Folge­auftrag — was Sie wollen.</p>
+
+  <p>Das ist kein gewagter Schritt. Es ist ein Werktag Aufwand für Ihre Einkaufs­abteilung und ein 30-Minuten-Termin für Sie.</p>
+
+  <!-- Signature -->
+  <div class="signature">
+    <p>Mit freundlichen Grüßen<br>aus Münster,</p>
+    <span class="sig">L. Mustermann</span>
+    <div class="role">Geschäftsführung<strong>LeXpersonal GmbH</strong></div>
+
+    <div class="ps">
+      <strong>P.S.:</strong>Wenn Sie auch nur <em>eine</em> der drei Situationen oben erkennen, lohnt sich ein Anruf. Sie erreichen mich unter <a href="tel:+492512652490"><strong>0251 — 26 52 49 20</strong></a> oder per Mail an <a href="mailto:info@lexpersonal.de"><strong>info@lexpersonal.de</strong></a>. Antwort­zeit: <em>unter 24 Stunden — durch eine echte Person.</em>
+    </div>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="cta-inner">
+    <span class="lab">— Ihr nächster Schritt</span>
+    <h2>Compliance-Dossier<br>anfordern,<br><em>30-Minuten-Termin</em><br>vereinbaren.</h2>
+    <p>Antwort innerhalb 24 Stunden — durch eine echte Person. Kein Verkaufs­anruf, keine Sales-Schleife.</p>
+    <a href="mailto:info@lexpersonal.de?subject=Bedarfsanalyse · Anfrage aus offenem Brief" class="cta-btn">Brief beantworten →</a>
+    <div class="cta-alt">
+      <span><strong>Telefon</strong> <a href="tel:+492512652490">0251 — 26 52 49 20</a></span>
+      <span><strong>E-Mail</strong> <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a></span>
+      <span><strong>Vor Ort</strong> An den Loddenbüschen 95 · Münster</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · LEX-OB-2026/003</span>
+  <span>Konzept · Sales Letter</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — App Tabs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F5F7FA;
+  --paper-2:#EDF0F5;
+  --surface:#FFFFFF;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:#E1E5EC;
+  --line-strong:#C9D0DA;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --green:#10B981;
+}
+html,body{height:100%}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+
+/* APP HEADER */
+.app-header{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line);padding:0 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;height:60px;gap:24px}
+.app-header .l{display:flex;align-items:center;gap:12px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:15px;letter-spacing:0.08em}
+.app-header .l svg{width:22px;height:27px}
+.app-header .l strong{font-weight:600;color:var(--blue)}
+.app-header .l .ws{margin-left:14px;padding:4px 10px;background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:0.04em;cursor:pointer}
+.app-header .l .ws .pill{width:18px;height:18px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:5px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:0}
+.app-header .l .ws::after{content:"⌄";opacity:0.5}
+.app-header .search{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:7px 12px;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;max-width:480px;width:100%;justify-self:center;cursor:pointer}
+.app-header .search:hover{border-color:var(--line-strong)}
+.app-header .search .key{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:4px;letter-spacing:0.04em}
+.app-header .r{display:flex;gap:8px;align-items:center}
+.app-header .icon-btn{width:34px;height:34px;border-radius:8px;background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;border:1px solid transparent;font-family:'Inter',sans-serif}
+.app-header .icon-btn:hover{background:var(--paper);border-color:var(--line)}
+.app-header .icon-btn.notif{position:relative}
+.app-header .icon-btn.notif::after{content:"";position:absolute;top:7px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+.app-header .btn{padding:7px 16px;background:var(--blue);color:#fff;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:0.01em}
+.app-header .btn:hover{background:var(--ink)}
+@media (max-width:768px){.app-header .search{display:none}.app-header .l .ws{display:none}}
+
+/* TABS */
+.tabs-bar{position:sticky;top:60px;z-index:49;background:var(--surface);border-bottom:1px solid var(--line);padding:0 28px;display:flex;align-items:center;height:48px;overflow-x:auto;gap:0}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tab{padding:13px 16px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;gap:8px;white-space:nowrap;transition:all .15s}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--ink);border-bottom-color:var(--blue);font-weight:600}
+.tab .ico{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--blue);font-weight:700;opacity:0.55}
+.tab.active .ico{opacity:1}
+.tab .count{padding:1px 7px;background:var(--paper);color:var(--muted);border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.04em}
+.tab.active .count{background:rgba(39,120,188,0.12);color:var(--blue)}
+
+/* MAIN AREA */
+.main{padding:28px 28px 64px;max-width:1440px;margin:0 auto}
+
+/* PANELS */
+.panel{display:none}
+.panel.active{display:block;animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* PANEL HEAD */
+.pn-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;flex-wrap:wrap;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.pn-head .l{flex:1;min-width:280px}
+.pn-head .crumbs{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);font-weight:600;margin-bottom:8px}
+.pn-head .crumbs strong{color:var(--ink);font-weight:700}
+.pn-head h1{font-family:'Inter',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em;color:var(--ink);line-height:1.15}
+.pn-head h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.pn-head p{font-size:14px;color:var(--muted);margin-top:6px;max-width:680px}
+.pn-head .actions{display:flex;gap:8px}
+.pn-head .actions .btn{padding:9px 16px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.pn-head .actions .btn:hover{background:var(--paper);border-color:var(--line-strong)}
+.pn-head .actions .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.pn-head .actions .btn.primary:hover{background:var(--ink)}
+
+/* OVERVIEW - KPI cards */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.kpi-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.kpi-card .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.kpi-card .h .l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.kpi-card .h .badge{padding:2px 8px;background:rgba(16,185,129,0.1);color:var(--green);border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.04em}
+.kpi-card .v{font-family:'Inter',sans-serif;font-weight:300;font-size:38px;line-height:1;letter-spacing:-0.035em;color:var(--ink);margin-bottom:6px}
+.kpi-card .v strong{font-weight:600;color:var(--blue)}
+.kpi-card .v sub{font-size:14px;color:var(--muted);font-weight:300;vertical-align:baseline;margin-left:4px}
+.kpi-card .sub{font-size:12.5px;color:var(--muted);line-height:1.4}
+@media (max-width:900px){.kpi-grid{grid-template-columns:1fr 1fr}}
+
+/* Two col layout */
+.split{display:grid;grid-template-columns:1.6fr 1fr;gap:20px}
+@media (max-width:1100px){.split{grid-template-columns:1fr}}
+
+.widget{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:16px}
+.widget-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.widget-h h3{font-family:'Inter',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.015em;color:var(--ink)}
+.widget-h .more{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.widget-h .more:hover{color:var(--ink)}
+
+/* Activity list */
+.act-list{display:flex;flex-direction:column;gap:0}
+.act{display:grid;grid-template-columns:36px 1fr auto;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.act:last-child{border-bottom:none}
+.act .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.act .ct .n{font-size:14px;color:var(--ink)}
+.act .ct .n strong{font-weight:600}
+.act .ct .t{font-size:12px;color:var(--muted);margin-top:2px}
+.act .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--muted);font-weight:600;text-transform:uppercase}
+.act .tag.online{color:var(--green)}
+
+/* Status panel */
+.status-list{display:flex;flex-direction:column;gap:14px}
+.status{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.status:last-child{border-bottom:none}
+.status .ind{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
+.status .nm{font-weight:500;color:var(--ink);font-size:14px}
+.status .nm small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:2px}
+.status .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);font-weight:700;letter-spacing:0.04em}
+
+/* MODELLE TAB */
+.models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.model-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;transition:all .15s}
+.model-card:hover{border-color:var(--line-strong);box-shadow:0 6px 24px -10px rgba(11,26,51,0.12)}
+.model-card .h{display:flex;justify-content:space-between;align-items:center}
+.model-card .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--blue);font-weight:700;padding:3px 9px;background:rgba(39,120,188,0.08);border-radius:4px}
+.model-card .stat{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--green);font-weight:700;letter-spacing:0.06em;display:inline-flex;align-items:center;gap:5px}
+.model-card .stat::before{content:"●"}
+.model-card h4{font-family:'Inter',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.02em;color:var(--ink)}
+.model-card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.model-card .specs{display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid var(--line)}
+.model-card .specs .row{display:flex;justify-content:space-between;font-size:12.5px}
+.model-card .specs .row .k{color:var(--muted)}
+.model-card .specs .row .v{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--ink);font-size:11px;letter-spacing:0.02em}
+.model-card .open{margin-top:auto;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+@media (max-width:900px){.models-grid{grid-template-columns:1fr}}
+
+/* TABLE - Pipelines/Refs */
+.tbl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl thead{background:var(--paper)}
+.tbl th{padding:11px 16px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover{background:var(--paper)}
+.tbl .yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);font-weight:700}
+.tbl .nm{font-weight:500;color:var(--ink)}
+.tbl .nm small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:2px}
+.tbl .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--paper);color:var(--ink);padding:3px 9px;border-radius:4px;font-weight:600;letter-spacing:0.04em;display:inline-block}
+.tbl .num{text-align:right;font-family:'Inter',sans-serif;font-weight:600;color:var(--ink)}
+@media (max-width:900px){.tbl-wrap{overflow-x:auto}.tbl{min-width:680px}}
+
+/* COMPLIANCE GRID */
+.cmp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:24px}
+.cmp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:start}
+.cmp .seal{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.02em}
+.cmp .body h5{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:4px}
+.cmp .body p{font-size:13px;color:var(--muted);line-height:1.55}
+.cmp .check{color:var(--green);font-size:18px;font-weight:700}
+@media (max-width:768px){.cmp-grid{grid-template-columns:1fr}}
+
+/* CONTACT panel */
+.contact-row{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-row h3{font-family:'Inter',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;color:var(--ink);margin-bottom:14px}
+.contact-row h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.contact-row p{font-size:14px;color:var(--muted);line-height:1.6;max-width:380px}
+.contact-row .info{display:flex;flex-direction:column;gap:14px}
+.contact-row .info .row{display:grid;grid-template-columns:110px 1fr;gap:18px;padding-bottom:12px;border-bottom:1px solid var(--line);align-items:baseline}
+.contact-row .info .row:last-child{border-bottom:none}
+.contact-row .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.contact-row .v{font-weight:500;font-size:15px;color:var(--ink)}
+.contact-row .v a:hover{color:var(--blue)}
+@media (max-width:900px){.contact-row{grid-template-columns:1fr;gap:24px;padding:24px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- APP HEADER -->
+<header class="app-header">
+  <div class="l">
+    <a href="#" style="display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:300;font-size:15px;letter-spacing:0.08em"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+    <div class="ws"><span class="pill">M</span><span>Münsterland Industrie</span></div>
+  </div>
+  <div class="search">
+    <span>⌕</span>
+    <span>Suche in Modellen, Branchen, Cases …</span>
+    <span class="key">⌘ K</span>
+  </div>
+  <div class="r">
+    <button class="icon-btn">?</button>
+    <button class="icon-btn notif">🔔</button>
+    <a href="#tab-kontakt" class="btn">Anfrage stellen</a>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs-bar">
+  <div class="tab active" data-tab="ov"><span class="ico">⌂</span>Übersicht</div>
+  <div class="tab" data-tab="md"><span class="ico">M·</span>Modelle <span class="count">3</span></div>
+  <div class="tab" data-tab="rf"><span class="ico">R·</span>Referenzen <span class="count">23</span></div>
+  <div class="tab" data-tab="cp"><span class="ico">C·</span>Compliance</div>
+  <div class="tab" data-tab="kt"><span class="ico">→</span>Kontakt</div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- OVERVIEW -->
+  <section class="panel active" id="panel-ov">
+    <div class="pn-head">
+      <div class="l">
+        <div class="crumbs">Workspace <strong>Münsterland Industrie</strong> / Übersicht</div>
+        <h1>Personal, auf das sich <em>Industrie</em> verlässt.</h1>
+        <p>Übersicht über Modelle, Pipeline-Status und laufende Engagements im Workspace Münsterland Industrie. Letztes Update: heute · 09:42.</p>
+      </div>
+      <div class="actions"><button class="btn">↓ Report PDF</button><a class="btn primary" href="#kt" onclick="show('kt')">Bedarf anfragen →</a></div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="h"><span class="l">— Pipeline</span><span class="badge">↑ 12,4 %</span></div><div class="v"><strong>2.430</strong></div><div class="sub">vorgeprüfte Talente · 7 Branchen</div></div>
+      <div class="kpi-card"><div class="h"><span class="l">— Ø Time-to-Fill</span><span class="badge">stabil</span></div><div class="v">4–7<sub> d</sub></div><div class="sub">vom Briefing bis Einsatz</div></div>
+      <div class="kpi-card"><div class="h"><span class="l">— Folgeauftrag</span><span class="badge">↑ + 1,3 PP</span></div><div class="v">98<sub>%</sub></div><div class="sub">24-Monats-Rolling</div></div>
+      <div class="kpi-card"><div class="h"><span class="l">— Aktive Einsätze</span><span class="badge">live</span></div><div class="v"><strong>23</strong></div><div class="sub">über alle Branchen</div></div>
+    </div>
+
+    <div class="split">
+      <div>
+        <div class="widget">
+          <div class="widget-h"><h3>Aktuelle Aktivität</h3><a href="#" class="more">Alle anzeigen →</a></div>
+          <div class="act-list">
+            <div class="act"><div class="av">MW</div><div class="ct"><div class="n"><strong>Metallwerk Münsterland</strong> — Übernahme 3 Mitarbeitende abgeschlossen</div><div class="t">vor 12 Minuten · Modell M-02</div></div><span class="tag online">aktiv</span></div>
+            <div class="act"><div class="av">NL</div><div class="ct"><div class="n"><strong>NordLogistik</strong> — Bedarfsanalyse Werks­erweiterung gestartet</div><div class="t">vor 2 Stunden · Modell M-01</div></div><span class="tag">neu</span></div>
+            <div class="act"><div class="av">MS</div><div class="ct"><div class="n"><strong>MS Industriegruppe</strong> — 8 Kandidat:innen vorgestellt</div><div class="t">heute 08:14 · Modell M-01</div></div><span class="tag online">aktiv</span></div>
+            <div class="act"><div class="av">KS</div><div class="ct"><div class="n"><strong>Kramer &amp; Söhne</strong> — Werkvertrag Q3 verlängert</div><div class="t">gestern · Modell M-03</div></div><span class="tag">verlängert</span></div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-h"><h3>Pipeline-Verteilung nach Branchen</h3><a href="#" class="more">Details →</a></div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Industrie</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:32%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">32 %</span></div>
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Logistik</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:22%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">22 %</span></div>
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Office</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:18%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">18 %</span></div>
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Handwerk</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:12%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">12 %</span></div>
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Pflege</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:8%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">8 %</span></div>
+            <div style="display:grid;grid-template-columns:140px 1fr 56px;gap:14px;align-items:center;font-size:13px"><span>Übrige</span><span style="height:10px;background:var(--paper);border-radius:5px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),var(--cyan));width:8%;border-radius:5px"></span></span><span style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">8 %</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="widget">
+          <div class="widget-h"><h3>System-Status</h3><span class="more">Alle online</span></div>
+          <div class="status-list">
+            <div class="status"><span class="ind"></span><span class="nm">Disposition<small>Mo–Fr 08:00–17:00</small></span><span class="meta">ONLINE</span></div>
+            <div class="status"><span class="ind"></span><span class="nm">Sourcing<small>Active Pipeline-Pflege</small></span><span class="meta">ONLINE</span></div>
+            <div class="status"><span class="ind"></span><span class="nm">Vertragsabwicklung<small>iGZ/DGB-Tarif</small></span><span class="meta">ONLINE</span></div>
+            <div class="status"><span class="ind"></span><span class="nm">Compliance<small>iGZ · ANÜ · DSGVO</small></span><span class="meta">GEPRÜFT</span></div>
+            <div class="status"><span class="ind"></span><span class="nm">Pressekontakt<small>Mo–So bis 21:00</small></span><span class="meta">ONLINE</span></div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-h"><h3>Direkter Draht</h3></div>
+          <div style="display:flex;flex-direction:column;gap:14px;font-size:14px">
+            <a href="tel:+492512652490" style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:12px 14px;background:var(--paper);border-radius:8px"><span style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px">📞</span><span><strong style="color:var(--ink)">0251 — 26 52 49 20</strong><br><small style="color:var(--muted);font-size:11.5px">Mo–Fr · 08:00–17:00</small></span></a>
+            <a href="mailto:info@lexpersonal.de" style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:12px 14px;background:var(--paper);border-radius:8px"><span style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px">✉</span><span><strong style="color:var(--ink)">info@lexpersonal.de</strong><br><small style="color:var(--muted);font-size:11.5px">Antwort &lt; 24 h durch echte Person</small></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELLE -->
+  <section class="panel" id="panel-md">
+    <div class="pn-head">
+      <div class="l">
+        <div class="crumbs">Workspace · <strong>Modelle</strong></div>
+        <h1>Drei Modelle, ein <em>Versprechen.</em></h1>
+        <p>Wählen Sie je nach Lastprofil — wir beraten Sie ehrlich, welches Modell zu Ihrer Situation passt.</p>
+      </div>
+    </div>
+    <div class="models-grid">
+      <article class="model-card">
+        <div class="h"><span class="id">M-01 · ANÜ</span><span class="stat">aktiv</span></div>
+        <h4>Arbeitnehmer­überlassung</h4>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Tariflich nach iGZ/DGB.</p>
+        <div class="specs">
+          <div class="row"><span class="k">Bereitstellung</span><span class="v">&lt; 48 h</span></div>
+          <div class="row"><span class="k">Tarif</span><span class="v">iGZ / DGB</span></div>
+          <div class="row"><span class="k">Übernahme</span><span class="v">jederzeit</span></div>
+          <div class="row"><span class="k">Equal-Pay</span><span class="v">ab Mo. 9</span></div>
+        </div>
+        <a href="#" class="open">Details ansehen →</a>
+      </article>
+      <article class="model-card">
+        <div class="h"><span class="id">M-02 · Vermittlung</span><span class="stat">aktiv</span></div>
+        <h4>Personal­vermittlung</h4>
+        <p>Direkte Festanstellung — diskret, kulturfit-bewusst, mit langem Atem.</p>
+        <div class="specs">
+          <div class="row"><span class="k">Honorar</span><span class="v">erfolgsbasiert</span></div>
+          <div class="row"><span class="k">Garantie</span><span class="v">4 Monate</span></div>
+          <div class="row"><span class="k">Verbleib 18 Mo.</span><span class="v">86 %</span></div>
+          <div class="row"><span class="k">Vorlauf</span><span class="v">10–14 d</span></div>
+        </div>
+        <a href="#" class="open">Details ansehen →</a>
+      </article>
+      <article class="model-card">
+        <div class="h"><span class="id">M-03 · Werkvertrag</span><span class="stat">aktiv</span></div>
+        <h4>Werkverträge</h4>
+        <p>Definierter Auftrag, eigene Steuerung, rechtssichere Abgrenzung.</p>
+        <div class="specs">
+          <div class="row"><span class="k">Modell</span><span class="v">Festpr. o. T&amp;M</span></div>
+          <div class="row"><span class="k">Steuerung</span><span class="v">eigene Aufsicht</span></div>
+          <div class="row"><span class="k">Skalierung</span><span class="v">Projekt → Linie</span></div>
+          <div class="row"><span class="k">Compliance</span><span class="v">rechtssicher</span></div>
+        </div>
+        <a href="#" class="open">Details ansehen →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- REFERENZEN -->
+  <section class="panel" id="panel-rf">
+    <div class="pn-head">
+      <div class="l">
+        <div class="crumbs">Workspace · <strong>Referenzen</strong> · 23 aktive Einsätze</div>
+        <h1>Aktive <em>Engagements.</em></h1>
+        <p>Auswahl aus laufenden Engagements der letzten 24 Monate. Vollständige Liste auf Anfrage.</p>
+      </div>
+      <div class="actions"><button class="btn">Filtern</button><button class="btn">↓ CSV exportieren</button></div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Zeitraum</th><th>Kunde &amp; Branche</th><th>Modell</th><th style="text-align:right">Volumen</th><th style="text-align:right">Status</th></tr></thead>
+        <tbody>
+          <tr><td class="yr">2024–25</td><td class="nm">Metallwerk Münsterland<small>Werkserweiterung Metallindustrie</small></td><td><span class="tag">ANÜ + Vermittl.</span></td><td class="num">140 MA</td><td style="text-align:right"><span class="tag" style="background:rgba(16,185,129,0.12);color:var(--green)">aktiv</span></td></tr>
+          <tr><td class="yr">2024</td><td class="nm">NordLogistik · Greven<small>Saisonale Peak-Skalierung Q4</small></td><td><span class="tag">ANÜ</span></td><td class="num">28 MA / 3 Wo.</td><td style="text-align:right"><span class="tag">abgeschlossen</span></td></tr>
+          <tr><td class="yr">2025</td><td class="nm">MS Industriegruppe<small>Mehrjähriger Werkvertrag Pflege</small></td><td><span class="tag">Werkvertrag</span></td><td class="num">12 MA · 18 Mo.</td><td style="text-align:right"><span class="tag" style="background:rgba(16,185,129,0.12);color:var(--green)">aktiv</span></td></tr>
+          <tr><td class="yr">2025</td><td class="nm">Kramer &amp; Söhne · Steuerkanzlei<small>Direktvermittlung Office &amp; Leitung</small></td><td><span class="tag">Vermittl.</span></td><td class="num">4 Festeinst.</td><td style="text-align:right"><span class="tag">abgeschlossen</span></td></tr>
+          <tr><td class="yr">2025</td><td class="nm">Mittelständischer Maschinenbau · Coesfeld<small>CNC-Fachkräfte Werkvertrag</small></td><td><span class="tag">Werkvertrag</span></td><td class="num">8 MA · 6 Mo.</td><td style="text-align:right"><span class="tag" style="background:rgba(16,185,129,0.12);color:var(--green)">aktiv</span></td></tr>
+          <tr><td class="yr">2025</td><td class="nm">VITA Pflege · NRW<small>Nachtdienst-Auslagerung</small></td><td><span class="tag">Werkvertrag</span></td><td class="num">12 MA · 18 Mo.</td><td style="text-align:right"><span class="tag" style="background:rgba(16,185,129,0.12);color:var(--green)">aktiv</span></td></tr>
+          <tr><td class="yr">2024+</td><td class="nm">HansaBau · Münster<small>Roh- &amp; Tiefbau, Werkvertrag</small></td><td><span class="tag">Werkvertrag</span></td><td class="num">22 MA · 12 Mo.</td><td style="text-align:right"><span class="tag" style="background:rgba(16,185,129,0.12);color:var(--green)">aktiv</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="panel" id="panel-cp">
+    <div class="pn-head">
+      <div class="l">
+        <div class="crumbs">Workspace · <strong>Compliance</strong> · Stand 27.05.2026</div>
+        <h1>Compliance &amp; <em>Vorqualifikation.</em></h1>
+        <p>Alle Belege auf einem Blick — konsolidiertes Dossier wird auf Anfrage innerhalb 24 h zugesandt.</p>
+      </div>
+      <div class="actions"><a href="mailto:compliance@lexpersonal.de" class="btn primary">Dossier anfordern →</a></div>
+    </div>
+    <div class="cmp-grid">
+      <div class="cmp"><div class="seal">iGZ</div><div class="body"><h5>iGZ-Mitgliedschaft &amp; Tarif­bindung</h5><p>Interessen­verband Deutscher Zeitarbeits­unternehmen e. V., tarif­gebunden iGZ / DGB seit 2013.</p></div><span class="check">✓</span></div>
+      <div class="cmp"><div class="seal">BA</div><div class="body"><h5>ANÜ-Erlaubnis Bundesagentur</h5><p>Unbefristete Erlaubnis zur Arbeit­nehmer­überlassung, letzte Prüfung 2024 ohne Beanstandung.</p></div><span class="check">✓</span></div>
+      <div class="cmp"><div class="seal">DS</div><div class="body"><h5>DSGVO-Konformität</h5><p>Geprüfte Verfahrens­verzeichnisse, dokumentierte Auftrags­verarbeitung, externer DSB.</p></div><span class="check">✓</span></div>
+      <div class="cmp"><div class="seal">SF</div><div class="body"><h5>SAP Fieldglass-Lieferant</h5><p>Auf einschlägigen Lieferanten­plattformen für Konzern-Einkauf gelistet und qualifiziert.</p></div><span class="check">✓</span></div>
+      <div class="cmp"><div class="seal">EP</div><div class="body"><h5>Equal-Pay ab Monat 9</h5><p>Gesetzlich vorgeschrieben — transparent kommuniziert &amp; automatisch angewandt.</p></div><span class="check">✓</span></div>
+      <div class="cmp"><div class="seal">V·H</div><div class="body"><h5>Versicherungen</h5><p>Haftpflicht, Vertrauens­schaden, Cyber-Versicherung — Nachweise im Dossier.</p></div><span class="check">✓</span></div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="panel" id="panel-kt">
+    <div class="pn-head">
+      <div class="l">
+        <div class="crumbs">Workspace · <strong>Kontakt</strong> · Antwort &lt; 24 h</div>
+        <h1>Sprechen wir <em>persönlich.</em></h1>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div>
+        <h3>Wir antworten innerhalb <em>24 Stunden —</em> durch eine echte Person.</h3>
+        <p>Sie schildern uns Bedarf, Modell und Branche. Wir prüfen ehrlich und melden uns mit einer konkreten Antwort. Keine Auto-Responder, keine Sales-Schleife.</p>
+      </div>
+      <div class="info">
+        <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+        <div class="row"><span class="k">— E-Mail</span><a href="mailto:info@lexpersonal.de" class="v">info@lexpersonal.de</a></div>
+        <div class="row"><span class="k">— Compliance</span><a href="mailto:compliance@lexpersonal.de" class="v">compliance@lexpersonal.de</a></div>
+        <div class="row"><span class="k">— Presse</span><a href="mailto:presse@lexpersonal.de" class="v">presse@lexpersonal.de</a></div>
+        <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+function show(key){
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === key));
+  panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + key));
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
+</script>
+
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LeXpersonal — 24 Design-Konzepte</title>
+<title>LeXpersonal — 18 Design-Konzepte · Edition 08</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@200;300;400;500;600;800&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -27,425 +27,7 @@ a{color:inherit;text-decoration:none}
 
 .container{max-width:1440px;margin:0 auto;padding:0 32px}
 
-/* HEADER */
-.head{padding:64px 0 48px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.head .bg-x{position:absolute;right:-100px;top:-50px;width:480px;height:586px;opacity:0.05;pointer-events:none}
-.head-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);margin-bottom:40px;flex-wrap:wrap;gap:14px;position:relative;z-index:2}
-.head-logo{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.06em;color:var(--text);margin-bottom:28px;position:relative;z-index:2}
-.head-logo strong{font-weight:600;color:var(--cyan)}
-.head-logo svg{width:22px;height:27px}
-.head h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,6vw,84px);line-height:0.98;letter-spacing:-0.035em;font-weight:600;max-width:1100px;position:relative;z-index:2}
-.head h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
-.head p{font-size:17px;color:var(--muted);max-width:780px;margin-top:20px;position:relative;z-index:2;line-height:1.65}
-
-.reco{margin-top:40px;padding:24px 28px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;position:relative;z-index:2}
-.reco .icon{width:48px;height:48px;border-radius:12px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;letter-spacing:0.02em}
-.reco h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
-.reco p{font-size:13.5px;color:var(--text);line-height:1.55}
-.reco p strong{color:var(--cyan-bright);font-weight:600}
-
-/* Group header */
-.group-header{padding:48px 0 16px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);margin-bottom:0;flex-wrap:wrap;gap:14px}
-.group-header .left h2{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;letter-spacing:-0.02em}
-.group-header .left h2 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan);font-weight:400}
-.group-header .left .sub{color:var(--muted);font-size:13.5px;max-width:640px;margin-top:6px;line-height:1.6}
-.group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
-.group-header .badge.b2b{color:var(--cyan-bright);border-color:var(--cyan-bright);background:rgba(0,159,227,0.08)}
-.group-header .badge.std{color:var(--muted);border-color:var(--muted)}
-.group-header .badge.spc{color:#B895E0;border-color:#B895E0;background:rgba(184,149,224,0.06)}
-
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 36px}
-@media (max-width:1080px){.grid{grid-template-columns:1fr 1fr}}
-@media (max-width:680px){.grid{grid-template-columns:1fr}}
-
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative}
-.card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 20px 60px -20px rgba(0,159,227,0.2)}
-.card.b2b-rec{border-color:rgba(0,159,227,0.25)}
-.card.b2b-rec::after{content:"B2B";position:absolute;top:12px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--cyan);color:#fff;font-weight:700;z-index:3}
-.card.new::before{content:"NEU";position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:#fff;color:var(--bg);font-weight:700;z-index:3}
-.card-preview{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
-.card-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
-.card h2{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.15}
-.card .vibe{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
-.card p{font-size:13.5px;color:var(--muted);line-height:1.55}
-.card .open{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:transparent;color:var(--cyan);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;align-self:flex-start;border:1px solid var(--line-strong);transition:gap .2s,background .2s;margin-top:auto}
-.card .open:hover{gap:12px;background:var(--cyan);color:#fff;border-color:var(--cyan)}
-
-/* === Previews === */
-
-/* 01 Editorial */
-.prev-edit{background:#F5F1EA;color:#1A1F2E;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.prev-edit .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B6B;letter-spacing:0.1em;text-transform:uppercase}
-.prev-edit .top svg{width:12px;height:15px;margin-right:4px;vertical-align:middle}
-.prev-edit .top strong{font-weight:600;color:#2778BC}
-.prev-edit .title{font-family:'Fraunces',serif;font-size:42px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
-.prev-edit .title em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-edit .title .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-edit .ft{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6B6B6B;letter-spacing:0.1em;padding-top:6px;border-top:1px solid #1A1F2E}
-
-/* 02 Dark Tech */
-.prev-dark{background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.5),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.45),transparent 50%),#0A1220;color:#F2F2F2;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.prev-dark .badge{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:10px}
-.prev-dark .x-icon{width:26px;height:32px;margin-bottom:10px;filter:drop-shadow(0 6px 18px rgba(0,159,227,0.5))}
-.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.035em;line-height:1.0}
-.prev-dark .title .g{background:linear-gradient(135deg,#1DB4F0,#009FE3,#2778BC);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:300}
-.prev-dark .row{display:flex;gap:5px;margin-top:10px}
-.prev-dark .pill{padding:3px 10px;border-radius:99px;background:linear-gradient(135deg,#009FE3,#2778BC);color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600}
-
-/* 03 Bento */
-.prev-bento{background:#F2F2F2;padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;grid-auto-rows:42px}
-.prev-bento .bt{border-radius:7px;padding:7px;font-family:'Inter',sans-serif;font-size:8px;color:#1A1F2E;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-.prev-bento .bt-main{grid-column:span 2;grid-row:span 2;background:#13265D;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:-0.02em;line-height:1.1}
-.prev-bento .bt-main .ser{font-family:'Fraunces',serif;font-style:italic;color:#1DB4F0;font-size:14px;font-weight:400}
-.prev-bento .bt-cyan{background:#009FE3;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px}
-.prev-bento .bt-soft{background:#CFE6F6;font-family:'Fraunces',serif;font-style:italic;font-size:11px;color:#13265D}
-.prev-bento .bt-blue{background:#2778BC;color:#fff;font-size:8px;grid-column:span 2}
-.prev-bento .bt-white{background:#fff;font-size:8px}
-
-/* 04 Brutalist */
-.prev-brut{background:#FAFAF7;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
-.prev-brut .top{background:#13265D;color:#FAFAF7;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase}
-.prev-brut .mid{padding:12px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
-.prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 3px}
-.prev-brut .mid h3 .o{-webkit-text-stroke:1px #13265D;color:transparent;font-style:italic;font-weight:600}
-.prev-brut .bot{background:#009FE3;color:#fff;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
-
-/* 05 Scroll Story */
-.prev-story{background:#F4F1EC;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative}
-.prev-story .progress{position:absolute;top:0;left:0;height:2px;width:60%;background:#009FE3;z-index:2}
-.prev-story .top{padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;display:flex;justify-content:space-between}
-.prev-story .top .ch{color:#009FE3}
-.prev-story .mid{padding:0 18px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.prev-story .mid .mini{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px}
-.prev-story .mid .mini::before{content:"";display:inline-block;width:18px;height:1px;background:#009FE3;vertical-align:middle;margin-right:8px}
-.prev-story .mid h3{font-family:'Fraunces',serif;font-size:34px;line-height:0.9;letter-spacing:-0.04em;font-weight:300}
-.prev-story .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-story .mid h3 .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-story .bot{padding:8px 18px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
-
-/* 06 NEW Color-Block */
-.prev-cb{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);font-family:'Inter',sans-serif}
-.prev-cb .blk{padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-.prev-cb .b1{background:#F4F1EC;color:#0B1A33;grid-column:span 2;grid-row:span 1}
-.prev-cb .b1 h4{font-family:'Inter',sans-serif;font-weight:200;font-size:22px;line-height:0.92;letter-spacing:-0.04em}
-.prev-cb .b1 h4 strong{font-weight:600}
-.prev-cb .b1 h4 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-cb .b2{background:#2778BC;color:#fff;grid-row:span 1}
-.prev-cb .b2 h4{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:0.95;letter-spacing:-0.025em}
-.prev-cb .b2 h4 em{font-style:normal;color:#D4B57A;font-weight:400}
-.prev-cb .b3{background:#EAE4D5;color:#0B1A33;grid-row:span 1}
-.prev-cb .b3 .id{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;color:#2778BC;font-weight:700}
-.prev-cb .b3 h4{font-family:'Inter',sans-serif;font-weight:300;font-size:14px;line-height:1;margin-top:4px}
-.prev-cb .b4{background:#009FE3;color:#fff;grid-column:span 2;grid-row:span 1;display:flex;align-items:center}
-.prev-cb .b4 h4{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:17px;line-height:1.15;letter-spacing:-0.02em}
-.prev-cb .b4 h4 em{font-style:normal;color:#0B1A33;font-weight:500}
-.prev-cb .blk .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;opacity:0.55}
-
-/* 07 Corporate */
-.prev-corp{background:#FFFFFF;color:#0B1F3A;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto}
-.prev-corp .top{padding:8px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E9F0}
-.prev-corp .top .ll{display:flex;align-items:center;gap:6px;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1F3A}
-.prev-corp .top .ll svg{width:11px;height:14px}
-.prev-corp .top .ll strong{font-weight:600;color:#2778BC}
-.prev-corp .top .btn{background:#2778BC;color:#fff;padding:4px 8px;font-size:8px;font-weight:600}
-.prev-corp .mid{padding:14px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:end}
-.prev-corp .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.prev-corp .mid .eb .bar{width:14px;height:2px;background:#009FE3}
-.prev-corp .mid h3{font-family:'Inter',sans-serif;font-weight:300;font-size:22px;line-height:0.98;letter-spacing:-0.035em;color:#0B1F3A}
-.prev-corp .mid h3 strong{font-weight:600}
-.prev-corp .mid h3 .it{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-corp .mid .asd{font-size:8px;color:#1F2937;line-height:1.5;padding-left:10px;border-left:1px solid #E5E9F0}
-.prev-corp .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E5E9F0}
-.prev-corp .stats .st{padding:6px 10px;border-right:1px solid #E5E9F0}
-.prev-corp .stats .st:last-child{border-right:none}
-.prev-corp .stats .st .l{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#5A6677;margin-bottom:2px;font-weight:600}
-.prev-corp .stats .st .v{font-weight:300;font-size:14px;line-height:1;color:#0B1F3A;letter-spacing:-0.035em}
-.prev-corp .stats .st .v strong{font-weight:600;color:#2778BC}
-
-/* 08 Portfolio */
-.prev-port{background:#F4F2EE;color:#1A1814;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto}
-.prev-port .top{padding:6px 14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6A60;border-bottom:1px solid rgba(26,24,20,0.12)}
-.prev-port .top .live::before{content:"●";color:#009FE3;margin-right:3px}
-.prev-port .mid{padding:14px;display:flex;flex-direction:column;justify-content:center}
-.prev-port .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;color:#6E6A60;margin-bottom:8px;font-weight:500;text-transform:uppercase}
-.prev-port .mid h3{font-family:'Inter',sans-serif;font-weight:200;font-size:30px;line-height:0.92;letter-spacing:-0.045em;color:#1A1814}
-.prev-port .mid h3 strong{font-weight:600}
-.prev-port .mid h3 .it{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-port .mq{background:#1A1814;color:#F4F2EE;padding:6px 0;overflow:hidden;white-space:nowrap;font-family:'Source Serif 4',serif;font-style:italic;font-size:10px;font-weight:300}
-.prev-port .mq .track{display:inline-flex;gap:14px;padding:0 12px}
-.prev-port .mq .track strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600}
-.prev-port .mq .dot{color:#009FE3}
-
-/* 09 Annual Report */
-.prev-ar{background:#FBFAF6;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto;position:relative}
-.prev-ar .spine{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585}
-.prev-ar .spine .ll{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1A33;text-transform:none}
-.prev-ar .spine .ll svg{width:11px;height:13px}
-.prev-ar .spine .ll strong{font-weight:600;color:#2778BC}
-.prev-ar .spine .ctr{text-align:center}
-.prev-ar .spine .ctr strong{color:#0B1A33}
-.prev-ar .mid{padding:16px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.prev-ar .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-ar .mid .eb .bar{width:22px;height:2px;background:#D4B57A}
-.prev-ar .mid h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:30px;line-height:0.92;letter-spacing:-0.03em;color:#0B1A33}
-.prev-ar .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-ar .mid h3 strong{font-weight:600}
-.prev-ar .mid .yr{position:absolute;right:14px;bottom:10px;font-family:'Source Serif 4',serif;font-weight:300;font-size:24px;line-height:0.9;color:#0B1A33;letter-spacing:-0.04em}
-.prev-ar .mid .yr em{font-style:italic;color:#D4B57A}
-.prev-ar .ft{padding:6px 14px;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E7585;gap:8px}
-.prev-ar .ft .v{color:#0B1A33;font-weight:600;font-size:7px;display:block}
-
-/* 10 Split */
-.prev-split{display:grid;grid-template-columns:1fr 1fr;color:#fff;font-family:'Inter',sans-serif}
-.prev-split .a,.prev-split .b{padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.prev-split .a{background:#F4F1EC;color:#0B1A33}
-.prev-split .b{background:#0B1A33}
-.prev-split .tag{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.prev-split .a .tag{color:#2778BC}
-.prev-split .b .tag{color:#009FE3}
-.prev-split .tag .bar{width:16px;height:1px;background:currentColor}
-.prev-split h4{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
-.prev-split h4 em{font-style:italic;color:#2778BC}
-.prev-split .b h4 em{color:#009FE3}
-
-/* 11 NEW Sidebar-Scroll */
-.prev-sb{display:grid;grid-template-columns:90px 1fr;font-family:'Inter',sans-serif;font-size:8px;color:#0B1A33;background:#F4F1EC}
-.prev-sb .side{background:#070C18;color:#F4F1EC;padding:10px 8px;display:flex;flex-direction:column}
-.prev-sb .side .logo{display:flex;align-items:center;gap:4px;color:#fff;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;margin-bottom:10px}
-.prev-sb .side .logo svg{width:10px;height:13px}
-.prev-sb .side .logo strong{font-weight:600;color:#009FE3}
-.prev-sb .side .tg{font-family:'Source Serif 4',serif;font-style:italic;font-size:8px;line-height:1.3;color:rgba(244,241,236,0.7);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(244,241,236,0.15)}
-.prev-sb .side nav{display:flex;flex-direction:column;gap:1px;flex:1}
-.prev-sb .side nav a{padding:3px 4px;font-size:7px;color:rgba(244,241,236,0.7);border-radius:2px;font-weight:500;display:flex;align-items:center;gap:6px}
-.prev-sb .side nav a.act{background:rgba(0,159,227,0.15);color:#009FE3}
-.prev-sb .side nav a .n{color:rgba(244,241,236,0.4);font-family:'JetBrains Mono',monospace;font-size:6px;font-weight:600}
-.prev-sb .side nav a.act .n{color:#009FE3}
-.prev-sb .side .cta{margin-top:auto;padding:5px;background:#009FE3;color:#070C18;text-align:center;font-weight:700;font-size:7px;letter-spacing:0.04em;text-transform:uppercase;border-radius:3px}
-.prev-sb .main{padding:14px;display:flex;flex-direction:column;gap:6px}
-.prev-sb .main .top{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;padding-bottom:5px;border-bottom:1px solid rgba(11,26,51,0.12)}
-.prev-sb .main h3{font-family:'Inter',sans-serif;font-weight:200;font-size:24px;line-height:0.95;letter-spacing:-0.04em;color:#0B1A33;margin-top:4px}
-.prev-sb .main h3 strong{font-weight:600}
-.prev-sb .main h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-sb .main .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(11,26,51,0.12)}
-.prev-sb .main .stats .st{font-size:6px}
-.prev-sb .main .stats .st .v{font-weight:300;font-size:14px;color:#0B1A33;letter-spacing:-0.03em}
-.prev-sb .main .stats .st .v strong{color:#2778BC;font-weight:500}
-.prev-sb .main .stats .st .l{color:#6B7080;font-family:'JetBrains Mono',monospace;font-weight:600}
-
-/* 12 Minimalist */
-.prev-min{background:#FFFFFF;color:#0E1322;padding:24px;display:flex;flex-direction:column;justify-content:center;font-family:'Inter',sans-serif}
-.prev-min .num{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:#94A0B5;margin-bottom:24px;font-weight:500;display:flex;align-items:center;gap:10px}
-.prev-min .num::before{content:"";width:22px;height:1px;background:#2778BC}
-.prev-min h3{font-family:'Inter',sans-serif;font-weight:200;font-size:36px;line-height:1;letter-spacing:-0.04em}
-.prev-min h3 strong{font-weight:500}
-
-/* 13 Horizontal */
-.prev-horiz{background:#0A1220;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
-.prev-horiz .bg{position:absolute;inset:0;background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.45),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.35),transparent 50%)}
-.prev-horiz .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
-.prev-horiz .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-horiz .num .bar{width:16px;height:1px;background:#009FE3}
-.prev-horiz h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:1;letter-spacing:-0.025em;color:#fff}
-.prev-horiz h3 em{font-style:italic;color:#1DB4F0}
-.prev-horiz .vis{display:flex;align-items:center;justify-content:center}
-.prev-horiz .vis svg{width:60px;height:73px;filter:drop-shadow(0 8px 24px rgba(0,159,227,0.5))}
-.prev-horiz .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15)}
-.prev-horiz .dots{display:flex;gap:5px;align-items:center;justify-content:center}
-.prev-horiz .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25)}
-.prev-horiz .dot.act{background:#009FE3;width:14px;border-radius:99px}
-
-/* 14 NEW Executive Briefing */
-.prev-eb{background:#FAFAF6;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr auto;font-family:'Inter',sans-serif}
-.prev-eb .topbar{background:#070C18;color:#fff;padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;align-items:center}
-.prev-eb .topbar .l{display:flex;align-items:center;gap:5px;color:#fff;text-transform:none;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
-.prev-eb .topbar .l svg{width:10px;height:12px}
-.prev-eb .topbar .l strong{color:#009FE3;font-weight:600}
-.prev-eb .topbar .ctr{text-align:center;color:#009FE3}
-.prev-eb .topbar .ctr strong{color:#fff}
-.prev-eb .topbar .dl{background:#009FE3;color:#070C18;padding:2px 6px;font-weight:700;letter-spacing:0.05em;border-radius:3px}
-.prev-eb .doc{padding:10px 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-bottom:1px solid rgba(11,26,51,0.12)}
-.prev-eb .doc .it .k{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;font-weight:600;margin-bottom:2px}
-.prev-eb .doc .it .v{font-weight:500;font-size:9px;color:#0B1A33}
-.prev-eb .doc .it .v strong{font-weight:700;color:#2778BC}
-.prev-eb .body{padding:14px;display:flex;flex-direction:column;gap:8px}
-.prev-eb .body h3{font-family:'Inter',sans-serif;font-weight:300;font-size:24px;line-height:0.95;letter-spacing:-0.035em;color:#0B1A33}
-.prev-eb .body h3 strong{font-weight:600}
-.prev-eb .body h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-eb .tldr{background:#0B1A33;color:#fff;padding:10px 12px;border-radius:5px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;margin-top:auto}
-.prev-eb .tldr .l{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;color:#009FE3;font-weight:700;border-right:1px solid rgba(255,255,255,0.18);padding-right:10px;line-height:1.3}
-.prev-eb .tldr .l span{display:block;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:14px;color:#fff;letter-spacing:-0.015em;text-transform:none;margin-top:2px}
-.prev-eb .tldr ul{list-style:none;display:flex;flex-direction:column;gap:3px;font-size:8px}
-.prev-eb .tldr ul li{display:flex;gap:4px;line-height:1.4;color:rgba(255,255,255,0.85)}
-.prev-eb .tldr ul li::before{content:"›";color:#009FE3;font-weight:700}
-
-/* 15 NEW Comparison */
-.prev-cmp{display:grid;grid-template-columns:1fr 1fr;font-family:'Inter',sans-serif;color:#0B1A33}
-.prev-cmp .head{grid-column:span 2;background:#FAFAF6;border-bottom:1px solid #0B1A33;padding:8px 14px;text-align:center}
-.prev-cmp .head .b{display:inline-flex;padding:2px 8px;background:rgba(0,159,227,0.08);border:1px solid rgba(0,159,227,0.25);color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border-radius:99px;margin-bottom:4px}
-.prev-cmp .head h3{font-family:'Inter',sans-serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
-.prev-cmp .head h3 strong{font-weight:600}
-.prev-cmp .head h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-cmp .col{padding:10px 12px;display:flex;flex-direction:column;gap:4px;border-right:1px solid #0B1A33;font-size:7px}
-.prev-cmp .col:last-child{border-right:none}
-.prev-cmp .col.l{background:#EBE9E0;color:#0B1A33}
-.prev-cmp .col.r{background:#0B1A33;color:#fff;position:relative}
-.prev-cmp .col .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
-.prev-cmp .col.l .lab{color:#C24F3A}
-.prev-cmp .col.r .lab{color:#10B981}
-.prev-cmp .col h5{font-family:'Inter',sans-serif;font-weight:600;font-size:10px;letter-spacing:-0.015em;line-height:1.2;color:inherit}
-.prev-cmp .col.r h5{color:#fff}
-.prev-cmp .col p{font-size:7px;line-height:1.5;opacity:0.85}
-.prev-cmp .col .mt{margin-top:auto;padding-top:5px;border-top:1px dashed currentColor;opacity:0.7;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700}
-
-/* 16 ESG */
-.prev-esg{background:#F4F5F0;color:#0E2230;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
-.prev-esg .top{background:#0E2230;color:#F4F5F0;padding:5px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;margin:-14px -14px 8px}
-.prev-esg .top .b{background:#A3B07A;color:#0E2230;padding:1px 6px;font-weight:700}
-.prev-esg h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
-.prev-esg h3 em{font-style:italic;color:#6B7A4A}
-.prev-esg .h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;background:#0E2230;padding:8px;color:#F4F5F0}
-.prev-esg .h .item{text-align:center}
-.prev-esg .h .v{font-family:'Source Serif 4',serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
-.prev-esg .h .v strong{font-weight:500;color:#A3B07A}
-.prev-esg .h .l{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,245,240,0.6);margin-top:4px}
-
-/* 17 Cinematic */
-.prev-cine{background:linear-gradient(180deg,#070C18 0%,#0E1729 100%);color:#fff;padding:0;display:grid;grid-template-rows:14px 1fr 14px;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
-.prev-cine .b{background:#070C18}
-.prev-cine .mid{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 18px;overflow:hidden}
-.prev-cine .mid::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(0,159,227,0.3) 0%,transparent 55%),radial-gradient(circle at 80% 70%,rgba(39,120,188,0.4) 0%,transparent 55%)}
-.prev-cine .mid::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay}
-.prev-cine .inner{position:relative;z-index:2}
-.prev-cine .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-cine .lbl::before{content:"";width:18px;height:1px;background:#009FE3}
-.prev-cine h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:28px;line-height:0.95;letter-spacing:-0.035em;text-shadow:0 4px 20px rgba(0,159,227,0.3)}
-.prev-cine h3 em{font-style:italic;color:#009FE3}
-
-/* 18 Documentation */
-.prev-doc{background:#FFFFFF;color:#0B1A33;padding:0;display:grid;grid-template-columns:80px 1fr;font-family:'Inter',sans-serif;font-size:9px}
-.prev-doc .sb{background:#F7F8FB;border-right:1px solid #E7EAF0;padding:10px 8px}
-.prev-doc .sb h6{font-family:'Inter',sans-serif;font-weight:600;font-size:6px;letter-spacing:0.08em;text-transform:uppercase;color:#697288;padding:0 4px;margin-bottom:4px}
-.prev-doc .sb a{display:block;padding:3px 4px;font-size:8px;color:#1F2937;border-radius:3px;margin-bottom:2px}
-.prev-doc .sb a.act{background:rgba(0,159,227,0.1);color:#2778BC;font-weight:500}
-.prev-doc .body{padding:14px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
-.prev-doc .crumbs{font-family:'Inter',sans-serif;font-size:7px;color:#697288}
-.prev-doc h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;color:#0B1A33;line-height:1.1}
-.prev-doc .lede{font-size:9px;color:#697288;line-height:1.5}
-.prev-doc .callout{padding:6px 8px;background:rgba(0,159,227,0.06);border-left:2px solid #2778BC;font-size:8px;color:#1F2937;border-radius:0 3px 3px 0;line-height:1.4;margin-top:auto}
-.prev-doc .callout strong{color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.05em;text-transform:uppercase;display:block;margin-bottom:2px;font-weight:700}
-
-/* 19 Conversational */
-.prev-conv{background:#F4F1EC;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif;text-align:center}
-.prev-conv .greet{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;display:inline-flex;align-items:center;gap:6px;justify-content:center}
-.prev-conv .greet::before{content:"●";color:#009FE3}
-.prev-conv h3{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:24px;line-height:1.1;letter-spacing:-0.025em}
-.prev-conv h3 em{font-style:normal;color:#2778BC;font-weight:400}
-.prev-conv .opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto}
-.prev-conv .opt{padding:8px;background:#fff;border:1px solid rgba(11,26,51,0.12);border-radius:6px;font-size:7px;color:#1F2937;text-align:left}
-.prev-conv .opt strong{display:block;color:#0B1A33;font-size:8px;font-weight:600}
-
-/* 20 SaaS Pricing */
-.prev-saas{background:#FFFFFF;color:#0B1A33;padding:14px;display:flex;flex-direction:column;gap:8px;font-family:'Inter',sans-serif}
-.prev-saas .badge{display:inline-flex;padding:3px 8px;background:rgba(0,159,227,0.08);border:1px solid rgba(0,159,227,0.2);color:#2778BC;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border-radius:99px;align-self:flex-start}
-.prev-saas h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.025em;line-height:1.05}
-.prev-saas h3 em{font-style:normal;color:#2778BC;font-weight:400}
-.prev-saas .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:auto}
-.prev-saas .pl{padding:8px;background:#F7F8FB;border:1px solid #E5E9F0;border-radius:6px;font-size:7px;color:#1F2937}
-.prev-saas .pl.f{border:1.5px solid #2778BC}
-.prev-saas .pl .id{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.08em;color:#2778BC;font-weight:600;margin-bottom:2px}
-.prev-saas .pl strong{display:block;font-size:8px;color:#0B1A33;font-weight:600;margin-bottom:2px}
-.prev-saas .pl .pr{font-weight:600;color:#0B1A33;font-size:11px;margin-top:4px}
-
-/* 21 Whitepaper */
-.prev-wp{background:#FAFAF6;color:#0E1424;padding:14px;display:flex;flex-direction:column;gap:8px;font-family:'Source Serif 4',serif}
-.prev-wp .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;padding-bottom:4px;border-bottom:1px solid rgba(14,20,36,0.14)}
-.prev-wp .top .l{display:flex;align-items:center;gap:5px}
-.prev-wp .top .l svg{width:10px;height:13px}
-.prev-wp .meta{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-top:4px;display:flex;align-items:center;gap:6px}
-.prev-wp .meta::before{content:"";width:14px;height:2px;background:#009FE3}
-.prev-wp h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
-.prev-wp h3 em{font-style:italic;color:#2778BC}
-.prev-wp .figure{padding:8px;background:#fff;border:1px solid #0E1424;margin-top:auto}
-.prev-wp .figure .cap{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600;margin-bottom:4px}
-.prev-wp .figure table{width:100%;font-size:7px;border-collapse:collapse}
-.prev-wp .figure td{padding:2px 4px;border-bottom:1px solid rgba(0,0,0,0.05)}
-.prev-wp .figure td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600}
-
-/* 22 Institutional */
-.prev-inst{background:#F2EFE5;color:#13242E;padding:0;display:grid;grid-template-rows:auto 1fr;font-family:'Cormorant Garamond',serif}
-.prev-inst .mast{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid rgba(19,36,46,0.18);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(19,36,46,0.6)}
-.prev-inst .mast .l{display:flex;align-items:center;gap:5px;color:#13242E;text-transform:none}
-.prev-inst .mast .l svg{width:11px;height:13px}
-.prev-inst .mast .l span{font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
-.prev-inst .mast .l span strong{font-weight:600;color:#2778BC}
-.prev-inst .mast .ctr{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;text-transform:none;color:#13242E;font-weight:400}
-.prev-inst .body{padding:14px;display:grid;grid-template-columns:1.5fr 1fr;gap:14px;align-items:center}
-.prev-inst h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;line-height:0.95;letter-spacing:-0.02em}
-.prev-inst h3 em{font-style:italic;color:#2778BC}
-.prev-inst .seal{width:60px;height:60px;border:2px solid #13242E;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto;position:relative}
-.prev-inst .seal::after{content:"";position:absolute;inset:-5px;border:1px dotted #13242E;border-radius:50%}
-.prev-inst .seal svg{width:20px;height:25px;margin-bottom:2px}
-.prev-inst .seal small{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.16em;text-transform:uppercase;color:#13242E;font-weight:600;line-height:1}
-
-/* 23 NEW Onboarding Journey */
-.prev-oj{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Inter',sans-serif}
-.prev-oj .top{background:#fff;padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid rgba(11,26,51,0.12)}
-.prev-oj .top .l{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#0B1A33}
-.prev-oj .top .l svg{width:11px;height:13px}
-.prev-oj .top .l strong{font-weight:600;color:#2778BC}
-.prev-oj .top .ctr{text-align:center;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#6B7080;font-weight:600}
-.prev-oj .top .ctr strong{color:#0B1A33}
-.prev-oj .top .btn{background:#070C18;color:#fff;padding:3px 8px;border-radius:99px;font-size:7px;font-weight:600}
-.prev-oj .steps{background:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:relative;border-bottom:1px solid rgba(11,26,51,0.12)}
-.prev-oj .steps::before{content:"";position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);height:1px;background:rgba(11,26,51,0.12);z-index:1}
-.prev-oj .steps .st{position:relative;z-index:2;width:14px;height:14px;border-radius:50%;background:#F4F1EC;border:1.5px solid rgba(11,26,51,0.18);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;color:#6B7080}
-.prev-oj .steps .st.done{background:#2778BC;border-color:#2778BC;color:#fff}
-.prev-oj .steps .st.act{background:#fff;border:1.5px solid #009FE3;color:#2778BC;box-shadow:0 0 0 2px rgba(0,159,227,0.18)}
-.prev-oj .mid{padding:12px;display:flex;flex-direction:column;justify-content:center;gap:8px}
-.prev-oj .mid .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:700}
-.prev-oj .mid h3{font-family:'Inter',sans-serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.04em}
-.prev-oj .mid h3 strong{font-weight:600}
-.prev-oj .mid h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-
-/* 24 NEW Press Kit */
-.prev-pk{background:#F5F4F0;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Inter',sans-serif}
-.prev-pk .top{background:#070C18;color:#fff;display:grid;grid-template-rows:auto auto}
-.prev-pk .top .strip{padding:3px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;border-bottom:1px solid rgba(255,255,255,0.12)}
-.prev-pk .top .strip strong{color:#009FE3}
-.prev-pk .top .main{padding:7px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
-.prev-pk .top .main .l{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#fff}
-.prev-pk .top .main .l svg{width:11px;height:13px}
-.prev-pk .top .main .l strong{font-weight:600;color:#009FE3}
-.prev-pk .top .main .l .tag{margin-left:4px;background:#009FE3;color:#070C18;font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;padding:1px 5px;border-radius:2px;letter-spacing:0.1em;text-transform:uppercase}
-.prev-pk .top .main .search{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:3px;padding:3px 8px;display:flex;align-items:center;gap:5px;color:rgba(255,255,255,0.55);font-size:7px;justify-self:stretch}
-.prev-pk .top .main .btn{padding:3px 8px;background:#009FE3;color:#070C18;font-size:7px;font-weight:700;border-radius:2px;letter-spacing:0.05em}
-.prev-pk .hero{padding:10px 12px;background:#fff;display:grid;grid-template-columns:1.4fr 1fr;gap:10px;align-items:center;border-bottom:1px solid rgba(11,26,51,0.08)}
-.prev-pk .hero .lab{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.16em;text-transform:uppercase;color:#2778BC;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:4px}
-.prev-pk .hero .lab .bar{width:10px;height:1px;background:#009FE3}
-.prev-pk .hero h3{font-family:'Inter',sans-serif;font-weight:300;font-size:20px;line-height:0.95;letter-spacing:-0.04em}
-.prev-pk .hero h3 strong{font-weight:600}
-.prev-pk .hero h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-pk .hero .dl{padding:6px 9px;background:#009FE3;color:#070C18;border-radius:4px;font-family:'Inter',sans-serif;font-size:7px;font-weight:700;letter-spacing:0.02em;text-align:left;line-height:1.3}
-.prev-pk .hero .dl small{display:block;font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;margin-top:1px}
-.prev-pk .assets{padding:8px 12px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#F5F4F0}
-.prev-pk .asst{aspect-ratio:1/1.1;background:#fff;border:1px solid rgba(11,26,51,0.12);border-radius:3px;display:flex;align-items:center;justify-content:center;padding:4px}
-.prev-pk .asst.dark{background:#070C18}
-.prev-pk .asst svg{width:14px;height:18px}
-.prev-pk .asst .lex{display:flex;align-items:center;gap:2px;font-family:'Inter',sans-serif;font-weight:300;font-size:5px;color:#0B1A33;letter-spacing:0.04em}
-.prev-pk .asst .lex svg{width:7px;height:9px}
-.prev-pk .asst .lex strong{font-weight:600;color:#2778BC}
-.prev-pk .asst.dark .lex{color:#fff}
-.prev-pk .asst.dark .lex strong{color:#009FE3}
-.prev-pk .asst.colors{padding:0;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;overflow:hidden}
-.prev-pk .asst.colors span:nth-child(1){background:#2778BC}
-.prev-pk .asst.colors span:nth-child(2){background:#009FE3}
-.prev-pk .asst.colors span:nth-child(3){background:#0B1A33}
-.prev-pk .asst.colors span:nth-child(4){background:#F5F4F0}
-
-/* === SELECTION MECHANIC === */
+/* SELECTION BAR (sticky) */
 .sel-bar{position:sticky;top:0;z-index:80;background:rgba(10,18,32,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-strong);padding:14px 32px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
 .sel-bar .ttl{color:var(--cyan-bright);display:flex;align-items:center;gap:10px}
 .sel-bar .ttl .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,159,227,0.25);animation:pulse 2s infinite}
@@ -462,13 +44,57 @@ a{color:inherit;text-decoration:none}
 .sel-bar button:disabled{opacity:0.3;cursor:not-allowed}
 @media (max-width:768px){.sel-bar{grid-template-columns:1fr;gap:10px;text-align:center;padding:12px 16px;font-size:9.5px}.sel-bar .ttl{justify-content:center}.sel-bar .actions{justify-content:center}}
 
-/* Select button on cards */
-.card{position:relative}
+/* HEADER */
+.head{padding:64px 0 48px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.head .bg-x{position:absolute;right:-100px;top:-50px;width:480px;height:586px;opacity:0.05;pointer-events:none}
+.head-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);margin-bottom:40px;flex-wrap:wrap;gap:14px;position:relative;z-index:2}
+.head-logo{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.06em;color:var(--text);margin-bottom:28px;position:relative;z-index:2}
+.head-logo strong{font-weight:600;color:var(--cyan)}
+.head-logo svg{width:22px;height:27px}
+.head h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,6vw,84px);line-height:0.98;letter-spacing:-0.035em;font-weight:600;max-width:1100px;position:relative;z-index:2}
+.head h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
+.head p{font-size:17px;color:var(--muted);max-width:780px;margin-top:20px;position:relative;z-index:2;line-height:1.65}
+.head p strong{color:var(--text);font-weight:600}
+
+.intro-grid{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:2}
+.intro-card{padding:24px 28px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.intro-card .icon{width:48px;height:48px;border-radius:12px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;letter-spacing:0.02em}
+.intro-card.new .icon{background:transparent;color:#fff;border:2px solid var(--cyan)}
+.intro-card h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
+.intro-card p{font-size:13.5px;color:var(--text);line-height:1.55}
+.intro-card p strong{color:var(--cyan-bright);font-weight:600}
+@media (max-width:900px){.intro-grid{grid-template-columns:1fr}}
+
+/* Group header */
+.group-header{padding:48px 0 16px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);margin-bottom:0;flex-wrap:wrap;gap:14px}
+.group-header .left h2{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;letter-spacing:-0.02em}
+.group-header .left h2 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan);font-weight:400}
+.group-header .left .sub{color:var(--muted);font-size:13.5px;max-width:640px;margin-top:6px;line-height:1.6}
+.group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
+.group-header .badge.kept{color:var(--gold);border-color:var(--gold);background:rgba(212,181,122,0.05)}
+.group-header .badge.new{color:var(--cyan-bright);border-color:var(--cyan-bright);background:rgba(0,159,227,0.08)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 36px}
+@media (max-width:1080px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative}
+.card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 20px 60px -20px rgba(0,159,227,0.2)}
+.card.new::before{content:"NEU";position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:#fff;color:var(--bg);font-weight:700;z-index:3}
+.card-preview{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
+.card-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.card h2{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.15}
+.card .vibe{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .open{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:transparent;color:var(--cyan);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;align-self:flex-start;border:1px solid var(--line-strong);transition:gap .2s,background .2s;margin-top:auto}
+.card .open:hover{gap:12px;background:var(--cyan);color:#fff;border-color:var(--cyan)}
+
+/* Select button + selected/disabled states */
 .card .sel-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(10,18,32,0.7);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;z-index:5;letter-spacing:0;padding:0}
 .card .sel-btn::before{content:"+";font-size:18px;font-weight:300}
 .card .sel-btn:hover{background:var(--cyan);border-color:var(--cyan);transform:scale(1.1)}
-.card.b2b-rec::after{display:none}
-.card.new::before{display:none}
 .card.selected{border-color:var(--cyan) !important;box-shadow:0 0 0 2px var(--cyan),0 24px 60px -20px rgba(0,159,227,0.4) !important}
 .card.selected .sel-btn{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}
 .card.selected .sel-btn::before{content:""}
@@ -477,13 +103,7 @@ a{color:inherit;text-decoration:none}
 .card.disabled .sel-btn{display:none}
 .card.disabled:hover{transform:none;border-color:var(--line);box-shadow:none}
 
-/* Restore badges as tag-style on body */
-.card-body .meta-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
-.card-body .meta-tags .tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;font-weight:700;border:1px solid;display:inline-flex;align-items:center}
-.card-body .meta-tags .tag.b2b{color:var(--cyan-bright);border-color:rgba(0,159,227,0.35);background:rgba(0,159,227,0.08)}
-.card-body .meta-tags .tag.new{color:#fff;border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.08)}
-
-/* MODAL */
+/* MODAL + TOAST */
 .modal-bg{position:fixed;inset:0;background:rgba(7,12,24,0.75);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s}
 .modal-bg.open{display:flex}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -505,18 +125,276 @@ a{color:inherit;text-decoration:none}
 .modal-list li .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
 .modal-code{background:#070C18;border:1px solid var(--line);border-radius:10px;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan-bright);line-height:1.7;letter-spacing:0.02em;word-break:break-all;position:relative}
 .modal-code .code-label{position:absolute;top:-9px;left:14px;background:var(--card);padding:0 8px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.modal-code .code-content{padding-top:4px}
 .modal-foot{padding:20px 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .modal-foot .hint{font-size:13px;color:var(--muted);flex:1;line-height:1.5}
 .modal-foot .hint strong{color:var(--cyan-bright);font-weight:600}
 .modal-foot .copy-btn{padding:11px 22px;background:var(--cyan);color:var(--bg);border:none;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s}
 .modal-foot .copy-btn:hover{background:#fff;transform:translateY(-1px)}
 .modal-foot .copy-btn.copied{background:#5CD672;color:var(--bg)}
-
-/* Toast */
 .toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--card);border:1px solid var(--line-strong);border-radius:99px;padding:12px 24px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;z-index:300;transition:transform .3s cubic-bezier(.2,.85,.4,1.15);box-shadow:0 20px 60px -20px rgba(0,159,227,0.5)}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast .ico{color:var(--cyan);margin-right:8px}
+
+/* === MINI-PREVIEW STYLES === */
+
+/* 01 Editorial (kept) */
+.prev-edit{background:#F5F1EA;color:#1A1F2E;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.prev-edit .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B6B;letter-spacing:0.1em;text-transform:uppercase}
+.prev-edit .top svg{width:12px;height:15px;margin-right:4px;vertical-align:middle}
+.prev-edit .top strong{font-weight:600;color:#2778BC}
+.prev-edit .title{font-family:'Fraunces',serif;font-size:42px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
+.prev-edit .title em{font-style:italic;color:#2778BC;font-weight:300}
+.prev-edit .title .cy{font-style:italic;color:#009FE3;font-weight:300}
+.prev-edit .ft{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6B6B6B;letter-spacing:0.1em;padding-top:6px;border-top:1px solid #1A1F2E}
+
+/* 02 Dark Tech (kept) */
+.prev-dark{background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.5),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.45),transparent 50%),#0A1220;color:#F2F2F2;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.prev-dark .badge{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:10px}
+.prev-dark .x-icon{width:26px;height:32px;margin-bottom:10px;filter:drop-shadow(0 6px 18px rgba(0,159,227,0.5))}
+.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.035em;line-height:1.0}
+.prev-dark .title .g{background:linear-gradient(135deg,#1DB4F0,#009FE3,#2778BC);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:300}
+
+/* 03 Brutalist (was 04) */
+.prev-brut{background:#FAFAF7;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
+.prev-brut .top{background:#13265D;color:#FAFAF7;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase}
+.prev-brut .mid{padding:12px;display:flex;flex-direction:column;justify-content:center}
+.prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
+.prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 3px}
+.prev-brut .mid h3 .o{-webkit-text-stroke:1px #13265D;color:transparent;font-style:italic;font-weight:600}
+.prev-brut .bot{background:#009FE3;color:#fff;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+
+/* 04 Scroll Story (was 05) */
+.prev-story{background:#F4F1EC;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative}
+.prev-story .progress{position:absolute;top:0;left:0;height:2px;width:60%;background:#009FE3;z-index:2}
+.prev-story .top{padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;display:flex;justify-content:space-between}
+.prev-story .top .ch{color:#009FE3}
+.prev-story .mid{padding:0 18px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.prev-story .mid .mini{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px}
+.prev-story .mid .mini::before{content:"";display:inline-block;width:18px;height:1px;background:#009FE3;vertical-align:middle;margin-right:8px}
+.prev-story .mid h3{font-family:'Fraunces',serif;font-size:34px;line-height:0.9;letter-spacing:-0.04em;font-weight:300}
+.prev-story .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
+.prev-story .mid h3 .cy{font-style:italic;color:#009FE3;font-weight:300}
+.prev-story .bot{padding:8px 18px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
+
+/* 05 Annual Report (was 09) */
+.prev-ar{background:#FBFAF6;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto;position:relative}
+.prev-ar .spine{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585}
+.prev-ar .spine .ll{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1A33;text-transform:none}
+.prev-ar .spine .ll svg{width:11px;height:13px}
+.prev-ar .spine .ll strong{font-weight:600;color:#2778BC}
+.prev-ar .spine .ctr{text-align:center}
+.prev-ar .spine .ctr strong{color:#0B1A33}
+.prev-ar .mid{padding:16px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.prev-ar .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-ar .mid .eb .bar{width:22px;height:2px;background:#D4B57A}
+.prev-ar .mid h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:30px;line-height:0.92;letter-spacing:-0.03em;color:#0B1A33}
+.prev-ar .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
+.prev-ar .mid h3 strong{font-weight:600}
+.prev-ar .mid .yr{position:absolute;right:14px;bottom:10px;font-family:'Source Serif 4',serif;font-weight:300;font-size:24px;line-height:0.9;color:#0B1A33;letter-spacing:-0.04em}
+.prev-ar .mid .yr em{font-style:italic;color:#D4B57A}
+
+/* 06 Horizontal Stories (was 13) */
+.prev-horiz{background:#0A1220;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+.prev-horiz .bg{position:absolute;inset:0;background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.45),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.35),transparent 50%)}
+.prev-horiz .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
+.prev-horiz .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-horiz .num .bar{width:16px;height:1px;background:#009FE3}
+.prev-horiz h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:1;letter-spacing:-0.025em;color:#fff}
+.prev-horiz h3 em{font-style:italic;color:#1DB4F0}
+.prev-horiz .vis{display:flex;align-items:center;justify-content:center}
+.prev-horiz .vis svg{width:60px;height:73px;filter:drop-shadow(0 8px 24px rgba(0,159,227,0.5))}
+.prev-horiz .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15)}
+.prev-horiz .dots{display:flex;gap:5px;align-items:center;justify-content:center}
+.prev-horiz .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25)}
+.prev-horiz .dot.act{background:#009FE3;width:14px;border-radius:99px}
+
+/* 07 ESG (was 16) */
+.prev-esg{background:#F4F5F0;color:#0E2230;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
+.prev-esg .top{background:#0E2230;color:#F4F5F0;padding:5px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;margin:-14px -14px 8px}
+.prev-esg .top .b{background:#A3B07A;color:#0E2230;padding:1px 6px;font-weight:700}
+.prev-esg h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
+.prev-esg h3 em{font-style:italic;color:#6B7A4A}
+.prev-esg .h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;background:#0E2230;padding:8px;color:#F4F5F0}
+.prev-esg .h .item{text-align:center}
+.prev-esg .h .v{font-family:'Source Serif 4',serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
+.prev-esg .h .v strong{font-weight:500;color:#A3B07A}
+.prev-esg .h .l{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,245,240,0.6);margin-top:4px}
+
+/* 08 Cinematic (was 17) */
+.prev-cine{background:linear-gradient(180deg,#070C18 0%,#0E1729 100%);color:#fff;padding:0;display:grid;grid-template-rows:14px 1fr 14px;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+.prev-cine .b{background:#070C18}
+.prev-cine .mid{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 18px;overflow:hidden}
+.prev-cine .mid::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(0,159,227,0.3) 0%,transparent 55%),radial-gradient(circle at 80% 70%,rgba(39,120,188,0.4) 0%,transparent 55%)}
+.prev-cine .mid::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay}
+.prev-cine .inner{position:relative;z-index:2}
+.prev-cine .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-cine .lbl::before{content:"";width:18px;height:1px;background:#009FE3}
+.prev-cine h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:28px;line-height:0.95;letter-spacing:-0.035em;text-shadow:0 4px 20px rgba(0,159,227,0.3)}
+.prev-cine h3 em{font-style:italic;color:#009FE3}
+
+/* === NEUE === */
+
+/* 09 Card Stack */
+.prev-stk{background:#F4F1EC;color:#0B1A33;padding:18px;font-family:'Inter',sans-serif;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.prev-stk .stack{position:relative;height:100px;margin-bottom:10px}
+.prev-stk .stack .c{position:absolute;left:50%;top:0;transform:translateX(-50%);width:160px;padding:10px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;box-shadow:0 6px 16px -8px rgba(0,0,0,0.2)}
+.prev-stk .stack .c1{background:#0B1A33;color:#fff;top:0;z-index:3}
+.prev-stk .stack .c2{background:#2778BC;color:#fff;top:14px;transform:translateX(calc(-50% + 6px));z-index:2;opacity:0.85}
+.prev-stk .stack .c3{background:#fff;border:1px solid rgba(11,26,51,0.12);color:#0B1A33;top:28px;transform:translateX(calc(-50% + 12px));z-index:1;opacity:0.7}
+.prev-stk h3{font-family:'Inter',sans-serif;font-weight:300;font-size:20px;line-height:0.95;letter-spacing:-0.035em;text-align:center}
+.prev-stk h3 strong{font-weight:600}
+.prev-stk h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
+.prev-stk .pgr{display:flex;gap:4px;justify-content:center;margin-top:8px}
+.prev-stk .pgr span{width:5px;height:5px;border-radius:50%;background:rgba(11,26,51,0.18)}
+.prev-stk .pgr span.act{background:#2778BC;width:14px;border-radius:99px}
+
+/* 10 App Tabs */
+.prev-app{background:#fff;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto auto 1fr}
+.prev-app .top{padding:6px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E1E5EC}
+.prev-app .top .l{display:flex;align-items:center;gap:5px;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#0B1A33}
+.prev-app .top .l svg{width:11px;height:13px}
+.prev-app .top .l strong{font-weight:600;color:#2778BC}
+.prev-app .top .ws{padding:1px 5px;background:#F5F7FA;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.06em;color:#697288;border:1px solid #E1E5EC;font-weight:600}
+.prev-app .top .btn{padding:3px 8px;background:#2778BC;color:#fff;font-size:8px;font-weight:600;border-radius:3px}
+.prev-app .tabs{padding:0 12px;display:flex;gap:10px;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;background:#fff;border-bottom:1px solid #E1E5EC}
+.prev-app .tabs .t{padding:6px 0;color:#697288;display:flex;align-items:center;gap:4px;border-bottom:2px solid transparent}
+.prev-app .tabs .t.act{color:#0B1A33;border-bottom-color:#2778BC}
+.prev-app .body{padding:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#F5F7FA}
+.prev-app .kpi{padding:8px 10px;background:#fff;border:1px solid #E1E5EC;border-radius:5px;display:flex;flex-direction:column;gap:3px}
+.prev-app .kpi .l{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#697288;font-weight:700}
+.prev-app .kpi .v{font-family:'Inter',sans-serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em;color:#0B1A33}
+.prev-app .kpi .v strong{font-weight:600;color:#2778BC}
+
+/* 11 Masonry */
+.prev-mas{background:#F4F1EC;padding:8px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:5px;font-family:'Inter',sans-serif;font-size:7px;color:#0B1A33}
+.prev-mas .tile{border-radius:4px;padding:6px 7px;border:1px solid rgba(11,26,51,0.08);overflow:hidden}
+.prev-mas .tile h5{font-family:'Inter',sans-serif;font-weight:600;font-size:8px;letter-spacing:-0.01em;line-height:1.2}
+.prev-mas .tile.t-pap{background:#fff;color:#0B1A33}
+.prev-mas .tile.t-blue{background:#2778BC;color:#fff;grid-row:span 2}
+.prev-mas .tile.t-blue h5{color:#fff;font-size:12px;font-weight:300;line-height:1}
+.prev-mas .tile.t-blue h5 strong{font-weight:500;color:#D4B57A}
+.prev-mas .tile.t-cre{background:#EAE5D8;color:#0B1A33}
+.prev-mas .tile.t-ink{background:#0B1A33;color:#fff}
+.prev-mas .tile.t-ink h5{color:#fff;font-style:italic;font-family:'Source Serif 4',serif;font-weight:400}
+.prev-mas .tile.t-cyan{background:#009FE3;color:#0B1A33;grid-row:span 2}
+.prev-mas .tile.t-cyan h5{font-size:12px;font-weight:300;line-height:1}
+
+/* 12 Atlas */
+.prev-atl{background:#F1ECDF;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;color:#0E1424}
+.prev-atl .top{padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid #0E1424;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6957;font-weight:600}
+.prev-atl .top .l{display:flex;align-items:center;gap:4px;color:#0E1424;text-transform:none}
+.prev-atl .top .l svg{width:11px;height:13px}
+.prev-atl .top .l span{font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
+.prev-atl .top .l span strong{font-weight:600;color:#2778BC}
+.prev-atl .top .ctr{text-align:center;font-family:'Source Serif 4',serif;font-style:italic;text-transform:none;font-size:9px;color:#0E1424}
+.prev-atl .mid{position:relative;padding:0;overflow:hidden;background:#E6DFC9}
+.prev-atl .mid::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(14,20,36,0.25);pointer-events:none}
+.prev-atl .mid svg{width:100%;height:100%;display:block}
+.prev-atl .pin{position:absolute;width:7px;height:7px;border-radius:50%}
+.prev-atl .pin.b{background:#2778BC}
+.prev-atl .pin.r{background:#A85426}
+.prev-atl .pin.h{background:#0E1424;width:9px;height:9px}
+.prev-atl .bot{padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6957;font-weight:600;border-top:1px solid #0E1424}
+
+/* 13 Bauhaus */
+.prev-bau{background:#F4F1EA;color:#0E1322;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;border-bottom:3px solid #0E1322}
+.prev-bau .top{padding:5px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:3px solid #0E1322;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;color:#0E1322;font-weight:700}
+.prev-bau .top .l{display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;text-transform:none}
+.prev-bau .top .l svg{width:10px;height:12px}
+.prev-bau .top .l strong{font-weight:600;color:#2778BC}
+.prev-bau .top .l .red{width:8px;height:8px;background:#D24B2F;border-radius:50%}
+.prev-bau .mid{padding:14px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:center;position:relative}
+.prev-bau h3{font-family:'Archivo Black',sans-serif;font-size:30px;line-height:0.88;letter-spacing:-0.045em;color:#0E1322;text-transform:uppercase}
+.prev-bau h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#D24B2F;font-weight:300;text-transform:none;letter-spacing:-0.02em}
+.prev-bau h3 .blue{color:#2778BC}
+.prev-bau .shapes{position:relative;height:80px}
+.prev-bau .shapes .sq{position:absolute;width:50px;height:50px;background:#2778BC;top:0;left:0}
+.prev-bau .shapes .ci{position:absolute;width:60px;height:60px;background:#D24B2F;border-radius:50%;bottom:0;right:0}
+.prev-bau .shapes .tr{position:absolute;top:14px;right:14px;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid #F0C24A;transform:rotate(15deg)}
+.prev-bau .bot{padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.14em;text-transform:uppercase;color:#0E1322;font-weight:700;background:#F0C24A;display:flex;justify-content:space-between}
+
+/* 14 Conference */
+.prev-conf{background:#FAF7F0;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
+.prev-conf .head{background:#0B1A33;color:#FAF7F0;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,247,240,0.7);font-weight:600;border-bottom:3px solid #C28A3A}
+.prev-conf .head strong{color:#C28A3A}
+.prev-conf .mid{padding:12px}
+.prev-conf .day{display:flex;align-items:center;gap:8px;padding-bottom:5px;border-bottom:1.5px solid #0B1A33;margin-bottom:6px}
+.prev-conf .day .n{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;font-weight:300;color:#2778BC;line-height:1}
+.prev-conf .day .ti{font-family:'Inter',sans-serif;font-weight:500;font-size:11px;letter-spacing:-0.015em}
+.prev-conf .day .ti em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:400}
+.prev-conf .session{display:grid;grid-template-columns:42px 1fr;gap:8px;padding:4px 0;font-size:8px;border-bottom:1px solid rgba(11,26,51,0.1)}
+.prev-conf .session:last-child{border-bottom:none}
+.prev-conf .session .time{font-family:'JetBrains Mono',monospace;font-size:8px;color:#0B1A33;font-weight:700}
+.prev-conf .session .body{display:grid;grid-template-columns:3px 1fr;gap:6px;align-items:start}
+.prev-conf .session .body::before{content:"";width:3px;align-self:stretch;background:#2778BC;border-radius:1px}
+.prev-conf .session.t-key .body::before{background:#009FE3}
+.prev-conf .session.t-wv .body::before{background:#A85426}
+.prev-conf .session .ct strong{font-size:9px;font-weight:600;color:#0B1A33;display:block;letter-spacing:-0.01em;line-height:1.2}
+
+/* 15 Sales Letter */
+.prev-sal{background:#FAFAF6;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Source Serif 4',serif}
+.prev-sal .head{padding:5px 12px;display:flex;justify-content:space-between;border-bottom:1px solid rgba(11,26,51,0.14);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600}
+.prev-sal .head strong{color:#0B1A33}
+.prev-sal .lt{padding:10px 16px 6px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(11,26,51,0.14)}
+.prev-sal .lt svg{width:18px;height:22px;flex-shrink:0}
+.prev-sal .lt .from{font-family:'Inter',sans-serif;font-size:7px;color:#6B7080;line-height:1.4}
+.prev-sal .lt .from strong{display:block;font-size:8px;color:#0B1A33;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:2px}
+.prev-sal .mid{padding:12px 16px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.prev-sal .mid .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:#2778BC;font-weight:700;display:flex;align-items:center;gap:6px}
+.prev-sal .mid .lab::before{content:"";width:14px;height:1.5px;background:#2778BC}
+.prev-sal .mid h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:20px;line-height:1.1;letter-spacing:-0.025em}
+.prev-sal .mid h3 em{font-style:italic;color:#2778BC}
+.prev-sal .mid h3 .hl{background:#FFF1A8;padding:0 4px}
+
+/* 16 Newsletter */
+.prev-news{background:#F4F0E4;padding:12px;font-family:'Inter',sans-serif;color:#0B1A33;display:flex;justify-content:center}
+.prev-news .iss{background:#FCFAF4;border:1px solid rgba(11,26,51,0.12);border-radius:3px;padding:0;width:100%;max-width:280px;overflow:hidden;display:flex;flex-direction:column}
+.prev-news .util{padding:4px 12px;background:#070C18;color:rgba(252,250,244,0.7);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;display:flex;justify-content:space-between}
+.prev-news .util .b{background:#C28A3A;color:#070C18;padding:1px 4px;font-weight:700;font-size:6px;letter-spacing:0.06em}
+.prev-news .mast{padding:10px 12px 8px;border-bottom:2px solid #0B1A33}
+.prev-news .mast .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600;align-items:center;gap:6px;padding-bottom:5px;border-bottom:1px solid rgba(11,26,51,0.1)}
+.prev-news .mast .top .l{display:flex;align-items:center;gap:4px;color:#0B1A33;font-family:'Inter',sans-serif;text-transform:none;font-weight:300;font-size:8px;letter-spacing:0.04em}
+.prev-news .mast .top .l svg{width:10px;height:12px}
+.prev-news .mast .top .l strong{font-weight:600;color:#2778BC}
+.prev-news .mast h4{margin-top:8px;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.0;letter-spacing:-0.025em;color:#0B1A33}
+.prev-news .mast h4 strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600;color:#2778BC}
+.prev-news .mast h4 em{font-style:italic;color:#0B1A33;font-weight:300}
+.prev-news .body{padding:10px 12px;font-size:7px;line-height:1.5;color:#1F2937}
+.prev-news .body strong{color:#0B1A33;font-weight:600}
+
+/* 17 Manifesto Poster */
+.prev-pos{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative;border:2px solid #0B1A33}
+.prev-pos .top{background:#070C18;color:#fff;padding:3px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border-bottom:2px solid #009FE3}
+.prev-pos .top .l{display:flex;align-items:center;gap:4px;color:#fff;font-family:'Inter',sans-serif;font-weight:300;font-size:8px;letter-spacing:0.05em;text-transform:none}
+.prev-pos .top .l svg{width:9px;height:11px}
+.prev-pos .top .l strong{color:#009FE3;font-weight:600}
+.prev-pos .top .ctr{color:rgba(255,255,255,0.7)}
+.prev-pos .mid{padding:16px 14px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.prev-pos h3{font-family:'Inter',sans-serif;font-weight:200;font-size:46px;line-height:0.82;letter-spacing:-0.05em;color:#0B1A33;text-transform:uppercase}
+.prev-pos h3 .strong{font-weight:800}
+.prev-pos h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300;text-transform:none;letter-spacing:-0.025em}
+.prev-pos .bot{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid #0B1A33}
+.prev-pos .bot .p{padding:6px 8px;border-right:1px solid rgba(11,26,51,0.18);font-family:'Source Serif 4',serif;font-style:italic;font-size:12px;color:#2778BC;font-weight:300}
+.prev-pos .bot .p:last-child{border-right:none}
+
+/* 18 Lexikon */
+.prev-lex{background:#F2EEE0;color:#1A1814;padding:0;display:grid;grid-template-rows:auto auto 1fr auto;font-family:'Source Serif 4',serif}
+.prev-lex .head{padding:5px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;border-bottom:3px double #1A1814;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6852;font-weight:600}
+.prev-lex .head .l{display:flex;align-items:center;gap:4px;color:#1A1814;font-family:'Inter',sans-serif;font-weight:300;font-size:8px;letter-spacing:0.04em;text-transform:none}
+.prev-lex .head .l svg{width:9px;height:11px}
+.prev-lex .head .l strong{font-weight:600;color:#2778BC}
+.prev-lex .head .ctr{text-align:center;font-family:'Source Serif 4',serif;font-style:italic;font-size:9px;color:#1A1814;text-transform:none}
+.prev-lex .head .ctr strong{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:6px;letter-spacing:0.1em;color:#2778BC;text-transform:uppercase;padding:1px 4px;background:rgba(39,120,188,0.1)}
+.prev-lex .az{padding:5px 14px;background:#E8E2CC;display:flex;gap:3px;justify-content:center;border-bottom:1px solid #1A1814;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;color:#1A1814}
+.prev-lex .az .l{padding:1px 4px}
+.prev-lex .az .l.dim{color:#6E6852;font-weight:500}
+.prev-lex .mid{padding:10px 14px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.prev-lex .mid .big{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:34px;line-height:0.85;color:#2778BC;letter-spacing:-0.03em}
+.prev-lex .mid .term{font-family:'Source Serif 4',serif;font-weight:600;font-size:12px;color:#1A1814;letter-spacing:-0.015em;line-height:1.2}
+.prev-lex .mid .term em{font-style:italic;color:#2778BC;font-weight:400}
+.prev-lex .mid .def{font-size:7px;line-height:1.5;color:#2A2820}
+.prev-lex .mid .def strong{color:#1A1814;font-weight:600}
+.prev-lex .foot{padding:4px 14px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6852;font-weight:600;border-top:1px solid rgba(26,24,20,0.18);text-align:center}
 
 /* FOOTER */
 .foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
@@ -524,9 +402,20 @@ a{color:inherit;text-decoration:none}
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
 <!-- SELECTION BAR -->
 <div class="sel-bar">
-  <span class="ttl"><span class="dot"></span><span>Auswahl-Modus · Bis zu 8 Favoriten markieren</span></span>
+  <span class="ttl"><span class="dot"></span><span>Auswahl-Modus · 8 Favoriten markieren für Runde 09</span></span>
   <span class="count"><span class="num" id="count-num">0</span><span style="opacity:0.5"> / </span><span class="max">8</span> · ausgewählt</span>
   <span class="actions">
     <button class="btn-reset" id="btn-reset" disabled>Zurücksetzen</button>
@@ -542,7 +431,7 @@ a{color:inherit;text-decoration:none}
       <button class="close" id="modal-close">×</button>
     </div>
     <div class="modal-body">
-      <p class="intro">Du hast <strong id="modal-count">0</strong> Konzepte ausgewählt. Sende die folgende Code-Zeile zurück — ich werfe die anderen Konzepte raus und baue dafür <strong>10 neue Ideen</strong>, die sich von allen bisherigen unterscheiden.</p>
+      <p class="intro">Du hast <strong id="modal-count">0</strong> Konzepte ausgewählt. Sende die folgende Code-Zeile zurück — ich werfe die anderen Konzepte raus und baue dafür <strong>10 neue Ideen</strong>.</p>
       <ul class="modal-list" id="modal-list"></ul>
       <div class="modal-code">
         <span class="code-label">↳ Code zum Kopieren</span>
@@ -550,241 +439,55 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
     <div class="modal-foot">
-      <span class="hint">Sende mir den Code als <strong>nächste Nachricht</strong>. Ich brauche nichts weiter.</span>
+      <span class="hint">Sende mir den Code als <strong>nächste Nachricht</strong>.</span>
       <button class="copy-btn" id="copy-btn"><span>📋</span> Code kopieren</button>
     </div>
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"><span class="ico">✓</span><span id="toast-msg">In die Zwischenablage kopiert</span></div>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="lex-x" viewBox="0 0 180 220">
-    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
-    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
-    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
-    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
-    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
-    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
-  </symbol>
-</svg>
 
 <div class="container">
 
 <section class="head">
   <svg class="bg-x"><use href="#lex-x"/></svg>
   <div class="head-meta mono">
-    <span><span style="color:var(--cyan)">●</span> 2026 · Edition 07 · 24 Konzepte</span>
+    <span><span style="color:var(--cyan)">●</span> 2026 · <strong style="color:var(--text)">Edition 08</strong> · 18 Konzepte</span>
     <span>LeXpersonal GmbH · Münster</span>
-    <span>+ 6 neue · alle B2B-tauglich</span>
+    <span>8 behalten + 10 neue Ideen</span>
   </div>
   <div class="head-logo">
     <svg><use href="#lex-x"/></svg>
     LE<strong>X</strong>PERSONAL
   </div>
-  <h1>Wähle deine acht <em>Favoriten</em>.<br>Ich baue dazu zehn neue Ideen.</h1>
-  <p>Auswahl-Modus aktiv: Markiere bis zu <strong style="color:var(--text)">acht Konzepte</strong>, die du in die nächste Runde mitnehmen willst. Die nicht-markierten werden ausgesondert — und ich baue dazu <strong style="color:var(--text)">zehn vollkommen neue Konzepte</strong>, die sich von allen bisherigen klar unterscheiden. Ergebnis: <strong style="color:var(--text)">18 Konzepte</strong> in der nächsten Edition.</p>
+  <h1>Achtzehn Konzepte.<br>Acht <em>behalten,</em> zehn neu gebaut.</h1>
+  <p>Aus der vorherigen Runde sind <strong>acht Favoriten</strong> übernommen (saubere Nummerierung 01–08). Dazu sind <strong>zehn komplett neue Layout-Ideen</strong> (09–18) entstanden — alle mit eigener Architektur, alle B2B-tauglich, alle im CI. Vom 3D-Card-Stack über App-Tabs, Atlas-Map, Bauhaus-Komposition bis zum Personal-Lexikon und Manifesto-Plakat.</p>
 
-  <div class="reco">
-    <div class="icon">↗</div>
-    <div>
-      <h3>So funktioniert's</h3>
-      <p>Klicke auf den <strong>Markier-Button (oben rechts auf jeder Karte)</strong>. Bei 8 Auswahlen werden weitere Markierungen deaktiviert. Klicke dann oben rechts auf <strong>„Auswahl bestätigen"</strong> — du bekommst einen Code, den du mir als nächste Nachricht schickst. Deine Auswahl bleibt im Browser gespeichert.</p>
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="icon">8</div>
+      <div>
+        <h3>Behaltene Favoriten (01–08)</h3>
+        <p>Editorial · Dark Tech · Brutalist · Scroll Story · Annual Report · Horizontal Stories · ESG Report · Cinematic — sauber auf 01–08 umnummeriert.</p>
+      </div>
+    </div>
+    <div class="intro-card new">
+      <div class="icon">10</div>
+      <div>
+        <h3>Neue Konzepte (09–18)</h3>
+        <p>Card-Stack · App-Tabs · Masonry · Atlas-Map · Bauhaus · Conference · Sales Letter · Newsletter · Manifesto-Poster · Lexikon.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TIER A — B2B PREMIUM -->
+<!-- KEPT 01-08 -->
 <div class="group-header">
   <div class="left">
-    <h2>Tier A — <em>B2B Premium</em></h2>
-    <p class="sub">Für Konzerne, Industriebetriebe und Mittelstand mit professionellem Einkauf. Maximaler Vertrauensaufbau über Daten, Cases, Compliance-Belege und Premium-Anmutung.</p>
+    <h2>Runde 1 — <em>Behalten aus letzter Auswahl</em> (01–08)</h2>
+    <p class="sub">Deine 8 Favoriten aus der vorherigen Runde, saubere Nummerierung. Unverändert übernommen.</p>
   </div>
-  <span class="badge b2b">▲ Konzern-tauglich · 9 Konzepte</span>
-</div>
-
-<section class="grid">
-
-  <a href="07-corporate.html" class="card b2b-rec">
-    <div class="card-preview prev-corp">
-      <div class="top"><span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="btn">Anfrage</span></div>
-      <div class="mid"><div><div class="eb"><span class="bar"></span>Seit 2008</div><h3>Personal,<br>auf das sich<br><span class="it">Industrie</span><br><strong>verlässt.</strong></h3></div><div class="asd">Wir liefern Industrie und Mittelstand qualifiziertes Personal.</div></div>
-      <div class="stats"><div class="st"><div class="l">Op.</div><div class="v"><strong>2008</strong></div></div><div class="st"><div class="l">Pipeline</div><div class="v">2.4<strong>K</strong></div></div><div class="st"><div class="l">TTF</div><div class="v">4–7<strong>d</strong></div></div><div class="st"><div class="l">Ret.</div><div class="v">98<strong>%</strong></div></div></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[07] · B2B Premium</span>
-      <h2>Corporate Premium</h2>
-      <div class="vibe">McKinsey · Deloitte · Roland Berger</div>
-      <p>Klassisches Beratungs-Layout: Whitespace, Logo-Wall „Trusted by", Case-KPIs, Anfrage-Formular, Compliance-Footer.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="08-portfolio.html" class="card b2b-rec">
-    <div class="card-preview prev-port">
-      <div class="top"><span class="live">23 laufende Einsätze · Q2 / 2026</span><span>Münster</span></div>
-      <div class="mid"><div class="eb">— Edition 2026 · Index</div><h3>Wir messen<br>Personal an<br><span class="it">dem,</span><br><strong>was bleibt.</strong></h3></div>
-      <div class="mq"><div class="track"><span><strong>METALL</strong>WERK</span><span class="dot">✦</span><span>Nord<strong>LOGISTIK</strong></span><span class="dot">✦</span><span><strong>MS</strong>·Industrie</span><span class="dot">✦</span></div></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[08] · B2B Premium</span>
-      <h2>Case Portfolio</h2>
-      <div class="vibe">Pentagram · Mother Design</div>
-      <p>Track Record dominiert: aktive Engagements, vier Case-Studies mit duotone-Visuals und KPI-Rows, Testimonials.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="09-annual-report.html" class="card b2b-rec">
-    <div class="card-preview prev-ar">
-      <div class="spine"><span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">Annual Report · 2026 · <strong>Vol. XVIII</strong></span><span>→ PDF</span></div>
-      <div class="mid"><div class="eb"><span class="bar"></span>Geschäftsbericht 2025</div><h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3><span class="yr">20<em>26</em></span></div>
-      <div class="ft"><span>LeXpersonal<span class="v">Münster</span></span><span>Geschäftsbericht<span class="v">2025</span></span><span>Veröff.<span class="v">27.05.26</span></span></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[09] · B2B Premium</span>
-      <h2>Annual Report</h2>
-      <div class="vibe">DAX-Geschäftsbericht · BMW · Siemens</div>
-      <p>Cover + Inhaltsverzeichnis + CEO-Brief + Kennzahlen + Charts + Werte + Compliance &amp; Outlook. Höchstes Trust-Niveau.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="14-executive-briefing.html" class="card b2b-rec new">
-    <div class="card-preview prev-eb">
-      <div class="topbar"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">EXECUTIVE BRIEFING <strong>№ 003</strong></span><span class="dl">↓ PDF</span></div>
-      <div class="doc"><div class="it"><div class="k">Briefing</div><div class="v"><strong>BR-2026/003</strong></div></div><div class="it"><div class="k">Datum</div><div class="v">27.05.26</div></div><div class="it"><div class="k">Pages</div><div class="v">4</div></div><div class="it"><div class="k">Read</div><div class="v">5 min</div></div></div>
-      <div class="body"><h3>LeXpersonal —<br>Personal für<br><em>Industrie</em><br><strong>im Briefing.</strong></h3>
-        <div class="tldr"><div class="l">— TL;DR<span>30 Sek.</span></div><ul><li><strong>Aus Münster, seit 2008.</strong> 3 Modelle.</li><li><strong>2.430 Talente</strong> in 7 Branchen.</li><li>iGZ · ANÜ · DSGVO · Compliance.</li></ul></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[14] · B2B Premium · NEU</span>
-      <h2>Executive Briefing</h2>
-      <div class="vibe">C-Level Briefing · TL;DR-Style</div>
-      <p>Verdichteter Top-Management-Brief mit Klassifizierung, TL;DR-Box, In-30-Sek-Callouts und Entscheidungs-Optionen. 4 Seiten, 5 Min.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="16-esg-report.html" class="card b2b-rec">
-    <div class="card-preview prev-esg">
-      <div class="top"><span><span class="b">SOCIAL IMPACT 2025</span> · LeXpersonal</span><span>27.05.2026</span></div>
-      <h3>Personal heißt:<br><em>Menschen</em><br>Verantwortung<br>übernehmen.</h3>
-      <div class="h"><div class="item"><div class="v"><strong>0</strong>%</div><div class="l">Kurzarbeit</div></div><div class="item"><div class="v"><strong>100</strong>%</div><div class="l">tarif­gebunden</div></div><div class="item"><div class="v"><strong>86</strong>%</div><div class="l">Verbleib 18M</div></div><div class="item"><div class="v"><strong>9,2</strong>J</div><div class="l">Ø Zugeh.</div></div></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[16] · B2B Premium</span>
-      <h2>Social Impact Report</h2>
-      <div class="vibe">ESG-Bericht · Sustainability</div>
-      <p>Sozialer Verantwortungs­bericht mit messbaren Prinzipien, Compliance-Standards (iGZ, ANÜ-Erlaubnis, DSGVO) und Selbst­verpflichtungen.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="18-documentation.html" class="card b2b-rec">
-    <div class="card-preview prev-doc">
-      <div class="sb">
-        <h6>Übersicht</h6>
-        <a class="act">Was ist LeX?</a>
-        <a>Grundprinzipien</a>
-        <h6 style="margin-top:6px">Modelle</h6>
-        <a>M-01 ANÜ</a>
-        <a>M-02 Vermittl.</a>
-        <a>M-03 Werkv.</a>
-      </div>
-      <div class="body">
-        <div class="crumbs">Docs / Übersicht / Was ist LeX?</div>
-        <h3>Was ist LeXpersonal?</h3>
-        <p class="lede">Wir bieten drei Modelle — Arbeitnehmer­überlassung (M-01), Personal­vermittlung (M-02) und Werkverträge (M-03).</p>
-        <div class="callout"><strong>Quick Facts</strong>18+ Jahre · 2.430 Talente · 4–7 d TTF · 98 % Folgeauftrag.</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[18] · B2B Premium</span>
-      <h2>Documentation Hub</h2>
-      <div class="vibe">Stripe Docs · Linear Docs</div>
-      <p>Knowledge-Base-Style mit Sidebar, TOC, Tabellen, Callouts. Tiefe Inhaltstruktur für Compliance- und Einkaufs-Teams.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="21-whitepaper.html" class="card b2b-rec">
-    <div class="card-preview prev-wp">
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span>Vol. XVIII · Q2/2026</span></div>
-      <div class="meta">Whitepaper · Personaldienstleistung 2026</div>
-      <h3>Wie der Mittelstand<br><em>Personal denkt</em><br>— und was sich<br>lernen lässt.</h3>
-      <div class="figure">
-        <div class="cap"><strong>Abb. 01</strong> Kennzahlen 2025 vs 2024</div>
-        <table><tr><td>Pipeline</td><td>+ 12,4 %</td></tr><tr><td>Vermittlungen</td><td>+ 18,2 %</td></tr><tr><td>Folgeauftrag</td><td>+ 1,3 PP</td></tr></table>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[21] · B2B Premium</span>
-      <h2>Whitepaper / Industry Report</h2>
-      <div class="vibe">PwC · BCG Insight · McKinsey Quarterly</div>
-      <p>Branchen­bericht mit Executive Summary, Fußnoten, Tabellen, Charts und Handlungs­empfehlungen. Maximale fachliche Tiefe.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="22-institutional.html" class="card b2b-rec">
-    <div class="card-preview prev-inst">
-      <div class="mast"><span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span><span class="ctr">— Gegr. Anno MMVIII —</span><span>48155 MÜNSTER</span></div>
-      <div class="body">
-        <h3>Über die<br>Aufgaben &amp; den<br><em>Auftrag</em><br>der Gesellschaft.</h3>
-        <div class="seal"><svg><use href="#lex-x"/></svg><small>LeX<br>MMVIII</small></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[22] · B2B Premium</span>
-      <h2>Institutionell</h2>
-      <div class="vibe">Behörde · Bundesregierung · Stiftung</div>
-      <p>Maximale Seriosität: Briefkopf, Siegel, Artikel-Struktur (§ I bis § IV), klassische Garamond. Für besonders konservative Konzern-Käufer.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="24-press-kit.html" class="card b2b-rec new">
-    <div class="card-preview prev-pk">
-      <div class="top">
-        <div class="strip"><span>● PRESS · <strong>27.05.2026</strong></span><span>DE · EN</span></div>
-        <div class="main">
-          <span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL<span class="tag">PRESS</span></span>
-          <span class="search">⌕ Suche …</span>
-          <span class="btn">↓ Kit</span>
-        </div>
-      </div>
-      <div class="hero">
-        <div><div class="lab"><span class="bar"></span>Press &amp; Media Hub</div><h3>Materialien<br>für die<br><em>Berichterstattung</em><br><strong>über uns.</strong></h3></div>
-        <div class="dl">↓ Press-Kit (komplett)<small>17,4 MB · ZIP</small></div>
-      </div>
-      <div class="assets">
-        <div class="asst"><div class="lex"><svg><use href="#lex-x"/></svg>LE<strong>X</strong></div></div>
-        <div class="asst dark"><div class="lex"><svg><use href="#lex-x"/></svg>LE<strong>X</strong></div></div>
-        <div class="asst"><svg><use href="#lex-x"/></svg></div>
-        <div class="asst colors"><span></span><span></span><span></span><span></span></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[24] · B2B Premium · NEU</span>
-      <h2>Press Kit / Media Hub</h2>
-      <div class="vibe">Corporate Press · Media Library</div>
-      <p>Funktional gestaltete Press-Page mit Suche, Sprach­wechsel, Logo-Downloads, Boilerplate, Kennzahlen, Pressemitteilungen und dediziertem Pressekontakt.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-</section>
-
-<!-- TIER B — MODERN STANDARDS -->
-<div class="group-header">
-  <div class="left">
-    <h2>Tier B — <em>Moderne Standards</em></h2>
-    <p class="sub">Zehn zeitgemäße Marketing-Page-Stile mit klar unterscheidbarer Bildsprache und Header-Architektur — solide B2B-tauglich, vielseitig einsetzbar.</p>
-  </div>
-  <span class="badge std">○ Standard B2B · 10 Konzepte</span>
+  <span class="badge kept">★ Behalten · 8 Konzepte</span>
 </div>
 
 <section class="grid">
@@ -796,7 +499,7 @@ a{color:inherit;text-decoration:none}
       <div class="ft"><span>↳ ÜBERLASSUNG</span><span>↳ VERMITTLUNG</span><span>↳ WERKVERTRAG</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[01] · Standard</span>
+      <span class="card-num">[01] · Behalten</span>
       <h2>Editorial Serif</h2>
       <div class="vibe">Pentagram · NY Times</div>
       <p>Magazin-Anmutung mit Fraunces-Serif auf Cream. Vertrauen und Substanz.</p>
@@ -809,10 +512,9 @@ a{color:inherit;text-decoration:none}
       <div class="badge">● 18+ JAHRE</div>
       <svg class="x-icon"><use href="#lex-x"/></svg>
       <div class="title">Starke Jobs<br><span class="g">für alle.</span></div>
-      <div class="row"><div class="pill">Anfragen →</div><div class="pill" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15)">Jobs</div></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[02] · Standard</span>
+      <span class="card-num">[02] · Behalten</span>
       <h2>Dark Tech / Gradient</h2>
       <div class="vibe">Linear · Vercel · Stripe</div>
       <p>Tiefblau-Background mit Cyan→Royal-Gradient. Modern, HR-Tech-Anmutung.</p>
@@ -820,177 +522,22 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
-  <a href="03-bento.html" class="card">
-    <div class="card-preview prev-bento">
-      <div class="bt bt-main">Starke <span class="ser">Jobs</span> für alle.</div>
-      <div class="bt bt-cyan">2.400+</div>
-      <div class="bt bt-soft">4–7 Tage</div>
-      <div class="bt bt-blue">„Mensch · Match"</div>
-      <div class="bt bt-white">→ Bewerber</div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[03] · Standard</span>
-      <h2>Bento Modular</h2>
-      <div class="vibe">Apple · Notion</div>
-      <p>Modulare Tiles in CI-Blau-Palette. Modern, freundlich, scanbar.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="04-swiss-brutalist.html" class="card">
+  <a href="03-swiss-brutalist.html" class="card">
     <div class="card-preview prev-brut">
       <div class="top"><span>● MÜNSTER</span><span>2026 / ED. 01</span></div>
       <div class="mid"><h3>Starke<br><span class="a">Jobs.</span><br>Für <span class="o">alle</span>.</h3></div>
       <div class="bot"><span>[01] LEIST.</span><span>[02] HALTUNG</span><span>[03] PATHS</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[04] · Standard</span>
+      <span class="card-num">[03] · Behalten</span>
       <h2>Swiss Brutalist</h2>
       <div class="vibe">Pentagram · Awwwards</div>
-      <p>Strenges Grid mit Tiefblau und Cyan-Signal. Oversized Headlines, selbstbewusst.</p>
+      <p>Strenges Grid mit Tiefblau und Cyan-Signal. Oversized Headlines.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="06-color-block.html" class="card new">
-    <div class="card-preview prev-cb">
-      <div class="blk b1"><span class="lab">01 / Hero</span><h4>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h4></div>
-      <div class="blk b3"><span class="id">— 03</span><h4>Drei Modelle</h4></div>
-      <div class="blk b2"><span class="lab" style="color:rgba(255,255,255,0.6)">02 / Profil</span><h4>Achtzehn Jahre<br><em>belegen.</em></h4></div>
-      <div class="blk b4"><h4>„Wir glauben an <em>Menschen.</em>"</h4></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[06] · Standard · NEU</span>
-      <h2>Color-Block Statements</h2>
-      <div class="vibe">Bauhaus · Modulor · Color-Block</div>
-      <p>Sechs Vollbild-Farbblöcke mit großen Statements. Floating-Pill-Header, jede Sektion in eigener CI-Farbe. Sehr selbstbewusst.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="10-split-screen.html" class="card">
-    <div class="card-preview prev-split">
-      <div class="a"><div class="tag"><span class="bar"></span>SEITE A</div><h4>Ihr nächster<br><em>Schritt</em><br>beginnt<br>hier.</h4></div>
-      <div class="b"><div class="tag"><span class="bar"></span>SEITE B</div><h4>Personal,<br>auf das<br>sich <em>Industrie</em><br>verlässt.</h4></div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[10] · Standard</span>
-      <h2>Split-Screen Dual-Audience</h2>
-      <div class="vibe">50:50 Bewerber | Unternehmen</div>
-      <p>Permanent geteilter Bildschirm: Bewerber:innen links auf Cream, Unternehmen rechts auf Tiefblau. Klare Architektur.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="11-sidebar-scroll.html" class="card new">
-    <div class="card-preview prev-sb">
-      <div class="side">
-        <div class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</div>
-        <div class="tg">„Personal, auf das sich Industrie verlässt." — Seit 2008.</div>
-        <nav>
-          <a class="act"><span class="n">00</span>Übersicht</a>
-          <a><span class="n">01</span>Über uns</a>
-          <a><span class="n">02</span>Modelle</a>
-          <a><span class="n">03</span>Vorgehen</a>
-          <a><span class="n">04</span>Referenzen</a>
-        </nav>
-        <div class="cta">Anfrage →</div>
-      </div>
-      <div class="main">
-        <div class="top">DOK 2026 / 005 · 27.05.</div>
-        <h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3>
-        <div class="stats">
-          <div class="st"><div class="v"><strong>2008</strong></div><div class="l">SEIT</div></div>
-          <div class="st"><div class="v">2.4<strong>K</strong></div><div class="l">PIPE</div></div>
-          <div class="st"><div class="v">4–7<strong>d</strong></div><div class="l">TTF</div></div>
-          <div class="st"><div class="v">98<strong>%</strong></div><div class="l">RET</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[11] · Standard · NEU</span>
-      <h2>Sticky Sidebar Scroll</h2>
-      <div class="vibe">Linear Doc · Notion · Side-Nav</div>
-      <p>Fixe linke Sidebar (Logo, Navigation, Kontakt, CTA) — ersetzt klassischen Header. Rechte Spalte scrollt durch Sektionen.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="12-minimalist.html" class="card">
-    <div class="card-preview prev-min">
-      <div class="num">01 · seit 2008</div>
-      <h3>Personal,<br>auf das sich<br><strong>Industrie</strong><br>verlässt.</h3>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[12] · Standard</span>
-      <h2>Minimalist Premium</h2>
-      <div class="vibe">Apple Quiet · Reduced</div>
-      <p>Extreme Reduktion. Eine Aussage pro Bildschirmhöhe, sehr großer Whitespace. Premium-Anmutung durch Ruhe.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="15-comparison.html" class="card new">
-    <div class="card-preview prev-cmp">
-      <div class="head">
-        <div class="b">● DIREKTER VERGLEICH</div>
-        <h3>Wir machen es<br><em>anders.</em> <strong>Hier sehen Sie wie.</strong></h3>
-      </div>
-      <div class="col l">
-        <span class="lab">— A · Üblich</span>
-        <h5>Anonyme Vermittlung.</h5>
-        <p>Stunden­satz im Vordergrund.</p>
-        <span class="mt"><span>Verbleib</span><span>~ 64 %</span></span>
-      </div>
-      <div class="col r">
-        <span class="lab">— B · LeXpersonal</span>
-        <h5>Kultur-Match-fokussiert.</h5>
-        <p>Wir vermitteln <em>nur,</em> wo es passt.</p>
-        <span class="mt"><span>Verbleib</span><span>86 %</span></span>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[15] · Standard · NEU</span>
-      <h2>Direct Comparison</h2>
-      <div class="vibe">Why Us vs. Others · Side-by-Side</div>
-      <p>Split-Tone-Header und Side-by-Side-Tabelle „Branchen­üblich vs. LeXpersonal" in vier Vergleichsgruppen. Direkter Sales-Pitch, sachlich.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="20-saas-pricing.html" class="card">
-    <div class="card-preview prev-saas">
-      <div class="badge">● Modelle &amp; Konditionen</div>
-      <h3>Drei Modelle.<br>Eine klare <em>Übersicht.</em></h3>
-      <div class="plans">
-        <div class="pl"><div class="id">M-01</div><strong>ANÜ</strong><div class="pr">Std-Satz</div></div>
-        <div class="pl f"><div class="id">M-02</div><strong>Vermittl.</strong><div class="pr">% Erfolg</div></div>
-        <div class="pl"><div class="id">M-03</div><strong>Werkv.</strong><div class="pr">Festpr.</div></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[20] · Standard</span>
-      <h2>B2B Service-Vergleich</h2>
-      <div class="vibe">SaaS Pricing · Feature-Matrix</div>
-      <p>Drei Modelle als vergleichbare Karten, Feature-Matrix-Tabelle, FAQ. Sehr klar für Einkäufer, die Vergleichbarkeit suchen.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-</section>
-
-<!-- TIER C — SPEZIAL-LAYOUTS -->
-<div class="group-header">
-  <div class="left">
-    <h2>Tier C — <em>Spezial-Layouts</em></h2>
-    <p class="sub">Fünf eigenständige Layout-Welten mit klar abweichender Architektur — für Image-Kampagnen, Microsites oder spezialisierte Subseiten.</p>
-  </div>
-  <span class="badge spc">◆ Differenzierend · 5 Konzepte</span>
-</div>
-
-<section class="grid">
-
-  <a href="05-scroll-story.html" class="card">
+  <a href="04-scroll-story.html" class="card">
     <div class="card-preview prev-story">
       <div class="progress"></div>
       <div class="top"><span>LEXPERSONAL · MANIFEST</span><span><span class="ch">III</span> / VII</span></div>
@@ -998,75 +545,282 @@ a{color:inherit;text-decoration:none}
       <div class="bot"><span>© 2008</span><span>↓ scrollen</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[05] · Spezial</span>
+      <span class="card-num">[04] · Behalten</span>
       <h2>Long-Form Scroll Story</h2>
       <div class="vibe">Apple Newsroom · Cartier</div>
-      <p>Vertikal erzähltes Manifest in 7 Kapiteln. Dropcaps, Pull-Quotes, Single-Statement-Chapters. Slow Reading.</p>
+      <p>Vertikal erzähltes Manifest in 7 Kapiteln. Slow Reading.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="13-horizontal-stories.html" class="card">
+  <a href="05-annual-report.html" class="card">
+    <div class="card-preview prev-ar">
+      <div class="spine"><span class="ll"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">Annual Report · 2026 · <strong>Vol. XVIII</strong></span><span>→ PDF</span></div>
+      <div class="mid"><div class="eb"><span class="bar"></span>Geschäftsbericht 2025</div><h3>Personal,<br>auf das sich<br><em>Industrie</em><br><strong>verlässt.</strong></h3><span class="yr">20<em>26</em></span></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[05] · Behalten</span>
+      <h2>Annual Report</h2>
+      <div class="vibe">DAX-Geschäftsbericht · BMW · Siemens</div>
+      <p>Cover + Inhaltsverzeichnis + CEO-Brief + Kennzahlen + Charts + Outlook.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="06-horizontal-stories.html" class="card">
     <div class="card-preview prev-horiz">
       <div class="bg"></div>
       <div class="inner"><div><div class="num"><span class="bar"></span>STORY 01 / 06</div><h3>Personal,<br>auf das<br>sich <em>Industrie</em><br>verlässt.</h3></div><div class="vis"><svg><use href="#lex-x"/></svg></div></div>
       <div class="ft"><span>← PREV</span><div class="dots"><span class="dot act"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span>NEXT →</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[13] · Spezial</span>
+      <span class="card-num">[06] · Behalten</span>
       <h2>Horizontal Stories</h2>
       <div class="vibe">Apple Stories · Snap-Scroll</div>
-      <p>Horizontale Story-Navigation in 6 Panels mit Snap-Scrolling, Dots-Indicator und Pfeil-Steuerung.</p>
+      <p>Horizontale Story-Navigation in 6 Panels mit Snap-Scrolling.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="17-cinematic.html" class="card">
+  <a href="07-esg-report.html" class="card">
+    <div class="card-preview prev-esg">
+      <div class="top"><span><span class="b">SOCIAL IMPACT 2025</span> · LeXpersonal</span><span>27.05.2026</span></div>
+      <h3>Personal heißt:<br><em>Menschen</em><br>Verantwortung<br>übernehmen.</h3>
+      <div class="h"><div class="item"><div class="v"><strong>0</strong>%</div><div class="l">Kurzarbeit</div></div><div class="item"><div class="v"><strong>100</strong>%</div><div class="l">tarif­geb.</div></div><div class="item"><div class="v"><strong>86</strong>%</div><div class="l">Verb. 18M</div></div><div class="item"><div class="v"><strong>9,2</strong>J</div><div class="l">Ø Zugeh.</div></div></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[07] · Behalten</span>
+      <h2>Social Impact Report</h2>
+      <div class="vibe">ESG-Bericht · Sustainability</div>
+      <p>Sozialer Verantwortungs­bericht mit messbaren Prinzipien und Compliance.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="08-cinematic.html" class="card">
     <div class="card-preview prev-cine">
       <div class="b"></div>
       <div class="mid"><div class="inner"><div class="lbl">An Original Production · Münster 2026</div><h3>Wer den<br>Werks­boden<br><em>kennt</em>…</h3></div></div>
       <div class="b"></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[17] · Spezial</span>
+      <span class="card-num">[08] · Behalten</span>
       <h2>Cinematic / Documentary</h2>
       <div class="vibe">Apple TV+ · Dokumentar­film</div>
-      <p>Vollbild-Hero mit Letterbox-Bars, Kapitel-Episoden im Filmstill-Look. Sehr atmosphärisch.</p>
+      <p>Vollbild-Hero mit Letterbox-Bars, Kapitel-Episoden im Filmstill-Look.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="19-conversational.html" class="card">
-    <div class="card-preview prev-conv">
-      <div class="greet">Hallo, wir hören zu</div>
-      <h3>Was bringt Sie heute<br>zu <em>LeXpersonal?</em></h3>
-      <div class="opts"><div class="opt"><strong>Personal suchen</strong>für Unternehmen</div><div class="opt"><strong>Job suchen</strong>als Bewerber</div></div>
+</section>
+
+<!-- NEW 09-18 -->
+<div class="group-header">
+  <div class="left">
+    <h2>Runde 2 — <em>Komplett neu gebaut</em> (09–18)</h2>
+    <p class="sub">Zehn neue Layout-Ideen, die sich von allen bisherigen klar unterscheiden. Jeweils mit eigener Header-Architektur und unverwechselbarer Bildsprache.</p>
+  </div>
+  <span class="badge new">★ Neu · 10 Konzepte</span>
+</div>
+
+<section class="grid">
+
+  <a href="09-card-stack.html" class="card new">
+    <div class="card-preview prev-stk">
+      <div class="stack">
+        <div class="c c3">CARD 03</div>
+        <div class="c c2">CARD 02</div>
+        <div class="c c1">CARD 01</div>
+      </div>
+      <h3>Sechs <em>Karten,</em><br><strong>ein Versprechen.</strong></h3>
+      <div class="pgr"><span class="act"></span><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[19] · Spezial</span>
-      <h2>Conversational Q-Driven</h2>
-      <div class="vibe">Frage-Antwort · Beratungs­ansatz</div>
-      <p>Die Seite leitet durch Fragen statt durch Sektionen. Persönlich, fast wie eine Beratung in Schrift.</p>
+      <span class="card-num">[09] · Neu</span>
+      <h2>Card-Stack Choreographie</h2>
+      <div class="vibe">3D-Stack · Scroll-Sticky · Parallax</div>
+      <p>Sechs Karten in 3D-Stack — beim Scrollen wickeln sie sich nacheinander ab. Sticky-Section mit Tilt-/Blur-Choreographie.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="23-onboarding-journey.html" class="card new">
-    <div class="card-preview prev-oj">
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</span><span class="ctr">ONBOARDING · <strong>30 TAGE</strong></span><span class="btn">Anfrage →</span></div>
-      <div class="steps">
-        <div class="st done">01</div><div class="st done">02</div><div class="st act">03</div><div class="st">04</div><div class="st">05</div><div class="st">06</div>
+  <a href="10-app-tabs.html" class="card new">
+    <div class="card-preview prev-app">
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P <span class="ws">Münster</span></span><span class="btn">Anfrage</span></div>
+      <div class="tabs"><span class="t act">Übersicht</span><span class="t">Modelle</span><span class="t">Referenzen</span><span class="t">Compliance</span></div>
+      <div class="body">
+        <div class="kpi"><div class="l">PIPE</div><div class="v"><strong>2.4K</strong></div></div>
+        <div class="kpi"><div class="l">TTF</div><div class="v">4–7d</div></div>
+        <div class="kpi"><div class="l">FOLGE</div><div class="v">98%</div></div>
+        <div class="kpi"><div class="l">AKTIV</div><div class="v"><strong>23</strong></div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[10] · Neu</span>
+      <h2>App Tabs / SaaS Dashboard</h2>
+      <div class="vibe">Linear · Notion · Workspace-Feel</div>
+      <p>Wirkt wie eine moderne Web-App: Workspace-Switcher, Suche, Tab-Navigation, KPI-Cards, Live-Aktivität, Status-Widgets.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="11-masonry.html" class="card new">
+    <div class="card-preview prev-mas">
+      <div class="tile t-pap"><h5>Profil 01</h5></div>
+      <div class="tile t-blue"><h5><strong>2.4</strong>K+</h5></div>
+      <div class="tile t-cre"><h5>Modell</h5></div>
+      <div class="tile t-ink"><h5>„Mensch."</h5></div>
+      <div class="tile t-cyan"><h5>98%</h5></div>
+      <div class="tile t-pap"><h5>Stimme</h5></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[11] · Neu</span>
+      <h2>Masonry Wall</h2>
+      <div class="vibe">Pinterest · Are.na · Mosaic</div>
+      <p>Variable Karten­höhen, Pinterest-Mosaic mit Statements, Stats, Quotes und Bildern. Filter-Bar oben.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="12-atlas-map.html" class="card new">
+    <div class="card-preview prev-atl">
+      <div class="top">
+        <span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span>
+        <span class="ctr">Atlas des Münsterlandes</span>
+        <span>1 : 250.000</span>
       </div>
       <div class="mid">
-        <span class="lbl">— Onboarding Journey</span>
-        <h3>Vom <em>Briefing</em><br>bis zum<br><strong>Produktiv-Start.</strong></h3>
+        <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet"><path d="M30 50 Q50 30 90 30 Q140 28 165 50 Q175 80 165 110 Q130 130 90 125 Q50 120 30 95 Q22 75 30 50 Z" fill="#D9D0B2" stroke="#0E1424" stroke-width="0.8"/></svg>
+        <span class="pin h" style="top:50%;left:48%"></span>
+        <span class="pin b" style="top:30%;left:35%"></span>
+        <span class="pin b" style="top:34%;left:60%"></span>
+        <span class="pin r" style="top:68%;left:50%"></span>
+        <span class="pin b" style="top:60%;left:75%"></span>
+      </div>
+      <div class="bot"><span>· Sheet 01/03 ·</span><span>23 Einsätze</span></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[12] · Neu</span>
+      <h2>Atlas / Münsterland-Karte</h2>
+      <div class="vibe">Geografisch · Kartografisch</div>
+      <p>Stilisierte Karte des Münster­landes mit Einsatz-Pins, Index, Branchen-Tafel. Geografische Verwurzelung als Bildsprache.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="13-bauhaus.html" class="card new">
+    <div class="card-preview prev-bau">
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> <span class="red"></span> LE<strong>X</strong></span><span>· COMP I ·</span></div>
+      <div class="mid">
+        <h3>Personal<br><em>für</em><br><span class="blue">Industrie.</span></h3>
+        <div class="shapes"><span class="sq"></span><span class="ci"></span><span class="tr"></span></div>
+      </div>
+      <div class="bot"><span>· COMP I.</span><span>· II.</span><span>· III ·</span></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[13] · Neu</span>
+      <h2>Bauhaus Composition</h2>
+      <div class="vibe">Bauhaus · Modulor · Geometrisch</div>
+      <p>Asymmetrische geometrische Komposition mit Kreisen, Quadraten, Dreiecken. Archivo Black + Source Serif Italic — bauhaus-inspiriert.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="14-conference.html" class="card new">
+    <div class="card-preview prev-conf">
+      <div class="head"><span>● <strong>EDITION XVIII</strong></span><span>· 27.05.2026 ·</span></div>
+      <div class="mid">
+        <div class="day"><span class="n">i.</span><span class="ti">Vormittag — <em>Briefing</em></span></div>
+        <div class="session t-key"><span class="time">08:30</span><div class="body"><div class="ct"><strong>Eröffnung: Plenum</strong></div></div></div>
+        <div class="session"><span class="time">09:00</span><div class="body"><div class="ct"><strong>Briefing-Workshop · M-01</strong></div></div></div>
+        <div class="session"><span class="time">10:00</span><div class="body"><div class="ct"><strong>Active Sourcing · M-02</strong></div></div></div>
+        <div class="session t-wv"><span class="time">11:30</span><div class="body"><div class="ct"><strong>Werkvertrag rechtssicher · M-03</strong></div></div></div>
       </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[23] · Spezial · NEU</span>
-      <h2>Onboarding Journey</h2>
-      <div class="vibe">30-Tage-Roadmap · Step-by-Step</div>
-      <p>Header mit Progress-Bar (6 Stationen, 30 Tage), vertikale Roadmap mit Karten je Milestone, definierte Outputs &amp; Check-ins.</p>
+      <span class="card-num">[14] · Neu</span>
+      <h2>Conference Program</h2>
+      <div class="vibe">Tagungs-Schedule · Edition XVIII</div>
+      <p>Wie ein Konferenz-Programm: Vormittag/Nachmittag mit Sessions, Tracks, Sprecher-Avataren, Räumen und Keynotes.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="15-sales-letter.html" class="card new">
+    <div class="card-preview prev-sal">
+      <div class="head"><span>· LEX-OB-2026/003 ·</span><span><strong>Vertraulich</strong></span></div>
+      <div class="lt"><svg><use href="#lex-x"/></svg><div class="from"><strong>LeXpersonal GmbH</strong>An den Loddenbüschen 95<br>48155 Münster · 0251 26 52 49 20</div></div>
+      <div class="mid">
+        <span class="lab">Offener Brief</span>
+        <h3>Wenn Ihr Dienst­leister <em>monatlich</em> abrechnet — und Sie trotz­dem <span class="hl">Fluktuation</span> haben…</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[15] · Neu</span>
+      <h2>Sales Letter / Long-Form</h2>
+      <div class="vibe">Direct Response · Copywriting</div>
+      <p>Klassischer Sales-Letter mit Briefkopf, Headline, Story-Arc, Beweis-Boxen, Bullets, Q&amp;A, Signatur, P.S. Sehr persönlich, sehr direkt.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="16-newsletter.html" class="card new">
+    <div class="card-preview prev-news">
+      <div class="iss">
+        <div class="util"><span>● <span class="b">№18</span></span><span>Abonnieren →</span></div>
+        <div class="mast">
+          <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</span><span>27.05.</span></div>
+          <h4>Der <strong>Personal-</strong><br><em>Brief.</em> Ausg. XVIII</h4>
+        </div>
+        <div class="body"><strong>Editorial:</strong> Warum Verbleibs­quote die wichtigere Kennzahl ist. <strong>Number of the Month:</strong> 140 Fachkräfte in 8 Monaten…</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[16] · Neu</span>
+      <h2>Premium Newsletter Issue</h2>
+      <div class="vibe">Stratechery · Lenny's · Substack</div>
+      <p>Wie ein hochwertiger Premium-Newsletter: Issue-Nummer, TOC, Editorial, Number-of-the-Month, Branchen­einblick, Links, Subscribe-CTA.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="17-manifesto-poster.html" class="card new">
+    <div class="card-preview prev-pos">
+      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong></span><span class="ctr">MANIFESTO · 4 SHEETS</span><span>· 01/04 ·</span></div>
+      <div class="mid">
+        <h3>Personal<br><em>für</em><br><span class="strong">Industrie.</span></h3>
+      </div>
+      <div class="bot">
+        <div class="p">i.</div>
+        <div class="p">ii.</div>
+        <div class="p">iii.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[17] · Neu</span>
+      <h2>Manifesto Poster</h2>
+      <div class="vibe">Single-Sheet · Plakat-Edition</div>
+      <p>Vier Plakat-Sheets mit Mega-Typografie: Grundsatz · Statement · Zahlen · Call. DIN-B1-Anmutung mit harten Linien, oversized Type.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="18-lexikon.html" class="card new">
+    <div class="card-preview prev-lex">
+      <div class="head"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</span><span class="ctr">Personal-<em>Lexikon</em><strong>EDITION I</strong></span><span>· 42 ·</span></div>
+      <div class="az"><span class="l">A</span><span class="l">B</span><span class="l">D</span><span class="l">E</span><span class="l dim">F</span><span class="l">G</span><span class="l">I</span><span class="l">L</span><span class="l">M</span><span class="l">P</span><span class="l">S</span><span class="l">T</span><span class="l">V</span><span class="l">W</span></div>
+      <div class="mid">
+        <span class="big">A.</span>
+        <div class="term">Arbeitnehmer­überlassung <em>(ANÜ)</em></div>
+        <div class="def">Die Überlassung einer arbeit­nehmenden Person durch einen <strong>Verleiher</strong> an einen <strong>Entleiher</strong>…</div>
+      </div>
+      <div class="foot">— 42 Stichworte · Edition I · Mai 2026 —</div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[18] · Neu</span>
+      <h2>Personal-Lexikon</h2>
+      <div class="vibe">Encyclopaedia · Glossar · A–Z</div>
+      <p>Wie ein Fach-Lexikon der Personal­branche: A–Z-Index, Stichwort-Einträge mit Definitionen, Querverweisen, Praxis-Quotes. Sehr autoritativ.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -1075,35 +829,31 @@ a{color:inherit;text-decoration:none}
 
 <section style="padding:32px 0 48px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
   <div>
-    <span class="mono" style="color:var(--cyan)">Für Konzern-Vertrieb</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Top-Auswahl: <strong style="color:var(--text)">07 Corporate</strong>, <strong style="color:var(--text)">09 Annual Report</strong>, <strong style="color:var(--text)">14 Executive Briefing</strong>, <strong style="color:var(--text)">22 Institutionell</strong>, <strong style="color:var(--text)">24 Press Kit</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Konzern-Vertrieb</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Premium-B2B: <strong style="color:var(--text)">05 Annual Report</strong>, <strong style="color:var(--text)">07 ESG</strong>, <strong style="color:var(--text)">10 App Tabs</strong>, <strong style="color:var(--text)">15 Sales Letter</strong>, <strong style="color:var(--text)">17 Manifesto Poster</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Für Sales-Pitch</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Direkter Vertrieb &amp; Konversion: <strong style="color:var(--text)">15 Comparison</strong>, <strong style="color:var(--text)">20 SaaS Pricing</strong>, <strong style="color:var(--text)">23 Onboarding Journey</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Lokal &amp; Regional</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Münsterländer Verwurzelung: <strong style="color:var(--text)">12 Atlas-Map</strong>, <strong style="color:var(--text)">16 Newsletter</strong>, <strong style="color:var(--text)">18 Lexikon</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Für Differenzierung</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Klare Abhebung vom Markt: <strong style="color:var(--text)">06 Color-Block</strong>, <strong style="color:var(--text)">11 Sticky Sidebar</strong>, <strong style="color:var(--text)">17 Cinematic</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Interaktiv</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Bewegung im Vordergrund: <strong style="color:var(--text)">06 Horizontal Stories</strong>, <strong style="color:var(--text)">09 Card Stack</strong>, <strong style="color:var(--text)">14 Conference</strong>.</p>
   </div>
 </section>
 
 <div class="foot-bar">
-  <span>© 2026 · 24 Design-Konzepte für LeXpersonal GmbH · Edition 07</span>
-  <span>3 Tier · 1 CI · Münster</span>
+  <span>© 2026 · 18 Design-Konzepte für LeXpersonal GmbH · Edition 08</span>
+  <span>8 behalten + 10 neu · 1 CI · Münster</span>
 </div>
 
 </div>
 
 <script>
 const MAX_SEL = 8;
-const STORAGE_KEY = 'lex-selection-v1';
+const STORAGE_KEY = 'lex-selection-v2';
 let selection = [];
-
-try {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) selection = JSON.parse(stored);
-} catch(e) {}
+try { const stored = localStorage.getItem(STORAGE_KEY); if (stored) selection = JSON.parse(stored); } catch(e) {}
 
 const cards = document.querySelectorAll('.card[href]');
 const countNum = document.getElementById('count-num');
@@ -1118,39 +868,24 @@ const copyBtn = document.getElementById('copy-btn');
 const toast = document.getElementById('toast');
 const toastMsg = document.getElementById('toast-msg');
 
-// Attach select-button + click handler to each card
 cards.forEach(card => {
   const href = card.getAttribute('href');
   const match = href.match(/^(\d{2})/);
   if (!match) return;
   const id = match[1];
   card.dataset.id = id;
-
   const btn = document.createElement('button');
   btn.className = 'sel-btn';
   btn.setAttribute('aria-label', 'Konzept ' + id + ' markieren');
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleSelection(id);
-  });
+  btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleSelection(id); });
   card.appendChild(btn);
 });
 
 function toggleSelection(id) {
   const idx = selection.indexOf(id);
-  if (idx >= 0) {
-    selection.splice(idx, 1);
-  } else if (selection.length < MAX_SEL) {
-    selection.push(id);
-  } else {
-    showToast('Maximum erreicht — entferne erst eine Auswahl', '⚠');
-    return;
-  }
-  saveAndRender();
-}
-
-function saveAndRender() {
+  if (idx >= 0) selection.splice(idx, 1);
+  else if (selection.length < MAX_SEL) selection.push(id);
+  else { showToast('Maximum erreicht — entferne erst eine Auswahl', '⚠'); return; }
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch(e) {}
   renderState();
 }
@@ -1159,7 +894,6 @@ function renderState() {
   countNum.textContent = selection.length;
   btnConfirm.disabled = selection.length === 0;
   btnReset.disabled = selection.length === 0;
-
   cards.forEach(card => {
     const id = card.dataset.id;
     if (!id) return;
@@ -1172,34 +906,21 @@ function renderState() {
     } else {
       card.classList.remove('selected');
       btn.innerHTML = '';
-      if (selection.length >= MAX_SEL) {
-        card.classList.add('disabled');
-      } else {
-        card.classList.remove('disabled');
-      }
+      if (selection.length >= MAX_SEL) card.classList.add('disabled');
+      else card.classList.remove('disabled');
     }
   });
 }
 
-function getCardInfo(id) {
-  const card = document.querySelector('.card[data-id="' + id + '"]');
-  if (!card) return null;
-  return {
-    id: id,
-    file: card.getAttribute('href'),
-    name: card.querySelector('h2')?.textContent.trim() || 'Konzept ' + id,
-    tier: card.querySelector('.card-num')?.textContent.trim() || ''
-  };
-}
-
 function openModal() {
   modalList.innerHTML = '';
-  const sorted = [...selection];
-  sorted.forEach((id, idx) => {
-    const info = getCardInfo(id);
-    if (!info) return;
+  selection.forEach((id, idx) => {
+    const card = document.querySelector('.card[data-id="' + id + '"]');
+    if (!card) return;
+    const name = card.querySelector('h2')?.textContent.trim() || 'Konzept ' + id;
+    const tier = card.querySelector('.card-num')?.textContent.trim() || '';
     const li = document.createElement('li');
-    li.innerHTML = '<span class="ord">' + (idx + 1) + '</span><span class="id">[' + info.id + ']</span><span class="nm">' + info.name + '<small>' + info.tier + '</small></span>';
+    li.innerHTML = '<span class="ord">' + (idx + 1) + '</span><span class="id">[' + id + ']</span><span class="nm">' + name + '<small>' + tier + '</small></span>';
     modalList.appendChild(li);
   });
   modalCount.textContent = selection.length;
@@ -1208,20 +929,15 @@ function openModal() {
   modal.classList.add('open');
 }
 
-function closeModal() {
-  modal.classList.remove('open');
-}
-
 btnConfirm.addEventListener('click', openModal);
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
+modalClose.addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
 btnReset.addEventListener('click', () => {
   if (!confirm('Auswahl wirklich zurücksetzen?')) return;
   selection = [];
-  saveAndRender();
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch(e) {}
+  renderState();
 });
-
 copyBtn.addEventListener('click', async () => {
   const text = modalCode.textContent;
   try {
@@ -1234,13 +950,12 @@ copyBtn.addEventListener('click', async () => {
       copyBtn.innerHTML = '<span>📋</span> Code kopieren';
     }, 2500);
   } catch(e) {
-    // Fallback: select text
     const range = document.createRange();
     range.selectNodeContents(modalCode);
     const sel = window.getSelection();
     sel.removeAllRanges();
     sel.addRange(range);
-    showToast('Kopieren manuell mit Cmd+C / Strg+C', '↵');
+    showToast('Manuell mit Cmd+C kopieren', '↵');
   }
 });
 
@@ -1254,7 +969,7 @@ function showToast(msg, ico) {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  if (e.key === 'Escape' && modal.classList.contains('open')) modal.classList.remove('open');
 });
 
 renderState();

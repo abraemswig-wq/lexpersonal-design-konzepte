@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Masonry Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F4F1EC;
+  --paper-2:#EAE5D8;
+  --ink:#0B1A33;
+  --ink-deep:#070C18;
+  --text:#1F2937;
+  --muted:#6B7080;
+  --line:rgba(11,26,51,0.12);
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --gold:#D4B57A;
+}
+body{background:var(--paper);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
+
+/* HEADER — sticky pill */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(244,241,236,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .l{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:16px;letter-spacing:0.08em}
+.nav .l svg{width:22px;height:27px}
+.nav .l strong{font-weight:600;color:var(--blue)}
+.nav .center{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:10px}
+.nav .center .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,159,227,0.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,159,227,0.25)}50%{box-shadow:0 0 0 5px rgba(0,159,227,0.1)}}
+.nav .btn{padding:10px 22px;background:var(--ink);color:#fff;border-radius:99px;font-size:13px;font-weight:600;letter-spacing:0.01em}
+.nav .btn:hover{background:var(--blue)}
+@media (max-width:768px){.nav{padding:12px 18px}.nav .center{display:none}}
+
+/* HERO */
+.hero{padding:96px 32px 64px;text-align:center;border-bottom:1px solid var(--line)}
+.hero .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:24px;display:inline-flex;align-items:center;gap:14px}
+.hero .tag::before,.hero .tag::after{content:"";width:32px;height:1px;background:var(--blue)}
+.hero h1{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(48px,7vw,108px);line-height:0.95;letter-spacing:-0.04em;color:var(--ink);max-width:1080px;margin:0 auto 24px}
+.hero h1 strong{font-weight:600}
+.hero h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:300}
+.hero .dek{font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;line-height:1.5;color:var(--text);max-width:720px;margin:0 auto;font-weight:300}
+
+/* WALL FILTERS */
+.filters{padding:24px 32px;border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:var(--paper)}
+.filter{padding:8px 16px;background:transparent;border:1px solid var(--line);border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600;cursor:pointer;transition:all .15s}
+.filter:hover{color:var(--ink);border-color:var(--ink)}
+.filter.active{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* MASONRY WALL */
+.wall{padding:32px;column-count:4;column-gap:16px;max-width:1600px;margin:0 auto}
+@media (max-width:1300px){.wall{column-count:3}}
+@media (max-width:900px){.wall{column-count:2}}
+@media (max-width:560px){.wall{column-count:1}}
+.tile{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .25s,box-shadow .25s,border-color .25s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 20px 40px -20px rgba(11,26,51,0.18);border-color:rgba(11,26,51,0.22)}
+.tile .body{padding:22px 22px;display:flex;flex-direction:column;gap:8px}
+.tile .label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:6px}
+.tile .label .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+.tile h3{font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.015em;line-height:1.25}
+.tile h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--blue);font-weight:400}
+.tile p{font-size:13.5px;line-height:1.6;color:var(--text)}
+.tile .meta{margin-top:8px;display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:10px;border-top:1px dashed var(--line)}
+
+/* Tile variants */
+.t-paper{background:#fff;color:var(--ink)}
+.t-cream{background:var(--paper-2);color:var(--ink)}
+.t-ink{background:var(--ink);color:#fff}
+.t-ink .label{color:var(--cyan)}
+.t-ink h3 em{color:var(--cyan)}
+.t-ink p{color:rgba(255,255,255,0.78)}
+.t-ink .meta{color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.18)}
+.t-blue{background:var(--blue);color:#fff}
+.t-blue .label{color:var(--gold)}
+.t-blue h3 em{color:var(--gold)}
+.t-blue p{color:rgba(255,255,255,0.85)}
+.t-blue .meta{color:rgba(255,255,255,0.65);border-color:rgba(255,255,255,0.2)}
+.t-cyan{background:var(--cyan);color:var(--ink-deep)}
+.t-cyan .label{color:var(--ink)}
+.t-cyan h3 em{color:var(--ink)}
+.t-cyan .meta{color:rgba(11,26,51,0.65);border-color:rgba(11,26,51,0.2)}
+
+/* Statistic tile */
+.tile-stat{padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;min-height:200px}
+.tile-stat .v{font-family:'Inter',sans-serif;font-weight:200;font-size:80px;line-height:0.9;letter-spacing:-0.045em;margin:14px 0}
+.tile-stat .v strong{font-weight:500}
+.tile-stat .v sub{font-size:20px;font-weight:400;opacity:0.6;vertical-align:baseline;margin-left:4px}
+.tile-stat .v .acc{color:var(--blue)}
+.t-blue .tile-stat .v .acc,.t-ink .tile-stat .v .acc{color:var(--gold)}
+.t-cyan .tile-stat .v .acc{color:var(--ink)}
+.tile-stat .l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;opacity:0.7}
+
+/* Quote tile */
+.tile-q{padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+.tile-q .mark{font-family:'Source Serif 4',serif;font-style:italic;font-size:48px;line-height:0.4;font-weight:300;height:22px;color:var(--blue)}
+.t-blue .tile-q .mark,.t-ink .tile-q .mark{color:var(--gold)}
+.t-cyan .tile-q .mark{color:var(--ink)}
+.tile-q blockquote{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.4;letter-spacing:-0.01em}
+.tile-q blockquote em{font-style:normal;font-weight:500}
+.tile-q cite{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;opacity:0.65}
+
+/* Visual / photo tile */
+.tile-vis{position:relative;min-height:280px;overflow:hidden}
+.tile-vis::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,26,51,0.85) 100%)}
+.tile-vis .vis{position:absolute;inset:0}
+.tile-vis.v1 .vis{background:radial-gradient(circle at 30% 35%,#3F4A60 0%,#1F2630 60%,#0E1422 100%),repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px)}
+.tile-vis.v2 .vis{background:radial-gradient(circle at 50% 35%,#2A3144 0%,#161A26 70%,#070C18 100%),repeating-linear-gradient(90deg,transparent 0,transparent 36px,rgba(0,159,227,0.15) 36px,rgba(0,159,227,0.15) 37px)}
+.tile-vis.v3 .vis{background:radial-gradient(circle at 50% 40%,#3D4A60 0%,#0E1422 100%),radial-gradient(circle at 70% 70%,rgba(212,181,122,0.18) 0%,transparent 50%)}
+.tile-vis .text{position:absolute;left:24px;right:24px;bottom:24px;color:#fff;z-index:2}
+.tile-vis .text .label{color:var(--cyan)}
+.tile-vis .text h3{color:#fff;font-size:22px}
+.tile-vis .text h3 em{color:var(--cyan)}
+.tile-vis .text p{color:rgba(255,255,255,0.85);font-size:13px;margin-top:6px}
+.tile-vis .corner{position:absolute;top:14px;left:14px;width:24px;height:24px;border-top:1.5px solid var(--cyan);border-left:1.5px solid var(--cyan);z-index:2}
+
+/* Big-stat tile */
+.tile-big{padding:36px 28px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+.tile-big .top{display:flex;justify-content:space-between;align-items:start}
+.tile-big h3{font-family:'Inter',sans-serif;font-weight:300;font-size:32px;line-height:1.0;letter-spacing:-0.03em;margin:14px 0}
+.tile-big h3 strong{font-weight:600}
+.tile-big h3 em{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300}
+.tile-big .sub{font-size:13px;line-height:1.55;margin-top:auto;padding-top:14px;border-top:1px solid currentColor;border-color:rgba(0,0,0,0.15);opacity:0.85}
+.t-ink .tile-big .sub,.t-blue .tile-big .sub{border-color:rgba(255,255,255,0.2)}
+
+/* CONTACT */
+.cta{padding:96px 32px;background:var(--ink-deep);color:#fff;text-align:center}
+.cta h2{font-family:'Inter',sans-serif;font-weight:300;font-size:clamp(40px,6vw,88px);line-height:0.95;letter-spacing:-0.04em;color:#fff;max-width:980px;margin:0 auto 24px}
+.cta h2 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:300}
+.cta p{font-size:18px;color:rgba(255,255,255,0.75);max-width:580px;margin:0 auto 32px;line-height:1.6}
+.cta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:680px;margin:0 auto 48px}
+.cta .row .btn{padding:14px 28px;background:var(--cyan);color:var(--ink-deep);border-radius:99px;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.cta .row .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:880px;margin:0 auto;padding-top:48px;border-top:1px solid rgba(255,255,255,0.18);text-align:left}
+.cta-grid .item h5{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700;margin-bottom:8px}
+.cta-grid .item a,.cta-grid .item p{font-family:'Source Serif 4',serif;font-weight:400;font-size:19px;color:#fff;letter-spacing:-0.01em;line-height:1.3}
+.cta-grid .item a:hover{color:var(--cyan)}
+@media (max-width:768px){.cta-grid{grid-template-columns:1fr;gap:20px}}
+
+.foot{padding:24px 32px;background:var(--ink-deep);color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.12);font-weight:600}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <a href="#" class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+  <span class="center"><span class="dot"></span>Wall · 24 Kacheln · live aktualisiert</span>
+  <a href="#kontakt" class="btn">Anfrage stellen →</a>
+</header>
+
+<section class="hero">
+  <span class="tag">Wall · Mosaic · Edition 2026</span>
+  <h1>Was wir <em>tun,</em> wie wir<br>denken, <strong>was wir können.</strong></h1>
+  <p class="dek">Eine Wand aus 24 Kacheln — Statements, Zahlen, Referenzen und Stimmen aus dem Geschäfts­alltag eines Münster­länder Personal­dienstleisters.</p>
+</section>
+
+<div class="filters">
+  <button class="filter active">Alle (24)</button>
+  <button class="filter">Modelle</button>
+  <button class="filter">Zahlen</button>
+  <button class="filter">Referenzen</button>
+  <button class="filter">Stimmen</button>
+  <button class="filter">Compliance</button>
+</div>
+
+<!-- WALL -->
+<section class="wall">
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Profil 01</span><h3>Personal, auf das sich <em>Industrie</em> verlässt.</h3><p>Wir liefern produzierenden Unternehmen, Mittelstand und Industrie qualifiziertes Personal — seit Anno 2008, aus Münster.</p><div class="meta"><span>Sitz · Münster</span><span>NRW · DE</span></div></div></article>
+
+  <article class="tile t-blue"><div class="tile-stat"><span class="label"><span class="dot" style="background:var(--gold)"></span>Kennzahl 01</span><div class="v"><strong>2.430</strong></div><span class="l">Aktive Pipeline · ↑ 12,4 % YoY</span></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Modell M-01</span><h3>Arbeitnehmer­<em>überlassung.</em></h3><p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen. Tariflich nach iGZ/DGB. Bereitstellung &lt; 48 h. Jederzeit Übernahme­option.</p><div class="meta"><span>Bereit &lt; 48 h</span><span>iGZ-Tarif</span></div></div></article>
+
+  <article class="tile t-cream tile-q"><div class="body" style="padding:0"><span class="mark">"</span><blockquote>Wir hatten mit drei Dienstleistern gearbeitet. <em>LeXpersonal war der einzige,</em> der die Fluktuation in den Griff bekam.</blockquote><cite>— Werks­leitung · Industrie­kunde Münsterland</cite></div></article>
+
+  <article class="tile t-ink"><div class="tile-big"><div class="top"><span class="label">— Belegt</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:600">Q2/2026</span></div><h3>Wir glauben an<br><em>Menschen,</em><br><strong>die zuhören.</strong></h3><p class="sub">Nicht an Datenbank-Matching. Drei Grundprinzipien tragen seit 2008 unsere Arbeit.</p></div></article>
+
+  <article class="tile tile-vis v1"><div class="vis"></div><span class="corner"></span><div class="text"><span class="label"><span class="dot"></span>Case · Metall</span><h3>140 Fachkräfte<br>in <em>8 Monaten.</em></h3><p>Werkserweiterung Münsterland — 0 % Produktions­ausfall.</p></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Modell M-02</span><h3>Personal­<em>vermittlung.</em></h3><p>Direkte Festanstellung — diskret, kulturfit-bewusst. Honorar erfolgsbasiert. 4 Monate Nachbesetzungs­garantie.</p><div class="meta"><span>Erfolgsbasiert</span><span>4 Mo. Garantie</span></div></div></article>
+
+  <article class="tile t-cyan"><div class="tile-stat"><span class="label"><span class="dot" style="background:var(--ink-deep)"></span>Kennzahl 02</span><div class="v">98<sub>%</sub></div><span class="l">Folgeauftrag · 24-Mo. Rolling</span></div></article>
+
+  <article class="tile t-paper tile-q"><div class="body" style="padding:0"><span class="mark">"</span><blockquote>Beeindruckend war nicht die Geschwindigkeit. Beeindruckend war, dass die Leute, <em>die kamen,</em> auch konnten, was im Briefing stand.</blockquote><cite>— Geschäftsführung · Logistik­dienst­leister Greven</cite></div></article>
+
+  <article class="tile t-ink"><div class="tile-big"><div class="top"><span class="label">— Compliance</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:600">Audit-fest</span></div><h3><strong>iGZ-tarifgebunden,</strong><br>ANÜ-zugelassen,<br><em>DSGVO-konform.</em></h3><p class="sub">Auf SAP Fieldglass gelistet. Compliance-Dossier auf Anfrage in &lt; 24 h.</p></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Modell M-03</span><h3>Werk­<em>verträge.</em></h3><p>Definierter Auftrag, eigene Steuerung, rechts­sichere Abgrenzung. Skalierbar von Einzelprojekt bis Dauer­linie.</p><div class="meta"><span>Festpr. o. T&amp;M</span><span>Eigene Aufsicht</span></div></div></article>
+
+  <article class="tile t-cream"><div class="tile-stat"><span class="label"><span class="dot"></span>Kennzahl 03</span><div class="v">4–7<sub> d</sub></div><span class="l">Ø Time-to-Fill · stabil seit 2023</span></div></article>
+
+  <article class="tile tile-vis v2"><div class="vis"></div><span class="corner"></span><div class="text"><span class="label"><span class="dot"></span>Case · Logistik</span><h3>+ 220 % <em>Tagesspitze</em><br>in 24 h.</h3><p>Saisonale Peak-Skalierung — 28 Lagerkräfte, 3 Wochen.</p></div></article>
+
+  <article class="tile t-blue tile-q"><div class="body" style="padding:24px"><span class="mark">"</span><blockquote>Ihr habt zugehört, bevor ihr vorgeschlagen habt. <em>Das ist ein Unterschied,</em> der sich rechnet.</blockquote><cite>— Kanzlei-Partner:in · Steuer­beratung Münster</cite></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Werte 01</span><h3>Achtung &amp; <em>Respekt</em> für unsere Mitarbeitenden.</h3><p>Kein Lippenbekenntnis. Wie wir Stundenlohn berechnen, Pausen ansetzen und am Telefon klingen.</p></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Kennzahl 04</span><h3>620 Mitarbeitende — <em>tarifgebunden.</em></h3><p>Durchschnitt über das Geschäfts­jahr 2025. iGZ/DGB-Tarif, Equal-Pay ab Monat 9.</p><div class="meta"><span>Ø 2025</span><span>iGZ / DGB</span></div></div></article>
+
+  <article class="tile t-ink"><div class="tile-big"><div class="top"><span class="label">— Werte 02</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:600">Prinzip</span></div><h3><em>Spitzen­leistungen —</em><br>messbar,<br><strong>wiederholbar.</strong></h3><p class="sub">Time-to-Fill, Folge­auftrags­quote und Verbleibs­quote — alle drei veröffentlichen wir.</p></div></article>
+
+  <article class="tile t-cyan"><div class="tile-stat"><span class="label"><span class="dot" style="background:var(--ink)"></span>Kennzahl 05</span><div class="v">86<sub>%</sub></div><span class="l">Verbleibsquote · nach 18 Mo.</span></div></article>
+
+  <article class="tile tile-vis v3"><div class="vis"></div><span class="corner"></span><div class="text"><span class="label"><span class="dot"></span>Case · Office</span><h3>4 Festeinstellungen<br>in <em>einem Quartal.</em></h3><p>Steuer­kanzlei Münster — 100 % Verbleib nach 18 Mo.</p></div></article>
+
+  <article class="tile t-cream"><div class="body"><span class="label"><span class="dot"></span>Werte 03</span><h3><em>Dienst am Kunden,</em> der den Namen verdient.</h3><p>Erreichbar sein. Mitdenken. Geradestehen, auch wenn es ungemütlich wird.</p></div></article>
+
+  <article class="tile t-paper"><div class="body"><span class="label"><span class="dot"></span>Branchen 01</span><h3>Sieben Branchen, in denen wir <em>zuhause</em> sind.</h3><p>Industrie · Logistik · Office · Handwerk · Pflege · Bau · Gastronomie. Jede mit aktiver, vorgeprüfter Pipeline.</p><div class="meta"><span>7 Branchen</span><span>NRW</span></div></div></article>
+
+  <article class="tile t-blue"><div class="tile-stat"><span class="label"><span class="dot" style="background:var(--gold)"></span>Kennzahl 06</span><div class="v"><strong>18</strong>+</div><span class="l">Jahre Personalerfahrung</span></div></article>
+
+  <article class="tile t-paper tile-q"><div class="body" style="padding:0"><span class="mark">"</span><blockquote>Wir hängen die Prinzipien <em>nicht im Flur</em> auf. Sie sind in jedem Telefonat präsent.</blockquote><cite>— Grundsatz LeXpersonal · seit 2008</cite></div></article>
+
+  <article class="tile t-ink"><div class="body"><span class="label"><span class="dot"></span>Schluss</span><h3 style="font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:24px;line-height:1.25;color:#fff">„Starke Jobs<br><em>für alle."</em></h3><p style="color:rgba(255,255,255,0.6)">Unser Versprechen — seit 2008 unverändert.</p></div></article>
+
+</section>
+
+<!-- CONTACT -->
+<section class="cta" id="kontakt">
+  <h2>Welche Kachel<br>passt zu Ihrem<br><em>Bedarf?</em></h2>
+  <p>Wir hören zu, bevor wir vorschlagen. Antwort innerhalb 24 Stunden — durch eine echte Person.</p>
+  <div class="row">
+    <a href="tel:+492512652490" class="btn">📞 0251 — 26 52 49 20</a>
+    <a href="mailto:info@lexpersonal.de" class="btn ghost">info@lexpersonal.de</a>
+  </div>
+  <div class="cta-grid">
+    <div class="item"><h5>— Telefon</h5><a href="tel:+492512652490">0251 — 26 52 49 20</a></div>
+    <div class="item"><h5>— E-Mail</h5><a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a></div>
+    <div class="item"><h5>— Standort</h5><p>An den Loddenbüschen 95<br>48155 Münster</p></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© LeXpersonal GmbH · 2026 · Wall Edition · 24 Kacheln</span>
+  <span>Konzept · Masonry Wall</span>
+  <span>Impressum · Datenschutz · AGB</span>
+</footer>
+
+</body>
+</html>
