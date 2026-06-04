@@ -445,11 +445,119 @@ a{color:inherit;text-decoration:none}
 .prev-pk .asst.colors span:nth-child(3){background:#0B1A33}
 .prev-pk .asst.colors span:nth-child(4){background:#F5F4F0}
 
+/* === SELECTION MECHANIC === */
+.sel-bar{position:sticky;top:0;z-index:80;background:rgba(10,18,32,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-strong);padding:14px 32px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.sel-bar .ttl{color:var(--cyan-bright);display:flex;align-items:center;gap:10px}
+.sel-bar .ttl .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,159,227,0.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,159,227,0.25)}50%{box-shadow:0 0 0 5px rgba(0,159,227,0.15)}}
+.sel-bar .count{color:var(--muted);text-align:center;font-weight:500}
+.sel-bar .count .num{color:var(--cyan-bright);font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;margin-right:4px;text-transform:none}
+.sel-bar .count .max{color:var(--text);font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;text-transform:none}
+.sel-bar .actions{display:flex;gap:8px;align-items:center}
+.sel-bar button{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;padding:9px 16px;border-radius:99px;cursor:pointer;border:none;transition:all .15s}
+.sel-bar .btn-reset{background:transparent;color:var(--muted);border:1px solid var(--line-strong)}
+.sel-bar .btn-reset:hover:not(:disabled){color:var(--text);border-color:var(--text)}
+.sel-bar .btn-confirm{background:var(--cyan);color:var(--bg);font-weight:700}
+.sel-bar .btn-confirm:hover:not(:disabled){background:#fff}
+.sel-bar button:disabled{opacity:0.3;cursor:not-allowed}
+@media (max-width:768px){.sel-bar{grid-template-columns:1fr;gap:10px;text-align:center;padding:12px 16px;font-size:9.5px}.sel-bar .ttl{justify-content:center}.sel-bar .actions{justify-content:center}}
+
+/* Select button on cards */
+.card{position:relative}
+.card .sel-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(10,18,32,0.7);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;z-index:5;letter-spacing:0;padding:0}
+.card .sel-btn::before{content:"+";font-size:18px;font-weight:300}
+.card .sel-btn:hover{background:var(--cyan);border-color:var(--cyan);transform:scale(1.1)}
+.card.b2b-rec::after{display:none}
+.card.new::before{display:none}
+.card.selected{border-color:var(--cyan) !important;box-shadow:0 0 0 2px var(--cyan),0 24px 60px -20px rgba(0,159,227,0.4) !important}
+.card.selected .sel-btn{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}
+.card.selected .sel-btn::before{content:""}
+.card.selected .sel-btn .order{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.card.disabled{opacity:0.35;filter:saturate(0.4)}
+.card.disabled .sel-btn{display:none}
+.card.disabled:hover{transform:none;border-color:var(--line);box-shadow:none}
+
+/* Restore badges as tag-style on body */
+.card-body .meta-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.card-body .meta-tags .tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;font-weight:700;border:1px solid;display:inline-flex;align-items:center}
+.card-body .meta-tags .tag.b2b{color:var(--cyan-bright);border-color:rgba(0,159,227,0.35);background:rgba(0,159,227,0.08)}
+.card-body .meta-tags .tag.new{color:#fff;border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.08)}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(7,12,24,0.75);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s}
+.modal-bg.open{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--card);border:1px solid var(--line-strong);border-radius:20px;max-width:640px;width:100%;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;animation:popIn .25s cubic-bezier(.2,.85,.4,1.15)}
+@keyframes popIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-head{padding:24px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.modal-head h3{font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;color:var(--text);line-height:1.2}
+.modal-head h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:400}
+.modal-head .close{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:none;color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:300;flex-shrink:0}
+.modal-head .close:hover{background:rgba(255,255,255,0.15)}
+.modal-body{padding:24px 28px;overflow-y:auto;flex:1}
+.modal-body .intro{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.modal-body .intro strong{color:var(--text);font-weight:600}
+.modal-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.modal-list li{display:grid;grid-template-columns:32px 50px 1fr;gap:12px;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;font-size:14px}
+.modal-list li .ord{width:24px;height:24px;border-radius:50%;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:12px}
+.modal-list li .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--cyan-bright);font-weight:700}
+.modal-list li .nm{font-weight:500;color:var(--text)}
+.modal-list li .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.modal-code{background:#070C18;border:1px solid var(--line);border-radius:10px;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan-bright);line-height:1.7;letter-spacing:0.02em;word-break:break-all;position:relative}
+.modal-code .code-label{position:absolute;top:-9px;left:14px;background:var(--card);padding:0 8px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.modal-code .code-content{padding-top:4px}
+.modal-foot{padding:20px 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.modal-foot .hint{font-size:13px;color:var(--muted);flex:1;line-height:1.5}
+.modal-foot .hint strong{color:var(--cyan-bright);font-weight:600}
+.modal-foot .copy-btn{padding:11px 22px;background:var(--cyan);color:var(--bg);border:none;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s}
+.modal-foot .copy-btn:hover{background:#fff;transform:translateY(-1px)}
+.modal-foot .copy-btn.copied{background:#5CD672;color:var(--bg)}
+
+/* Toast */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--card);border:1px solid var(--line-strong);border-radius:99px;padding:12px 24px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;z-index:300;transition:transform .3s cubic-bezier(.2,.85,.4,1.15);box-shadow:0 20px 60px -20px rgba(0,159,227,0.5)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast .ico{color:var(--cyan);margin-right:8px}
+
 /* FOOTER */
 .foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
 </style>
 </head>
 <body>
+
+<!-- SELECTION BAR -->
+<div class="sel-bar">
+  <span class="ttl"><span class="dot"></span><span>Auswahl-Modus · Bis zu 8 Favoriten markieren</span></span>
+  <span class="count"><span class="num" id="count-num">0</span><span style="opacity:0.5"> / </span><span class="max">8</span> · ausgewählt</span>
+  <span class="actions">
+    <button class="btn-reset" id="btn-reset" disabled>Zurücksetzen</button>
+    <button class="btn-confirm" id="btn-confirm" disabled>Auswahl bestätigen →</button>
+  </span>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Deine <em>Auswahl</em> — bereit für die nächste Runde.</h3>
+      <button class="close" id="modal-close">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="intro">Du hast <strong id="modal-count">0</strong> Konzepte ausgewählt. Sende die folgende Code-Zeile zurück — ich werfe die anderen Konzepte raus und baue dafür <strong>10 neue Ideen</strong>, die sich von allen bisherigen unterscheiden.</p>
+      <ul class="modal-list" id="modal-list"></ul>
+      <div class="modal-code">
+        <span class="code-label">↳ Code zum Kopieren</span>
+        <div class="code-content" id="modal-code">behalte: —</div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <span class="hint">Sende mir den Code als <strong>nächste Nachricht</strong>. Ich brauche nichts weiter.</span>
+      <button class="copy-btn" id="copy-btn"><span>📋</span> Code kopieren</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="ico">✓</span><span id="toast-msg">In die Zwischenablage kopiert</span></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="lex-x" viewBox="0 0 180 220">
@@ -475,14 +583,14 @@ a{color:inherit;text-decoration:none}
     <svg><use href="#lex-x"/></svg>
     LE<strong>X</strong>PERSONAL
   </div>
-  <h1>Vier­undzwanzig Designs.<br>Drei <em>klare Tiers</em>.</h1>
-  <p>In dieser Runde sind sechs Konzepte ausgetauscht: Timeline, Team Portrait, Magazine, Photography, Newspaper und Architecture sind raus — dafür neu hinzugekommen: <strong style="color:var(--text)">Color-Block, Sticky Sidebar, Executive Briefing, Direct Comparison, Onboarding Journey, Press Kit</strong>. Alle B2B-tauglich, alle im echten CI, jedes mit eigener Header-Architektur.</p>
+  <h1>Wähle deine acht <em>Favoriten</em>.<br>Ich baue dazu zehn neue Ideen.</h1>
+  <p>Auswahl-Modus aktiv: Markiere bis zu <strong style="color:var(--text)">acht Konzepte</strong>, die du in die nächste Runde mitnehmen willst. Die nicht-markierten werden ausgesondert — und ich baue dazu <strong style="color:var(--text)">zehn vollkommen neue Konzepte</strong>, die sich von allen bisherigen klar unterscheiden. Ergebnis: <strong style="color:var(--text)">18 Konzepte</strong> in der nächsten Edition.</p>
 
   <div class="reco">
-    <div class="icon">B2B</div>
+    <div class="icon">↗</div>
     <div>
-      <h3>Empfehlung für Konzern- &amp; Industriekund:innen</h3>
-      <p>Engste Auswahl für Konzern-Vertrieb: <strong>Konzepte 07, 08, 09, 14, 16, 18, 21, 22, 24</strong>. Speziell auf HR- und Einkaufs-Entscheider:innen zugeschnitten — mit Daten, Cases, Compliance-Belegen, Vergleichs­tabellen und Premium-Anmutung.</p>
+      <h3>So funktioniert's</h3>
+      <p>Klicke auf den <strong>Markier-Button (oben rechts auf jeder Karte)</strong>. Bei 8 Auswahlen werden weitere Markierungen deaktiviert. Klicke dann oben rechts auf <strong>„Auswahl bestätigen"</strong> — du bekommst einen Code, den du mir als nächste Nachricht schickst. Deine Auswahl bleibt im Browser gespeichert.</p>
     </div>
   </div>
 </section>
@@ -986,6 +1094,171 @@ a{color:inherit;text-decoration:none}
 </div>
 
 </div>
+
+<script>
+const MAX_SEL = 8;
+const STORAGE_KEY = 'lex-selection-v1';
+let selection = [];
+
+try {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) selection = JSON.parse(stored);
+} catch(e) {}
+
+const cards = document.querySelectorAll('.card[href]');
+const countNum = document.getElementById('count-num');
+const btnConfirm = document.getElementById('btn-confirm');
+const btnReset = document.getElementById('btn-reset');
+const modal = document.getElementById('modal');
+const modalClose = document.getElementById('modal-close');
+const modalList = document.getElementById('modal-list');
+const modalCode = document.getElementById('modal-code');
+const modalCount = document.getElementById('modal-count');
+const copyBtn = document.getElementById('copy-btn');
+const toast = document.getElementById('toast');
+const toastMsg = document.getElementById('toast-msg');
+
+// Attach select-button + click handler to each card
+cards.forEach(card => {
+  const href = card.getAttribute('href');
+  const match = href.match(/^(\d{2})/);
+  if (!match) return;
+  const id = match[1];
+  card.dataset.id = id;
+
+  const btn = document.createElement('button');
+  btn.className = 'sel-btn';
+  btn.setAttribute('aria-label', 'Konzept ' + id + ' markieren');
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleSelection(id);
+  });
+  card.appendChild(btn);
+});
+
+function toggleSelection(id) {
+  const idx = selection.indexOf(id);
+  if (idx >= 0) {
+    selection.splice(idx, 1);
+  } else if (selection.length < MAX_SEL) {
+    selection.push(id);
+  } else {
+    showToast('Maximum erreicht — entferne erst eine Auswahl', '⚠');
+    return;
+  }
+  saveAndRender();
+}
+
+function saveAndRender() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch(e) {}
+  renderState();
+}
+
+function renderState() {
+  countNum.textContent = selection.length;
+  btnConfirm.disabled = selection.length === 0;
+  btnReset.disabled = selection.length === 0;
+
+  cards.forEach(card => {
+    const id = card.dataset.id;
+    if (!id) return;
+    const order = selection.indexOf(id);
+    const btn = card.querySelector('.sel-btn');
+    if (order >= 0) {
+      card.classList.add('selected');
+      card.classList.remove('disabled');
+      btn.innerHTML = '<span class="order">' + (order + 1) + '</span>';
+    } else {
+      card.classList.remove('selected');
+      btn.innerHTML = '';
+      if (selection.length >= MAX_SEL) {
+        card.classList.add('disabled');
+      } else {
+        card.classList.remove('disabled');
+      }
+    }
+  });
+}
+
+function getCardInfo(id) {
+  const card = document.querySelector('.card[data-id="' + id + '"]');
+  if (!card) return null;
+  return {
+    id: id,
+    file: card.getAttribute('href'),
+    name: card.querySelector('h2')?.textContent.trim() || 'Konzept ' + id,
+    tier: card.querySelector('.card-num')?.textContent.trim() || ''
+  };
+}
+
+function openModal() {
+  modalList.innerHTML = '';
+  const sorted = [...selection];
+  sorted.forEach((id, idx) => {
+    const info = getCardInfo(id);
+    if (!info) return;
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="ord">' + (idx + 1) + '</span><span class="id">[' + info.id + ']</span><span class="nm">' + info.name + '<small>' + info.tier + '</small></span>';
+    modalList.appendChild(li);
+  });
+  modalCount.textContent = selection.length;
+  const sortedIds = [...selection].sort();
+  modalCode.textContent = 'behalte: ' + sortedIds.join(', ') + ' · baue 10 neue';
+  modal.classList.add('open');
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+}
+
+btnConfirm.addEventListener('click', openModal);
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+btnReset.addEventListener('click', () => {
+  if (!confirm('Auswahl wirklich zurücksetzen?')) return;
+  selection = [];
+  saveAndRender();
+});
+
+copyBtn.addEventListener('click', async () => {
+  const text = modalCode.textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    copyBtn.classList.add('copied');
+    copyBtn.innerHTML = '<span>✓</span> Kopiert!';
+    showToast('In die Zwischenablage kopiert', '✓');
+    setTimeout(() => {
+      copyBtn.classList.remove('copied');
+      copyBtn.innerHTML = '<span>📋</span> Code kopieren';
+    }, 2500);
+  } catch(e) {
+    // Fallback: select text
+    const range = document.createRange();
+    range.selectNodeContents(modalCode);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    showToast('Kopieren manuell mit Cmd+C / Strg+C', '↵');
+  }
+});
+
+let toastTimer;
+function showToast(msg, ico) {
+  toastMsg.textContent = msg;
+  toast.querySelector('.ico').textContent = ico || '✓';
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+});
+
+renderState();
+</script>
 
 </body>
 </html>
