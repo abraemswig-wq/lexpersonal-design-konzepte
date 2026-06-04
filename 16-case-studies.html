@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Erfolgs­geschichten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F8FAFC;--surface:#FFFFFF;--ink:#0B1A33;--ink-deep:#0F172A;--text:#1F2937;--muted:#64748B;--border:#E2E8F0;--border-strong:#CBD5E1;--blue:#2778BC;--blue-deep:#1E5A8E;--cyan:#009FE3;--accent:#0369A1;--success:#15803D}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-family:'Lexend',sans-serif;color:var(--ink);letter-spacing:-0.02em;line-height:1.2}
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:300;font-size:18px;letter-spacing:0.06em}
+.logo svg{width:30px;height:36px}
+.logo strong{font-weight:600;color:var(--blue)}
+.menu{display:flex;gap:32px}
+.menu a{font-size:14.5px;font-weight:500;color:var(--text)}
+.menu a.active{color:var(--blue);font-weight:600}
+.btn{padding:10px 18px;font-size:14px;font-weight:600;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost{color:var(--ink);border:1px solid var(--border-strong)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-deep)}
+.actions{display:flex;gap:10px}
+@media (max-width:1100px){.menu{display:none}}
+
+/* HERO */
+.hero{padding:80px 0 56px;background:var(--ink-deep);color:#fff}
+.hero .eyebrow{font-size:12.5px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,5.5vw,64px);color:#fff;font-weight:600;line-height:1.05;margin-bottom:20px;max-width:880px}
+.hero h1 em{font-style:normal;color:var(--cyan);font-weight:500}
+.hero p{font-size:18px;color:rgba(255,255,255,0.78);max-width:640px;line-height:1.55;margin-bottom:32px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.15);margin-top:8px}
+.hero-stats .s .v{font-family:'Lexend',sans-serif;font-weight:600;font-size:36px;color:var(--cyan);line-height:1;letter-spacing:-0.025em}
+.hero-stats .s .l{font-size:13px;color:rgba(255,255,255,0.65);margin-top:6px}
+@media (max-width:900px){.hero-stats{grid-template-columns:1fr 1fr;gap:24px}}
+
+/* FILTER */
+.filter-bar{padding:18px 0;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:73px;z-index:49}
+.fil-row{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.fil-row .filters{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.fil-row .label{font-size:13px;font-weight:600;color:var(--muted);margin-right:8px}
+.filter{padding:7px 14px;border:1px solid var(--border-strong);font-size:13px;color:var(--text);font-weight:500;border-radius:99px;cursor:pointer;background:transparent}
+.filter:hover{border-color:var(--ink-deep)}
+.filter.active{background:var(--ink-deep);border-color:var(--ink-deep);color:#fff}
+.fil-row .count{font-size:13px;color:var(--muted)}
+.fil-row .count strong{color:var(--ink-deep)}
+
+/* CASES */
+.cases{padding:48px 0 80px}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.case{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all 0.2s;display:flex;flex-direction:column}
+.case:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 20px 48px -24px rgba(39,120,188,0.18)}
+.case .hero-vis{height:200px;background:linear-gradient(135deg,var(--blue-deep) 0%,var(--ink-deep) 100%);position:relative;overflow:hidden;color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.case .hero-vis::after{content:"";position:absolute;right:-40px;bottom:-40px;width:200px;height:200px;border-radius:50%;background:rgba(0,159,227,0.18);filter:blur(40px)}
+.case .hero-vis .tag{position:relative;display:inline-flex;align-self:flex-start;padding:5px 12px;background:rgba(255,255,255,0.15);color:var(--cyan);font-size:11.5px;font-weight:700;border-radius:99px;letter-spacing:0.06em;text-transform:uppercase}
+.case .hero-vis .client{position:relative;font-family:'Lexend',sans-serif;font-weight:600;font-size:22px;color:#fff;line-height:1.2}
+.case .hero-vis .client small{display:block;font-weight:400;font-size:13.5px;color:rgba(255,255,255,0.7);margin-top:4px;letter-spacing:0}
+.case .body{padding:28px;display:flex;flex-direction:column;gap:16px;flex:1}
+.case .meta{display:flex;gap:24px;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+.case .meta strong{color:var(--ink-deep);font-weight:700}
+.case h3{font-size:21px;color:var(--ink-deep);font-weight:600;line-height:1.25}
+.case h3 em{font-style:normal;color:var(--blue)}
+.case .challenge{font-size:14.5px;line-height:1.6;color:var(--text)}
+.case .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.case .kpi .v{font-family:'Lexend',sans-serif;font-weight:600;font-size:26px;color:var(--ink-deep);line-height:1;letter-spacing:-0.025em}
+.case .kpi .v .acc{color:var(--blue)}
+.case .kpi .l{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:5px;text-transform:uppercase;letter-spacing:0.04em;line-height:1.3}
+.case .quote{font-size:14.5px;color:var(--ink-deep);font-style:italic;line-height:1.55;padding-top:4px}
+.case .quote cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0.02em}
+.case .footer{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:auto}
+.case .footer a{font-size:14px;color:var(--blue);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.case .footer a:hover{gap:10px}
+.case .footer .conf{font-size:11.5px;color:var(--muted);font-weight:500}
+@media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{padding:64px 0;background:var(--bg);border-top:1px solid var(--border)}
+.cta-card{background:var(--ink-deep);color:#fff;border-radius:14px;padding:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.cta-card h2{font-size:28px;color:#fff;margin-bottom:14px;font-weight:500}
+.cta-card p{color:rgba(255,255,255,0.78);margin-bottom:22px;line-height:1.55}
+.cta-card .actions-c{display:flex;gap:10px;flex-wrap:wrap}
+.cta-card .btn-primary{background:var(--cyan);color:var(--ink-deep)}
+.cta-card .btn-primary:hover{background:#fff}
+.cta-card .btn-ghost{color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.contact-info{padding-left:48px;border-left:1px solid rgba(255,255,255,0.18);display:flex;flex-direction:column;gap:12px}
+.contact-info .item{display:flex;flex-direction:column;gap:2px}
+.contact-info .k{font-size:11px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+.contact-info .v{font-family:'Lexend',sans-serif;font-size:16px;color:#fff;font-weight:500}
+@media (max-width:900px){.cta-card{grid-template-columns:1fr;gap:24px;padding:32px 24px}.contact-info{padding-left:0;padding-top:18px;border-left:none;border-top:1px solid rgba(255,255,255,0.18)}}
+
+footer{padding:28px 0;background:var(--ink-deep);color:rgba(255,255,255,0.55);font-size:13px}
+.foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.foot-row a:hover{color:#fff}
+.foot-row .links{display:flex;gap:18px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<nav class="nav">
+  <div class="container nav-row">
+    <a href="#" class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+    <div class="menu">
+      <a href="#">Leistungen</a>
+      <a href="#">Branchen</a>
+      <a href="#" class="active">Erfolgs­geschichten</a>
+      <a href="#">Über uns</a>
+    </div>
+    <div class="actions">
+      <a href="#" class="btn btn-ghost">Login</a>
+      <a href="#" class="btn btn-primary">Anfrage stellen</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Erfolgs­geschichten · Track Record · 2024–2026</span>
+    <h1>Was wir <em>liefern,</em> zeigen wir.</h1>
+    <p>23 aktive Engagements. 312 Vermittlungen im letzten Jahr. Hier sind sechs ausgewählte Fälle aus den letzten 24 Monaten — mit harten KPIs, echten Kund:innen und nachprüfbaren Ergebnissen.</p>
+    <div class="hero-stats">
+      <div class="s"><div class="v">312</div><div class="l">Vermittlungen 2025</div></div>
+      <div class="s"><div class="v">98 %</div><div class="l">Folge­auftrag 24-Mo. Rolling</div></div>
+      <div class="s"><div class="v">86 %</div><div class="l">Verbleib nach 18 Mo.</div></div>
+      <div class="s"><div class="v">23</div><div class="l">Aktive Engagements</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <div class="container fil-row">
+    <div class="filters">
+      <span class="label">Filter:</span>
+      <button class="filter active">Alle (6)</button>
+      <button class="filter">Industrie</button>
+      <button class="filter">Logistik</button>
+      <button class="filter">Pflege</button>
+      <button class="filter">Office</button>
+      <button class="filter">ANÜ</button>
+      <button class="filter">Vermittlung</button>
+      <button class="filter">Werkvertrag</button>
+    </div>
+    <span class="count">Zeige <strong>6</strong> von 47 Cases</span>
+  </div>
+</div>
+
+<!-- CASES -->
+<section class="cases">
+  <div class="container">
+    <div class="case-grid">
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Industrie · Metall</span>
+          <div class="client">Metallwerk Münsterland<small>Mittelständischer Industriebetrieb · 480 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>ANÜ + Vermittlung</strong></span>
+            <span>Zeitraum · <strong>Q2 2024 – Q1 2025</strong></span>
+          </div>
+          <h3>Werkserweiterung mit <em>140 Fachkräften</em> — bei null Produktions­ausfall.</h3>
+          <p class="challenge">Zusätzliche 24/5-Schicht für die neue Produktions­halle. Bedarf: 140 qualifizierte Fachkräfte über acht Monate, davon ein nennens­werter Anteil zur Übernahme.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">140</span></div><div class="l">Fachkräfte überlassen</div></div>
+            <div class="kpi"><div class="v"><span class="acc">38</span></div><div class="l">Direkt­übernahmen</div></div>
+            <div class="kpi"><div class="v"><span class="acc">0</span> %</div><div class="l">Produktions­ausfall</div></div>
+          </div>
+          <p class="quote">„Wir hatten mit drei Dienstleistern gearbeitet. LeXpersonal war der einzige, der die Fluktuation in den Griff bekam — wir buchen weiter."<cite>— Werks­leitung</cite></p>
+          <div class="footer">
+            <span class="conf">Veröffentlichung mit Freigabe</span>
+            <a href="#">Vollständige Case Study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Logistik</span>
+          <div class="client">NordLogistik Greven<small>Logistik­dienstleister · A1-Korridor · 220 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>Arbeitnehmer­überlassung</strong></span>
+            <span>Zeitraum · <strong>Q4 2024 · Saison</strong></span>
+          </div>
+          <h3>Saison-Peak: <em>+220 % Tagesspitze</em> in 24 Stunden gemeistert.</h3>
+          <p class="challenge">Saisonale Peak-Last im Oktober 2024 — innerhalb von 24 Stunden mussten 28 zusätzliche Lager­kräfte für drei Wochen Schicht­betrieb gestellt werden.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">28</span></div><div class="l">Lager­kräfte gestellt</div></div>
+            <div class="kpi"><div class="v">&lt; <span class="acc">24</span> h</div><div class="l">Reaktions­zeit</div></div>
+            <div class="kpi"><div class="v"><span class="acc">3</span> Wo.</div><div class="l">Ohne Ausfall</div></div>
+          </div>
+          <p class="quote">„Das Beeindruckende war nicht die Geschwindigkeit. Beeindruckend war, dass die Leute auch konnten, was im Briefing stand."<cite>— Geschäfts­führung</cite></p>
+          <div class="footer">
+            <span class="conf">Veröffentlichung mit Freigabe</span>
+            <a href="#">Vollständige Case Study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Pflege</span>
+          <div class="client">VITA Pflege NRW<small>Pflege­einrichtung · 6 Standorte · 320 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>Werkvertrag</strong></span>
+            <span>Zeitraum · <strong>Q3 2024 – laufend (18 Mo.)</strong></span>
+          </div>
+          <h3>Nacht­dienst-Werkvertrag — <em>18 Monate</em> ohne Vertrags­änderung.</h3>
+          <p class="challenge">Auslagerung des Nacht­dienstes als rechts­sicherer Werkvertrag. 12 examinierte Pflege­kräfte über 18 Monate, mit eigener Schicht­leitung und definierter Ergebnis­vereinbarung.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">12</span></div><div class="l">examinierte PFK</div></div>
+            <div class="kpi"><div class="v"><span class="acc">18</span> Mo.</div><div class="l">Vertragsl­aufzeit</div></div>
+            <div class="kpi"><div class="v"><span class="acc">0</span></div><div class="l">Compliance-Verstöße</div></div>
+          </div>
+          <p class="quote">„Sie haben Werkvertrag gelebt — nicht nur konstruiert. Das ist in der Pflege selten."<cite>— Pflegedienst­leitung</cite></p>
+          <div class="footer">
+            <span class="conf">Veröffentlichung mit Freigabe</span>
+            <a href="#">Vollständige Case Study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Office · Steuer­beratung</span>
+          <div class="client">Kramer &amp; Söhne<small>Steuer­kanzlei Münster Zentrum · 38 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>Personal­vermittlung</strong></span>
+            <span>Zeitraum · <strong>Q1 2025</strong></span>
+          </div>
+          <h3>Vier Festeinstellungen, ein Quartal — <em>100 %</em> Verbleib nach 18 Mo.</h3>
+          <p class="challenge">Vier offene Positionen: drei Sach­bearbeiter:innen und eine Personalleitung. Kulturfit als Pflicht­kriterium — bei einer alteingesessenen Münsteraner Kanzlei besonders sensibel.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">4</span></div><div class="l">Festeinstellungen</div></div>
+            <div class="kpi"><div class="v"><span class="acc">100</span> %</div><div class="l">Verbleib n. 18 Mo.</div></div>
+            <div class="kpi"><div class="v">1 Q.</div><div class="l">Gesamt­laufzeit</div></div>
+          </div>
+          <p class="quote">„Was wir bekommen haben, war Personal­beratung — keine Personal­vermittlung."<cite>— Kanzlei-Partner:in</cite></p>
+          <div class="footer">
+            <span class="conf">Veröffentlichung mit Freigabe</span>
+            <a href="#">Vollständige Case Study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Industrie · Maschinenbau</span>
+          <div class="client">Schulte Industrie<small>Maschinen­bauer · Coesfeld · 165 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>Werkvertrag</strong></span>
+            <span>Zeitraum · <strong>Q1 – Q3 2025</strong></span>
+          </div>
+          <h3>CNC-Fachkräfte im Werkvertrag — <em>6 Monate</em>, ergebnis­garantiert.</h3>
+          <p class="challenge">Auftrags­spitze in der CNC-Fertigung. 8 spezialisierte CNC-Fräser:innen im Werkvertrag, mit eigener Schicht­leitung und definierter Stück­zahl-Vereinbarung.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">8</span></div><div class="l">CNC-Fachkräfte</div></div>
+            <div class="kpi"><div class="v">6 Mo.</div><div class="l">Werkvertrags­dauer</div></div>
+            <div class="kpi"><div class="v"><span class="acc">100</span> %</div><div class="l">Stückzahl-Erfüllung</div></div>
+          </div>
+          <p class="quote">„Werkvertrag wurde von Ihnen <em>gelebt</em>, nicht konstruiert. Das war für uns audit-relevant."<cite>— Compliance-Leitung</cite></p>
+          <div class="footer">
+            <span class="conf">Veröffentlichung mit Freigabe</span>
+            <a href="#">Vollständige Case Study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="hero-vis">
+          <span class="tag">Industrie · Konzern­tochter</span>
+          <div class="client">Konzern­tochter NRW<small>Auf Wunsch anonymisiert · 1.200 MA</small></div>
+        </div>
+        <div class="body">
+          <div class="meta">
+            <span>Modell · <strong>Master Vendor</strong></span>
+            <span>Zeitraum · <strong>seit Q3 2023 · laufend</strong></span>
+          </div>
+          <h3>Master-Vendor-Modell: <em>3 Standorte,</em> 4 Subverleiher gesteuert.</h3>
+          <p class="challenge">Konsolidierung mehrerer Personal­dienstleister in ein Master-Vendor-Modell. Wir steuern als Haupt-Lieferant 4 Subverleiher mit insgesamt 180 MA über drei Werke.</p>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="acc">180</span></div><div class="l">MA gesamt gesteuert</div></div>
+            <div class="kpi"><div class="v"><span class="acc">3</span></div><div class="l">Werks­standorte</div></div>
+            <div class="kpi"><div class="v">–18 %</div><div class="l">Beschaffungs­kosten</div></div>
+          </div>
+          <p class="quote">„Wir haben uns für LeXpersonal entschieden, weil sie Subverleiher steuern können — ohne sie als Konkurrenz zu sehen."<cite>— Konzern-Einkauf</cite></p>
+          <div class="footer">
+            <span class="conf">Anonymisiert · NDA</span>
+            <a href="#">Case-Anfrage stellen →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-card">
+      <div>
+        <h2>Bauen wir Ihren Case?</h2>
+        <p>Wir senden Ihnen drei Referenz­kontakte aus Ihrer Branche und vereinbaren ein 30-Minuten-Briefing. Antwort innerhalb 24 Stunden — durch eine echte Person.</p>
+        <div class="actions-c">
+          <a href="#" class="btn btn-primary">Bedarfsanalyse →</a>
+          <a href="#" class="btn btn-ghost">Referenz­kontakte anfragen</a>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="item"><span class="k">— Telefon</span><span class="v">0251 — 26 52 49 20</span></div>
+        <div class="item"><span class="k">— E-Mail</span><span class="v">info@lexpersonal.de</span></div>
+        <div class="item"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <span>© LeXpersonal GmbH · 2026 · Erfolgs­geschichten · Edition 2026</span>
+    <div class="links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Personal für Industrie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8FAFC;
+  --surface:#FFFFFF;
+  --ink:#0B1A33;
+  --ink-deep:#0F172A;
+  --text:#1F2937;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --border-strong:#CBD5E1;
+  --blue:#2778BC;
+  --blue-deep:#1E5A8E;
+  --cyan:#009FE3;
+  --accent:#0369A1;
+  --success:#15803D;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',-apple-system,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-family:'Lexend',sans-serif;color:var(--ink);letter-spacing:-0.02em;line-height:1.2}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* TOP UTILITY BAR */
+.util-bar{background:var(--ink-deep);color:#fff;padding:8px 0;font-size:13px}
+.util-bar .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.util-bar .l{display:flex;gap:24px;color:rgba(255,255,255,0.85)}
+.util-bar .l span{display:flex;align-items:center;gap:6px}
+.util-bar .l .ico{color:var(--cyan)}
+.util-bar .r{display:flex;gap:18px;align-items:center;color:rgba(255,255,255,0.7)}
+.util-bar .r a:hover{color:#fff}
+.util-bar .lang{display:flex;gap:6px;padding-left:18px;border-left:1px solid rgba(255,255,255,0.2)}
+.util-bar .lang a.active{color:var(--cyan);font-weight:600}
+@media (max-width:768px){.util-bar .l{gap:14px;font-size:12px}.util-bar .r{display:none}}
+
+/* MAIN NAV */
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:0 1px 0 rgba(15,23,42,0.04)}
+.nav .row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:32px}
+.nav .logo{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:300;font-size:18px;letter-spacing:0.06em}
+.nav .logo svg{width:30px;height:36px}
+.nav .logo strong{font-weight:600;color:var(--blue)}
+.nav .menu{display:flex;gap:32px;align-items:center}
+.nav .menu a{font-size:14.5px;font-weight:500;color:var(--text);padding:8px 0;position:relative;display:flex;align-items:center;gap:5px}
+.nav .menu a:hover{color:var(--blue)}
+.nav .menu a.has-sub::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-3px;opacity:0.6}
+.nav .actions{display:flex;gap:10px;align-items:center}
+.nav .actions a{padding:10px 18px;font-size:14px;font-weight:600;border-radius:6px;transition:all 0.15s}
+.nav .actions .ghost{color:var(--ink);border:1px solid var(--border-strong)}
+.nav .actions .ghost:hover{border-color:var(--ink);background:var(--bg)}
+.nav .actions .primary{background:var(--blue);color:#fff}
+.nav .actions .primary:hover{background:var(--blue-deep)}
+@media (max-width:1100px){.nav .menu{display:none}}
+@media (max-width:600px){.nav .actions .ghost{display:none}}
+
+/* HERO */
+.hero{padding:80px 0 64px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border)}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:rgba(39,120,188,0.08);color:var(--accent);font-size:13px;font-weight:600;border-radius:99px;margin-bottom:24px}
+.hero .eyebrow .dot{width:8px;height:8px;background:var(--cyan);border-radius:50%}
+.hero h1{font-size:clamp(40px,5.5vw,64px);font-weight:600;line-height:1.05;color:var(--ink-deep);margin-bottom:24px}
+.hero h1 .accent{color:var(--blue);font-weight:500}
+.hero .lede{font-size:19px;line-height:1.6;color:var(--text);max-width:560px;margin-bottom:32px}
+.hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:28px;border-top:1px solid var(--border);margin-top:8px}
+.hero .stats .stat{display:flex;flex-direction:column;gap:4px}
+.hero .stats .stat .v{font-family:'Lexend',sans-serif;font-weight:600;font-size:32px;line-height:1;color:var(--ink-deep)}
+.hero .stats .stat .v .unit{font-size:14px;color:var(--muted);font-weight:400;margin-left:2px}
+.hero .stats .stat .l{font-size:13px;color:var(--muted);font-weight:500}
+
+.path-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px -8px rgba(15,23,42,0.08)}
+.path-card h3{padding:20px 24px;background:var(--ink-deep);color:#fff;font-size:16px;font-weight:500;letter-spacing:0}
+.path-list{display:flex;flex-direction:column}
+.path-item{display:grid;grid-template-columns:40px 1fr auto;gap:18px;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border);transition:background 0.15s;cursor:pointer}
+.path-item:last-child{border-bottom:none}
+.path-item:hover{background:var(--bg)}
+.path-item .icon{width:40px;height:40px;border-radius:8px;background:rgba(39,120,188,0.1);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.path-item .icon svg{width:22px;height:22px;stroke-width:1.8}
+.path-item .info h4{font-size:15px;font-weight:600;color:var(--ink-deep);margin-bottom:2px;letter-spacing:-0.01em}
+.path-item .info p{font-size:13.5px;color:var(--muted);line-height:1.45}
+.path-item .arrow{color:var(--blue);font-size:18px;transition:transform 0.15s}
+.path-item:hover .arrow{transform:translateX(4px)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero .stats{grid-template-columns:repeat(3,1fr);gap:14px}.hero .stats .stat .v{font-size:24px}}
+
+/* TRUSTED BY */
+.trusted{padding:48px 0;border-bottom:1px solid var(--border);background:var(--surface)}
+.trusted .row{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.trusted .label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;line-height:1.5;max-width:200px}
+.trusted .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:32px;align-items:center}
+.trusted .logos .logo{font-family:'Lexend',sans-serif;font-weight:600;font-size:16px;color:var(--ink-deep);opacity:0.4;text-align:center;transition:opacity 0.15s;letter-spacing:-0.02em}
+.trusted .logos .logo:hover{opacity:0.85}
+.trusted .logos .logo .light{font-weight:300}
+@media (max-width:900px){.trusted .row{grid-template-columns:1fr;gap:24px}.trusted .logos{grid-template-columns:repeat(3,1fr);gap:24px}}
+
+/* SOLUTIONS BY INDUSTRY */
+.solutions{padding:96px 0;background:var(--bg)}
+.section-head{text-align:center;max-width:720px;margin:0 auto 56px}
+.section-head .eyebrow{display:inline-block;padding:5px 12px;background:rgba(3,105,161,0.08);color:var(--accent);font-size:12.5px;font-weight:700;border-radius:99px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:18px}
+.section-head h2{font-size:clamp(32px,4vw,44px);font-weight:600;color:var(--ink-deep);line-height:1.15;margin-bottom:18px}
+.section-head p{font-size:17px;line-height:1.55;color:var(--text)}
+
+.solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.solution{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 28px;transition:all 0.2s;display:flex;flex-direction:column;gap:14px}
+.solution:hover{border-color:var(--blue);box-shadow:0 12px 32px -16px rgba(39,120,188,0.18);transform:translateY(-2px)}
+.solution .icon{width:48px;height:48px;border-radius:10px;background:rgba(39,120,188,0.08);display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:6px}
+.solution .icon svg{width:24px;height:24px;stroke-width:1.6}
+.solution h3{font-size:20px;font-weight:600;color:var(--ink-deep);letter-spacing:-0.015em}
+.solution p{font-size:14.5px;line-height:1.6;color:var(--text);flex:1}
+.solution .meta{display:flex;gap:18px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+.solution .meta strong{color:var(--ink-deep);font-weight:600;display:block;font-size:14.5px;margin-top:2px;font-family:'Lexend',sans-serif;letter-spacing:-0.01em}
+.solution .link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--blue);margin-top:4px}
+.solution .link:hover{gap:10px}
+@media (max-width:900px){.solutions{padding:64px 0}.solutions-grid{grid-template-columns:1fr;gap:14px}}
+
+/* INDUSTRY BAR */
+.industries{padding:64px 0;background:var(--ink-deep);color:#fff}
+.industries-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;flex-wrap:wrap;gap:16px}
+.industries-head h3{font-size:24px;color:#fff;font-weight:500}
+.industries-head a{font-size:14px;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.industries-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.industry{padding:24px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;transition:all 0.2s;cursor:pointer}
+.industry:hover{background:rgba(255,255,255,0.07);border-color:var(--cyan)}
+.industry .ico{width:36px;height:36px;border-radius:8px;background:rgba(0,159,227,0.15);display:flex;align-items:center;justify-content:center;color:var(--cyan);margin-bottom:14px}
+.industry .ico svg{width:20px;height:20px;stroke-width:1.8}
+.industry h4{font-size:16px;color:#fff;font-weight:500;margin-bottom:6px}
+.industry .count{font-size:13px;color:rgba(255,255,255,0.65)}
+.industry .count strong{color:var(--cyan);font-weight:600}
+@media (max-width:900px){.industries-grid{grid-template-columns:1fr 1fr;gap:10px}.industries{padding:48px 0}}
+
+/* CASE PREVIEW */
+.case-section{padding:96px 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.case-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:center}
+.case-text .eyebrow{display:inline-block;padding:5px 12px;background:rgba(3,105,161,0.08);color:var(--accent);font-size:12.5px;font-weight:700;border-radius:99px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:18px}
+.case-text h2{font-size:clamp(28px,3.5vw,40px);font-weight:600;color:var(--ink-deep);line-height:1.15;margin-bottom:18px}
+.case-text p{font-size:16.5px;line-height:1.6;color:var(--text);margin-bottom:14px}
+.case-text .quote{padding:18px 22px;background:var(--bg);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;margin:24px 0;font-style:italic;font-size:16px;color:var(--ink-deep);line-height:1.55}
+.case-text .quote cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--muted);font-weight:600}
+.case-text .more{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--blue);color:#fff;font-size:14.5px;font-weight:600;border-radius:6px}
+.case-text .more:hover{background:var(--blue-deep)}
+.case-visual{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--ink-deep) 100%);border-radius:14px;padding:36px;color:#fff;position:relative;overflow:hidden}
+.case-visual::before{content:"";position:absolute;right:-50px;top:-50px;width:240px;height:240px;border-radius:50%;background:rgba(0,159,227,0.18);filter:blur(40px)}
+.case-visual .label{font-size:12px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:32px;position:relative}
+.case-visual .kpis{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative}
+.case-visual .kpi .v{font-family:'Lexend',sans-serif;font-weight:600;font-size:48px;line-height:1;color:#fff;letter-spacing:-0.02em}
+.case-visual .kpi .v .acc{color:var(--cyan)}
+.case-visual .kpi .l{font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;line-height:1.4}
+@media (max-width:900px){.case-section{padding:64px 0}.case-grid{grid-template-columns:1fr;gap:32px}}
+
+/* CONTACT CTA */
+.contact{padding:80px 0;background:var(--bg)}
+.contact-card{background:var(--ink-deep);color:#fff;border-radius:14px;padding:56px 48px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center}
+.contact-card h2{font-size:clamp(28px,3.5vw,38px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:16px}
+.contact-card p{font-size:16px;color:rgba(255,255,255,0.78);max-width:480px;line-height:1.55;margin-bottom:24px}
+.contact-card .actions{display:flex;gap:12px;flex-wrap:wrap}
+.contact-card .btn{padding:14px 28px;border-radius:6px;font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.contact-card .btn.primary{background:var(--cyan);color:var(--ink-deep)}
+.contact-card .btn.primary:hover{background:#fff}
+.contact-card .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.contact-card .btn.ghost:hover{background:rgba(255,255,255,0.08);border-color:#fff}
+.contact-info{display:flex;flex-direction:column;gap:14px;padding-left:48px;border-left:1px solid rgba(255,255,255,0.15)}
+.contact-info .row{display:flex;flex-direction:column;gap:3px}
+.contact-info .k{font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.08em;font-weight:700}
+.contact-info .v{font-family:'Lexend',sans-serif;font-size:17px;color:#fff;font-weight:500}
+@media (max-width:900px){.contact-card{grid-template-columns:1fr;gap:32px;padding:40px 28px}.contact-info{padding-left:0;border-left:none;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}}
+
+/* FOOTER */
+footer{padding:48px 0 24px;background:var(--ink-deep);color:rgba(255,255,255,0.6)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.15)}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:300;letter-spacing:0.06em;font-size:16px;margin-bottom:14px}
+.foot-brand .logo svg{width:24px;height:30px}
+.foot-brand .logo strong{font-weight:600;color:var(--cyan)}
+.foot-brand p{font-size:14px;line-height:1.6;max-width:300px}
+.foot-col h5{font-family:'Lexend',sans-serif;font-size:13px;color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-col ul a{font-size:14px;color:rgba(255,255,255,0.7)}
+.foot-col ul a:hover{color:var(--cyan)}
+.foot-bot{margin-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:12px}
+.foot-bot .links{display:flex;gap:18px}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- UTILITY -->
+<div class="util-bar">
+  <div class="container row">
+    <div class="l">
+      <span><span class="ico">●</span>iGZ-Mitglied · ANÜ-Erlaubnis BA · DSGVO-konform</span>
+      <span>Mo–Fr · 08:00–17:00</span>
+    </div>
+    <div class="r">
+      <a href="tel:+492512652490">0251 — 26 52 49 20</a>
+      <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+      <span class="lang"><a href="#" class="active">DE</a><a href="#">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container row">
+    <a href="#" class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+    <div class="menu">
+      <a href="#solutions" class="has-sub">Leistungen</a>
+      <a href="#industries" class="has-sub">Branchen</a>
+      <a href="#case">Referenzen</a>
+      <a href="#">Über uns</a>
+      <a href="#">Karriere</a>
+    </div>
+    <div class="actions">
+      <a href="#" class="ghost">Login</a>
+      <a href="#contact" class="primary">Anfrage stellen</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Personal­dienstleistung · Münster · seit 2008</span>
+        <h1>Personal,<br>auf das sich <span class="accent">Industrie</span><br>verlässt.</h1>
+        <p class="lede">Wir liefern produzierenden Unternehmen, Mittelstand und Industrie in Nordrhein-Westfalen qualifiziertes Personal — flexibel überlassen, dauerhaft vermittelt oder im Werkvertrag abgewickelt.</p>
+        <div class="stats">
+          <div class="stat"><span class="v">2.430<span class="unit">+</span></span><span class="l">Aktive Talente</span></div>
+          <div class="stat"><span class="v">4–7<span class="unit"> Tage</span></span><span class="l">Time-to-Fill</span></div>
+          <div class="stat"><span class="v">98<span class="unit">%</span></span><span class="l">Folgeauftrag</span></div>
+        </div>
+      </div>
+
+      <div class="path-card">
+        <h3>Wie können wir Ihnen helfen?</h3>
+        <div class="path-list">
+          <a href="#" class="path-item">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="info">
+              <h4>Ich bin Unternehmen</h4>
+              <p>Personalbedarf — überlassen, vermitteln, Werkvertrag</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a href="#" class="path-item">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="info">
+              <h4>Ich suche einen Job</h4>
+              <p>Bewerbung — wir hören zu, bevor wir vorschlagen</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a href="#" class="path-item">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="info">
+              <h4>Ich bin Konzern-Einkauf</h4>
+              <p>Vor­qualifizierung &amp; Compliance-Dossier</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a href="#" class="path-item">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9h18M3 15h18M9 3l-6 18M15 3l6 18" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="info">
+              <h4>Ich bin Presse / Medien</h4>
+              <p>Pressekontakt, Materialien, Sprecher</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED -->
+<section class="trusted">
+  <div class="container row">
+    <span class="label">— Vertrauen produzierender Unternehmen aus Industrie und Mittelstand</span>
+    <div class="logos">
+      <span class="logo"><strong>METALL</strong>·WERK</span>
+      <span class="logo">Nord<strong>LOGISTIK</strong></span>
+      <span class="logo"><strong>MS</strong>·Industrie</span>
+      <span class="logo">Kramer &amp; Söhne</span>
+      <span class="logo"><strong>VITA</strong>·Pflege</span>
+      <span class="logo">Hansa<strong>BAU</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Drei Leistungs­modelle</span>
+      <h2>Personal, wie Sie es brauchen.</h2>
+      <p>Drei klar definierte Modelle — flexibel, dauerhaft oder ergebnis­verantwortlich. Wir beraten Sie ehrlich, welches zu Ihrer Situation passt.</p>
+    </div>
+
+    <div class="solutions-grid">
+      <article class="solution">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Arbeitnehmer­überlassung</h3>
+        <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen — von der Tagesspitze bis zur lang­fristigen Verstärkung. Wir bleiben Arbeitgeber.</p>
+        <div class="meta">
+          <div>Bereitstellung<br><strong>&lt; 48 h</strong></div>
+          <div>Tarif<br><strong>iGZ / DGB</strong></div>
+        </div>
+        <a href="#" class="link">Modell-Details ansehen →</a>
+      </article>
+      <article class="solution">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Personal­vermittlung</h3>
+        <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst, mit langem Atem. Honorar erst bei erfolgreicher Vermittlung.</p>
+        <div class="meta">
+          <div>Garantie<br><strong>4 Monate</strong></div>
+          <div>Verbleib 18 Mo.<br><strong>86 %</strong></div>
+        </div>
+        <a href="#" class="link">Modell-Details ansehen →</a>
+      </article>
+      <article class="solution">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M3.27 6.96L12 12l8.73-5.04 M12 22.08V12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Werkverträge</h3>
+        <p>Definierte Aufträge, definierte Verantwortung. Wir übernehmen Abwicklung, Steuerung und Ergebnis — Sie konzentrieren sich aufs Kerngeschäft.</p>
+        <div class="meta">
+          <div>Modell<br><strong>Festpr./T&amp;M</strong></div>
+          <div>Steuerung<br><strong>eigene</strong></div>
+        </div>
+        <a href="#" class="link">Modell-Details ansehen →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="industries-head">
+      <h3>Branchen, in denen wir zuhause sind</h3>
+      <a href="#">Alle Branchen ansehen →</a>
+    </div>
+    <div class="industries-grid">
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22h20M6 18V8l6-4 6 4v10M6 18h12M9 12h.01M9 15h.01M15 12h.01M15 15h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Industrie &amp; Metall</h4>
+        <span class="count"><strong>420</strong> Talente · Produktion, Schicht</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Logistik</h4>
+        <span class="count"><strong>290</strong> Talente · Lager, Versand</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8M8 17h8M10 9H8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Office &amp; Verwaltung</h4>
+        <span class="count"><strong>350</strong> Talente · Sachbearbeit.</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16M12 3v18M3 21h18M9 9h6M9 13h6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Pflege</h4>
+        <span class="count"><strong>210</strong> Talente · Examiniert</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.7 6.3l3 3M7 17l-4 4 M3 21l4-4M14.7 6.3a4.5 4.5 0 1 1 6.4 6.4l-8.4 8.4-6.4-6.4z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Handwerk</h4>
+        <span class="count"><strong>380</strong> Talente · Gewerke</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 20h20M6 20V8M10 20V8M14 20V12M18 20V12M2 8l4-5 4 5M14 12l4-5 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Bau</h4>
+        <span class="count"><strong>240</strong> Talente · Roh-, Tiefbau</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1 M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z M6 1v3M10 1v3M14 1v3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Gastronomie</h4>
+        <span class="count"><strong>170</strong> Talente · Service, Küche</span>
+      </div>
+      <div class="industry">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Ihre Branche fehlt?</h4>
+        <span class="count">Sprechen Sie uns an</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE -->
+<section class="case-section" id="case">
+  <div class="container">
+    <div class="case-grid">
+      <div class="case-text">
+        <span class="eyebrow">Referenz · Industrie · 2024–25</span>
+        <h2>140 Fachkräfte in acht Monaten — bei null Produktions­ausfall.</h2>
+        <p>Ein mittelständischer Industriebetrieb im Münsterland stand vor einer Werks­erweiterung. Wir lieferten 140 Fachkräfte in acht Monaten — 38 davon direkt in Festanstellung übernommen.</p>
+        <div class="quote">„Wir hatten mit drei Dienstleistern gearbeitet. LeXpersonal war der einzige, der die Fluktuation in den Griff bekam — wir buchen weiter."<cite>— Werks­leitung · Industrie­kunde Münsterland</cite></div>
+        <a href="#" class="more">Vollständige Case Study ansehen →</a>
+      </div>
+      <div class="case-visual">
+        <span class="label">— Kennzahlen Engagement</span>
+        <div class="kpis">
+          <div class="kpi"><span class="v"><span class="acc">140</span></span><span class="l">Fachkräfte<br>überlassen</span></div>
+          <div class="kpi"><span class="v"><span class="acc">38</span></span><span class="l">Direkt­vermittlungen<br>nach Probelauf</span></div>
+          <div class="kpi"><span class="v"><span class="acc">0</span><span style="font-size:24px"> %</span></span><span class="l">Produktions­ausfall<br>im Zeitraum</span></div>
+          <div class="kpi"><span class="v"><span class="acc">8</span><span style="font-size:24px"> Mo.</span></span><span class="l">Gesamt-<br>Umsetzungs­dauer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <div>
+        <h2>Sprechen wir über Ihren Personalbedarf — persönlich.</h2>
+        <p>Sie schildern uns Ihre Situation. Wir prüfen ehrlich, ob wir passen — und melden uns innerhalb von 24 Stunden mit einer konkreten Antwort.</p>
+        <div class="actions">
+          <a href="#" class="btn primary">Bedarfsanalyse anfragen →</a>
+          <a href="#" class="btn ghost">Compliance-Dossier</a>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="row"><span class="k">— Telefon</span><span class="v">0251 — 26 52 49 20</span></div>
+        <div class="row"><span class="k">— E-Mail</span><span class="v">info@lexpersonal.de</span></div>
+        <div class="row"><span class="k">— Standort</span><span class="v">An den Loddenbüschen 95<br>48155 Münster</span></div>
+        <div class="row"><span class="k">— Antwortzeit</span><span class="v">&lt; 24 Stunden</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+        <p>Personal­dienstleistung mit Haltung — seit 2008 aus Münster fürs Münsterland und Nordrhein-Westfalen.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Leistungen</h5>
+        <ul>
+          <li><a href="#">Arbeitnehmer­überlassung</a></li>
+          <li><a href="#">Personal­vermittlung</a></li>
+          <li><a href="#">Werkverträge</a></li>
+          <li><a href="#">Bedarfsanalyse</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Unternehmen</h5>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Branchen</a></li>
+          <li><a href="#">Referenzen</a></li>
+          <li><a href="#">Karriere</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Compliance</h5>
+        <ul>
+          <li><a href="#">iGZ-Mitgliedschaft</a></li>
+          <li><a href="#">ANÜ-Erlaubnis BA</a></li>
+          <li><a href="#">DSGVO &amp; Datenschutz</a></li>
+          <li><a href="#">SAP Fieldglass</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© LeXpersonal GmbH · 2026 · Edition Enterprise Gateway</span>
+      <div class="links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Lieferantenkodex</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

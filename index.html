@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LeXpersonal — 18 Design-Konzepte · Edition 08</title>
+<title>LeXpersonal — 18 Design-Konzepte · Edition 09 · B2B Enterprise</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@200;300;400;500;600;800&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&family=Fraunces:ital,wght@0,400;1,400&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@200;300;400;500;600;800&family=Lexend:wght@200;300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,29 +20,13 @@
   --cyan:#009FE3;
   --cyan-bright:#1DB4F0;
   --gold:#D4B57A;
+  --serious:#5FA8E0;
 }
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
 
 .container{max-width:1440px;margin:0 auto;padding:0 32px}
-
-/* SELECTION BAR (sticky) */
-.sel-bar{position:sticky;top:0;z-index:80;background:rgba(10,18,32,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-strong);padding:14px 32px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
-.sel-bar .ttl{color:var(--cyan-bright);display:flex;align-items:center;gap:10px}
-.sel-bar .ttl .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,159,227,0.25);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,159,227,0.25)}50%{box-shadow:0 0 0 5px rgba(0,159,227,0.15)}}
-.sel-bar .count{color:var(--muted);text-align:center;font-weight:500}
-.sel-bar .count .num{color:var(--cyan-bright);font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;margin-right:4px;text-transform:none}
-.sel-bar .count .max{color:var(--text);font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;text-transform:none}
-.sel-bar .actions{display:flex;gap:8px;align-items:center}
-.sel-bar button{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;padding:9px 16px;border-radius:99px;cursor:pointer;border:none;transition:all .15s}
-.sel-bar .btn-reset{background:transparent;color:var(--muted);border:1px solid var(--line-strong)}
-.sel-bar .btn-reset:hover:not(:disabled){color:var(--text);border-color:var(--text)}
-.sel-bar .btn-confirm{background:var(--cyan);color:var(--bg);font-weight:700}
-.sel-bar .btn-confirm:hover:not(:disabled){background:#fff}
-.sel-bar button:disabled{opacity:0.3;cursor:not-allowed}
-@media (max-width:768px){.sel-bar{grid-template-columns:1fr;gap:10px;text-align:center;padding:12px 16px;font-size:9.5px}.sel-bar .ttl{justify-content:center}.sel-bar .actions{justify-content:center}}
 
 /* HEADER */
 .head{padding:64px 0 48px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -51,7 +35,7 @@ a{color:inherit;text-decoration:none}
 .head-logo{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.06em;color:var(--text);margin-bottom:28px;position:relative;z-index:2}
 .head-logo strong{font-weight:600;color:var(--cyan)}
 .head-logo svg{width:22px;height:27px}
-.head h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,6vw,84px);line-height:0.98;letter-spacing:-0.035em;font-weight:600;max-width:1100px;position:relative;z-index:2}
+.head h1{font-family:'Lexend',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1.0;letter-spacing:-0.035em;font-weight:500;max-width:1100px;position:relative;z-index:2}
 .head h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
 .head p{font-size:17px;color:var(--muted);max-width:780px;margin-top:20px;position:relative;z-index:2;line-height:1.65}
 .head p strong{color:var(--text);font-weight:600}
@@ -60,14 +44,20 @@ a{color:inherit;text-decoration:none}
 .intro-card{padding:24px 28px;background:linear-gradient(135deg,rgba(0,159,227,0.08),rgba(39,120,188,0.04));border:1px solid var(--line-strong);border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
 .intro-card .icon{width:48px;height:48px;border-radius:12px;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;letter-spacing:0.02em}
 .intro-card.new .icon{background:transparent;color:#fff;border:2px solid var(--cyan)}
-.intro-card h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
+.intro-card h3{font-family:'Lexend',sans-serif;font-weight:500;font-size:16px;color:var(--cyan-bright);letter-spacing:-0.01em;margin-bottom:6px}
 .intro-card p{font-size:13.5px;color:var(--text);line-height:1.55}
 .intro-card p strong{color:var(--cyan-bright);font-weight:600}
 @media (max-width:900px){.intro-grid{grid-template-columns:1fr}}
 
+/* DESIGN-DIRECTION CALLOUT */
+.callout{margin-top:32px;padding:22px 26px;border-left:3px solid var(--cyan);background:rgba(0,159,227,0.06);border-radius:0 12px 12px 0;position:relative;z-index:2}
+.callout .lbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:8px;display:block}
+.callout p{font-size:14.5px;color:var(--text);line-height:1.65;margin:0;max-width:none}
+.callout strong{color:var(--cyan-bright);font-weight:600}
+
 /* Group header */
 .group-header{padding:48px 0 16px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);margin-bottom:0;flex-wrap:wrap;gap:14px}
-.group-header .left h2{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;letter-spacing:-0.02em}
+.group-header .left h2{font-family:'Lexend',sans-serif;font-size:26px;font-weight:500;letter-spacing:-0.02em}
 .group-header .left h2 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan);font-weight:400}
 .group-header .left .sub{color:var(--muted);font-size:13.5px;max-width:640px;margin-top:6px;line-height:1.6}
 .group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid;flex-shrink:0}
@@ -81,328 +71,222 @@ a{color:inherit;text-decoration:none}
 
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative}
 .card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 20px 60px -20px rgba(0,159,227,0.2)}
-.card.new::before{content:"NEU";position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:#fff;color:var(--bg);font-weight:700;z-index:3}
+.card.new::before{content:"NEU · B2B";position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;border-radius:99px;background:#fff;color:var(--bg);font-weight:700;z-index:3}
 .card-preview{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
 .card-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
-.card h2{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.15}
+.card h2{font-family:'Lexend',sans-serif;font-size:20px;font-weight:500;letter-spacing:-0.02em;line-height:1.15}
 .card .vibe{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
 .card p{font-size:13.5px;color:var(--muted);line-height:1.55}
-.card .open{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:transparent;color:var(--cyan);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;align-self:flex-start;border:1px solid var(--line-strong);transition:gap .2s,background .2s;margin-top:auto}
+.card .open{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:transparent;color:var(--cyan);font-family:'Lexend',sans-serif;font-weight:500;font-size:12px;align-self:flex-start;border:1px solid var(--line-strong);transition:gap .2s,background .2s;margin-top:auto}
 .card .open:hover{gap:12px;background:var(--cyan);color:#fff;border-color:var(--cyan)}
 
-/* Select button + selected/disabled states */
-.card .sel-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(10,18,32,0.7);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;z-index:5;letter-spacing:0;padding:0}
-.card .sel-btn::before{content:"+";font-size:18px;font-weight:300}
-.card .sel-btn:hover{background:var(--cyan);border-color:var(--cyan);transform:scale(1.1)}
-.card.selected{border-color:var(--cyan) !important;box-shadow:0 0 0 2px var(--cyan),0 24px 60px -20px rgba(0,159,227,0.4) !important}
-.card.selected .sel-btn{background:var(--cyan);border-color:var(--cyan);color:var(--bg)}
-.card.selected .sel-btn::before{content:""}
-.card.selected .sel-btn .order{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em}
-.card.disabled{opacity:0.35;filter:saturate(0.4)}
-.card.disabled .sel-btn{display:none}
-.card.disabled:hover{transform:none;border-color:var(--line);box-shadow:none}
+/* ====== PREVIEW STYLES (kept 01-08) ====== */
+.prev-edit{background:#F3EBDD;color:#2A2A2A;padding:18px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Fraunces',serif}
+.prev-edit .top{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7A6F5C}
+.prev-edit .top span{display:inline-flex;align-items:center;gap:6px}
+.prev-edit .top svg{width:11px;height:13px}
+.prev-edit .top strong{font-weight:700;color:var(--blue)}
+.prev-edit .title{font-size:34px;line-height:0.95;font-style:italic;font-weight:400;letter-spacing:-0.02em;color:#1B1B1B}
+.prev-edit .title em{font-style:italic;color:var(--blue);font-weight:400}
+.prev-edit .title .cy{color:var(--cyan);font-style:italic}
+.prev-edit .ft{display:flex;gap:12px;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#7A6F5C}
 
-/* MODAL + TOAST */
-.modal-bg{position:fixed;inset:0;background:rgba(7,12,24,0.75);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s}
-.modal-bg.open{display:flex}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:var(--card);border:1px solid var(--line-strong);border-radius:20px;max-width:640px;width:100%;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;animation:popIn .25s cubic-bezier(.2,.85,.4,1.15)}
-@keyframes popIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-head{padding:24px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.modal-head h3{font-family:'Inter',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;color:var(--text);line-height:1.2}
-.modal-head h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:var(--cyan);font-weight:400}
-.modal-head .close{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:none;color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:300;flex-shrink:0}
-.modal-head .close:hover{background:rgba(255,255,255,0.15)}
-.modal-body{padding:24px 28px;overflow-y:auto;flex:1}
-.modal-body .intro{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
-.modal-body .intro strong{color:var(--text);font-weight:600}
-.modal-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.modal-list li{display:grid;grid-template-columns:32px 50px 1fr;gap:12px;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;font-size:14px}
-.modal-list li .ord{width:24px;height:24px;border-radius:50%;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:12px}
-.modal-list li .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--cyan-bright);font-weight:700}
-.modal-list li .nm{font-weight:500;color:var(--text)}
-.modal-list li .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
-.modal-code{background:#070C18;border:1px solid var(--line);border-radius:10px;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan-bright);line-height:1.7;letter-spacing:0.02em;word-break:break-all;position:relative}
-.modal-code .code-label{position:absolute;top:-9px;left:14px;background:var(--card);padding:0 8px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.modal-foot{padding:20px 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.modal-foot .hint{font-size:13px;color:var(--muted);flex:1;line-height:1.5}
-.modal-foot .hint strong{color:var(--cyan-bright);font-weight:600}
-.modal-foot .copy-btn{padding:11px 22px;background:var(--cyan);color:var(--bg);border:none;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s}
-.modal-foot .copy-btn:hover{background:#fff;transform:translateY(-1px)}
-.modal-foot .copy-btn.copied{background:#5CD672;color:var(--bg)}
-.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--card);border:1px solid var(--line-strong);border-radius:99px;padding:12px 24px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;z-index:300;transition:transform .3s cubic-bezier(.2,.85,.4,1.15);box-shadow:0 20px 60px -20px rgba(0,159,227,0.5)}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.toast .ico{color:var(--cyan);margin-right:8px}
+.prev-dark{background:linear-gradient(135deg,#0F2742 0%,#143659 50%,#0A1830 100%);color:#fff;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.prev-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(0,159,227,0.35),transparent 50%);pointer-events:none}
+.prev-dark .badge{position:absolute;top:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;color:#1DB4F0;background:rgba(0,159,227,0.15);padding:3px 9px;border-radius:99px;border:1px solid rgba(0,159,227,0.4)}
+.prev-dark .x-icon{position:absolute;right:14px;top:14px;width:32px;height:40px;opacity:0.95}
+.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:30px;line-height:1;font-weight:700;letter-spacing:-0.03em;position:relative;z-index:2}
+.prev-dark .title .g{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* === MINI-PREVIEW STYLES === */
+.prev-brut{background:#0F2742;color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Montserrat',sans-serif;border-top:6px solid var(--cyan)}
+.prev-brut .top{display:flex;justify-content:space-between;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#9AB3CC;font-weight:600}
+.prev-brut .mid h3{font-size:36px;line-height:0.9;font-weight:800;letter-spacing:-0.04em}
+.prev-brut .mid .a{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+.prev-brut .mid .o{color:var(--cyan)}
+.prev-brut .bot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9AB3CC;font-weight:600}
 
-/* 01 Editorial (kept) */
-.prev-edit{background:#F5F1EA;color:#1A1F2E;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
-.prev-edit .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B6B;letter-spacing:0.1em;text-transform:uppercase}
-.prev-edit .top svg{width:12px;height:15px;margin-right:4px;vertical-align:middle}
-.prev-edit .top strong{font-weight:600;color:#2778BC}
-.prev-edit .title{font-family:'Fraunces',serif;font-size:42px;line-height:0.9;letter-spacing:-0.04em;font-weight:400}
-.prev-edit .title em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-edit .title .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-edit .ft{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;color:#6B6B6B;letter-spacing:0.1em;padding-top:6px;border-top:1px solid #1A1F2E}
+.prev-story{background:#F7F4EE;color:#1B1B1B;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.prev-story::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan) 0%,var(--cyan) 35%,#E0D8C8 35%,#E0D8C8 100%)}
+.prev-story .progress{display:none}
+.prev-story .top{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#7A6F5C;font-weight:600}
+.prev-story .top .ch{color:var(--cyan)}
+.prev-story .mid{display:flex;flex-direction:column;gap:8px}
+.prev-story .mid .mini{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.prev-story .mid h3{font-family:'Fraunces',serif;font-size:30px;line-height:0.95;font-weight:400;font-style:italic;letter-spacing:-0.02em}
+.prev-story .mid h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.prev-story .mid h3 .cy{color:var(--cyan)}
+.prev-story .bot{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#7A6F5C;font-weight:600}
 
-/* 02 Dark Tech (kept) */
-.prev-dark{background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.5),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.45),transparent 50%),#0A1220;color:#F2F2F2;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.prev-dark .badge{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:10px}
-.prev-dark .x-icon{width:26px;height:32px;margin-bottom:10px;filter:drop-shadow(0 6px 18px rgba(0,159,227,0.5))}
-.prev-dark .title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.035em;line-height:1.0}
-.prev-dark .title .g{background:linear-gradient(135deg,#1DB4F0,#009FE3,#2778BC);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:300}
+.prev-ar{background:#F7F2EA;color:#1A1A1A;padding:0;display:flex;flex-direction:column;justify-content:space-between;font-family:'Source Serif 4',serif;position:relative}
+.prev-ar .spine{display:flex;justify-content:space-between;padding:10px 18px;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#7A6F5C;border-bottom:1px solid rgba(0,0,0,0.1);font-weight:600}
+.prev-ar .spine .ll{display:inline-flex;align-items:center;gap:8px}
+.prev-ar .spine .ll svg{width:10px;height:13px}
+.prev-ar .spine .ll strong{color:var(--blue);font-weight:700}
+.prev-ar .spine .ctr strong{color:var(--blue);font-weight:700}
+.prev-ar .mid{padding:14px 18px 18px;display:flex;flex-direction:column;gap:6px;position:relative;flex:1;justify-content:flex-end}
+.prev-ar .mid .eb{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:8px;font-weight:600}
+.prev-ar .mid .eb .bar{width:28px;height:1.5px;background:var(--cyan)}
+.prev-ar .mid h3{font-size:26px;line-height:0.95;font-weight:400;letter-spacing:-0.02em;color:#0A1A33;font-family:'Source Serif 4',serif}
+.prev-ar .mid h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.prev-ar .mid h3 strong{color:var(--cyan);font-weight:400;font-style:italic}
+.prev-ar .mid .yr{position:absolute;right:18px;bottom:14px;font-family:'Source Serif 4',serif;font-size:46px;font-weight:200;color:#0A1A33;line-height:0.85;letter-spacing:-0.04em}
+.prev-ar .mid .yr em{font-style:italic;color:var(--cyan);font-weight:300}
 
-/* 03 Brutalist (was 04) */
-.prev-brut{background:#FAFAF7;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
-.prev-brut .top{background:#13265D;color:#FAFAF7;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase}
-.prev-brut .mid{padding:12px;display:flex;flex-direction:column;justify-content:center}
-.prev-brut .mid h3{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.05em;line-height:0.85;text-transform:uppercase}
-.prev-brut .mid h3 .a{background:#009FE3;color:#fff;padding:0 3px}
-.prev-brut .mid h3 .o{-webkit-text-stroke:1px #13265D;color:transparent;font-style:italic;font-weight:600}
-.prev-brut .bot{background:#009FE3;color:#fff;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+.prev-horiz{background:#0A1A2F;color:#fff;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.prev-horiz .bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(0,159,227,0.25),transparent 60%),linear-gradient(135deg,#0A1A2F,#152E55)}
+.prev-horiz .inner{position:relative;z-index:2;padding:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:center;flex:1}
+.prev-horiz .inner h3{font-family:'Montserrat',sans-serif;font-size:24px;line-height:0.95;font-weight:700;letter-spacing:-0.03em}
+.prev-horiz .inner h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--cyan-bright);font-weight:400}
+.prev-horiz .inner .num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--cyan-bright);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prev-horiz .inner .num .bar{width:20px;height:1px;background:var(--cyan-bright)}
+.prev-horiz .inner .vis{display:flex;justify-content:center}
+.prev-horiz .inner .vis svg{width:54px;height:66px;opacity:0.85}
+.prev-horiz .ft{position:relative;z-index:2;padding:8px 18px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#7A95B8;border-top:1px solid rgba(255,255,255,0.08)}
+.prev-horiz .ft .dots{display:flex;gap:5px}
+.prev-horiz .ft .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)}
+.prev-horiz .ft .dot.act{background:var(--cyan);width:14px;border-radius:99px}
 
-/* 04 Scroll Story (was 05) */
-.prev-story{background:#F4F1EC;color:#13265D;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative}
-.prev-story .progress{position:absolute;top:0;left:0;height:2px;width:60%;background:#009FE3;z-index:2}
-.prev-story .top{padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;display:flex;justify-content:space-between}
-.prev-story .top .ch{color:#009FE3}
-.prev-story .mid{padding:0 18px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.prev-story .mid .mini{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px}
-.prev-story .mid .mini::before{content:"";display:inline-block;width:18px;height:1px;background:#009FE3;vertical-align:middle;margin-right:8px}
-.prev-story .mid h3{font-family:'Fraunces',serif;font-size:34px;line-height:0.9;letter-spacing:-0.04em;font-weight:300}
-.prev-story .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-story .mid h3 .cy{font-style:italic;color:#009FE3;font-weight:300}
-.prev-story .bot{padding:8px 18px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B}
+.prev-esg{background:#F4F1EA;color:#1B1B1B;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.prev-esg::before{content:"";position:absolute;top:0;left:0;width:50%;height:3px;background:var(--cyan)}
+.prev-esg .top{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#5A5040;font-weight:600;padding-top:5px}
+.prev-esg .top .b{color:var(--blue)}
+.prev-esg h3{font-family:'Fraunces',serif;font-size:26px;line-height:0.95;font-weight:400;font-style:italic;letter-spacing:-0.02em;color:#1B1B1B}
+.prev-esg h3 em{font-style:italic;color:var(--blue);font-weight:400}
+.prev-esg .h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding-top:6px;border-top:1px solid #D8D0BF}
+.prev-esg .h .item{font-family:'Inter',sans-serif;text-align:left}
+.prev-esg .h .item .v{font-family:'Fraunces',serif;font-size:18px;font-weight:400;color:var(--cyan);line-height:1}
+.prev-esg .h .item .v strong{color:var(--blue);font-weight:400}
+.prev-esg .h .item .l{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5040;margin-top:2px;font-weight:600}
 
-/* 05 Annual Report (was 09) */
-.prev-ar{background:#FBFAF6;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto 1fr auto;position:relative}
-.prev-ar .spine{padding:6px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid rgba(11,26,51,0.12);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:#6E7585}
-.prev-ar .spine .ll{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.08em;color:#0B1A33;text-transform:none}
-.prev-ar .spine .ll svg{width:11px;height:13px}
-.prev-ar .spine .ll strong{font-weight:600;color:#2778BC}
-.prev-ar .spine .ctr{text-align:center}
-.prev-ar .spine .ctr strong{color:#0B1A33}
-.prev-ar .mid{padding:16px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.prev-ar .mid .eb{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#2778BC;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-ar .mid .eb .bar{width:22px;height:2px;background:#D4B57A}
-.prev-ar .mid h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:30px;line-height:0.92;letter-spacing:-0.03em;color:#0B1A33}
-.prev-ar .mid h3 em{font-style:italic;color:#2778BC;font-weight:300}
-.prev-ar .mid h3 strong{font-weight:600}
-.prev-ar .mid .yr{position:absolute;right:14px;bottom:10px;font-family:'Source Serif 4',serif;font-weight:300;font-size:24px;line-height:0.9;color:#0B1A33;letter-spacing:-0.04em}
-.prev-ar .mid .yr em{font-style:italic;color:#D4B57A}
+.prev-cine{background:#000;color:#fff;padding:0;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.prev-cine .b{height:18px;background:#000;flex-shrink:0}
+.prev-cine .mid{flex:1;background:linear-gradient(120deg,#0A2240 0%,#1B3D6B 50%,#0F1A2E 100%);display:flex;align-items:center;padding:14px 18px;position:relative}
+.prev-cine .mid::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(0,159,227,0.3),transparent 60%);pointer-events:none}
+.prev-cine .mid .inner{position:relative;z-index:2}
+.prev-cine .mid .lbl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:8px}
+.prev-cine .mid h3{font-family:'Fraunces',serif;font-size:26px;line-height:1;font-weight:400;letter-spacing:-0.02em;font-style:italic}
+.prev-cine .mid h3 em{font-style:italic;color:var(--cyan-bright);font-weight:400}
 
-/* 06 Horizontal Stories (was 13) */
-.prev-horiz{background:#0A1220;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
-.prev-horiz .bg{position:absolute;inset:0;background:radial-gradient(80% 100% at 80% 20%,rgba(0,159,227,0.45),transparent 50%),radial-gradient(80% 100% at 20% 80%,rgba(39,120,188,0.35),transparent 50%)}
-.prev-horiz .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}
-.prev-horiz .num{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-horiz .num .bar{width:16px;height:1px;background:#009FE3}
-.prev-horiz h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:1;letter-spacing:-0.025em;color:#fff}
-.prev-horiz h3 em{font-style:italic;color:#1DB4F0}
-.prev-horiz .vis{display:flex;align-items:center;justify-content:center}
-.prev-horiz .vis svg{width:60px;height:73px;filter:drop-shadow(0 8px 24px rgba(0,159,227,0.5))}
-.prev-horiz .ft{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15)}
-.prev-horiz .dots{display:flex;gap:5px;align-items:center;justify-content:center}
-.prev-horiz .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25)}
-.prev-horiz .dot.act{background:#009FE3;width:14px;border-radius:99px}
+/* ====== PREVIEW STYLES (new B2B 09-18) ====== */
+/* Common B2B canvas: light/cream, navy text, generous structure */
 
-/* 07 ESG (was 16) */
-.prev-esg{background:#F4F5F0;color:#0E2230;padding:14px;display:flex;flex-direction:column;gap:10px;font-family:'Inter',sans-serif}
-.prev-esg .top{background:#0E2230;color:#F4F5F0;padding:5px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;margin:-14px -14px 8px}
-.prev-esg .top .b{background:#A3B07A;color:#0E2230;padding:1px 6px;font-weight:700}
-.prev-esg h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:22px;line-height:0.95;letter-spacing:-0.035em}
-.prev-esg h3 em{font-style:italic;color:#6B7A4A}
-.prev-esg .h{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;background:#0E2230;padding:8px;color:#F4F5F0}
-.prev-esg .h .item{text-align:center}
-.prev-esg .h .v{font-family:'Source Serif 4',serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em}
-.prev-esg .h .v strong{font-weight:500;color:#A3B07A}
-.prev-esg .h .l{font-family:'JetBrains Mono',monospace;font-size:5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,245,240,0.6);margin-top:4px}
+.prev-gate{background:#F8FAFC;color:#0B1A33;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.prev-gate .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid #E2E8F0;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#64748B}
+.prev-gate .nav .l{display:inline-flex;align-items:center;gap:6px;color:#0B1A33;font-weight:600}
+.prev-gate .nav .l svg{width:10px;height:13px}
+.prev-gate .nav .r{display:flex;gap:10px}
+.prev-gate .hero{padding:14px 16px 8px}
+.prev-gate .hero h3{font-family:'Lexend',sans-serif;font-size:22px;line-height:1.02;font-weight:500;letter-spacing:-0.025em}
+.prev-gate .hero h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-gate .paths{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:6px 16px 14px}
+.prev-gate .paths .p{padding:8px 7px;border:1px solid #E2E8F0;border-radius:7px;background:#fff;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;color:#0B1A33;display:flex;flex-direction:column;gap:3px}
+.prev-gate .paths .p span{font-size:7px;color:#64748B;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.prev-gate .paths .p.act{background:var(--blue);color:#fff;border-color:var(--blue)}
+.prev-gate .paths .p.act span{color:rgba(255,255,255,0.7)}
 
-/* 08 Cinematic (was 17) */
-.prev-cine{background:linear-gradient(180deg,#070C18 0%,#0E1729 100%);color:#fff;padding:0;display:grid;grid-template-rows:14px 1fr 14px;font-family:'Inter',sans-serif;position:relative;overflow:hidden}
-.prev-cine .b{background:#070C18}
-.prev-cine .mid{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 18px;overflow:hidden}
-.prev-cine .mid::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(0,159,227,0.3) 0%,transparent 55%),radial-gradient(circle at 80% 70%,rgba(39,120,188,0.4) 0%,transparent 55%)}
-.prev-cine .mid::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.03) 0,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay}
-.prev-cine .inner{position:relative;z-index:2}
-.prev-cine .lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:#009FE3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.prev-cine .lbl::before{content:"";width:18px;height:1px;background:#009FE3}
-.prev-cine h3{font-family:'Source Serif 4',serif;font-weight:300;font-size:28px;line-height:0.95;letter-spacing:-0.035em;text-shadow:0 4px 20px rgba(0,159,227,0.3)}
-.prev-cine h3 em{font-style:italic;color:#009FE3}
+.prev-ind{background:#FFFFFF;color:#0B1A33;padding:0;display:flex;flex-direction:column}
+.prev-ind .top{padding:9px 16px;background:#0B1A33;color:#fff;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+.prev-ind .top span{display:inline-flex;align-items:center;gap:5px}
+.prev-ind .top svg{width:9px;height:11px}
+.prev-ind h3{font-family:'Lexend',sans-serif;font-size:18px;line-height:1.05;font-weight:500;letter-spacing:-0.02em;padding:12px 16px 8px}
+.prev-ind h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-ind .grid7{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:0 16px 14px}
+.prev-ind .grid7 .b{padding:6px 5px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;font-family:'Source Sans 3',sans-serif;font-size:8px;font-weight:600;color:#0B1A33;text-align:center;line-height:1.2}
+.prev-ind .grid7 .b strong{display:block;color:var(--blue);font-size:11px;margin-top:2px;font-weight:700}
 
-/* === NEUE === */
+.prev-role{background:#F8FAFC;color:#0B1A33;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.prev-role .label{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.prev-role h3{font-family:'Lexend',sans-serif;font-size:18px;line-height:1.05;font-weight:500;letter-spacing:-0.02em}
+.prev-role h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-role .r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:auto}
+.prev-role .r3 .r{padding:7px 7px;background:#fff;border:1px solid #E2E8F0;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:600;color:#0B1A33;line-height:1.2}
+.prev-role .r3 .r span{font-size:7.5px;color:#64748B;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:2px}
 
-/* 09 Card Stack */
-.prev-stk{background:#F4F1EC;color:#0B1A33;padding:18px;font-family:'Inter',sans-serif;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.prev-stk .stack{position:relative;height:100px;margin-bottom:10px}
-.prev-stk .stack .c{position:absolute;left:50%;top:0;transform:translateX(-50%);width:160px;padding:10px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;box-shadow:0 6px 16px -8px rgba(0,0,0,0.2)}
-.prev-stk .stack .c1{background:#0B1A33;color:#fff;top:0;z-index:3}
-.prev-stk .stack .c2{background:#2778BC;color:#fff;top:14px;transform:translateX(calc(-50% + 6px));z-index:2;opacity:0.85}
-.prev-stk .stack .c3{background:#fff;border:1px solid rgba(11,26,51,0.12);color:#0B1A33;top:28px;transform:translateX(calc(-50% + 12px));z-index:1;opacity:0.7}
-.prev-stk h3{font-family:'Inter',sans-serif;font-weight:300;font-size:20px;line-height:0.95;letter-spacing:-0.035em;text-align:center}
-.prev-stk h3 strong{font-weight:600}
-.prev-stk h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300}
-.prev-stk .pgr{display:flex;gap:4px;justify-content:center;margin-top:8px}
-.prev-stk .pgr span{width:5px;height:5px;border-radius:50%;background:rgba(11,26,51,0.18)}
-.prev-stk .pgr span.act{background:#2778BC;width:14px;border-radius:99px}
+.prev-trust{background:#0B1A33;color:#fff;padding:0;display:flex;flex-direction:column}
+.prev-trust .top{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#8AA3C2;font-weight:600;text-align:center}
+.prev-trust .wall{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:10px 16px}
+.prev-trust .wall .lg{padding:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:8px;font-weight:700;color:#8AA3C2;text-align:center;letter-spacing:0.06em;text-transform:uppercase}
+.prev-trust .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:8px 16px 14px;border-top:1px solid rgba(255,255,255,0.08);margin-top:6px}
+.prev-trust .kpis .k{text-align:left;font-family:'Source Sans 3',sans-serif}
+.prev-trust .kpis .k .v{font-family:'Lexend',sans-serif;font-size:18px;font-weight:500;color:var(--cyan-bright);line-height:1;letter-spacing:-0.02em}
+.prev-trust .kpis .k .l{font-size:7.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8AA3C2;margin-top:3px;font-weight:600}
 
-/* 10 App Tabs */
-.prev-app{background:#fff;color:#0B1A33;padding:0;font-family:'Inter',sans-serif;display:grid;grid-template-rows:auto auto 1fr}
-.prev-app .top{padding:6px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E1E5EC}
-.prev-app .top .l{display:flex;align-items:center;gap:5px;font-weight:300;font-size:9px;letter-spacing:0.06em;color:#0B1A33}
-.prev-app .top .l svg{width:11px;height:13px}
-.prev-app .top .l strong{font-weight:600;color:#2778BC}
-.prev-app .top .ws{padding:1px 5px;background:#F5F7FA;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.06em;color:#697288;border:1px solid #E1E5EC;font-weight:600}
-.prev-app .top .btn{padding:3px 8px;background:#2778BC;color:#fff;font-size:8px;font-weight:600;border-radius:3px}
-.prev-app .tabs{padding:0 12px;display:flex;gap:10px;font-family:'Inter',sans-serif;font-size:8px;font-weight:600;background:#fff;border-bottom:1px solid #E1E5EC}
-.prev-app .tabs .t{padding:6px 0;color:#697288;display:flex;align-items:center;gap:4px;border-bottom:2px solid transparent}
-.prev-app .tabs .t.act{color:#0B1A33;border-bottom-color:#2778BC}
-.prev-app .body{padding:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#F5F7FA}
-.prev-app .kpi{padding:8px 10px;background:#fff;border:1px solid #E1E5EC;border-radius:5px;display:flex;flex-direction:column;gap:3px}
-.prev-app .kpi .l{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#697288;font-weight:700}
-.prev-app .kpi .v{font-family:'Inter',sans-serif;font-weight:300;font-size:16px;line-height:1;letter-spacing:-0.03em;color:#0B1A33}
-.prev-app .kpi .v strong{font-weight:600;color:#2778BC}
+.prev-prem{background:#F8FAFC;color:#0B1A33;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.prev-prem::before{content:"";position:absolute;top:0;left:0;width:120px;height:1px;background:var(--blue)}
+.prev-prem .lbl{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:600;padding-top:6px}
+.prev-prem h3{font-family:'Lexend',sans-serif;font-size:30px;line-height:0.98;font-weight:200;letter-spacing:-0.035em;max-width:90%}
+.prev-prem h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:300}
+.prev-prem .auth{display:flex;justify-content:space-between;align-items:end;font-family:'Source Sans 3',sans-serif;font-size:9px;color:#64748B;letter-spacing:0.04em;font-weight:500}
+.prev-prem .auth .nm{color:#0B1A33;font-weight:600}
 
-/* 11 Masonry */
-.prev-mas{background:#F4F1EC;padding:8px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:5px;font-family:'Inter',sans-serif;font-size:7px;color:#0B1A33}
-.prev-mas .tile{border-radius:4px;padding:6px 7px;border:1px solid rgba(11,26,51,0.08);overflow:hidden}
-.prev-mas .tile h5{font-family:'Inter',sans-serif;font-weight:600;font-size:8px;letter-spacing:-0.01em;line-height:1.2}
-.prev-mas .tile.t-pap{background:#fff;color:#0B1A33}
-.prev-mas .tile.t-blue{background:#2778BC;color:#fff;grid-row:span 2}
-.prev-mas .tile.t-blue h5{color:#fff;font-size:12px;font-weight:300;line-height:1}
-.prev-mas .tile.t-blue h5 strong{font-weight:500;color:#D4B57A}
-.prev-mas .tile.t-cre{background:#EAE5D8;color:#0B1A33}
-.prev-mas .tile.t-ink{background:#0B1A33;color:#fff}
-.prev-mas .tile.t-ink h5{color:#fff;font-style:italic;font-family:'Source Serif 4',serif;font-weight:400}
-.prev-mas .tile.t-cyan{background:#009FE3;color:#0B1A33;grid-row:span 2}
-.prev-mas .tile.t-cyan h5{font-size:12px;font-weight:300;line-height:1}
+.prev-mega{background:#FFFFFF;color:#0B1A33;padding:0;display:flex;flex-direction:column;position:relative}
+.prev-mega .topbar{padding:7px 16px;background:#0B1A33;color:rgba(255,255,255,0.7);font-family:'Source Sans 3',sans-serif;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.prev-mega .topbar strong{color:#fff;font-weight:600}
+.prev-mega .navrow{display:flex;justify-content:space-between;align-items:center;padding:9px 16px;border-bottom:1px solid #E2E8F0;font-family:'Source Sans 3',sans-serif;font-size:9px;color:#0B1A33;font-weight:600}
+.prev-mega .navrow .l{display:inline-flex;align-items:center;gap:6px}
+.prev-mega .navrow .l svg{width:10px;height:13px}
+.prev-mega .navrow .menu{display:flex;gap:10px;font-size:8.5px;letter-spacing:0.06em;text-transform:uppercase;color:#475569}
+.prev-mega .navrow .menu .act{color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:2px}
+.prev-mega .hero{padding:14px 16px;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;align-items:center;flex:1}
+.prev-mega .hero h3{font-family:'Lexend',sans-serif;font-size:18px;line-height:1.05;font-weight:500;letter-spacing:-0.025em}
+.prev-mega .hero h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-mega .hero .widget{padding:9px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;display:flex;flex-direction:column;gap:5px}
+.prev-mega .hero .widget .row{display:flex;justify-content:space-between;font-family:'Source Sans 3',sans-serif;font-size:8px;color:#64748B}
+.prev-mega .hero .widget .row strong{color:#0B1A33;font-weight:700;font-size:9.5px}
 
-/* 12 Atlas */
-.prev-atl{background:#F1ECDF;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;color:#0E1424}
-.prev-atl .top{padding:6px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;border-bottom:1px solid #0E1424;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6957;font-weight:600}
-.prev-atl .top .l{display:flex;align-items:center;gap:4px;color:#0E1424;text-transform:none}
-.prev-atl .top .l svg{width:11px;height:13px}
-.prev-atl .top .l span{font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em}
-.prev-atl .top .l span strong{font-weight:600;color:#2778BC}
-.prev-atl .top .ctr{text-align:center;font-family:'Source Serif 4',serif;font-style:italic;text-transform:none;font-size:9px;color:#0E1424}
-.prev-atl .mid{position:relative;padding:0;overflow:hidden;background:#E6DFC9}
-.prev-atl .mid::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(14,20,36,0.25);pointer-events:none}
-.prev-atl .mid svg{width:100%;height:100%;display:block}
-.prev-atl .pin{position:absolute;width:7px;height:7px;border-radius:50%}
-.prev-atl .pin.b{background:#2778BC}
-.prev-atl .pin.r{background:#A85426}
-.prev-atl .pin.h{background:#0E1424;width:9px;height:9px}
-.prev-atl .bot{padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6F6957;font-weight:600;border-top:1px solid #0E1424}
+.prev-sup{background:#F8FAFC;color:#0B1A33;padding:0;display:flex;flex-direction:column}
+.prev-sup .top{padding:9px 16px;background:linear-gradient(90deg,#0B1A33,#1E5A8E);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+.prev-sup .top span{display:inline-flex;align-items:center;gap:5px}
+.prev-sup h3{font-family:'Lexend',sans-serif;font-size:17px;line-height:1.05;font-weight:500;letter-spacing:-0.02em;padding:11px 16px 6px}
+.prev-sup h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-sup .checks{padding:0 16px 8px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.prev-sup .checks .c{padding:5px 8px;background:#fff;border:1px solid #E2E8F0;border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:#0B1A33;font-weight:600;display:flex;gap:5px;align-items:center}
+.prev-sup .checks .c::before{content:"";width:7px;height:7px;border-radius:50%;background:#15803D;flex-shrink:0}
+.prev-sup .plat{padding:8px 16px 14px;display:flex;gap:5px;border-top:1px solid #E2E8F0}
+.prev-sup .plat .p{padding:4px 7px;background:#0B1A33;color:#fff;font-family:'Source Sans 3',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:99px}
 
-/* 13 Bauhaus */
-.prev-bau{background:#F4F1EA;color:#0E1322;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;border-bottom:3px solid #0E1322}
-.prev-bau .top{padding:5px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:3px solid #0E1322;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.14em;text-transform:uppercase;color:#0E1322;font-weight:700}
-.prev-bau .top .l{display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.06em;text-transform:none}
-.prev-bau .top .l svg{width:10px;height:12px}
-.prev-bau .top .l strong{font-weight:600;color:#2778BC}
-.prev-bau .top .l .red{width:8px;height:8px;background:#D24B2F;border-radius:50%}
-.prev-bau .mid{padding:14px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:center;position:relative}
-.prev-bau h3{font-family:'Archivo Black',sans-serif;font-size:30px;line-height:0.88;letter-spacing:-0.045em;color:#0E1322;text-transform:uppercase}
-.prev-bau h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#D24B2F;font-weight:300;text-transform:none;letter-spacing:-0.02em}
-.prev-bau h3 .blue{color:#2778BC}
-.prev-bau .shapes{position:relative;height:80px}
-.prev-bau .shapes .sq{position:absolute;width:50px;height:50px;background:#2778BC;top:0;left:0}
-.prev-bau .shapes .ci{position:absolute;width:60px;height:60px;background:#D24B2F;border-radius:50%;bottom:0;right:0}
-.prev-bau .shapes .tr{position:absolute;top:14px;right:14px;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid #F0C24A;transform:rotate(15deg)}
-.prev-bau .bot{padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.14em;text-transform:uppercase;color:#0E1322;font-weight:700;background:#F0C24A;display:flex;justify-content:space-between}
+.prev-cases{background:#FFFFFF;color:#0B1A33;padding:0;display:flex;flex-direction:column}
+.prev-cases .top{padding:9px 16px;border-bottom:1px solid #E2E8F0;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#64748B;font-weight:600;display:flex;justify-content:space-between}
+.prev-cases .top strong{color:var(--blue)}
+.prev-cases .filt{padding:8px 16px;display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid #E2E8F0}
+.prev-cases .filt .f{padding:3px 8px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;font-weight:600;color:#475569;border:1px solid #E2E8F0;border-radius:99px}
+.prev-cases .filt .f.act{background:var(--blue);color:#fff;border-color:var(--blue)}
+.prev-cases .body{padding:10px 16px 14px;display:grid;grid-template-columns:1.2fr 1fr;gap:10px;flex:1}
+.prev-cases .body .nm{font-family:'Lexend',sans-serif;font-size:15px;line-height:1.1;font-weight:500;letter-spacing:-0.02em;color:#0B1A33;margin-bottom:5px}
+.prev-cases .body .br{font-family:'Source Sans 3',sans-serif;font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:6px}
+.prev-cases .body .quo{font-family:'Fraunces',serif;font-style:italic;font-size:11px;color:#475569;line-height:1.4}
+.prev-cases .body .k{display:flex;flex-direction:column;gap:5px;justify-content:center}
+.prev-cases .body .k .row{display:flex;justify-content:space-between;border-bottom:1px solid #E2E8F0;padding-bottom:3px;font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:#64748B}
+.prev-cases .body .k .row strong{color:#0B1A33;font-weight:700;font-size:10px}
 
-/* 14 Conference */
-.prev-conf{background:#FAF7F0;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif}
-.prev-conf .head{background:#0B1A33;color:#FAF7F0;padding:5px 12px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,247,240,0.7);font-weight:600;border-bottom:3px solid #C28A3A}
-.prev-conf .head strong{color:#C28A3A}
-.prev-conf .mid{padding:12px}
-.prev-conf .day{display:flex;align-items:center;gap:8px;padding-bottom:5px;border-bottom:1.5px solid #0B1A33;margin-bottom:6px}
-.prev-conf .day .n{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;font-weight:300;color:#2778BC;line-height:1}
-.prev-conf .day .ti{font-family:'Inter',sans-serif;font-weight:500;font-size:11px;letter-spacing:-0.015em}
-.prev-conf .day .ti em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:400}
-.prev-conf .session{display:grid;grid-template-columns:42px 1fr;gap:8px;padding:4px 0;font-size:8px;border-bottom:1px solid rgba(11,26,51,0.1)}
-.prev-conf .session:last-child{border-bottom:none}
-.prev-conf .session .time{font-family:'JetBrains Mono',monospace;font-size:8px;color:#0B1A33;font-weight:700}
-.prev-conf .session .body{display:grid;grid-template-columns:3px 1fr;gap:6px;align-items:start}
-.prev-conf .session .body::before{content:"";width:3px;align-self:stretch;background:#2778BC;border-radius:1px}
-.prev-conf .session.t-key .body::before{background:#009FE3}
-.prev-conf .session.t-wv .body::before{background:#A85426}
-.prev-conf .session .ct strong{font-size:9px;font-weight:600;color:#0B1A33;display:block;letter-spacing:-0.01em;line-height:1.2}
+.prev-her{background:#F4F1EA;color:#0B1A33;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.prev-her::before{content:"EST. 2008";position:absolute;top:14px;right:16px;font-family:'Source Sans 3',sans-serif;font-size:8px;letter-spacing:0.2em;color:var(--blue);font-weight:700}
+.prev-her .lbl{font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#5A5040;font-weight:600}
+.prev-her h3{font-family:'Lexend',sans-serif;font-size:22px;line-height:1;font-weight:300;letter-spacing:-0.025em;max-width:90%}
+.prev-her h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-her .yrs{display:flex;justify-content:space-between;border-top:1px solid #D8D0BF;padding-top:8px;font-family:'Source Sans 3',sans-serif;font-size:8px;color:#5A5040;letter-spacing:0.05em;font-weight:600}
+.prev-her .yrs span{display:flex;flex-direction:column;gap:2px}
+.prev-her .yrs span strong{font-family:'Lexend',sans-serif;font-weight:500;color:#0B1A33;font-size:11px;letter-spacing:-0.01em}
 
-/* 15 Sales Letter */
-.prev-sal{background:#FAFAF6;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto auto 1fr;font-family:'Source Serif 4',serif}
-.prev-sal .head{padding:5px 12px;display:flex;justify-content:space-between;border-bottom:1px solid rgba(11,26,51,0.14);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600}
-.prev-sal .head strong{color:#0B1A33}
-.prev-sal .lt{padding:10px 16px 6px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(11,26,51,0.14)}
-.prev-sal .lt svg{width:18px;height:22px;flex-shrink:0}
-.prev-sal .lt .from{font-family:'Inter',sans-serif;font-size:7px;color:#6B7080;line-height:1.4}
-.prev-sal .lt .from strong{display:block;font-size:8px;color:#0B1A33;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:2px}
-.prev-sal .mid{padding:12px 16px;display:flex;flex-direction:column;gap:8px;justify-content:center}
-.prev-sal .mid .lab{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:#2778BC;font-weight:700;display:flex;align-items:center;gap:6px}
-.prev-sal .mid .lab::before{content:"";width:14px;height:1.5px;background:#2778BC}
-.prev-sal .mid h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:20px;line-height:1.1;letter-spacing:-0.025em}
-.prev-sal .mid h3 em{font-style:italic;color:#2778BC}
-.prev-sal .mid h3 .hl{background:#FFF1A8;padding:0 4px}
-
-/* 16 Newsletter */
-.prev-news{background:#F4F0E4;padding:12px;font-family:'Inter',sans-serif;color:#0B1A33;display:flex;justify-content:center}
-.prev-news .iss{background:#FCFAF4;border:1px solid rgba(11,26,51,0.12);border-radius:3px;padding:0;width:100%;max-width:280px;overflow:hidden;display:flex;flex-direction:column}
-.prev-news .util{padding:4px 12px;background:#070C18;color:rgba(252,250,244,0.7);font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;display:flex;justify-content:space-between}
-.prev-news .util .b{background:#C28A3A;color:#070C18;padding:1px 4px;font-weight:700;font-size:6px;letter-spacing:0.06em}
-.prev-news .mast{padding:10px 12px 8px;border-bottom:2px solid #0B1A33}
-.prev-news .mast .top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6B7080;font-weight:600;align-items:center;gap:6px;padding-bottom:5px;border-bottom:1px solid rgba(11,26,51,0.1)}
-.prev-news .mast .top .l{display:flex;align-items:center;gap:4px;color:#0B1A33;font-family:'Inter',sans-serif;text-transform:none;font-weight:300;font-size:8px;letter-spacing:0.04em}
-.prev-news .mast .top .l svg{width:10px;height:12px}
-.prev-news .mast .top .l strong{font-weight:600;color:#2778BC}
-.prev-news .mast h4{margin-top:8px;font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.0;letter-spacing:-0.025em;color:#0B1A33}
-.prev-news .mast h4 strong{font-family:'Inter',sans-serif;font-style:normal;font-weight:600;color:#2778BC}
-.prev-news .mast h4 em{font-style:italic;color:#0B1A33;font-weight:300}
-.prev-news .body{padding:10px 12px;font-size:7px;line-height:1.5;color:#1F2937}
-.prev-news .body strong{color:#0B1A33;font-weight:600}
-
-/* 17 Manifesto Poster */
-.prev-pos{background:#F4F1EC;color:#0B1A33;padding:0;display:grid;grid-template-rows:auto 1fr auto;font-family:'Inter',sans-serif;position:relative;border:2px solid #0B1A33}
-.prev-pos .top{background:#070C18;color:#fff;padding:3px 10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border-bottom:2px solid #009FE3}
-.prev-pos .top .l{display:flex;align-items:center;gap:4px;color:#fff;font-family:'Inter',sans-serif;font-weight:300;font-size:8px;letter-spacing:0.05em;text-transform:none}
-.prev-pos .top .l svg{width:9px;height:11px}
-.prev-pos .top .l strong{color:#009FE3;font-weight:600}
-.prev-pos .top .ctr{color:rgba(255,255,255,0.7)}
-.prev-pos .mid{padding:16px 14px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.prev-pos h3{font-family:'Inter',sans-serif;font-weight:200;font-size:46px;line-height:0.82;letter-spacing:-0.05em;color:#0B1A33;text-transform:uppercase}
-.prev-pos h3 .strong{font-weight:800}
-.prev-pos h3 em{font-family:'Source Serif 4',serif;font-style:italic;color:#2778BC;font-weight:300;text-transform:none;letter-spacing:-0.025em}
-.prev-pos .bot{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid #0B1A33}
-.prev-pos .bot .p{padding:6px 8px;border-right:1px solid rgba(11,26,51,0.18);font-family:'Source Serif 4',serif;font-style:italic;font-size:12px;color:#2778BC;font-weight:300}
-.prev-pos .bot .p:last-child{border-right:none}
-
-/* 18 Lexikon */
-.prev-lex{background:#F2EEE0;color:#1A1814;padding:0;display:grid;grid-template-rows:auto auto 1fr auto;font-family:'Source Serif 4',serif}
-.prev-lex .head{padding:5px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;border-bottom:3px double #1A1814;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6852;font-weight:600}
-.prev-lex .head .l{display:flex;align-items:center;gap:4px;color:#1A1814;font-family:'Inter',sans-serif;font-weight:300;font-size:8px;letter-spacing:0.04em;text-transform:none}
-.prev-lex .head .l svg{width:9px;height:11px}
-.prev-lex .head .l strong{font-weight:600;color:#2778BC}
-.prev-lex .head .ctr{text-align:center;font-family:'Source Serif 4',serif;font-style:italic;font-size:9px;color:#1A1814;text-transform:none}
-.prev-lex .head .ctr strong{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:6px;letter-spacing:0.1em;color:#2778BC;text-transform:uppercase;padding:1px 4px;background:rgba(39,120,188,0.1)}
-.prev-lex .az{padding:5px 14px;background:#E8E2CC;display:flex;gap:3px;justify-content:center;border-bottom:1px solid #1A1814;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;color:#1A1814}
-.prev-lex .az .l{padding:1px 4px}
-.prev-lex .az .l.dim{color:#6E6852;font-weight:500}
-.prev-lex .mid{padding:10px 14px;display:flex;flex-direction:column;justify-content:center;gap:6px}
-.prev-lex .mid .big{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:34px;line-height:0.85;color:#2778BC;letter-spacing:-0.03em}
-.prev-lex .mid .term{font-family:'Source Serif 4',serif;font-weight:600;font-size:12px;color:#1A1814;letter-spacing:-0.015em;line-height:1.2}
-.prev-lex .mid .term em{font-style:italic;color:#2778BC;font-weight:400}
-.prev-lex .mid .def{font-size:7px;line-height:1.5;color:#2A2820}
-.prev-lex .mid .def strong{color:#1A1814;font-weight:600}
-.prev-lex .foot{padding:4px 14px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6852;font-weight:600;border-top:1px solid rgba(26,24,20,0.18);text-align:center}
+.prev-comp{background:#FFFFFF;color:#0B1A33;padding:0;display:flex;flex-direction:column}
+.prev-comp .top{padding:9px 16px;background:#0B1A33;color:#fff;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:space-between;font-weight:600}
+.prev-comp h3{font-family:'Lexend',sans-serif;font-size:17px;line-height:1.05;font-weight:500;letter-spacing:-0.02em;padding:11px 16px 8px}
+.prev-comp h3 em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue);font-weight:400}
+.prev-comp .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:0 16px 8px}
+.prev-comp .certs .cr{padding:7px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;text-align:center}
+.prev-comp .certs .cr .ic{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lexend',sans-serif;font-weight:600;font-size:9px;margin:0 auto 4px}
+.prev-comp .certs .cr .n{font-family:'Source Sans 3',sans-serif;font-size:8px;font-weight:700;color:#0B1A33;letter-spacing:0.04em;text-transform:uppercase;line-height:1.2}
+.prev-comp .audit{padding:8px 16px 14px;display:flex;justify-content:space-between;border-top:1px solid #E2E8F0;font-family:'Source Sans 3',sans-serif;font-size:8.5px;color:#64748B;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.prev-comp .audit strong{color:#15803D}
 
 /* FOOTER */
-.foot-bar{padding:32px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+.foot-bar{margin-top:48px;padding:32px 0 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap;gap:14px}
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg width="0" height="0" style="position:absolute">
   <symbol id="lex-x" viewBox="0 0 180 220">
     <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
     <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
@@ -413,79 +297,49 @@ a{color:inherit;text-decoration:none}
   </symbol>
 </svg>
 
-<!-- SELECTION BAR -->
-<div class="sel-bar">
-  <span class="ttl"><span class="dot"></span><span>Auswahl-Modus · 8 Favoriten markieren für Runde 09</span></span>
-  <span class="count"><span class="num" id="count-num">0</span><span style="opacity:0.5"> / </span><span class="max">8</span> · ausgewählt</span>
-  <span class="actions">
-    <button class="btn-reset" id="btn-reset" disabled>Zurücksetzen</button>
-    <button class="btn-confirm" id="btn-confirm" disabled>Auswahl bestätigen →</button>
-  </span>
-</div>
-
-<!-- MODAL -->
-<div class="modal-bg" id="modal">
-  <div class="modal">
-    <div class="modal-head">
-      <h3>Deine <em>Auswahl</em> — bereit für die nächste Runde.</h3>
-      <button class="close" id="modal-close">×</button>
-    </div>
-    <div class="modal-body">
-      <p class="intro">Du hast <strong id="modal-count">0</strong> Konzepte ausgewählt. Sende die folgende Code-Zeile zurück — ich werfe die anderen Konzepte raus und baue dafür <strong>10 neue Ideen</strong>.</p>
-      <ul class="modal-list" id="modal-list"></ul>
-      <div class="modal-code">
-        <span class="code-label">↳ Code zum Kopieren</span>
-        <div class="code-content" id="modal-code">behalte: —</div>
-      </div>
-    </div>
-    <div class="modal-foot">
-      <span class="hint">Sende mir den Code als <strong>nächste Nachricht</strong>.</span>
-      <button class="copy-btn" id="copy-btn"><span>📋</span> Code kopieren</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"><span class="ico">✓</span><span id="toast-msg">In die Zwischenablage kopiert</span></div>
-
 <div class="container">
 
-<section class="head">
+<header class="head">
   <svg class="bg-x"><use href="#lex-x"/></svg>
-  <div class="head-meta mono">
-    <span><span style="color:var(--cyan)">●</span> 2026 · <strong style="color:var(--text)">Edition 08</strong> · 18 Konzepte</span>
-    <span>LeXpersonal GmbH · Münster</span>
-    <span>8 behalten + 10 neue Ideen</span>
+  <div class="head-meta">
+    <span class="mono">Edition 09 · Senior-Designer-Direktion</span>
+    <span class="mono">Münster · 2026</span>
   </div>
   <div class="head-logo">
     <svg><use href="#lex-x"/></svg>
-    LE<strong>X</strong>PERSONAL
+    LE<strong>X</strong>PERSONAL · DESIGN&nbsp;KONZEPTE
   </div>
-  <h1>Achtzehn Konzepte.<br>Acht <em>behalten,</em> zehn neu gebaut.</h1>
-  <p>Aus der vorherigen Runde sind <strong>acht Favoriten</strong> übernommen (saubere Nummerierung 01–08). Dazu sind <strong>zehn komplett neue Layout-Ideen</strong> (09–18) entstanden — alle mit eigener Architektur, alle B2B-tauglich, alle im CI. Vom 3D-Card-Stack über App-Tabs, Atlas-Map, Bauhaus-Komposition bis zum Personal-Lexikon und Manifesto-Plakat.</p>
+  <h1>18&nbsp;Konzepte für einen <em>seriösen</em><br>Konzern-Auftritt.</h1>
+  <p>Acht Favoriten aus der letzten Runde (<strong>01–08</strong>) plus zehn vollständig neu gebaute B2B-Enterprise-Konzepte (<strong>09–18</strong>) — ausgerichtet auf Konzern-Einkauf, HR-Leitung und Werksleitung. Eigene Typografie (<strong>Lexend + Source Sans 3</strong>), konservative Marine-Palette und ein konsequent <strong>vertrauensbildender</strong> Aufbau.</p>
+
+  <div class="callout">
+    <span class="lbl">Direktion · ui-ux-pro-max Skill</span>
+    <p>Die neuen Konzepte folgen dem Muster <strong>„Enterprise Gateway"</strong> mit Stil <strong>„Trust &amp; Authority"</strong>. Im Fokus: klare Pfad-Selektion für unterschiedliche Buyer-Personas, Compliance-/Logo-Walls, Zahlen-getriebene Hero-Bänder, mega-strukturierte Navigation, WCAG-AA-Kontraste. Keine verspielten Layouts, keine Spielerei — nur die Patterns, die Konzern-Käufer aus DAX-Reports und Top-Tier-Beratungen kennen.</p>
+  </div>
 
   <div class="intro-grid">
     <div class="intro-card">
       <div class="icon">8</div>
       <div>
         <h3>Behaltene Favoriten (01–08)</h3>
-        <p>Editorial · Dark Tech · Brutalist · Scroll Story · Annual Report · Horizontal Stories · ESG Report · Cinematic — sauber auf 01–08 umnummeriert.</p>
+        <p>Editorial · Dark Tech · Brutalist · Scroll Story · Annual Report · Horizontal Stories · ESG Report · Cinematic.</p>
       </div>
     </div>
     <div class="intro-card new">
       <div class="icon">10</div>
       <div>
-        <h3>Neue Konzepte (09–18)</h3>
-        <p>Card-Stack · App-Tabs · Masonry · Atlas-Map · Bauhaus · Conference · Sales Letter · Newsletter · Manifesto-Poster · Lexikon.</p>
+        <h3>Neue B2B-Enterprise-Konzepte (09–18)</h3>
+        <p>Enterprise Gateway · Industry Hub · Role-First · Trust Wall · Premium Consulting · Mega-Menu · Konzern-Lieferanten-Portal · Case Studies · Heritage · Compliance Hub.</p>
       </div>
     </div>
   </div>
-</section>
+</header>
 
 <!-- KEPT 01-08 -->
 <div class="group-header">
   <div class="left">
     <h2>Runde 1 — <em>Behalten aus letzter Auswahl</em> (01–08)</h2>
-    <p class="sub">Deine 8 Favoriten aus der vorherigen Runde, saubere Nummerierung. Unverändert übernommen.</p>
+    <p class="sub">Deine acht Favoriten, sauber durchnummeriert. Unverändert übernommen.</p>
   </div>
   <span class="badge kept">★ Behalten · 8 Konzepte</span>
 </div>
@@ -539,7 +393,6 @@ a{color:inherit;text-decoration:none}
 
   <a href="04-scroll-story.html" class="card">
     <div class="card-preview prev-story">
-      <div class="progress"></div>
       <div class="top"><span>LEXPERSONAL · MANIFEST</span><span><span class="ch">III</span> / VII</span></div>
       <div class="mid"><span class="mini">Manifest in 7 Kapiteln</span><h3>Starke<br><em>Jobs</em> für<br><span class="cy">alle.</span></h3></div>
       <div class="bot"><span>© 2008</span><span>↓ scrollen</span></div>
@@ -614,213 +467,226 @@ a{color:inherit;text-decoration:none}
 
 </section>
 
-<!-- NEW 09-18 -->
+<!-- NEW 09-18 (B2B Enterprise) -->
 <div class="group-header">
   <div class="left">
-    <h2>Runde 2 — <em>Komplett neu gebaut</em> (09–18)</h2>
-    <p class="sub">Zehn neue Layout-Ideen, die sich von allen bisherigen klar unterscheiden. Jeweils mit eigener Header-Architektur und unverwechselbarer Bildsprache.</p>
+    <h2>Runde 2 — <em>B2B-Enterprise · komplett neu</em> (09–18)</h2>
+    <p class="sub">Zehn Konzepte für einen seriösen Konzern-Auftritt. Trust&nbsp;&amp;&nbsp;Authority-Stil, konservative Marine-Palette, Lexend + Source Sans 3, WCAG-AA-Kontrast — entwickelt anhand der Senior-Designer-Direktion.</p>
   </div>
-  <span class="badge new">★ Neu · 10 Konzepte</span>
+  <span class="badge new">★ Neu · 10 B2B-Konzepte</span>
 </div>
 
 <section class="grid">
 
-  <a href="09-card-stack.html" class="card new">
-    <div class="card-preview prev-stk">
-      <div class="stack">
-        <div class="c c3">CARD 03</div>
-        <div class="c c2">CARD 02</div>
-        <div class="c c1">CARD 01</div>
+  <a href="09-enterprise-gateway.html" class="card new">
+    <div class="card-preview prev-gate">
+      <div class="nav"><span class="l"><svg><use href="#lex-x"/></svg>LE<strong>X</strong>PERSONAL</span><span class="r"><span>Lösungen</span><span>Branchen</span><span>Compliance</span></span></div>
+      <div class="hero"><h3>Personal,<br>auf das sich<br><em>Industrie</em> verlässt.</h3></div>
+      <div class="paths">
+        <div class="p act">Unternehmen<span>HR · Werk</span></div>
+        <div class="p">Bewerber<span>Karriere</span></div>
+        <div class="p">Konzern<span>Einkauf</span></div>
+        <div class="p">Presse<span>Investor</span></div>
       </div>
-      <h3>Sechs <em>Karten,</em><br><strong>ein Versprechen.</strong></h3>
-      <div class="pgr"><span class="act"></span><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[09] · Neu</span>
-      <h2>Card-Stack Choreographie</h2>
-      <div class="vibe">3D-Stack · Scroll-Sticky · Parallax</div>
-      <p>Sechs Karten in 3D-Stack — beim Scrollen wickeln sie sich nacheinander ab. Sticky-Section mit Tilt-/Blur-Choreographie.</p>
+      <span class="card-num">[09] · Neu · B2B</span>
+      <h2>Enterprise Gateway</h2>
+      <div class="vibe">Path-Selection · 4 Buyer-Personas</div>
+      <p>Vier klare Eingangspfade direkt im Hero (Unternehmen · Bewerber · Konzern-Einkauf · Presse), darunter Logo-Wall, 3 Lösungs-Module, Industriebar, Case-Vorschau mit KPIs.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="10-app-tabs.html" class="card new">
-    <div class="card-preview prev-app">
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P <span class="ws">Münster</span></span><span class="btn">Anfrage</span></div>
-      <div class="tabs"><span class="t act">Übersicht</span><span class="t">Modelle</span><span class="t">Referenzen</span><span class="t">Compliance</span></div>
-      <div class="body">
-        <div class="kpi"><div class="l">PIPE</div><div class="v"><strong>2.4K</strong></div></div>
-        <div class="kpi"><div class="l">TTF</div><div class="v">4–7d</div></div>
-        <div class="kpi"><div class="l">FOLGE</div><div class="v">98%</div></div>
-        <div class="kpi"><div class="l">AKTIV</div><div class="v"><strong>23</strong></div></div>
+  <a href="10-industry-hub.html" class="card new">
+    <div class="card-preview prev-ind">
+      <div class="top"><span><svg><use href="#lex-x"/></svg>LE<strong>X</strong>P</span><span>Branchen · 7</span></div>
+      <h3>Branchen­kompetenz<br>seit <em>2008</em>.</h3>
+      <div class="grid7">
+        <div class="b">Metall<strong>340+</strong></div>
+        <div class="b">Logistik<strong>220+</strong></div>
+        <div class="b">Pflege<strong>180+</strong></div>
+        <div class="b">Bau<strong>140+</strong></div>
       </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[10] · Neu</span>
-      <h2>App Tabs / SaaS Dashboard</h2>
-      <div class="vibe">Linear · Notion · Workspace-Feel</div>
-      <p>Wirkt wie eine moderne Web-App: Workspace-Switcher, Suche, Tab-Navigation, KPI-Cards, Live-Aktivität, Status-Widgets.</p>
+      <span class="card-num">[10] · Neu · B2B</span>
+      <h2>Industry Hub</h2>
+      <div class="vibe">Branchen-first · Vertikal-Cards</div>
+      <p>Branchen als primärer Einstieg: 7 Industrie-Karten mit Pipeline, Time-to-Fill, aktiven Rollen. Trust-Band mit iGZ · BA · DSGVO · SAP-Compliance-Badges.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="11-masonry.html" class="card new">
-    <div class="card-preview prev-mas">
-      <div class="tile t-pap"><h5>Profil 01</h5></div>
-      <div class="tile t-blue"><h5><strong>2.4</strong>K+</h5></div>
-      <div class="tile t-cre"><h5>Modell</h5></div>
-      <div class="tile t-ink"><h5>„Mensch."</h5></div>
-      <div class="tile t-cyan"><h5>98%</h5></div>
-      <div class="tile t-pap"><h5>Stimme</h5></div>
+  <a href="11-solutions-by-role.html" class="card new">
+    <div class="card-preview prev-role">
+      <span class="label">Lösung nach Rolle</span>
+      <h3>Was suchen<br><em>Sie</em> heute?</h3>
+      <div class="r3">
+        <div class="r"><span>HR-Leitung</span>Strategische Personalpartnerschaft</div>
+        <div class="r"><span>Werkleitung</span>Schichtfähige Teams in 5–7 Tagen</div>
+        <div class="r"><span>Einkauf</span>Konzern-Lieferantenprozess</div>
+      </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[11] · Neu</span>
-      <h2>Masonry Wall</h2>
-      <div class="vibe">Pinterest · Are.na · Mosaic</div>
-      <p>Variable Karten­höhen, Pinterest-Mosaic mit Statements, Stats, Quotes und Bildern. Filter-Bar oben.</p>
+      <span class="card-num">[11] · Neu · B2B</span>
+      <h2>Solutions by Role</h2>
+      <div class="vibe">3 Buyer-Persona-Pfade</div>
+      <p>Drei Rollen-Karten (HR-Leitung · Werks-/Personalleitung · Konzern-Einkauf) — jede mit relevanter Checkliste, Fall-Beispiel und SLA-Verweis.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="12-atlas-map.html" class="card new">
-    <div class="card-preview prev-atl">
-      <div class="top">
-        <span class="l"><svg><use href="#lex-x"/></svg> <span>LE<strong>X</strong>PERSONAL</span></span>
-        <span class="ctr">Atlas des Münsterlandes</span>
-        <span>1 : 250.000</span>
+  <a href="12-trust-wall.html" class="card new">
+    <div class="card-preview prev-trust">
+      <div class="top">Vertrauen messbar gemacht</div>
+      <div class="wall">
+        <div class="lg">ABCo</div><div class="lg">Müns.</div><div class="lg">Nord</div><div class="lg">VITA</div><div class="lg">K&amp;S</div>
+        <div class="lg">Schul</div><div class="lg">Pflg.</div><div class="lg">Met.</div><div class="lg">Log.</div><div class="lg">+9</div>
       </div>
-      <div class="mid">
-        <svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid meet"><path d="M30 50 Q50 30 90 30 Q140 28 165 50 Q175 80 165 110 Q130 130 90 125 Q50 120 30 95 Q22 75 30 50 Z" fill="#D9D0B2" stroke="#0E1424" stroke-width="0.8"/></svg>
-        <span class="pin h" style="top:50%;left:48%"></span>
-        <span class="pin b" style="top:30%;left:35%"></span>
-        <span class="pin b" style="top:34%;left:60%"></span>
-        <span class="pin r" style="top:68%;left:50%"></span>
-        <span class="pin b" style="top:60%;left:75%"></span>
+      <div class="kpis">
+        <div class="k"><div class="v">18+</div><div class="l">Jahre</div></div>
+        <div class="k"><div class="v">2.4K</div><div class="l">Pipeline</div></div>
+        <div class="k"><div class="v">98%</div><div class="l">Folge­auftrag</div></div>
+        <div class="k"><div class="v">4–7d</div><div class="l">TTF</div></div>
       </div>
-      <div class="bot"><span>· Sheet 01/03 ·</span><span>23 Einsätze</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[12] · Neu</span>
-      <h2>Atlas / Münsterland-Karte</h2>
-      <div class="vibe">Geografisch · Kartografisch</div>
-      <p>Stilisierte Karte des Münster­landes mit Einsatz-Pins, Index, Branchen-Tafel. Geografische Verwurzelung als Bildsprache.</p>
+      <span class="card-num">[12] · Neu · B2B</span>
+      <h2>Trust Wall</h2>
+      <div class="vibe">Logo-Wall · KPI-Bar · Testimonials</div>
+      <p>Massive Logo-Wand (18 Kunden), vier KPI-Karten, sechs Compliance-Badges, drei direkte O-Töne von HR-Entscheidern. Maximaler Vertrauens-Aufbau.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="13-bauhaus.html" class="card new">
-    <div class="card-preview prev-bau">
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> <span class="red"></span> LE<strong>X</strong></span><span>· COMP I ·</span></div>
-      <div class="mid">
-        <h3>Personal<br><em>für</em><br><span class="blue">Industrie.</span></h3>
-        <div class="shapes"><span class="sq"></span><span class="ci"></span><span class="tr"></span></div>
-      </div>
-      <div class="bot"><span>· COMP I.</span><span>· II.</span><span>· III ·</span></div>
+  <a href="13-premium-consulting.html" class="card new">
+    <div class="card-preview prev-prem">
+      <span class="lbl">Premium Personalberatung · Münster</span>
+      <h3>Senior-Personal<br>für <em>senior</em><br>Entscheidungen.</h3>
+      <div class="auth"><span>Vom Inhaber geführt seit 2008</span><span class="nm">Dr. iur. · Inhaber</span></div>
     </div>
     <div class="card-body">
-      <span class="card-num">[13] · Neu</span>
-      <h2>Bauhaus Composition</h2>
-      <div class="vibe">Bauhaus · Modulor · Geometrisch</div>
-      <p>Asymmetrische geometrische Komposition mit Kreisen, Quadraten, Dreiecken. Archivo Black + Source Serif Italic — bauhaus-inspiriert.</p>
+      <span class="card-num">[13] · Neu · B2B</span>
+      <h2>Premium Consulting</h2>
+      <div class="vibe">Korn Ferry · Russell Reynolds</div>
+      <p>Sehr ruhig, sehr viel Weißraum, Lexend-200-Headlines. Senior-Advisor-Profile, drei Kernprinzipien, signiertes Statement vom Inhaber.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="14-conference.html" class="card new">
-    <div class="card-preview prev-conf">
-      <div class="head"><span>● <strong>EDITION XVIII</strong></span><span>· 27.05.2026 ·</span></div>
-      <div class="mid">
-        <div class="day"><span class="n">i.</span><span class="ti">Vormittag — <em>Briefing</em></span></div>
-        <div class="session t-key"><span class="time">08:30</span><div class="body"><div class="ct"><strong>Eröffnung: Plenum</strong></div></div></div>
-        <div class="session"><span class="time">09:00</span><div class="body"><div class="ct"><strong>Briefing-Workshop · M-01</strong></div></div></div>
-        <div class="session"><span class="time">10:00</span><div class="body"><div class="ct"><strong>Active Sourcing · M-02</strong></div></div></div>
-        <div class="session t-wv"><span class="time">11:30</span><div class="body"><div class="ct"><strong>Werkvertrag rechtssicher · M-03</strong></div></div></div>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[14] · Neu</span>
-      <h2>Conference Program</h2>
-      <div class="vibe">Tagungs-Schedule · Edition XVIII</div>
-      <p>Wie ein Konferenz-Programm: Vormittag/Nachmittag mit Sessions, Tracks, Sprecher-Avataren, Räumen und Keynotes.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="15-sales-letter.html" class="card new">
-    <div class="card-preview prev-sal">
-      <div class="head"><span>· LEX-OB-2026/003 ·</span><span><strong>Vertraulich</strong></span></div>
-      <div class="lt"><svg><use href="#lex-x"/></svg><div class="from"><strong>LeXpersonal GmbH</strong>An den Loddenbüschen 95<br>48155 Münster · 0251 26 52 49 20</div></div>
-      <div class="mid">
-        <span class="lab">Offener Brief</span>
-        <h3>Wenn Ihr Dienst­leister <em>monatlich</em> abrechnet — und Sie trotz­dem <span class="hl">Fluktuation</span> haben…</h3>
-      </div>
-    </div>
-    <div class="card-body">
-      <span class="card-num">[15] · Neu</span>
-      <h2>Sales Letter / Long-Form</h2>
-      <div class="vibe">Direct Response · Copywriting</div>
-      <p>Klassischer Sales-Letter mit Briefkopf, Headline, Story-Arc, Beweis-Boxen, Bullets, Q&amp;A, Signatur, P.S. Sehr persönlich, sehr direkt.</p>
-      <span class="open">Konzept öffnen →</span>
-    </div>
-  </a>
-
-  <a href="16-newsletter.html" class="card new">
-    <div class="card-preview prev-news">
-      <div class="iss">
-        <div class="util"><span>● <span class="b">№18</span></span><span>Abonnieren →</span></div>
-        <div class="mast">
-          <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</span><span>27.05.</span></div>
-          <h4>Der <strong>Personal-</strong><br><em>Brief.</em> Ausg. XVIII</h4>
+  <a href="14-mega-menu.html" class="card new">
+    <div class="card-preview prev-mega">
+      <div class="topbar"><span>Konzern-Hotline · <strong>+49 251 …</strong></span><span>DE · EN</span></div>
+      <div class="navrow"><span class="l"><svg><use href="#lex-x"/></svg>LE<strong>X</strong>PERSONAL</span><span class="menu"><span class="act">Lösungen</span><span>Branchen</span><span>Über uns</span><span>Karriere</span></span></div>
+      <div class="hero">
+        <h3>Industrie-Personal<br>mit <em>SLA</em> &amp;<br>Compliance.</h3>
+        <div class="widget">
+          <div class="row"><span>Pipeline</span><strong>2.420</strong></div>
+          <div class="row"><span>Time-to-Fill</span><strong>4–7d</strong></div>
+          <div class="row"><span>Folge­auftrag</span><strong>98%</strong></div>
         </div>
-        <div class="body"><strong>Editorial:</strong> Warum Verbleibs­quote die wichtigere Kennzahl ist. <strong>Number of the Month:</strong> 140 Fachkräfte in 8 Monaten…</div>
       </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[16] · Neu</span>
-      <h2>Premium Newsletter Issue</h2>
-      <div class="vibe">Stratechery · Lenny's · Substack</div>
-      <p>Wie ein hochwertiger Premium-Newsletter: Issue-Nummer, TOC, Editorial, Number-of-the-Month, Branchen­einblick, Links, Subscribe-CTA.</p>
+      <span class="card-num">[14] · Neu · B2B</span>
+      <h2>Mega-Menu Konzern-Site</h2>
+      <div class="vibe">Bosch · Siemens · Klassisch</div>
+      <p>Klassischer Enterprise-Site-Header mit Top-Bar, Mega-Menü, Hero + Live-Dashboard-Widget, Downloads, News/Insights, Mega-Footer mit Sitemap.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="17-manifesto-poster.html" class="card new">
-    <div class="card-preview prev-pos">
-      <div class="top"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong></span><span class="ctr">MANIFESTO · 4 SHEETS</span><span>· 01/04 ·</span></div>
-      <div class="mid">
-        <h3>Personal<br><em>für</em><br><span class="strong">Industrie.</span></h3>
+  <a href="15-supplier-portal.html" class="card new">
+    <div class="card-preview prev-sup">
+      <div class="top"><span><svg><use href="#lex-x"/></svg>LIEFERANTEN-PORTAL</span><span>Login →</span></div>
+      <h3>Für Konzern-<br><em>Einkauf</em> &amp;<br>Compliance.</h3>
+      <div class="checks">
+        <div class="c">DSGVO Art. 28 AVV</div>
+        <div class="c">iGZ-Zertifikat</div>
+        <div class="c">Equal-Pay-Modell</div>
+        <div class="c">D&amp;O 5 Mio €</div>
       </div>
-      <div class="bot">
-        <div class="p">i.</div>
-        <div class="p">ii.</div>
-        <div class="p">iii.</div>
+      <div class="plat">
+        <div class="p">SAP Fieldglass</div>
+        <div class="p">Onventis</div>
+        <div class="p">Beeline</div>
       </div>
     </div>
     <div class="card-body">
-      <span class="card-num">[17] · Neu</span>
-      <h2>Manifesto Poster</h2>
-      <div class="vibe">Single-Sheet · Plakat-Edition</div>
-      <p>Vier Plakat-Sheets mit Mega-Typografie: Grundsatz · Statement · Zahlen · Call. DIN-B1-Anmutung mit harten Linien, oversized Type.</p>
+      <span class="card-num">[15] · Neu · B2B</span>
+      <h2>Konzern-Lieferanten-Portal</h2>
+      <div class="vibe">Procurement · VMS-Integration</div>
+      <p>Dediziertes Einstiegsportal für Konzern-Einkauf: Compliance-Übersicht, Dossier-Anfrage-Formular, VMS/SRM-Integrationen (Fieldglass · Onventis · Beeline), SLAs.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
 
-  <a href="18-lexikon.html" class="card new">
-    <div class="card-preview prev-lex">
-      <div class="head"><span class="l"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>P</span><span class="ctr">Personal-<em>Lexikon</em><strong>EDITION I</strong></span><span>· 42 ·</span></div>
-      <div class="az"><span class="l">A</span><span class="l">B</span><span class="l">D</span><span class="l">E</span><span class="l dim">F</span><span class="l">G</span><span class="l">I</span><span class="l">L</span><span class="l">M</span><span class="l">P</span><span class="l">S</span><span class="l">T</span><span class="l">V</span><span class="l">W</span></div>
-      <div class="mid">
-        <span class="big">A.</span>
-        <div class="term">Arbeitnehmer­überlassung <em>(ANÜ)</em></div>
-        <div class="def">Die Überlassung einer arbeit­nehmenden Person durch einen <strong>Verleiher</strong> an einen <strong>Entleiher</strong>…</div>
+  <a href="16-case-studies.html" class="card new">
+    <div class="card-preview prev-cases">
+      <div class="top"><span>Case Studies · <strong>6 Referenzen</strong></span><span>↓ PDF Download</span></div>
+      <div class="filt"><span class="f act">Alle</span><span class="f">Metall</span><span class="f">Logistik</span><span class="f">Pflege</span></div>
+      <div class="body">
+        <div>
+          <div class="br">Metallwerk Münsterland</div>
+          <div class="nm">340 Plätze in 8 Monaten besetzt.</div>
+          <div class="quo">„Ohne LeXpersonal hätten wir die Q3-Aufträge nicht durchsetzen können."</div>
+        </div>
+        <div class="k">
+          <div class="row"><span>TTF</span><strong>4,2 Tage</strong></div>
+          <div class="row"><span>Über­nahmen</span><strong>27%</strong></div>
+          <div class="row"><span>Folge­auftrag</span><strong>100%</strong></div>
+        </div>
       </div>
-      <div class="foot">— 42 Stichworte · Edition I · Mai 2026 —</div>
     </div>
     <div class="card-body">
-      <span class="card-num">[18] · Neu</span>
-      <h2>Personal-Lexikon</h2>
-      <div class="vibe">Encyclopaedia · Glossar · A–Z</div>
-      <p>Wie ein Fach-Lexikon der Personal­branche: A–Z-Index, Stichwort-Einträge mit Definitionen, Querverweisen, Praxis-Quotes. Sehr autoritativ.</p>
+      <span class="card-num">[16] · Neu · B2B</span>
+      <h2>Case Studies Showcase</h2>
+      <div class="vibe">Filter-Bar · 6 Detail-Cases</div>
+      <p>Filterbare Case-Bibliothek: 6 ausführliche Fallstudien (Metallwerk, NordLogistik, VITA Pflege, Kramer&amp;Söhne, Schulte Industrie, Konzerntochter) mit KPIs und Zitaten.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="17-heritage.html" class="card new">
+    <div class="card-preview prev-her">
+      <span class="lbl">Inhabergeführt · Münster</span>
+      <h3>Seit <em>2008</em> ein<br>Versprechen,<br>kein Schlagwort.</h3>
+      <div class="yrs">
+        <span>2008<strong>Gründung</strong></span>
+        <span>2014<strong>iGZ-Mitglied</strong></span>
+        <span>2019<strong>500. Kunde</strong></span>
+        <span>2026<strong>18 Jahre</strong></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[17] · Neu · B2B</span>
+      <h2>Heritage · 18 Jahre Münster</h2>
+      <div class="vibe">Brief vom Gründer · Meilensteine</div>
+      <p>Inhaber-/Gründer-Brief, drei Grundsätze, Meilenstein-Timeline 2008–2026, Senior-Team mit Profilen, Auszeichnungen und Mitgliedschaften.</p>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
+  <a href="18-compliance-hub.html" class="card new">
+    <div class="card-preview prev-comp">
+      <div class="top"><span>Compliance &amp; Standards</span><span>Stand: 06/2026</span></div>
+      <h3>Sechs Zertifikate.<br>Ein <em>Maßstab</em>.</h3>
+      <div class="certs">
+        <div class="cr"><div class="ic">iGZ</div><div class="n">Tarifvertrag</div></div>
+        <div class="cr"><div class="ic">BA</div><div class="n">Erlaubnis</div></div>
+        <div class="cr"><div class="ic">DSGVO</div><div class="n">Art. 28</div></div>
+        <div class="cr"><div class="ic">SAP</div><div class="n">Ariba/FG</div></div>
+        <div class="cr"><div class="ic">EP</div><div class="n">Equal-Pay</div></div>
+        <div class="cr"><div class="ic">D&amp;O</div><div class="n">5 Mio €</div></div>
+      </div>
+      <div class="audit"><span>Letzter Audit</span><strong>✓ 03/2026 bestanden</strong></div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[18] · Neu · B2B</span>
+      <h2>Compliance Hub</h2>
+      <div class="vibe">Zertifikate · Audit-Trail · Standards</div>
+      <p>Sechs Zertifizierungs-Karten (iGZ · BA · DSGVO · SAP · Equal-Pay · Versicherung), Audit-Tabelle mit Daten und Auditoren, plus zusätzliche Standards.</p>
       <span class="open">Konzept öffnen →</span>
     </div>
   </a>
@@ -829,151 +695,25 @@ a{color:inherit;text-decoration:none}
 
 <section style="padding:32px 0 48px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
   <div>
-    <span class="mono" style="color:var(--cyan)">Konzern-Vertrieb</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Premium-B2B: <strong style="color:var(--text)">05 Annual Report</strong>, <strong style="color:var(--text)">07 ESG</strong>, <strong style="color:var(--text)">10 App Tabs</strong>, <strong style="color:var(--text)">15 Sales Letter</strong>, <strong style="color:var(--text)">17 Manifesto Poster</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Konzern-Einkauf zuerst</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Beschaffungs-getriebene Pfade: <strong style="color:var(--text)">09 Enterprise Gateway</strong>, <strong style="color:var(--text)">15 Lieferanten-Portal</strong>, <strong style="color:var(--text)">18 Compliance Hub</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Lokal &amp; Regional</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Münsterländer Verwurzelung: <strong style="color:var(--text)">12 Atlas-Map</strong>, <strong style="color:var(--text)">16 Newsletter</strong>, <strong style="color:var(--text)">18 Lexikon</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">HR-Leitung &amp; Werk</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Rollen-getriebene Auswahl: <strong style="color:var(--text)">10 Industry Hub</strong>, <strong style="color:var(--text)">11 Solutions by Role</strong>, <strong style="color:var(--text)">16 Case Studies</strong>.</p>
   </div>
   <div>
-    <span class="mono" style="color:var(--cyan)">Interaktiv</span>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Bewegung im Vordergrund: <strong style="color:var(--text)">06 Horizontal Stories</strong>, <strong style="color:var(--text)">09 Card Stack</strong>, <strong style="color:var(--text)">14 Conference</strong>.</p>
+    <span class="mono" style="color:var(--cyan)">Marken-Vertrauen</span>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted);line-height:1.7">Markenautorität signalisieren: <strong style="color:var(--text)">12 Trust Wall</strong>, <strong style="color:var(--text)">13 Premium Consulting</strong>, <strong style="color:var(--text)">14 Mega-Menu</strong>, <strong style="color:var(--text)">17 Heritage</strong>.</p>
   </div>
 </section>
 
 <div class="foot-bar">
-  <span>© 2026 · 18 Design-Konzepte für LeXpersonal GmbH · Edition 08</span>
+  <span>© 2026 · 18 Design-Konzepte für LeXpersonal GmbH · Edition 09 · Senior Designer Direction</span>
   <span>8 behalten + 10 neu · 1 CI · Münster</span>
 </div>
 
 </div>
-
-<script>
-const MAX_SEL = 8;
-const STORAGE_KEY = 'lex-selection-v2';
-let selection = [];
-try { const stored = localStorage.getItem(STORAGE_KEY); if (stored) selection = JSON.parse(stored); } catch(e) {}
-
-const cards = document.querySelectorAll('.card[href]');
-const countNum = document.getElementById('count-num');
-const btnConfirm = document.getElementById('btn-confirm');
-const btnReset = document.getElementById('btn-reset');
-const modal = document.getElementById('modal');
-const modalClose = document.getElementById('modal-close');
-const modalList = document.getElementById('modal-list');
-const modalCode = document.getElementById('modal-code');
-const modalCount = document.getElementById('modal-count');
-const copyBtn = document.getElementById('copy-btn');
-const toast = document.getElementById('toast');
-const toastMsg = document.getElementById('toast-msg');
-
-cards.forEach(card => {
-  const href = card.getAttribute('href');
-  const match = href.match(/^(\d{2})/);
-  if (!match) return;
-  const id = match[1];
-  card.dataset.id = id;
-  const btn = document.createElement('button');
-  btn.className = 'sel-btn';
-  btn.setAttribute('aria-label', 'Konzept ' + id + ' markieren');
-  btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleSelection(id); });
-  card.appendChild(btn);
-});
-
-function toggleSelection(id) {
-  const idx = selection.indexOf(id);
-  if (idx >= 0) selection.splice(idx, 1);
-  else if (selection.length < MAX_SEL) selection.push(id);
-  else { showToast('Maximum erreicht — entferne erst eine Auswahl', '⚠'); return; }
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch(e) {}
-  renderState();
-}
-
-function renderState() {
-  countNum.textContent = selection.length;
-  btnConfirm.disabled = selection.length === 0;
-  btnReset.disabled = selection.length === 0;
-  cards.forEach(card => {
-    const id = card.dataset.id;
-    if (!id) return;
-    const order = selection.indexOf(id);
-    const btn = card.querySelector('.sel-btn');
-    if (order >= 0) {
-      card.classList.add('selected');
-      card.classList.remove('disabled');
-      btn.innerHTML = '<span class="order">' + (order + 1) + '</span>';
-    } else {
-      card.classList.remove('selected');
-      btn.innerHTML = '';
-      if (selection.length >= MAX_SEL) card.classList.add('disabled');
-      else card.classList.remove('disabled');
-    }
-  });
-}
-
-function openModal() {
-  modalList.innerHTML = '';
-  selection.forEach((id, idx) => {
-    const card = document.querySelector('.card[data-id="' + id + '"]');
-    if (!card) return;
-    const name = card.querySelector('h2')?.textContent.trim() || 'Konzept ' + id;
-    const tier = card.querySelector('.card-num')?.textContent.trim() || '';
-    const li = document.createElement('li');
-    li.innerHTML = '<span class="ord">' + (idx + 1) + '</span><span class="id">[' + id + ']</span><span class="nm">' + name + '<small>' + tier + '</small></span>';
-    modalList.appendChild(li);
-  });
-  modalCount.textContent = selection.length;
-  const sortedIds = [...selection].sort();
-  modalCode.textContent = 'behalte: ' + sortedIds.join(', ') + ' · baue 10 neue';
-  modal.classList.add('open');
-}
-
-btnConfirm.addEventListener('click', openModal);
-modalClose.addEventListener('click', () => modal.classList.remove('open'));
-modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
-btnReset.addEventListener('click', () => {
-  if (!confirm('Auswahl wirklich zurücksetzen?')) return;
-  selection = [];
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch(e) {}
-  renderState();
-});
-copyBtn.addEventListener('click', async () => {
-  const text = modalCode.textContent;
-  try {
-    await navigator.clipboard.writeText(text);
-    copyBtn.classList.add('copied');
-    copyBtn.innerHTML = '<span>✓</span> Kopiert!';
-    showToast('In die Zwischenablage kopiert', '✓');
-    setTimeout(() => {
-      copyBtn.classList.remove('copied');
-      copyBtn.innerHTML = '<span>📋</span> Code kopieren';
-    }, 2500);
-  } catch(e) {
-    const range = document.createRange();
-    range.selectNodeContents(modalCode);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    showToast('Manuell mit Cmd+C kopieren', '↵');
-  }
-});
-
-let toastTimer;
-function showToast(msg, ico) {
-  toastMsg.textContent = msg;
-  toast.querySelector('.ico').textContent = ico || '✓';
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) modal.classList.remove('open');
-});
-
-renderState();
-</script>
 
 </body>
 </html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Für Ihre Rolle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F8FAFC;--surface:#FFFFFF;--ink:#0B1A33;--ink-deep:#0F172A;--text:#1F2937;--muted:#64748B;--border:#E2E8F0;--border-strong:#CBD5E1;--blue:#2778BC;--blue-deep:#1E5A8E;--cyan:#009FE3;--accent:#0369A1}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-family:'Lexend',sans-serif;color:var(--ink);letter-spacing:-0.02em;line-height:1.2}
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:300;font-size:18px;letter-spacing:0.06em}
+.logo svg{width:30px;height:36px}
+.logo strong{font-weight:600;color:var(--blue)}
+.menu{display:flex;gap:32px;align-items:center}
+.menu a{font-size:14.5px;font-weight:500;color:var(--text)}
+.menu a:hover{color:var(--blue)}
+.menu a.active{color:var(--blue);font-weight:600}
+.actions{display:flex;gap:10px}
+.btn{padding:10px 18px;font-size:14px;font-weight:600;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost{color:var(--ink);border:1px solid var(--border-strong)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-deep)}
+@media (max-width:1100px){.menu{display:none}}
+
+/* HERO */
+.hero{padding:80px 0 56px;text-align:center}
+.hero .eyebrow{display:inline-flex;padding:5px 12px;background:rgba(3,105,161,0.08);color:var(--accent);font-size:12.5px;font-weight:700;border-radius:99px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
+.hero h1{font-size:clamp(36px,5vw,56px);color:var(--ink-deep);font-weight:600;line-height:1.1;margin-bottom:18px}
+.hero p{font-size:18px;color:var(--text);max-width:680px;margin:0 auto;line-height:1.55}
+
+/* ROLE CARDS */
+.roles{padding:48px 0 96px}
+.roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.role-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all 0.2s;display:flex;flex-direction:column}
+.role-card:hover{border-color:var(--blue);box-shadow:0 20px 48px -24px rgba(39,120,188,0.2);transform:translateY(-2px)}
+.role-card .header{padding:32px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)}
+.role-card .header .icon{width:52px;height:52px;border-radius:10px;background:rgba(39,120,188,0.1);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.role-card .header .icon svg{width:26px;height:26px;stroke-width:1.6}
+.role-card .header .tag{display:inline-block;padding:3px 10px;background:rgba(39,120,188,0.08);color:var(--accent);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;border-radius:99px;margin-bottom:10px}
+.role-card .header h3{font-size:22px;color:var(--ink-deep);font-weight:600;margin-bottom:8px}
+.role-card .header p{font-size:14.5px;color:var(--text);line-height:1.55}
+.role-card .body{padding:28px 32px;display:flex;flex-direction:column;gap:18px;flex:1}
+.role-card .checklist{list-style:none;display:flex;flex-direction:column;gap:10px}
+.role-card .checklist li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:14px;line-height:1.5;color:var(--text)}
+.role-card .checklist li svg{width:18px;height:18px;color:var(--blue);margin-top:2px;flex-shrink:0}
+.role-card .checklist li strong{color:var(--ink-deep);font-weight:600}
+.role-card .footer{padding:20px 32px;background:var(--bg);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:auto}
+.role-card .footer a{font-size:14px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+.role-card .footer a:hover{gap:10px}
+.role-card .footer .resp{font-size:12px;color:var(--muted);font-weight:500}
+@media (max-width:1000px){.roles-grid{grid-template-columns:1fr}}
+
+/* SUPPORT BAND */
+.support{padding:64px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.support-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center}
+.support h2{font-size:32px;color:var(--ink-deep);margin-bottom:14px;font-weight:600}
+.support p{font-size:16.5px;color:var(--text);line-height:1.55;max-width:560px}
+.support-feats{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.support-feat{display:flex;gap:14px;align-items:start}
+.support-feat .ic{width:38px;height:38px;border-radius:8px;background:var(--ink-deep);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.support-feat .ic svg{width:18px;height:18px;stroke-width:1.8}
+.support-feat .ct h4{font-size:15px;color:var(--ink-deep);font-weight:600;margin-bottom:4px}
+.support-feat .ct p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+.support-contact{background:var(--ink-deep);color:#fff;border-radius:12px;padding:32px}
+.support-contact .label{font-size:11.5px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:18px}
+.support-contact h3{font-size:22px;color:#fff;margin-bottom:18px;font-weight:500;line-height:1.3}
+.support-contact .row{display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.15)}
+.support-contact .row .item{display:flex;flex-direction:column;gap:2px}
+.support-contact .row .k{font-size:11.5px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+.support-contact .row .v{font-family:'Lexend',sans-serif;font-size:16px;color:#fff;font-weight:500}
+.support-contact .btn{margin-top:18px;padding:12px 22px;background:var(--cyan);color:var(--ink-deep);font-weight:700;font-size:14px;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+@media (max-width:900px){.support-grid{grid-template-columns:1fr;gap:32px}.support-feats{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{padding:32px 0;background:var(--ink-deep);color:rgba(255,255,255,0.55);font-size:13px}
+.foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-row a{color:rgba(255,255,255,0.75)}
+.foot-row a:hover{color:#fff}
+.foot-row .links{display:flex;gap:18px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<nav class="nav">
+  <div class="container nav-row">
+    <a href="#" class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+    <div class="menu">
+      <a href="#">Leistungen</a>
+      <a href="#">Branchen</a>
+      <a href="#" class="active">Für Ihre Rolle</a>
+      <a href="#">Referenzen</a>
+      <a href="#">Über uns</a>
+    </div>
+    <div class="actions">
+      <a href="#" class="btn btn-ghost">Login</a>
+      <a href="#" class="btn btn-primary">Anfrage stellen</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Personal­dienstleistung · zugeschnitten auf Ihre Rolle</span>
+    <h1>Welche Rolle haben Sie?</h1>
+    <p>Wir wissen, dass HR-Leitung, Werks­leitung und Konzern-Einkauf unterschiedliche Fragen stellen. Wählen Sie Ihre Rolle — wir zeigen Ihnen direkt, was relevant ist.</p>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles">
+  <div class="container">
+    <div class="roles-grid">
+
+      <article class="role-card">
+        <div class="header">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="tag">Rolle · HR</span>
+          <h3>HR-Leitung</h3>
+          <p>Sie verantworten Personal­strategie und -gewinnung. Sie brauchen einen Partner, der Volumen und Qualität gleichzeitig liefert.</p>
+        </div>
+        <div class="body">
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Strategische Pipeline-Planung —</strong> wir entwickeln gemeinsam mit Ihnen 12-Monats-Bedarfs­pläne pro Standort.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Volumen-Vermittlung —</strong> 312 Vermittlungen 2025, davon 98 % Folgeauftrag.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Verbleibs­quote 86 % —</strong> nach 18 Monaten. Branchen­schnitt: 64 %.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Reporting &amp; KPIs —</strong> monatliche Auswertungen für Ihre Geschäfts­leitung.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Persönliche Ansprech­person —</strong> Ø Betriebs­zugehörigkeit unserer Berater: 9,2 Jahre.</span></li>
+          </ul>
+        </div>
+        <div class="footer">
+          <span class="resp">Antwortzeit &lt; 24 h</span>
+          <a href="#">HR-Beratung anfragen →</a>
+        </div>
+      </article>
+
+      <article class="role-card">
+        <div class="header">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22h20M6 18V8l6-4 6 4v10M6 18h12M9 12h.01M9 15h.01M15 12h.01M15 15h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="tag">Rolle · Werk</span>
+          <h3>Werks- &amp; Produktions­leitung</h3>
+          <p>Sie verantworten die Produktion und brauchen pünktliches, qualifiziertes Personal — auch wenn Aufträge oder Schichten kurzfristig wechseln.</p>
+        </div>
+        <div class="body">
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Bereitstellung &lt; 48 h —</strong> auch für Tagesspitzen oder Krankheits­ausfälle.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Schicht­erfahrene Fachkräfte —</strong> 420 Talente allein in Industrie und Metall.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Werks-Onboarding —</strong> Sicherheits­unter­weisung, Werks­ausweis, PSA vorbereitet.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Übernahme­option —</strong> nach 3 Mo. Probelauf jederzeit, ohne zusätzliche Honorare.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-in am Tag 1 —</strong> unsere Disposition ruft an, ob die Person pünktlich, vorbereitet und produktiv war.</span></li>
+          </ul>
+        </div>
+        <div class="footer">
+          <span class="resp">Disposition Mo–Fr 06:00–18:00</span>
+          <a href="#">Werks-Bedarfsanalyse →</a>
+        </div>
+      </article>
+
+      <article class="role-card">
+        <div class="header">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="tag">Rolle · Einkauf</span>
+          <h3>Konzern-Einkauf &amp; Compliance</h3>
+          <p>Sie qualifizieren Lieferanten und müssen sicherstellen, dass alle Compliance-Standards eingehalten werden — audit-fest, DSGVO-konform, tarif­gebunden.</p>
+        </div>
+        <div class="body">
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Compliance-Dossier &lt; 24 h —</strong> konsolidiert: iGZ, ANÜ, DSGVO, Versicherungen, AVV.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>SAP Fieldglass-Lieferant —</strong> bereits qualifiziert für gängige Procurement-Plattformen.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>iGZ-Tarif­bindung —</strong> seit 2013 ohne Unterbrechung. Branchen­zuschlag auf Anfrage.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Audit-Track —</strong> ANÜ-Erlaubnis BA in 2024 ohne Beanstandung geprüft.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Lieferanten­kodex —</strong> Unterzeichnung Ihres Code of Conduct möglich.</span></li>
+          </ul>
+        </div>
+        <div class="footer">
+          <span class="resp">compliance@lexpersonal.de</span>
+          <a href="#">Dossier anfordern →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT BAND -->
+<section class="support">
+  <div class="container">
+    <div class="support-grid">
+      <div>
+        <h2>Eine Ansprech­person für alle drei Rollen.</h2>
+        <p>Bei größeren Engagements bekommen Sie eine Senior-Beraterin oder einen Senior-Berater, der gleichzeitig HR-Leitung, Werks­leitung und Einkauf bedient — koordiniert, verbindlich, mit Direkt­durchwahl.</p>
+        <div class="support-feats">
+          <div class="support-feat">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="ct"><h4>Direkter Draht</h4><p>Eine Person, eine Nummer, alle Themen — keine Service-Tickets.</p></div>
+          </div>
+          <div class="support-feat">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="ct"><h4>&lt; 24 h Antwort</h4><p>Durch eine echte Person. Mo–Fr 08:00–17:00, Notfall Mo–So bis 21:00.</p></div>
+          </div>
+          <div class="support-feat">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="ct"><h4>Audit-fest</h4><p>Alle Dokumente in einem Dossier — vorqualifikations­tauglich.</p></div>
+          </div>
+          <div class="support-feat">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="ct"><h4>Vor Ort in 60 min</h4><p>Münster, Greven, Steinfurt, Coesfeld — Briefing-Termine im Werk.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="support-contact">
+        <span class="label">— Direkter Draht für Ihre Rolle</span>
+        <h3>Wir verbinden Sie mit der richtigen Person.</h3>
+        <div class="row">
+          <div class="item"><span class="k">— Allgemein</span><span class="v">0251 — 26 52 49 20</span></div>
+          <div class="item"><span class="k">— HR-Leitung</span><span class="v">hr@lexpersonal.de</span></div>
+          <div class="item"><span class="k">— Werks­leitung</span><span class="v">disposition@lexpersonal.de</span></div>
+          <div class="item"><span class="k">— Compliance</span><span class="v">compliance@lexpersonal.de</span></div>
+        </div>
+        <a href="#" class="btn">Beratungs­termin vereinbaren →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <span>© LeXpersonal GmbH · 2026 · Solutions by Role</span>
+    <div class="links">
+      <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Lieferantenkodex</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

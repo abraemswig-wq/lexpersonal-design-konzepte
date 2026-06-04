@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal — Senior Personnel Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--ink:#0F172A;--ink-deep:#020617;--text:#334155;--muted:#94A3B8;--border:#E5E7EB;--border-strong:#D1D5DB;--blue:#2778BC;--accent:#0F172A;--gold:#A78B4F}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;font-weight:400}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-family:'Lexend',sans-serif;color:var(--ink);letter-spacing:-0.025em;line-height:1.15;font-weight:400}
+.container{max-width:1180px;margin:0 auto;padding:0 32px}
+.narrow{max-width:880px;margin:0 auto;padding:0 32px}
+
+/* NAV - quiet luxury */
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav-row{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:32px}
+.logo{display:flex;align-items:center;gap:14px;color:var(--ink);font-weight:300;font-size:18px;letter-spacing:0.08em}
+.logo svg{width:28px;height:34px}
+.logo strong{font-weight:500;color:var(--blue)}
+.menu{display:flex;gap:40px;align-items:center}
+.menu a{font-size:14.5px;font-weight:400;color:var(--text);letter-spacing:0.01em}
+.menu a:hover{color:var(--ink)}
+.btn{padding:11px 22px;font-size:13.5px;font-weight:500;border-radius:0;letter-spacing:0.04em;text-transform:uppercase;transition:all 0.2s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--blue)}
+@media (max-width:1000px){.menu{display:none}}
+
+/* HERO - quiet, lots of whitespace */
+.hero{padding:140px 0 96px;text-align:left}
+.hero .eyebrow{font-size:13px;color:var(--gold);font-weight:500;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:48px;display:flex;align-items:center;gap:14px}
+.hero .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(48px,6vw,84px);font-weight:200;color:var(--ink);line-height:1.0;letter-spacing:-0.035em;margin-bottom:48px;max-width:1080px}
+.hero h1 em{font-style:italic;color:var(--blue);font-weight:300}
+.hero .lede{font-size:21px;color:var(--text);line-height:1.55;max-width:620px;font-weight:300;margin-bottom:64px;letter-spacing:-0.005em}
+.hero .lede em{font-style:italic;color:var(--ink)}
+.hero-foot{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-top:48px;border-top:1px solid var(--border);max-width:980px}
+.hero-foot .item{display:flex;flex-direction:column;gap:6px}
+.hero-foot .item .v{font-family:'Lexend',sans-serif;font-weight:300;font-size:36px;color:var(--ink);line-height:1;letter-spacing:-0.03em}
+.hero-foot .item .l{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0.04em;text-transform:uppercase}
+@media (max-width:900px){.hero{padding:80px 0 64px}.hero-foot{grid-template-columns:1fr 1fr;gap:24px}}
+
+/* INSTITUTIONAL STATEMENT */
+.statement{padding:120px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+.statement blockquote{font-family:'Lexend',sans-serif;font-weight:200;font-style:italic;font-size:clamp(32px,4.5vw,56px);line-height:1.2;letter-spacing:-0.025em;color:var(--ink);text-align:center;max-width:1080px;margin:0 auto}
+.statement blockquote em{font-style:normal;color:var(--blue);font-weight:300}
+.statement cite{display:block;text-align:center;margin-top:48px;font-family:'Source Sans 3',sans-serif;font-style:normal;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0.12em;text-transform:uppercase}
+.statement cite::before{content:"— "}
+
+/* CAPABILITIES - sparse list */
+.capabilities{padding:120px 0}
+.capabilities-head{margin-bottom:80px;display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:end}
+.capabilities-head .num{font-family:'Lexend',sans-serif;font-weight:200;font-size:96px;line-height:0.85;color:var(--blue);letter-spacing:-0.04em;font-style:italic}
+.capabilities-head h2{font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--ink);line-height:1.05;letter-spacing:-0.03em}
+.capabilities-head h2 em{font-style:italic;color:var(--blue);font-weight:300}
+
+.cap-list{display:flex;flex-direction:column}
+.cap{display:grid;grid-template-columns:140px 1fr 200px;gap:48px;padding:48px 0;border-bottom:1px solid var(--border);align-items:start;transition:padding 0.2s}
+.cap:first-child{border-top:1px solid var(--ink)}
+.cap:hover{padding-left:14px}
+.cap:last-child{border-bottom:1px solid var(--ink)}
+.cap .id{font-family:'Lexend',sans-serif;font-weight:500;font-size:14px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;padding-top:8px}
+.cap .id em{font-style:italic;color:var(--blue);font-weight:400}
+.cap .ct h3{font-family:'Lexend',sans-serif;font-weight:400;font-size:30px;color:var(--ink);letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px}
+.cap .ct h3 em{font-style:italic;color:var(--blue);font-weight:300}
+.cap .ct p{font-size:16px;color:var(--text);line-height:1.65;font-weight:400;max-width:520px}
+.cap .meta{padding-top:8px;font-size:13px;color:var(--muted);font-weight:500;line-height:1.5;letter-spacing:0.02em}
+.cap .meta strong{display:block;color:var(--ink);font-weight:500;font-family:'Lexend',sans-serif;font-size:18px;letter-spacing:-0.01em;margin-bottom:4px}
+@media (max-width:900px){.cap{grid-template-columns:1fr;gap:14px}.cap .meta{padding-top:0}.capabilities-head{grid-template-columns:1fr;gap:14px}}
+
+/* SENIOR ADVISORS */
+.advisors{padding:120px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.advisors-head{text-align:center;max-width:780px;margin:0 auto 80px}
+.advisors-head .eyebrow{font-size:13px;color:var(--gold);font-weight:500;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:24px;display:inline-flex;align-items:center;gap:14px}
+.advisors-head .eyebrow::before,.advisors-head .eyebrow::after{content:"";width:32px;height:1px;background:var(--gold)}
+.advisors-head h2{font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--ink);line-height:1.1;letter-spacing:-0.03em;margin-bottom:18px}
+.advisors-head h2 em{font-style:italic;color:var(--blue);font-weight:300}
+.advisors-head p{font-size:17px;color:var(--text);line-height:1.6;font-weight:400}
+
+.advisor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.advisor{padding:0}
+.advisor .portrait{aspect-ratio:3/4;background:linear-gradient(180deg,#E5E7EB 0%,#CBD5E1 100%);border:1px solid var(--border);position:relative;margin-bottom:24px}
+.advisor .portrait::after{content:"";position:absolute;top:14px;left:14px;width:24px;height:24px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.advisor .role{font-size:12px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+.advisor h3{font-family:'Lexend',sans-serif;font-weight:400;font-size:24px;color:var(--ink);letter-spacing:-0.015em;margin-bottom:8px;line-height:1.2}
+.advisor .since{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:14px}
+.advisor p{font-size:14.5px;color:var(--text);line-height:1.6}
+@media (max-width:900px){.advisor-grid{grid-template-columns:1fr 1fr;gap:24px}.advisors-head{margin-bottom:48px}.advisors{padding:64px 0}}
+
+/* CONTACT - quiet */
+.contact{padding:140px 0;background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:96px;align-items:end}
+.contact h2{font-size:clamp(40px,6vw,80px);font-weight:200;color:var(--ink);line-height:1.0;letter-spacing:-0.04em;margin-bottom:24px}
+.contact h2 em{font-style:italic;color:var(--blue);font-weight:300}
+.contact .lede{font-size:18px;color:var(--text);line-height:1.6;font-weight:300;max-width:520px;font-style:italic}
+.contact-info{padding-top:24px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink)}
+.contact-info .row{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--border);align-items:baseline}
+.contact-info .row:last-of-type{border-bottom:1px solid var(--ink)}
+.contact-info .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
+.contact-info .v{font-family:'Lexend',sans-serif;font-weight:300;font-size:22px;color:var(--ink);letter-spacing:-0.015em}
+.contact-info .v:hover{color:var(--blue)}
+.contact-info .btn{margin-top:24px;align-self:flex-start;background:var(--ink);color:#fff;padding:14px 28px}
+.contact-info .btn:hover{background:var(--blue)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:48px}.contact{padding:64px 0}}
+
+footer{padding:32px 0;background:var(--surface);border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+.foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-row a:hover{color:var(--ink)}
+.foot-row .links{display:flex;gap:18px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<nav class="nav">
+  <div class="container nav-row">
+    <a href="#" class="logo"><svg><use href="#lex-x"/></svg> LE<strong>X</strong>PERSONAL</a>
+    <div class="menu">
+      <a href="#">Praxis</a>
+      <a href="#">Berater:innen</a>
+      <a href="#">Insights</a>
+      <a href="#">Kontakt</a>
+    </div>
+    <a href="#" class="btn btn-primary">Erstgespräch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Senior Personnel Advisory · Münster · seit 2008</span>
+    <h1>Personal­beratung<br>für <em>produzierende</em><br>Mittelständler.</h1>
+    <p class="lede">Wir verstehen uns als <em>Berater­firma,</em> nicht als Vermittler. Wir arbeiten mit einer kleinen Zahl von Mandant:innen, langfristig, vertraulich — und mit der Sorgfalt, die Personal­entscheidungen verdienen.</p>
+    <div class="hero-foot">
+      <div class="item"><span class="v">2008</span><span class="l">Praxis seit</span></div>
+      <div class="item"><span class="v">147</span><span class="l">aktive Mandate</span></div>
+      <div class="item"><span class="v">9,2 J.</span><span class="l">Ø Mandats-Dauer</span></div>
+      <div class="item"><span class="v">86 %</span><span class="l">Verbleib n. 18 Mo.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="container">
+    <blockquote>„Wir glauben nicht an Datenbank-Matching.<br>Wir glauben an <em>Menschen,</em><br>die einander zuhören."</blockquote>
+    <cite>Grundsatz der Praxis · seit 2008 unverändert</cite>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities">
+  <div class="container">
+    <div class="capabilities-head">
+      <span class="num">i.</span>
+      <h2>Drei <em>Kompetenz­felder.</em><br>Jeweils in der Tiefe.</h2>
+    </div>
+
+    <div class="cap-list">
+      <article class="cap">
+        <span class="id"><em>i.</em> Modell 01</span>
+        <div class="ct">
+          <h3>Arbeitnehmer­<em>überlassung</em></h3>
+          <p>Qualifizierte Fach- und Hilfskräfte, flexibel überlassen — von der Tagesspitze bis zur lang­fristigen Verstärkung. Tarif­gebunden iGZ/DGB, mit allen rechtlichen Verant­wortungen beim Verleiher.</p>
+        </div>
+        <div class="meta">
+          <strong>&lt; 48 h</strong>
+          Bereitstellung<br>iGZ-Tarif<br>Übernahme möglich
+        </div>
+      </article>
+
+      <article class="cap">
+        <span class="id"><em>ii.</em> Modell 02</span>
+        <div class="ct">
+          <h3>Personal­<em>vermittlung</em></h3>
+          <p>Direkte Vermittlung in Festanstellung — diskret, kulturfit-bewusst, mit langem Atem für beide Seiten. Honorar erst bei Erfolg, vier Monate Nach­besetzungs­garantie. Verbleibs­quote nach 18 Monaten: 86 %.</p>
+        </div>
+        <div class="meta">
+          <strong>86 %</strong>
+          Verbleibsquote<br>4 Mo. Garantie<br>erfolgsbasiert
+        </div>
+      </article>
+
+      <article class="cap">
+        <span class="id"><em>iii.</em> Modell 03</span>
+        <div class="ct">
+          <h3>Werk­<em>verträge</em></h3>
+          <p>Definierte Aufträge mit eigener Steuerung und rechts­sicherer Abgrenzung. Wir tragen Ergebnis­verantwortung, übernehmen Aufsicht. Skalierbar von Einzel­projekt bis Dauer­linie.</p>
+        </div>
+        <div class="meta">
+          <strong>Festpr./T&amp;M</strong>
+          Modell-Wahl<br>eigene Aufsicht<br>rechts­sicher
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SENIOR ADVISORS -->
+<section class="advisors">
+  <div class="container">
+    <div class="advisors-head">
+      <span class="eyebrow">Die Berater:innen</span>
+      <h2>Drei <em>Senior-Berater:innen.</em><br>Persönlich erreichbar.</h2>
+      <p>Bei LeXpersonal sprechen Sie nicht mit einem Service-Desk. Sie sprechen mit denjenigen, die das Unternehmen tragen — und auch in fünf Jahren noch hier sind. Durch­schnittliche Betriebs­zugehörigkeit unserer Senior-Berater: 14 Jahre.</p>
+    </div>
+
+    <div class="advisor-grid">
+      <div class="advisor">
+        <div class="portrait"></div>
+        <div class="role">Geschäftsführung</div>
+        <h3>Name Geschäftsführung</h3>
+        <p class="since">Bei LeXpersonal seit 2008 — Gründer</p>
+        <p>25+ Jahre in Personal­dienstleistung und Industrie. Verantwortet strategische Mandate und Konzern-Beziehungen.</p>
+      </div>
+      <div class="advisor">
+        <div class="portrait"></div>
+        <div class="role">Leitung Vermittlung</div>
+        <h3>Name Vermittlung</h3>
+        <p class="since">Bei LeXpersonal seit 2014</p>
+        <p>Spezialisiert auf Fach- und Führungs­positionen in Industrie und Mittelstand. Führt das Search-Team mit 4 Senior-Consultants.</p>
+      </div>
+      <div class="advisor">
+        <div class="portrait"></div>
+        <div class="role">Leitung Operations</div>
+        <h3>Name Operations</h3>
+        <p class="since">Bei LeXpersonal seit 2011</p>
+        <p>Verantwortet Tagesgeschäft, Disposition und Vertrags­abwicklung. Direkter Draht für Bestands­mandate und Werks­leitung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="container contact-grid">
+    <div>
+      <h2>Ein <em>vertrauliches</em><br>Erstgespräch.</h2>
+      <p class="lede">Wir nehmen uns mindestens 30 Minuten für Ihre Situation. Vertraulich, ohne Verpflichtung, mit ehrlicher Einschätzung — auch wenn das heißt, dass wir nicht der richtige Partner sind.</p>
+    </div>
+    <div class="contact-info">
+      <div class="row"><span class="k">— Telefon</span><a href="tel:+492512652490" class="v">0251 — 26 52 49 20</a></div>
+      <div class="row"><span class="k">— E-Mail</span><a href="mailto:advisory@lexpersonal.de" class="v">advisory@lexpersonal.de</a></div>
+      <div class="row"><span class="k">— Praxis</span><span class="v">An den Loddenbüschen 95<br>D—48155 Münster</span></div>
+      <a href="#" class="btn">Erstgespräch vereinbaren</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <span>© LeXpersonal GmbH · 2026 · Senior Personnel Advisory</span>
+    <div class="links">
+      <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
