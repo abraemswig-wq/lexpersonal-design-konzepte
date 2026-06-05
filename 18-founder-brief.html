@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal · Founder Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FBFAF7;
+  --paper:#F5F0E6;
+  --ink:#0A0A0A;
+  --ink-2:#1F1F1F;
+  --text:#2A2A2A;
+  --muted:#6B6859;
+  --border:#E5DDC8;
+  --blue:#1E5A8E;
+  --cyan:#009FE3;
+  --accent:#9A3412;
+  --green:#15803D;
+}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.sans{font-family:'Inter',sans-serif}
+.mono{font-family:'JetBrains Mono',monospace}
+.tab{font-variant-numeric:tabular-nums}
+a{color:var(--blue)}
+.container{max-width:760px;margin:0 auto;padding:0 28px}
+
+/* Letter masthead */
+.masthead{padding:56px 0 32px;text-align:center;border-bottom:2px solid var(--ink);position:relative}
+.masthead .logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.masthead .logo svg{width:22px;height:27px}
+.masthead .logo span{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.masthead h1{font-family:'Source Serif 4',serif;font-size:48px;font-weight:400;letter-spacing:-0.02em;line-height:1.1;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue)}
+.masthead .sub{margin-top:14px;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+
+/* TOC bar */
+.toc-bar{padding:14px 0;border-bottom:1px solid var(--border);font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+.toc-bar .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.toc-bar .links{display:flex;gap:18px}
+.toc-bar a{color:var(--ink);font-weight:600;text-decoration:none}
+
+/* Letter body */
+.letter{padding:48px 0 24px}
+.letter .salutation{font-family:'Source Serif 4',serif;font-size:20px;font-weight:400;letter-spacing:-0.005em;color:var(--ink);margin-bottom:14px}
+.letter p{margin-bottom:18px;line-height:1.75}
+.letter p strong{font-weight:600;color:var(--ink)}
+.letter p em{font-style:italic}
+
+/* Section */
+.sec{margin:48px 0;scroll-margin-top:24px}
+.sec-h{margin-bottom:14px}
+.sec-h .num{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.sec-h h2{font-family:'Source Serif 4',serif;font-size:32px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);line-height:1.15}
+.sec-h h2 em{font-style:italic;color:var(--blue)}
+
+.lead-p{font-family:'Source Serif 4',serif;font-size:20px;font-style:italic;color:var(--muted);line-height:1.55;margin-bottom:18px;letter-spacing:-0.005em}
+
+/* Pull quote */
+.pull{margin:32px -28px;padding:32px 28px;background:var(--paper);border-left:4px solid var(--blue);font-family:'Source Serif 4',serif;font-size:24px;font-weight:400;letter-spacing:-0.015em;line-height:1.4;color:var(--ink);font-style:italic;border-radius:0 4px 4px 0}
+.pull cite{display:block;margin-top:14px;font-style:normal;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:32px 0;padding:24px;background:var(--paper);border-radius:8px;border:1px solid var(--border)}
+@media (max-width:680px){.stats{grid-template-columns:1fr 1fr}}
+.stats .item{font-family:'Inter',sans-serif}
+.stats .item .v{font-family:'Source Serif 4',serif;font-size:34px;font-weight:500;letter-spacing:-0.025em;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.stats .item .v em{font-style:italic;color:var(--blue)}
+.stats .item .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-top:6px}
+
+/* Year table (Berkshire-style) */
+.year-table{margin:24px 0;font-family:'Inter',sans-serif;font-size:14px;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff}
+.year-table table{width:100%;border-collapse:collapse}
+.year-table th{padding:11px 16px;text-align:left;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;background:var(--paper);border-bottom:1px solid var(--border)}
+.year-table td{padding:11px 16px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+.year-table tr:last-child td{border-bottom:none;font-weight:700;background:#FAF6EC}
+.year-table td:first-child{font-weight:600;color:var(--ink)}
+.year-table td.num{text-align:right;color:var(--ink)}
+.year-table td.num .delta{font-size:11px;color:var(--green);margin-left:6px;font-weight:600}
+
+/* Numbered list */
+.numbered{margin:18px 0;padding-left:0;list-style:none;counter-reset:nlist}
+.numbered li{counter-increment:nlist;padding:14px 0 14px 56px;border-top:1px solid var(--border);position:relative;font-size:17px;line-height:1.65}
+.numbered li:first-child{border-top:none}
+.numbered li::before{content:counter(nlist,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--blue);letter-spacing:0.06em}
+.numbered li strong{font-weight:600;color:var(--ink);display:block;margin-bottom:4px;font-family:'Source Serif 4',serif;font-size:18px;letter-spacing:-0.01em}
+
+/* Signature */
+.signature{margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+.signature .closing{font-family:'Source Serif 4',serif;font-style:italic;font-size:19px;color:var(--muted);margin-bottom:14px}
+.signature .name-line{font-family:'Source Serif 4',serif;font-size:24px;font-weight:500;color:var(--ink);letter-spacing:-0.015em;margin-bottom:4px}
+.signature .role{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);letter-spacing:0.04em}
+.signature .post{margin-top:24px;padding:16px 18px;background:var(--paper);border-radius:6px;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--muted);line-height:1.6;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.signature .post strong{color:var(--ink);font-weight:600}
+.signature .post::before{content:"P.S.";font-family:'Source Serif 4',serif;font-style:italic;font-weight:500;font-size:18px;color:var(--blue)}
+
+/* Appendix */
+.appendix{margin-top:48px;padding:32px 0;border-top:2px solid var(--ink)}
+.appendix-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+.appendix-h h3{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.appendix-h span{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted)}
+
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media (max-width:560px){.contacts{grid-template-columns:1fr}}
+.contact{padding:18px;background:#fff;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif}
+.contact .ttl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:6px}
+.contact .nm{font-family:'Source Serif 4',serif;font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.012em;margin-bottom:2px}
+.contact .role{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.contact .meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--blue)}
+
+footer{padding:32px 0 48px;text-align:center;font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;text-transform:uppercase}
+
+.back{position:fixed;top:18px;left:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;z-index:99;background:#fff;padding:7px 12px;border:1px solid var(--border);border-radius:99px}
+.back:hover{color:var(--ink);border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<header class="masthead">
+  <div class="container">
+    <div class="logo">
+      <svg><use href="#lex-x"/></svg>
+      <span>Le<strong style="color:var(--ink)">x</strong>personal · Founder Brief</span>
+    </div>
+    <h1>Ein Brief an Konzern-<em>Entscheider,</em><br>nach 18 Jahren Personal&shy;dienstleistung.</h1>
+    <div class="sub">Stefan Hagen · Inhaber · 31. Mai 2026 · Münster</div>
+  </div>
+</header>
+
+<div class="toc-bar">
+  <div class="container">
+    <div class="row">
+      <span>Auf 7 Seiten</span>
+      <div class="links">
+        <a href="#sec-1">01 · Was sich geändert hat</a>
+        <a href="#sec-2">02 · Was wir gelernt haben</a>
+        <a href="#sec-3">03 · Was wir versprechen</a>
+        <a href="#sec-4">04 · Outlook</a>
+      </div>
+      <span>Lesedauer · 12 Min.</span>
+    </div>
+  </div>
+</div>
+
+<article class="letter">
+<div class="container">
+
+<p class="salutation">Sehr geehrte Damen und Herren,</p>
+
+<p>als ich 2008 LeXpersonal in Münster gegründet habe, gab es genau drei Personaldienstleister in unserer Region. Heute sind es 142. Wir sind in dieser Zeit von zwei Mitarbeitenden auf 47 gewachsen, von einem Branchen-Schwerpunkt auf sieben, und unsere Kundenliste reicht inzwischen vom 18-Mann-Mittelständler bis zur Konzerntochter mit 4 200 Köpfen am Standort.</p>
+
+<p>Was sich <strong>nicht</strong> geändert hat: Wir sind inhabergeführt, tariflich gebunden, aus Münster. Wir haben keine Investoren, keine Mutter im Ausland, kein Wachstumsziel, das uns zwingt, Versprechen zu geben, die wir nicht halten können. Wir sehen unsere Konkurrenten täglich — manche aus 16 Jahren persönlich. Und wir verlieren auch heute noch Aufträge.</p>
+
+<p>Dieser Brief ist eine ehrliche Zwischenbilanz für Konzern-Einkäufer und HR-Entscheider, die uns evaluieren. Er steht so wie er hier veröffentlicht ist auch in unserer Quartals-Akte, in einer Print-Version, und wird vier Mal im Jahr aktualisiert.</p>
+
+<div class="pull">
+  Wir haben in 18 Jahren genau zwei harte Regeln entwickelt: Profile gehen nicht raus, ohne dass ein Senior persönlich unterschrieben hat. Und SLA-Überschreitungen werden öffentlich, mit Datum und Pönale. Das ist alles.
+  <cite>— S. Hagen, Münster 2026</cite>
+</div>
+
+<div class="sec" id="sec-1">
+  <div class="sec-h">
+    <div class="num">§ 01 · Status</div>
+    <h2>Was sich seit 2008 <em>tatsächlich</em> geändert hat.</h2>
+  </div>
+
+  <p class="lead-p">Drei Veränderungen haben unser Geschäft strukturell verschoben — und zwingen jeden seriösen Anbieter, sein Modell anzupassen.</p>
+
+  <p><strong>Erstens: Der Konzern-Einkauf hat das Heft in die Hand genommen.</strong> Was früher die HR mit dem Werksleiter ausgehandelt hat, läuft heute über zentrale Procurement-Abteilungen. SAP Fieldglass, Onventis, Beeline — wer hier nicht angebunden ist, kommt nicht durch die Tür. Wir haben 2021 entschieden, die Integration zu bauen statt zu verhandeln. Das war richtig: 14 unserer 18 größten Kunden steuern uns heute über VMS.</p>
+
+  <p><strong>Zweitens: Equal Pay ab Tag&nbsp;1 ist gekommen.</strong> Was der BAG-Beschluss vom März 2026 endgültig fest&shy;geschrieben hat, war praktisch seit 2023 absehbar. Wir hatten zu diesem Zeitpunkt schon 60&nbsp;% unserer Verträge auf Equal-Pay-Modell umgestellt — nicht, weil wir Hellseher sind, sondern weil unsere Konzern-Kunden es vor Jahren als Vorbedingung gesetzt hatten.</p>
+
+  <p><strong>Drittens: Die Pipeline-Frage ist eine Sprach-Frage geworden.</strong> 38&nbsp;% unserer aktiven Profile haben eine Nicht-Deutsche Muttersprache. Wir investieren jährlich einen unteren sechsstelligen Betrag in mehrsprachiges Onboarding und in Werkstor-Materialien auf Polnisch, Rumänisch, Englisch. Bindung an LeXpersonal: <strong>verdoppelt</strong> in den Kohorten mit Mutter&shy;sprachen-Onboarding.</p>
+
+  <div class="stats">
+    <div class="item">
+      <div class="v tab">18<em>+</em></div>
+      <div class="l">Jahre · Münster</div>
+    </div>
+    <div class="item">
+      <div class="v tab">47</div>
+      <div class="l">Mitarbeitende</div>
+    </div>
+    <div class="item">
+      <div class="v tab">7</div>
+      <div class="l">Branchen aktiv</div>
+    </div>
+    <div class="item">
+      <div class="v tab">2&nbsp;420</div>
+      <div class="l">Pipeline-Profile</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="sec-2">
+  <div class="sec-h">
+    <div class="num">§ 02 · Lernkurve</div>
+    <h2>Was wir gelernt haben — auch das, was <em>weh tat.</em></h2>
+  </div>
+
+  <p>Drei Lektionen aus 18 Jahren, ohne Schönfärberei.</p>
+
+  <ol class="numbered">
+    <li><strong>Schnelle Profile sind teurer als gute.</strong> Wir haben zwischen 2011 und 2014 alle Industrie-Aufträge auf 48-Stunden-SLA gepuscht. Time-to-Fill: top. Folgeauftrag: katastrophal. Heute reduzieren wir Briefings auf 3–5 persönlich geprüfte Profile statt 20 schnelle Treffer. Folgeauftrags­quote: 98&nbsp;%.</li>
+    <li><strong>Pönale ohne Audit-Trail ist eine Lüge.</strong> Wir hatten in den ersten Jahren SLA-Klauseln in Verträgen, deren Verletzung de facto nie sichtbar wurde. Seit 2019 läuft jede SLA-Messung automatisch und ist 365 Tage auditierbar. Konsequenz: drei Kunden weniger gewonnen, vierzig Folge­aufträge mehr verlängert.</li>
+    <li><strong>Pflege ist nicht Industrie.</strong> Wir haben Pflege 2017 nach dem Industrie-Standard angefasst — Time-to-Fill war die Leitgröße. Das war falsch. Pflege ist eine Beziehungs-Branche, kein Schicht-Tetris. Heute steht in jedem Pflege-Vertrag das Wort „Bindungsdauer" vor „Time-to-Fill".</li>
+  </ol>
+</div>
+
+<div class="sec" id="sec-3">
+  <div class="sec-h">
+    <div class="num">§ 03 · Versprechen</div>
+    <h2>Was wir Ihnen ab Q3 / 2026 <em>verbindlich</em> liefern.</h2>
+  </div>
+
+  <p class="lead-p">Wenn Sie als Einkauf oder HR-Leitung über einen Pilotvertrag nachdenken — das hier ist die Mindest-Liefermenge, die Sie ab Juli 2026 von uns bekommen.</p>
+
+  <div class="year-table">
+    <table>
+      <thead>
+        <tr><th>Kennzahl</th><th>2024</th><th>2025</th><th class="num">2026 (Ziel)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Time-to-Fill Ø (Tage)</td><td class="num tab">5,8</td><td class="num tab">4,8</td><td class="num tab">4,2 <span class="delta">▲</span></td></tr>
+        <tr><td>Folgeauftragsquote 12&nbsp;M</td><td class="num tab">94 %</td><td class="num tab">96 %</td><td class="num tab">98 % <span class="delta">▲</span></td></tr>
+        <tr><td>Konzern-Kunden VMS</td><td class="num tab">6</td><td class="num tab">11</td><td class="num tab">14 <span class="delta">▲</span></td></tr>
+        <tr><td>SLA-Audit-Trail (Tage)</td><td class="num tab">90</td><td class="num tab">365</td><td class="num tab">365 (öffentlich)</td></tr>
+        <tr><td>Pipeline-Tiefe (Profile)</td><td class="num tab">1 480</td><td class="num tab">2 100</td><td class="num tab">2 420 <span class="delta">▲</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Ab dem 1.&nbsp;Juli&nbsp;2026 wird jede SLA-Überschreitung &gt; 24 Stunden auf unserer Status-Page öffentlich dokumentiert — mit Datum, Dauer und Ursache. Wir wissen nicht, wie viele Wettbewerber das mitmachen werden. Wir wissen, dass es richtig ist.</p>
+</div>
+
+<div class="pull">
+  Wer Personal-Dienstleistung von uns kauft, kauft keine Versprechen. Er kauft eine Pipeline, eine Tarif&shy;treue, einen Audit-Trail — und einen Inhaber, der bei Eskalation Stufe 3 selbst ans Telefon geht.
+</div>
+
+<div class="sec" id="sec-4">
+  <div class="sec-h">
+    <div class="num">§ 04 · Outlook</div>
+    <h2>Was wir uns für die nächsten <em>fünf Jahre</em> vornehmen.</h2>
+  </div>
+
+  <p>Wir wollen 2030 die Personal-Dienstleistung sein, mit der mindestens drei DAX-40-Konzerne ihre westdeutschen Industrie- und Pflege-Standorte betreiben. Wir wollen das, ohne unsere Größe zu verdoppeln, ohne externes Kapital, ohne Akquisitionen. Wir wollen es auf 60 Mitarbeitende geführt aus Münster, mit unter zehn Berater-Wechseln pro Jahr.</p>
+
+  <p>Das ist kein bescheidenes Ziel. Es bedeutet: Pipeline-Tiefe verdoppeln, VMS-Integration auf alle drei Markt-Plattformen ausbauen (Beeline kommt), Pflege auf 500 sofort verfügbare Profile, Equal-Pay-Garantie auf 100&nbsp;% der Verträge. Und es bedeutet, dass wir Aufträge ablehnen werden, die nicht passen — auch in Quartalen, in denen das schmerzt.</p>
+
+  <p>Wenn Sie das interessiert: schreiben Sie. Wir antworten persönlich, binnen zwei Werktagen. Wenn Sie skeptisch sind: schreiben Sie trotzdem, gerade dann. Wir lernen aus jedem ehrlichen Nein mehr als aus zehn höflichen Ja.</p>
+</div>
+
+<div class="signature">
+  <div class="closing">Mit besten Grüßen aus Münster,</div>
+  <div class="name-line">Stefan Hagen</div>
+  <div class="role">Inhaber &amp; Geschäftsführer · LeXpersonal GmbH</div>
+
+  <div class="post">
+    <div>Wenn Sie diesen Brief auf Papier wünschen — wir versenden ihn am 1.&nbsp;Juli, 1.&nbsp;Oktober und 1.&nbsp;Januar. <strong>Eine Bestellung über <a href="#">brief@lexpersonal.de</a> reicht.</strong> Wir freuen uns über jedes ehrliche Echo.</div>
+  </div>
+</div>
+
+</div>
+</article>
+
+<div class="appendix">
+  <div class="container">
+    <div class="appendix-h">
+      <h3>Anhang · Wer im Eskalations-Pfad ans Telefon geht</h3>
+      <span>Stand: 31.05.2026</span>
+    </div>
+
+    <div class="contacts">
+      <div class="contact">
+        <div class="ttl">Stufe 3 · Strategie / Vertrag</div>
+        <div class="nm">Stefan Hagen</div>
+        <div class="role">Inhaber &amp; Geschäftsführer · seit 2008</div>
+        <div class="meta">stefan@lexpersonal.de · +49 251 23 45 67-10</div>
+      </div>
+      <div class="contact">
+        <div class="ttl">Stufe 2 · Operations</div>
+        <div class="nm">Michael Hagen</div>
+        <div class="role">Bereichsleitung Operations · seit 2014</div>
+        <div class="meta">michael@lexpersonal.de · +49 251 23 45 67-22</div>
+      </div>
+      <div class="contact">
+        <div class="ttl">Senior · Industrie</div>
+        <div class="nm">Thorsten Bergmann</div>
+        <div class="role">Senior-Berater Industrie · seit 2016</div>
+        <div class="meta">t.bergmann@lexpersonal.de</div>
+      </div>
+      <div class="contact">
+        <div class="ttl">Senior · Pflege</div>
+        <div class="nm">Beatrix Wolters</div>
+        <div class="role">Senior-Beraterin Pflege · seit 2018</div>
+        <div class="meta">b.wolters@lexpersonal.de</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">© 2026 LeXpersonal GmbH · Münster · Konzept 18 · Founder Brief</div>
+</footer>
+
+</body>
+</html>

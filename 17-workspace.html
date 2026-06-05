@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal · Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FBFAF9;
+  --sidebar:#F5F3F0;
+  --ink:#0A0A0A;
+  --text:#37352F;
+  --muted:#787774;
+  --border:#E7E5E0;
+  --border-2:#D4D2CD;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --highlight:#FFFBEB;
+  --highlight-2:#FEF3C7;
+  --code-bg:#F4F3F0;
+  --tag-blue:#DBEAFE;
+  --tag-green:#DCFCE7;
+  --tag-yellow:#FEF3C7;
+  --tag-pink:#FCE7F3;
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:var(--blue);text-decoration:underline;text-decoration-color:rgba(39,120,188,0.3);text-underline-offset:2px}
+
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+@media (max-width:880px){.app{grid-template-columns:1fr}}
+
+/* Sidebar */
+aside{background:var(--sidebar);border-right:1px solid var(--border);padding:18px 8px;font-size:14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+@media (max-width:880px){aside{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--border)}}
+
+.ws-switcher{padding:6px 10px;display:flex;align-items:center;gap:8px;font-weight:600;color:var(--text);font-size:13.5px;border-radius:6px;margin-bottom:14px}
+.ws-switcher .av{width:22px;height:22px;border-radius:5px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.ws-switcher .name{flex:1}
+.ws-switcher .ch{color:var(--muted);font-size:11px}
+
+.sb-search{padding:6px 10px;margin-bottom:10px;background:rgba(0,0,0,0.04);border-radius:6px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.sb-search span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted)}
+
+aside .sec-lbl{font-size:11px;color:var(--muted);font-weight:600;padding:4px 10px;margin-top:12px;letter-spacing:0.02em;display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
+aside .sec-lbl span{font-size:14px;color:var(--muted)}
+
+aside ul{list-style:none}
+aside ul li{padding:3px 0}
+aside ul a{display:flex;align-items:center;gap:6px;padding:4px 10px;font-size:13.5px;color:var(--text);border-radius:5px;font-weight:500;text-decoration:none}
+aside ul a:hover{background:rgba(0,0,0,0.04)}
+aside ul a.act{background:rgba(0,0,0,0.07);font-weight:600;color:var(--ink)}
+aside ul a .ic{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);width:14px;text-align:center}
+aside ul a .tog{color:var(--muted);font-size:9px;flex-shrink:0}
+aside ul ul{margin-left:18px;border-left:1px dashed var(--border-2);padding-left:4px}
+
+aside .user{margin-top:24px;padding:8px 10px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:6px}
+aside .user .av{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+aside .user .nm{font-size:13px;flex:1}
+aside .user .nm strong{display:block;color:var(--ink);font-weight:600}
+aside .user .nm small{font-size:11px;color:var(--muted)}
+
+/* Main */
+main{padding:0;display:flex;flex-direction:column;min-height:100vh}
+.topbar{padding:10px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);position:sticky;top:0;background:rgba(251,250,249,0.9);backdrop-filter:blur(10px);z-index:40}
+.topbar .crumb{display:flex;align-items:center;gap:6px}
+.topbar .crumb span{color:var(--text)}
+.topbar .crumb strong{color:var(--ink);font-weight:600}
+.topbar .right{display:flex;gap:14px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.04em}
+.topbar .right .users{display:flex}
+.topbar .right .users .av{width:24px;height:24px;border-radius:50%;border:2px solid var(--bg);margin-left:-6px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.topbar .right .users .av:nth-child(1){background:#2778BC;margin-left:0}
+.topbar .right .users .av:nth-child(2){background:#16A34A}
+.topbar .right .users .av:nth-child(3){background:#F59E0B}
+.topbar .btn{padding:6px 12px;background:var(--ink);color:#fff;border:none;border-radius:5px;font-size:12.5px;font-weight:600;font-family:inherit}
+
+/* Doc area */
+.doc{max-width:780px;margin:0 auto;padding:48px 32px 96px;width:100%;flex:1}
+@media (max-width:780px){.doc{padding:32px 20px}}
+
+.cover{height:140px;border-radius:6px;margin-bottom:32px;background:linear-gradient(135deg,#0F172A 0%,#2778BC 50%,#009FE3 100%);position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.12),transparent 60%)}
+.cover svg{position:absolute;right:-30px;top:-10px;width:160px;height:auto;opacity:0.15}
+
+.doc-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:13px;color:var(--muted)}
+.doc-meta .ic{width:40px;height:40px;border-radius:8px;background:#F0F7FC;display:inline-flex;align-items:center;justify-content:center;font-size:22px;color:var(--blue)}
+.doc-meta .ic svg{width:22px;height:22px;stroke:var(--blue);stroke-width:1.6;fill:none}
+
+h1.doc-title{font-size:42px;font-weight:700;letter-spacing:-0.025em;color:var(--ink);line-height:1.15;margin-bottom:6px}
+.doc-props{display:flex;flex-direction:column;gap:6px;margin:18px 0 28px;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.doc-props .row{display:grid;grid-template-columns:140px 1fr;gap:14px;font-size:13.5px;align-items:center}
+.doc-props .row .k{color:var(--muted);font-weight:500;display:flex;align-items:center;gap:6px}
+.doc-props .row .v{color:var(--text)}
+.doc-props .row .v .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11.5px;font-weight:500;margin-right:4px}
+.doc-props .row .v .tag.blue{background:var(--tag-blue);color:#1E40AF}
+.doc-props .row .v .tag.green{background:var(--tag-green);color:#166534}
+.doc-props .row .v .tag.yellow{background:var(--tag-yellow);color:#B45309}
+.doc-props .row .v .tag.pink{background:var(--tag-pink);color:#9F1239}
+.doc-props .row .v .ppl{display:inline-flex;align-items:center;gap:6px}
+.doc-props .row .v .ppl .av{width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;font-size:9px;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+
+/* Block-style content */
+.doc p{margin:12px 0;line-height:1.7;color:var(--text)}
+.doc h2{font-size:28px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);margin:36px 0 12px;line-height:1.2}
+.doc h3{font-size:20px;font-weight:600;letter-spacing:-0.015em;color:var(--ink);margin:28px 0 10px}
+
+/* Callout */
+.callout{margin:18px 0;padding:14px 16px 14px 14px;background:var(--highlight);border-radius:6px;display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;border:1px solid #FCD34D40}
+.callout .em{font-size:18px;line-height:1.2}
+.callout p{margin:0;font-size:14.5px;color:#78350F}
+.callout p strong{color:#92400E}
+.callout.blue{background:#EFF6FC;border-color:#BFDBFE}
+.callout.blue p{color:#1E3A8A}
+.callout.blue p strong{color:#1E40AF}
+
+/* Toggle list */
+.toggle{margin:8px 0;padding:6px 0;border-bottom:1px solid var(--border)}
+.toggle .summary{display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500;color:var(--ink)}
+.toggle .summary::before{content:"▸";color:var(--muted);font-size:10px;transition:.2s}
+.toggle.open .summary::before{transform:rotate(90deg)}
+.toggle .body{padding-left:16px;padding-top:8px;color:var(--text);font-size:14.5px;line-height:1.65;display:none}
+.toggle.open .body{display:block}
+
+/* Database/Table block */
+.db{margin:18px 0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff}
+.db .db-head{padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;background:var(--code-bg);display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.db .db-head .views{display:flex;gap:6px}
+.db .db-head .views .v{padding:2px 8px;border-radius:4px;font-size:10.5px}
+.db .db-head .views .v.act{background:#fff;color:var(--ink);box-shadow:0 1px 0 var(--border)}
+.db table{width:100%;border-collapse:collapse;font-size:13.5px}
+.db th{padding:9px 12px;text-align:left;font-weight:600;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace}
+.db td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text)}
+.db tr:last-child td{border-bottom:none}
+.db td.k{font-weight:600;color:var(--ink)}
+.db td .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
+.db td .tag.green{background:var(--tag-green);color:#166534}
+.db td .tag.yellow{background:var(--tag-yellow);color:#B45309}
+.db td .tag.blue{background:var(--tag-blue);color:#1E40AF}
+.db td .tag.pink{background:var(--tag-pink);color:#9F1239}
+.db td .num{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+
+/* Embedded card */
+.embed{margin:14px 0;padding:14px;background:#fff;border:1px solid var(--border);border-radius:6px;display:flex;gap:14px;align-items:center}
+.embed .icon{width:36px;height:36px;border-radius:8px;background:#F0F7FC;display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:700}
+.embed .meta{flex:1}
+.embed .meta strong{display:block;font-size:14px;color:var(--ink);font-weight:600}
+.embed .meta small{font-size:12px;color:var(--muted)}
+.embed .arr{color:var(--muted)}
+
+/* Checkbox list */
+.todo{margin:14px 0}
+.todo .item{display:flex;align-items:start;gap:10px;padding:6px 0;font-size:14.5px}
+.todo .item .box{width:16px;height:16px;border:1.5px solid var(--border-2);border-radius:3px;flex-shrink:0;margin-top:2px}
+.todo .item.done .box{background:var(--blue);border-color:var(--blue);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.5 11.5L3.5 8.5L4.5 7.5L6.5 9.5L11.5 4.5L12.5 5.5Z'/%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat}
+.todo .item.done .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--muted)}
+
+/* Inline code */
+code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--code-bg);padding:1px 6px;border-radius:3px;color:#9F1239}
+
+/* Last edited */
+.last-edit{margin-top:48px;padding-top:18px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;display:flex;justify-content:space-between;letter-spacing:0.04em}
+
+.back{position:fixed;bottom:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;z-index:99;background:#fff;padding:7px 12px;border:1px solid var(--border);border-radius:99px;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.back:hover{color:var(--ink);border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<div class="app">
+
+<aside>
+  <div class="ws-switcher">
+    <div class="av">LX</div>
+    <div class="name">LeXpersonal HQ</div>
+    <div class="ch">⌄</div>
+  </div>
+
+  <div class="sb-search">
+    <span style="color:var(--muted)">⌕ Suchen…</span>
+    <span>⌘&nbsp;K</span>
+  </div>
+
+  <div class="sec-lbl">Privater Workspace<span>+</span></div>
+  <ul>
+    <li><a href="#"><span class="ic">📥</span>Posteingang <span class="tog" style="margin-left:auto;color:var(--blue);font-weight:700">3</span></a></li>
+    <li><a href="#"><span class="ic">📝</span>Notizen</a></li>
+  </ul>
+
+  <div class="sec-lbl">Workspace<span>+</span></div>
+  <ul>
+    <li><a class="act" href="#"><span class="tog">▾</span><span class="ic">📘</span>Konzern-Handbuch</a>
+      <ul>
+        <li><a href="#"><span class="ic">·</span>Wie wir arbeiten</a></li>
+        <li><a href="#"><span class="ic">·</span>SLA-Definitionen</a></li>
+        <li><a href="#"><span class="ic">·</span>VMS-Integration</a></li>
+        <li><a href="#"><span class="ic">·</span>Eskalations-Pfade</a></li>
+      </ul>
+    </li>
+    <li><a href="#"><span class="tog">▸</span><span class="ic">📊</span>Branchen-Reports</a></li>
+    <li><a href="#"><span class="tog">▸</span><span class="ic">📚</span>Cases</a></li>
+    <li><a href="#"><span class="tog">▸</span><span class="ic">⚙</span>Compliance</a></li>
+    <li><a href="#"><span class="tog">▸</span><span class="ic">📞</span>Kontakte</a></li>
+  </ul>
+
+  <div class="sec-lbl">Vorlagen<span>+</span></div>
+  <ul>
+    <li><a href="#"><span class="ic">+</span>Briefing-Vorlage</a></li>
+    <li><a href="#"><span class="ic">+</span>SLA-Bericht</a></li>
+    <li><a href="#"><span class="ic">+</span>Quartals-Review</a></li>
+  </ul>
+
+  <div class="user">
+    <div class="av">KH</div>
+    <div class="nm"><strong>K. Hoffmann</strong><small>Konzern-Einkauf</small></div>
+  </div>
+</aside>
+
+<main>
+  <div class="topbar">
+    <div class="crumb">
+      <strong>Konzern-Handbuch</strong>
+      <span style="color:var(--muted)">/</span>
+      <span>Wie wir arbeiten</span>
+    </div>
+    <div class="right">
+      <span>Bearbeitet vor 12 Min.</span>
+      <div class="users"><div class="av">SH</div><div class="av">MH</div><div class="av">TB</div></div>
+      <button class="btn">Teilen ↗</button>
+    </div>
+  </div>
+
+  <article class="doc">
+
+    <div class="cover">
+      <svg><use href="#lex-x"/></svg>
+    </div>
+
+    <div class="doc-meta">
+      <div class="ic">
+        <svg viewBox="0 0 22 22"><path d="M4 4h14v14H4z"/><path d="M4 8h14"/></svg>
+      </div>
+      <span>Konzern-Handbuch · Kapitel 01</span>
+    </div>
+
+    <h1 class="doc-title">Wie wir mit Konzern-Einkauf arbeiten</h1>
+
+    <div class="doc-props">
+      <div class="row">
+        <div class="k">📅&nbsp;&nbsp;Erstellt</div>
+        <div class="v">14. Januar 2024</div>
+      </div>
+      <div class="row">
+        <div class="k">🔄&nbsp;&nbsp;Letzter Stand</div>
+        <div class="v">30. Mai 2026 · Version <code>v4.2</code></div>
+      </div>
+      <div class="row">
+        <div class="k">👤&nbsp;&nbsp;Verantwortlich</div>
+        <div class="v"><span class="ppl"><span class="av">SH</span>Stefan Hagen</span> &nbsp;·&nbsp; <span class="ppl"><span class="av">MH</span>Michael Hagen</span></div>
+      </div>
+      <div class="row">
+        <div class="k">🏷️&nbsp;&nbsp;Tags</div>
+        <div class="v">
+          <span class="tag blue">Onboarding</span>
+          <span class="tag green">Standard-Prozess</span>
+          <span class="tag yellow">SLA</span>
+          <span class="tag pink">Pflicht-Lektüre</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">📂&nbsp;&nbsp;Sichtbar für</div>
+        <div class="v">Alle Mitarbeitenden &amp; Konzern-Kunden mit Login</div>
+      </div>
+    </div>
+
+    <p>Dieses Dokument beschreibt den Standard, nach dem LeXpersonal mit Konzern-Einkauf und HR-Leitung großer Industriekunden zusammenarbeitet. Es ist <strong>keine</strong> Marketing-Broschüre, sondern eine operative Anleitung. Wenn Sie als Konzern-Kunde lesen: das hier sind die Mechanismen, an denen Sie uns messen können.</p>
+
+    <div class="callout blue">
+      <span class="em">ⓘ</span>
+      <p><strong>Lesedauer:</strong> 8 Minuten · <strong>Geltungsbereich:</strong> alle Auftragsmodelle (AN-Überlassung, Direktvermittlung, Werkvertrag) · <strong>Aktualisierungsrhythmus:</strong> quartalsweise.</p>
+    </div>
+
+    <h2>1 · Die drei Prinzipien</h2>
+
+    <p>Wir treffen jede operative Entscheidung gegen drei Prinzipien. Wenn ein Vorgang gegen eines verstößt, eskaliert er — egal, wer am Werkstor steht.</p>
+
+    <div class="todo">
+      <div class="item done"><div class="box"></div><div class="txt"><strong>Keine Versprechen, die wir nicht messen können.</strong> Jede Zusage hat eine KPI, eine Pönale und einen Audit-Trail.</div></div>
+      <div class="item done"><div class="box"></div><div class="txt"><strong>Profile gehen erst raus, wenn ein Senior persönlich geprüft hat.</strong> System matcht, Mensch unterschreibt — namentlich, dokumentiert.</div></div>
+      <div class="item done"><div class="box"></div><div class="txt"><strong>SLA-Überschreitungen werden öffentlich.</strong> Status-Page, alle 24 Std. Pönalen automatisch.</div></div>
+    </div>
+
+    <h2>2 · Was Sie als Einkauf in 48 Stunden sehen</h2>
+
+    <p>Nach Eingang Ihres Briefings — egal ob über Web, API, SAP Fieldglass oder klassisch per Mail — durchläuft Ihr Auftrag den unten dokumentierten Prozess. Sie sehen messbare Zwischenstände, keine Black-Box.</p>
+
+    <div class="db">
+      <div class="db-head">
+        <span>📊 Briefing → Lieferung · SLA-Tabelle</span>
+        <div class="views"><span class="v act">Tabelle</span><span class="v">Board</span><span class="v">Timeline</span></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Was passiert</th><th>SLA</th><th>Pönale</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="k">01</td><td>Eingang &amp; Rückfragen-Call</td><td class="num">≤ 90 Min.</td><td>—</td><td><span class="tag green">aktiv</span></td></tr>
+          <tr><td class="k">02</td><td>Pipeline-Match &amp; Senior-Prüfung</td><td class="num">≤ 24 Std.</td><td>—</td><td><span class="tag green">aktiv</span></td></tr>
+          <tr><td class="k">03</td><td>Profilvorschläge an Kunden</td><td class="num">≤ 24 Std.</td><td>200 € / Tag</td><td><span class="tag green">aktiv</span></td></tr>
+          <tr><td class="k">04</td><td>Vertragsbau &amp; Onboarding</td><td class="num">≤ 48 Std.</td><td>400 € / Tag</td><td><span class="tag green">aktiv</span></td></tr>
+          <tr><td class="k">05</td><td>Erste Schicht produktiv</td><td class="num">≤ 4 Tage*</td><td>800 € / Tag</td><td><span class="tag yellow">Express</span></td></tr>
+          <tr><td class="k">06</td><td>Rechnung XRechnung + ZUGFeRD</td><td class="num">wöchentlich</td><td>—</td><td><span class="tag blue">automatisch</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:13px;color:var(--muted)">* Bei Express-SLA &lt; 48 Std. Standard-SLA: ≤ 7 Tage Industrie/Logistik, ≤ 10 Tage Pflege.</p>
+
+    <h2>3 · Eskalations-Pfade</h2>
+
+    <p>Wenn etwas wackelt — und das kommt vor — ist die Eskalation klar geregelt. Hier die drei Stufen:</p>
+
+    <div class="toggle open">
+      <div class="summary">Stufe 1 · Operativer Berater (Reaktion &lt; 30 Min.)</div>
+      <div class="body">
+        Ihr zugewiesener Senior-Berater ist erste Eskalations-Adresse während der Geschäftszeiten (Mo–Fr 6–22 Uhr, Sa 7–18 Uhr). Direktdurchwahl. Bei Pflege: 24/7-Bereitschaft.
+      </div>
+    </div>
+
+    <div class="toggle open">
+      <div class="summary">Stufe 2 · Bereichsleitung Operations (Reaktion &lt; 4 Std.)</div>
+      <div class="body">
+        Bei SLA-Überschreitung &gt; 24 Std. oder Disput zur Profil-Qualität greift Bereichsleitung Operations (M. Hagen). Direkter Eskalations-Call wird einberufen.
+      </div>
+    </div>
+
+    <div class="toggle">
+      <div class="summary">Stufe 3 · Inhaber (Reaktion &lt; 24 Std., Geschäftszeit)</div>
+      <div class="body">
+        Vertragsgrundlegende Fragen, Pönal-Disput, Konzern-Strategie. S. Hagen persönlich — keine Sekretariats-Filter, keine Delegation.
+      </div>
+    </div>
+
+    <h2>4 · Verknüpfte Dokumente</h2>
+
+    <div class="embed">
+      <div class="icon">📋</div>
+      <div class="meta"><strong>SLA-Definitionen v4.1</strong><small>Wie wir „Time-to-Fill" definieren · 6 Seiten</small></div>
+      <div class="arr">→</div>
+    </div>
+
+    <div class="embed">
+      <div class="icon">⚙</div>
+      <div class="meta"><strong>VMS-Integration · SAP Fieldglass</strong><small>Technische Setup-Anleitung · 12 Seiten</small></div>
+      <div class="arr">→</div>
+    </div>
+
+    <div class="embed">
+      <div class="icon">⚖</div>
+      <div class="meta"><strong>AVV-Mustertext (DSGVO Art. 28)</strong><small>Auftragsverarbeitungs-Vereinbarung · DE/EN</small></div>
+      <div class="arr">→</div>
+    </div>
+
+    <div class="embed">
+      <div class="icon">📈</div>
+      <div class="meta"><strong>Quartals-Review-Template</strong><small>KPI-Übergabe + Korrekturmaßnahmen · Notion-Vorlage</small></div>
+      <div class="arr">→</div>
+    </div>
+
+    <h2>5 · FAQ</h2>
+
+    <div class="toggle open">
+      <div class="summary">Was passiert, wenn die SLA gerissen wird?</div>
+      <div class="body">
+        Automatische Pönal-Verrechnung gemäß Vertrag (siehe Tabelle oben). Plus: öffentliche Dokumentation auf der Status-Page (ab Q3 2026). Plus: Reserve-Pool wird aktiviert. Plus: Senior-Berater meldet sich persönlich, nicht über Mail-Template.
+      </div>
+    </div>
+
+    <div class="toggle">
+      <div class="summary">Wie funktioniert die SAP-Fieldglass-Anbindung?</div>
+      <div class="body">
+        Wir sind als zertifizierter Supplier in SAP Fieldglass integriert. Briefings, Freigaben, Zeiterfassung und Rechnungstellung laufen direkt im VMS. Setup-Aufwand: 4 Tage.
+      </div>
+    </div>
+
+    <div class="toggle">
+      <div class="summary">Wer prüft die Profile, bevor sie zu uns kommen?</div>
+      <div class="body">
+        Immer ein Senior-Berater mit Branchen-Spezialisierung. Name + Funktion stehen auf jedem Profilvorschlag. Bei Industrie typisch T. Bergmann oder L. Reuter, bei Pflege B. Wolters.
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="em">✸</span>
+      <p><strong>Hinweis:</strong> Wenn Sie dieses Dokument zum ersten Mal lesen und als Konzern-Einkauf in einen Pilotvertrag einsteigen möchten, sprechen Sie direkt mit Michael Hagen (Operations). Anrede „Hallo Michael" reicht — wir mögen formelle Brücken nicht besonders.</p>
+    </div>
+
+    <div class="last-edit">
+      <span>Letzte Bearbeitung · 30.05.2026 · 14:18 · <strong style="color:var(--ink)">S. Hagen</strong></span>
+      <span>v4.2 · 12 Mitwirkende</span>
+    </div>
+
+  </article>
+</main>
+
+</div>
+
+</body>
+</html>

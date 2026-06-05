@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal · Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;
+  --paper:#FAFAF7;
+  --ink:#0A1A33;
+  --ink-2:#1E293B;
+  --text:#334155;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --accent:#7C2D12;
+  --tag-bg:#F1F5F9;
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Source Serif 4',serif}
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+
+/* Top bar */
+.top{padding:14px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.04em}
+.top .row{display:flex;justify-content:space-between}
+.top a{color:var(--text);font-weight:500}
+
+/* Masthead */
+.mast{padding:32px 0 24px;border-bottom:2px solid var(--ink);text-align:center}
+.mast .logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
+.mast .logo svg{width:22px;height:27px}
+.mast .logo .name{font-family:'Source Serif 4',serif;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+.mast h1.head{font-family:'Source Serif 4',serif;font-size:64px;font-weight:400;letter-spacing:-0.02em;color:var(--ink);line-height:1}
+.mast h1.head em{font-style:italic;color:var(--blue)}
+.mast .tag{margin-top:10px;font-family:'Source Serif 4',serif;font-style:italic;font-size:15.5px;color:var(--muted)}
+
+/* Nav */
+.subnav{padding:14px 0;border-bottom:1px solid var(--border);font-family:'Inter',sans-serif;font-size:13.5px}
+.subnav .row{display:flex;justify-content:space-between;align-items:center}
+.subnav ul{display:flex;gap:24px;list-style:none}
+.subnav ul a{color:var(--text);font-weight:500}
+.subnav ul a.act{color:var(--blue)}
+.subnav .search{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:var(--paper)}
+
+/* Hero feature */
+.hero{padding:48px 0 32px;border-bottom:1px solid var(--border)}
+.hero .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px}
+@media (max-width:980px){.hero .grid{grid-template-columns:1fr;gap:32px}}
+.hero .lead-art{background:linear-gradient(135deg,#0F172A 0%,#1E5A8E 60%,#009FE3 100%);min-height:340px;border-radius:8px;position:relative;overflow:hidden;display:flex;align-items:end;padding:32px;color:#fff}
+.hero .lead-art::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(255,255,255,0.08),transparent 60%)}
+.hero .lead-art .ovl{position:absolute;right:24px;top:24px;width:140px;opacity:0.18}
+.hero .lead-art .ovl svg{width:100%;height:auto}
+.hero .lead-art .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#A7F3D0;margin-bottom:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;position:relative;z-index:2}
+.hero .lead-art .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#A7F3D0}
+.hero .lead-art h2{font-family:'Source Serif 4',serif;font-size:36px;font-weight:400;letter-spacing:-0.025em;line-height:1.05;position:relative;z-index:2;max-width:480px}
+.hero .lead-art h2 em{font-style:italic;color:var(--cyan)}
+.hero .lead-art p{margin-top:14px;font-size:14.5px;color:rgba(255,255,255,0.85);max-width:440px;position:relative;z-index:2;line-height:1.6}
+.hero .lead-art .meta{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.65);position:relative;z-index:2;text-transform:uppercase;letter-spacing:0.06em}
+
+.hero .lead-text .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+.hero .lead-text h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:500;letter-spacing:-0.018em;line-height:1.2;color:var(--ink);margin-bottom:14px}
+.hero .lead-text .desc{font-size:15.5px;line-height:1.65;color:var(--text);margin-bottom:18px}
+.hero .lead-text .by{font-family:'Source Serif 4',serif;font-style:italic;font-size:13.5px;color:var(--muted);padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between}
+.hero .lead-text .by strong{color:var(--ink);font-style:normal;font-weight:600}
+.hero .lead-text .tags{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.hero .lead-text .tags span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);background:var(--tag-bg);padding:3px 9px;border-radius:99px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600}
+
+/* Categories strip */
+.cats{padding:24px 0;border-bottom:1px solid var(--border)}
+.cats .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.cats .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+.cats .chips{display:flex;gap:6px;flex-wrap:wrap}
+.cats .chips a{padding:6px 14px;font-size:13px;color:var(--text);border:1px solid var(--border);border-radius:99px;font-weight:500}
+.cats .chips a.act{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cats .chips a:hover{border-color:var(--ink)}
+
+/* Article grid */
+.articles{padding:48px 0;border-bottom:1px solid var(--border)}
+.sec-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}
+.sec-h h2{font-family:'Source Serif 4',serif;font-size:32px;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+.sec-h .more{font-size:13px;color:var(--blue);font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;text-transform:uppercase}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+@media (max-width:980px){.grid-3{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.grid-3{grid-template-columns:1fr}}
+
+.art{display:flex;flex-direction:column;gap:10px}
+.art .thumb{aspect-ratio:16/10;background:var(--paper);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.art .thumb .chart-mini{width:80%}
+.art .thumb.chart-1{background:linear-gradient(135deg,#FAFAF7 0%,#EDE9DE 100%)}
+.art .thumb.chart-2{background:linear-gradient(135deg,#F0F7FC 0%,#DCE9F4 100%)}
+.art .thumb.chart-3{background:linear-gradient(135deg,#F7F3F0 0%,#E8D9CD 100%)}
+.art .thumb.dark{background:linear-gradient(135deg,#0F172A 0%,#1E5A8E 100%)}
+.art .thumb svg{width:80%;height:auto}
+.art .kicker{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.art h4{font-family:'Source Serif 4',serif;font-size:21px;font-weight:500;line-height:1.2;letter-spacing:-0.015em;color:var(--ink)}
+.art h4:hover{color:var(--blue)}
+.art p{font-size:14px;color:var(--text);line-height:1.55}
+.art .meta{margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.04em;display:flex;justify-content:space-between}
+.art .meta strong{color:var(--ink);font-weight:600}
+
+/* List articles */
+.list-articles{padding:48px 0;border-bottom:1px solid var(--border)}
+.list-articles .grid-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+@media (max-width:780px){.list-articles .grid-list{grid-template-columns:1fr}}
+.list-item{padding:20px 24px;border-top:1px solid var(--border);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
+.list-item:nth-child(2n){border-right:none}
+.list-item:nth-child(-n+2){border-top:none}
+@media (max-width:780px){.list-item{border-right:none}.list-item:nth-child(2){border-top:1px solid var(--border)}}
+.list-item .kicker{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.list-item h4{font-family:'Source Serif 4',serif;font-size:18px;font-weight:500;line-height:1.25;letter-spacing:-0.01em;color:var(--ink)}
+.list-item p{font-size:13.5px;color:var(--text)}
+.list-item .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:8px}
+
+/* Newsletter block */
+.nl{padding:64px 0;background:var(--paper);border-bottom:1px solid var(--border)}
+.nl .wrap{max-width:780px;margin:0 auto;text-align:center}
+.nl .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.nl h2{font-family:'Source Serif 4',serif;font-size:38px;font-weight:400;letter-spacing:-0.025em;line-height:1.1;color:var(--ink);margin-bottom:14px}
+.nl h2 em{font-style:italic;color:var(--blue)}
+.nl p{color:var(--text);font-size:15.5px;line-height:1.65;max-width:540px;margin:0 auto 24px}
+.nl form{display:flex;gap:6px;max-width:480px;margin:0 auto}
+.nl input{flex:1;padding:12px 16px;border:1px solid var(--border);background:#fff;border-radius:8px;font-size:14px;font-family:inherit}
+.nl button{padding:12px 22px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+.nl .small{margin-top:12px;font-size:12px;color:var(--muted)}
+
+footer{padding:32px 0;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.04em}
+footer .row{display:flex;justify-content:space-between}
+
+.back{position:fixed;top:18px;left:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;z-index:99;background:#fff;padding:7px 12px;border:1px solid var(--border);border-radius:99px}
+.back:hover{color:var(--ink);border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<div class="top">
+  <div class="container">
+    <div class="row">
+      <span>Insights · Studien · Berichte · Standpunkte</span>
+      <span>31. Mai 2026 · Münster · <a href="#">Zur Hauptseite</a></span>
+    </div>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="logo">
+    <svg><use href="#lex-x"/></svg>
+    <span class="name">LeXpersonal · Insights</span>
+  </div>
+  <h1 class="head">Forschung &amp; <em>Perspektiven</em></h1>
+  <div class="tag">Vier Mal im Jahr · Studien, Berichte und Standpunkte zum deutschen Industrie-Personalmarkt</div>
+</header>
+
+<nav class="subnav">
+  <div class="container">
+    <div class="row">
+      <ul>
+        <li><a class="act" href="#">Alle Themen</a></li>
+        <li><a href="#">Industrie</a></li>
+        <li><a href="#">Logistik</a></li>
+        <li><a href="#">Pflege</a></li>
+        <li><a href="#">Konzern-Einkauf</a></li>
+        <li><a href="#">Recht &amp; Compliance</a></li>
+        <li><a href="#">Markt-Daten</a></li>
+      </ul>
+      <span class="search">Suchen <span style="color:var(--ink);font-weight:600">⌘ K</span></span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="grid">
+
+      <div class="lead-art">
+        <div class="ovl"><svg><use href="#lex-x"/></svg></div>
+        <div style="position:relative;z-index:2">
+          <span class="kicker">Leitstudie · Q2 / 2026</span>
+          <h2>Die <em>verdeckten Kosten</em> einer unbesetzten Werkstor-Schicht.</h2>
+          <p>Eine 18-Monats-Analyse über sieben Industriekunden hinweg. Schlussfolgerung: jede 24h-Vakanz an der Maschine kostet im Mittel 11 400 € — doppelt so viel wie der durchschnittliche Vermittlungsaufschlag.</p>
+          <div class="meta">Dr. M. Linnert · Aric Hagen · 28 Seiten · PDF + Datenset</div>
+        </div>
+      </div>
+
+      <div class="lead-text">
+        <div class="tags"><span>Studie</span><span>Industrie</span><span>Q2 2026</span></div>
+        <div class="kicker">Empfehlung der Redaktion</div>
+        <h3>Was deutsche Konzerne 2026 von ihren Personaldienstleistern erwarten — und wo die Lücke ist.</h3>
+        <p class="desc">Auf Basis von 142 strukturierten Gesprächen mit Konzern-Einkauf und HR-Leitung in der DACH-Region 2025/26 zeichnen wir das aktuelle Anforderungs­profil. Drei Erkenntnisse stechen heraus.</p>
+        <p class="desc">Die wichtigste: Vier von fünf Einkaufsabteilungen würden ihren Hauptdienstleister wechseln, wenn ein Anbieter VMS-Anbindung <em>und</em> Equal-Pay <em>und</em> öffentliche SLA-Reports liefern könnte. Nur sechs Prozent des Marktes leisten heute alle drei.</p>
+        <div class="by">
+          <span>Von <strong>Dr. Marcus Linnert</strong></span>
+          <span>14 Min. Lesezeit · 31.05.2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cats">
+  <div class="container">
+    <div class="row">
+      <span class="lbl">Thema filtern</span>
+      <div class="chips">
+        <a class="act" href="#">Alle</a>
+        <a href="#">Markt-Reports</a>
+        <a href="#">Tarif &amp; Recht</a>
+        <a href="#">Konzern-Compliance</a>
+        <a href="#">Operations</a>
+        <a href="#">Pflege-Spezial</a>
+        <a href="#">Branchen-Benchmarks</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="articles">
+  <div class="container">
+    <div class="sec-h">
+      <h2>Aktuelle Studien &amp; Berichte</h2>
+      <a href="#" class="more">Archiv durchsuchen →</a>
+    </div>
+    <div class="grid-3">
+
+      <article class="art">
+        <div class="thumb chart-1">
+          <svg viewBox="0 0 200 120">
+            <path d="M10,90 C40,80 70,60 100,55 C130,50 160,30 190,20" stroke="#2778BC" stroke-width="2.5" fill="none"/>
+            <path d="M10,100 C40,95 70,85 100,80 C130,75 160,60 190,55" stroke="#009FE3" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+            <line x1="10" y1="110" x2="190" y2="110" stroke="#94A3B8" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <span class="kicker">Markt-Report</span>
+        <h4>Time-to-Fill im Mittelstand: Warum 12 Tage die neue Konzern-Erwartung sind</h4>
+        <p>Benchmark über 320 deutsche Industriekunden, 2022–2026. Die Schmerzgrenze ist gesunken — wir zeigen, warum, und welche Anbieter folgen können.</p>
+        <div class="meta"><strong>S. Hagen</strong><span>16 Seiten · PDF</span></div>
+      </article>
+
+      <article class="art">
+        <div class="thumb chart-2">
+          <svg viewBox="0 0 200 120">
+            <rect x="20" y="60" width="20" height="50" fill="#2778BC"/>
+            <rect x="50" y="50" width="20" height="60" fill="#2778BC"/>
+            <rect x="80" y="40" width="20" height="70" fill="#009FE3"/>
+            <rect x="110" y="35" width="20" height="75" fill="#009FE3"/>
+            <rect x="140" y="25" width="20" height="85" fill="#0F172A"/>
+            <rect x="170" y="20" width="20" height="90" fill="#0F172A"/>
+            <line x1="10" y1="110" x2="195" y2="110" stroke="#94A3B8" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <span class="kicker">Konzern-Compliance</span>
+        <h4>VMS-Anbindung: SAP Fieldglass, Onventis und Beeline im direkten Vergleich</h4>
+        <p>Was Konzern-Einkäufer wirklich abfragen sollten — und woran 70&nbsp;% der Personaldienstleister bei der Anbindung scheitern.</p>
+        <div class="meta"><strong>M. Hagen</strong><span>22 Seiten · PDF</span></div>
+      </article>
+
+      <article class="art">
+        <div class="thumb chart-3">
+          <svg viewBox="0 0 200 120">
+            <circle cx="100" cy="60" r="42" fill="none" stroke="#E2E8F0" stroke-width="14"/>
+            <path d="M100 18 A42 42 0 0 1 138 78" fill="none" stroke="#2778BC" stroke-width="14"/>
+            <path d="M138 78 A42 42 0 0 1 78 95" fill="none" stroke="#009FE3" stroke-width="14"/>
+          </svg>
+        </div>
+        <span class="kicker">Tarif &amp; Recht</span>
+        <h4>Equal-Pay ab Tag 1 statt Tag 270: Was das BAG-Urteil März 2026 verändert</h4>
+        <p>Rechtliche Einordnung und konkrete Auswirkungen auf Personaldienstleister und Kunden — mit Modellrechnung für Industrie-Verträge.</p>
+        <div class="meta"><strong>Dr. M. Linnert</strong><span>11 Seiten · PDF</span></div>
+      </article>
+
+      <article class="art">
+        <div class="thumb dark">
+          <svg viewBox="0 0 200 120">
+            <text x="100" y="72" text-anchor="middle" fill="#fff" font-family="Source Serif 4, serif" font-size="42" font-style="italic" font-weight="400">98%</text>
+            <text x="100" y="92" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.1em">FOLGEAUFTRAG · 12M</text>
+          </svg>
+        </div>
+        <span class="kicker">Operations-Benchmark</span>
+        <h4>Was wir aus 18 Jahren Folgeauftrags-Quote gelernt haben</h4>
+        <p>Ein interner Bericht, öffentlich gemacht. Die drei Mechanismen, die Konzern-Verträge halten oder reißen lassen.</p>
+        <div class="meta"><strong>S. Hagen</strong><span>9 Seiten · HTML</span></div>
+      </article>
+
+      <article class="art">
+        <div class="thumb chart-1">
+          <svg viewBox="0 0 200 120">
+            <path d="M10 100 L40 70 L70 80 L100 50 L130 60 L160 30 L190 40" stroke="#2778BC" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="70" r="3" fill="#2778BC"/>
+            <circle cx="100" cy="50" r="3" fill="#009FE3"/>
+            <circle cx="160" cy="30" r="3" fill="#0F172A"/>
+            <line x1="10" y1="110" x2="190" y2="110" stroke="#94A3B8" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <span class="kicker">Pflege-Spezial</span>
+        <h4>Pflege-Pipeline 2026: Wie polnisch- und rumänisch­sprachiges Onboarding die Bindung verdoppelt</h4>
+        <p>Eine 24-Monats-Auswertung über 17 Pflegeeinrichtungen. Mit Methodik, Limitationen und Umsetzungs­leitfaden.</p>
+        <div class="meta"><strong>B. Wolters</strong><span>18 Seiten · PDF</span></div>
+      </article>
+
+      <article class="art">
+        <div class="thumb chart-2">
+          <svg viewBox="0 0 200 120">
+            <rect x="10" y="20" width="55" height="80" fill="#0F172A" rx="2"/>
+            <rect x="73" y="40" width="55" height="60" fill="#2778BC" rx="2"/>
+            <rect x="136" y="60" width="55" height="40" fill="#009FE3" rx="2"/>
+          </svg>
+        </div>
+        <span class="kicker">Branchen-Benchmark</span>
+        <h4>Industrie vs. Logistik vs. Pflege: Time-to-Fill, Pönalen, Folgeauftrag im Vergleich</h4>
+        <p>Vergleichsstudie über alle Hauptbranchen mit 6 Kennzahlen-Sets. Quartalsweise aktualisiert.</p>
+        <div class="meta"><strong>Redaktion</strong><span>14 Seiten · PDF + CSV</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="list-articles">
+  <div class="container">
+    <div class="sec-h">
+      <h2>Standpunkte &amp; Kommentare</h2>
+      <a href="#" class="more">Alle Standpunkte →</a>
+    </div>
+    <div class="grid-list">
+      <div class="list-item">
+        <span class="kicker">Standpunkt</span>
+        <h4>„Personaldienstleister, die keine SLA-Pönale ausweisen, sind nicht konzernfähig."</h4>
+        <p>Warum SLA ohne Pönale leeres Versprechen ist — und wie Konzern-Einkäufer das in der Vertrags­verhandlung erzwingen.</p>
+        <div class="meta"><span>S. Hagen · Inhaber</span><span>7 Min.</span></div>
+      </div>
+      <div class="list-item">
+        <span class="kicker">Standpunkt</span>
+        <h4>Die polnische Pflegekraft ist keine Notlösung. Sie ist die Industrie.</h4>
+        <p>Eine Replik auf den FAZ-Beitrag vom 14.04.2026, der unsere ostmittel­europäischen Pflegekräfte als „Lücken-Füller" einstufte.</p>
+        <div class="meta"><span>B. Wolters</span><span>5 Min.</span></div>
+      </div>
+      <div class="list-item">
+        <span class="kicker">Kommentar</span>
+        <h4>Warum 12 Tage Time-to-Fill kein Versprechen, sondern eine Pipeline-Frage sind</h4>
+        <p>Kurze Klarstellung an alle, die uns nach Express-SLA fragen, ohne ihre Volumen-Prognose mitzuschicken.</p>
+        <div class="meta"><span>M. Hagen</span><span>4 Min.</span></div>
+      </div>
+      <div class="list-item">
+        <span class="kicker">Analyse</span>
+        <h4>BAG-Urteil März 2026: Was es wirklich für Werkverträge bedeutet</h4>
+        <p>Eine nüchterne juristische Einordnung — ohne den Beratungs-Hype, der gerade durch LinkedIn rollt.</p>
+        <div class="meta"><span>Dr. M. Linnert</span><span>9 Min.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nl">
+  <div class="container">
+    <div class="wrap">
+      <div class="kicker">Quartals-Brief abonnieren</div>
+      <h2>Vier Briefe im Jahr. <em>Keine</em> Werbung.</h2>
+      <p>Studien, Standpunkte, Quartals-KPIs. Jeden Quartalsstart in Ihrem Postfach. Über 2 400 Konzern-Entscheider lesen mit.</p>
+      <form>
+        <input type="email" placeholder="ihre.email@firma.de">
+        <button>Brief abonnieren</button>
+      </form>
+      <p class="small">Wir nutzen Ihre Adresse ausschließlich für den Brief · DSGVO Art. 6 (1) lit. a · jederzeit kündbar.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <span>© 2026 LeXpersonal GmbH · Insights · ISSN-Reg. beantragt</span>
+      <span>Konzept 14 · Research / Insights Hub</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeXpersonal · Live Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF9;
+  --surface:#FFFFFF;
+  --ink:#0A0A0A;
+  --ink-2:#171717;
+  --text:#262626;
+  --muted:#737373;
+  --border:#E5E5E5;
+  --border-2:#D4D4D4;
+  --blue:#2778BC;
+  --cyan:#009FE3;
+  --lime:#84CC16;
+  --amber:#F59E0B;
+  --rose:#E11D48;
+  --grid-line:rgba(0,0,0,0.04);
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:48px 48px}
+.mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+.tab{font-variant-numeric:tabular-nums}
+.container{max-width:1280px;margin:0 auto;padding:0 28px}
+
+/* Top utility bar */
+.utility{border-bottom:1px solid var(--border);background:var(--surface);font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.utility .row{display:flex;justify-content:space-between;padding:8px 0;align-items:center}
+.utility .pill{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+.utility .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(132,204,22,0.18);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(132,204,22,0.18)}50%{box-shadow:0 0 0 5px rgba(132,204,22,0.08)}}
+
+/* Nav */
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(12px);background:rgba(255,255,255,0.85)}
+.nav .row{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.nav .logo{display:inline-flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-0.02em;font-size:16px}
+.nav .logo strong{color:var(--cyan)}
+.nav .logo svg{width:18px;height:22px}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav ul a{color:var(--text);font-size:14px;font-weight:500}
+.nav ul a:hover{color:var(--blue)}
+.nav .cta{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:.15s;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--ink)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+a{color:inherit;text-decoration:none}
+
+/* HERO */
+.hero{padding:72px 0 40px;position:relative}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start}
+@media (max-width:980px){.hero .grid{grid-template-columns:1fr;gap:32px}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--muted);text-transform:uppercase;font-weight:600;margin-bottom:24px}
+.eyebrow .bar{width:24px;height:1px;background:var(--ink)}
+.hero h1{font-size:clamp(40px,5.4vw,68px);font-weight:600;letter-spacing:-0.035em;line-height:1.0;color:var(--ink);margin-bottom:20px}
+.hero h1 .tx{background:linear-gradient(180deg,var(--ink),#525252);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 strong{color:var(--blue);font-weight:600;font-style:italic;font-feature-settings:'ss01' on}
+.hero .lead{font-size:18px;color:var(--text);max-width:560px;line-height:1.55;margin-bottom:28px}
+.hero .actions{display:flex;gap:10px;align-items:center}
+.hero .actions .meta{margin-left:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
+.hero .actions .meta strong{color:var(--lime)}
+
+/* Live dashboard card */
+.dash{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:0;box-shadow:0 1px 0 rgba(0,0,0,0.02), 0 24px 60px -32px rgba(0,0,0,0.18);overflow:hidden}
+.dash .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.dash .topbar .ll{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600}
+.dash .topbar .ll .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:pulse 1.8s infinite}
+.dash .topbar .rr{display:inline-flex;align-items:center;gap:10px}
+.dash .topbar .rr .seg{display:inline-flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.dash .topbar .rr .seg span{padding:4px 8px;font-size:10px}
+.dash .topbar .rr .seg span.act{background:var(--ink);color:#fff}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--border)}
+.kpis .k{padding:18px 20px;border-right:1px solid var(--border)}
+.kpis .k:last-child{border-right:none}
+.kpis .k .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpis .k .v{font-size:28px;font-weight:600;letter-spacing:-0.025em;color:var(--ink);margin-top:6px;line-height:1;font-variant-numeric:tabular-nums}
+.kpis .k .d{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;margin-top:6px}
+.kpis .k .d.up{color:var(--lime)}
+.kpis .k .d.down{color:var(--rose)}
+.kpis .k .d.steady{color:var(--muted)}
+
+.chart{padding:22px 22px 18px;border-bottom:1px solid var(--border);position:relative}
+.chart .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}
+.chart .head h4{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.01em}
+.chart .head .legend{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.chart .head .legend span{display:inline-flex;align-items:center;gap:5px}
+.chart .head .legend .sw{width:9px;height:2px;border-radius:1px}
+.chart svg{width:100%;height:130px;display:block}
+.chart .xax{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px}
+
+.feed{padding:14px 20px}
+.feed h4{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:8px}
+.feed .item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:8px 0;font-size:13px;border-top:1px solid var(--border)}
+.feed .item:first-of-type{border-top:none}
+.feed .item .ic{width:6px;height:6px;border-radius:50%;margin-top:7px}
+.feed .item .ic.g{background:var(--lime)}
+.feed .item .ic.b{background:var(--blue)}
+.feed .item .ic.a{background:var(--amber)}
+.feed .item .ms strong{color:var(--ink);font-weight:600}
+.feed .item .ms span{color:var(--muted);font-size:12px}
+.feed .item .t{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);align-self:center}
+
+/* Sections */
+section{padding:64px 0;border-top:1px solid var(--border)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;gap:24px;flex-wrap:wrap}
+.sec-head h2{font-size:36px;font-weight:600;letter-spacing:-0.03em;line-height:1.05;color:var(--ink);max-width:640px}
+.sec-head .desc{color:var(--muted);font-size:15px;max-width:380px;text-align:right}
+@media (max-width:780px){.sec-head{flex-direction:column;align-items:start}.sec-head .desc{text-align:left}}
+
+/* Industry tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:1080px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:6px;transition:.15s;cursor:pointer}
+.tile:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tile .name{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em}
+.tile .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase}
+.tile .row{display:flex;justify-content:space-between;align-items:end;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.tile .row .stat{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.tile .row .stat span{font-size:11px;color:var(--muted);font-weight:500;display:block;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px}
+.tile .row .arr{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:14px}
+
+/* Logos */
+.logos{padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+.logos .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:24px;font-weight:600}
+.logos .row{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;align-items:center}
+.logos .row span{font-family:'Inter',sans-serif;font-weight:600;color:#999;font-size:15px;text-align:center;letter-spacing:0.04em}
+@media (max-width:780px){.logos .row{grid-template-columns:repeat(3,1fr)}}
+
+/* Three-up feature blocks */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:920px){.feats{grid-template-columns:1fr}}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px}
+.feat .ic{width:36px;height:36px;border-radius:8px;background:#F4F4F5;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px}
+.feat .ic svg{width:18px;height:18px;stroke:var(--ink);stroke-width:1.6;fill:none}
+.feat h3{font-size:18px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);margin-bottom:8px}
+.feat p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.feat .stat{display:flex;justify-content:space-between;padding-top:12px;border-top:1px dashed var(--border);font-family:'JetBrains Mono',monospace;font-size:12px}
+.feat .stat strong{color:var(--ink)}
+
+/* CTA strip */
+.strip{padding:48px;background:var(--ink);color:#fff;border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.strip h3{font-size:28px;letter-spacing:-0.025em;font-weight:600;max-width:480px;line-height:1.1}
+.strip h3 em{font-style:italic;color:var(--cyan)}
+.strip .actions{display:flex;gap:10px;align-items:center}
+.strip .actions .btn{background:#fff;color:var(--ink);border-color:#fff}
+.strip .actions .btn:hover{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.strip .actions .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3)}
+
+/* Footer */
+footer{padding:48px 0 36px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+footer .row{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em}
+
+/* Back-link */
+.back{position:fixed;top:18px;left:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;z-index:99;background:var(--surface);padding:7px 12px;border:1px solid var(--border);border-radius:99px}
+.back:hover{color:var(--ink);border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<div class="utility">
+  <div class="container">
+    <div class="row">
+      <span class="pill"><span class="dot"></span>Pipeline operativ · 2 420 verfügbar</span>
+      <span>Münster · Q2 2026 · KW 23</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="container">
+    <div class="row">
+      <a class="logo" href="#"><svg><use href="#lex-x"/></svg>LE<strong>X</strong>PERSONAL</a>
+      <ul>
+        <li><a href="#">Lösungen</a></li>
+        <li><a href="#">Branchen</a></li>
+        <li><a href="#">Live</a></li>
+        <li><a href="#">Cases</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+      <div class="cta">
+        <a href="#" class="btn">Login</a>
+        <a href="#" class="btn primary">Anfrage starten →</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="eyebrow"><span class="bar"></span>Live Operations · Münster</div>
+        <h1><span class="tx">Personal-Bereitstellung</span><br>in <strong>Echtzeit</strong> messbar.</h1>
+        <p class="lead">2&nbsp;420 verfügbare Fachkräfte. 4,2 Tage Time-to-Fill. 98&nbsp;% Folgeauftragsquote. LeXpersonal liefert keine Versprechen — sondern Zahlen, die Sie heute prüfen können.</p>
+        <div class="actions">
+          <a href="#" class="btn primary">Anfrage starten →</a>
+          <a href="#" class="btn">Live-Demo ansehen</a>
+          <span class="meta"><strong>● Live</strong> · zuletzt 23 Sek.</span>
+        </div>
+      </div>
+
+      <div class="dash">
+        <div class="topbar">
+          <span class="ll"><span class="dot"></span>Operations · Live</span>
+          <span class="rr">
+            <span class="seg"><span class="act">30T</span><span>90T</span><span>12M</span></span>
+          </span>
+        </div>
+        <div class="kpis">
+          <div class="k">
+            <div class="l">Pipeline</div>
+            <div class="v tab">2 420</div>
+            <div class="d up">▲ 8,4&nbsp;%</div>
+          </div>
+          <div class="k">
+            <div class="l">TTF Ø</div>
+            <div class="v tab">4,2 <span style="font-size:13px;color:var(--muted);font-weight:500">Tage</span></div>
+            <div class="d up">▲ 0,6d</div>
+          </div>
+          <div class="k">
+            <div class="l">Folgeauftrag</div>
+            <div class="v tab">98 %</div>
+            <div class="d steady">— stabil</div>
+          </div>
+          <div class="k">
+            <div class="l">Aktive Werke</div>
+            <div class="v tab">23</div>
+            <div class="d up">▲ 3</div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="head">
+            <h4>Besetzungen · letzte 30 Tage</h4>
+            <div class="legend">
+              <span><span class="sw" style="background:var(--blue)"></span>Industrie</span>
+              <span><span class="sw" style="background:var(--cyan)"></span>Logistik</span>
+              <span><span class="sw" style="background:var(--amber)"></span>Pflege</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 720 130" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#2778BC" stop-opacity="0.18"/>
+                <stop offset="1" stop-color="#2778BC" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="32" x2="720" y2="32" stroke="#E5E5E5" stroke-dasharray="3 3"/>
+            <line x1="0" y1="64" x2="720" y2="64" stroke="#E5E5E5" stroke-dasharray="3 3"/>
+            <line x1="0" y1="96" x2="720" y2="96" stroke="#E5E5E5" stroke-dasharray="3 3"/>
+            <path d="M0,90 C60,82 100,68 160,72 C220,76 260,40 320,46 C380,52 420,28 480,22 C540,16 580,40 640,32 C680,26 700,30 720,28 L720,130 L0,130 Z" fill="url(#g1)"/>
+            <path d="M0,90 C60,82 100,68 160,72 C220,76 260,40 320,46 C380,52 420,28 480,22 C540,16 580,40 640,32 C680,26 700,30 720,28" stroke="#2778BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M0,108 C60,100 100,94 160,88 C220,82 260,72 320,76 C380,80 420,64 480,60 C540,56 580,68 640,58 C680,52 700,54 720,50" stroke="#009FE3" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="0 0"/>
+            <path d="M0,114 C60,112 100,108 160,104 C220,100 260,98 320,96 C380,94 420,84 480,82 C540,80 580,86 640,80 C680,76 700,78 720,76" stroke="#F59E0B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="480" cy="22" r="4" fill="#fff" stroke="#2778BC" stroke-width="2"/>
+          </svg>
+          <div class="xax">
+            <span>01.05.</span><span>08.05.</span><span>15.05.</span><span>22.05.</span><span>29.05.</span><span>heute</span>
+          </div>
+        </div>
+        <div class="feed">
+          <h4>Live-Feed · Letzte Vorgänge</h4>
+          <div class="item">
+            <div class="ic g"></div>
+            <div class="ms"><strong>Schichtaufstockung</strong> bei Metallwerk Münsterland<br><span>+22 Fachkräfte · Industrie · 3 Schichten</span></div>
+            <div class="t">vor 2 Min</div>
+          </div>
+          <div class="item">
+            <div class="ic b"></div>
+            <div class="ms"><strong>Neue Anfrage</strong> von NordLogistik GmbH<br><span>Vermittlung · 8 Logistik-Disponenten</span></div>
+            <div class="t">vor 14 Min</div>
+          </div>
+          <div class="item">
+            <div class="ic a"></div>
+            <div class="ms"><strong>SLA-Bericht Q2</strong> versendet an VITA Pflege<br><span>17 Einrichtungen · 100 % erfüllt</span></div>
+            <div class="t">vor 47 Min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logos" style="padding:48px 0">
+  <div class="container">
+    <div class="lbl">Vertraut von 220+ Unternehmen aus Industrie, Logistik und Pflege</div>
+    <div class="row">
+      <span>MetallwerkMS</span><span>NORDLOGISTIK</span><span>VITA Pflege</span><span>Kramer&amp;Söhne</span><span>Schulte Ind.</span><span>+216 weitere</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <h2>Branchen-Ops in einer Live-Übersicht.</h2>
+      <p class="desc">Verfügbarkeit, Pipeline und Time-to-Fill — pro Branche, in Echtzeit. Klick auf eine Kachel öffnet die Branchen-Sicht.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <span class="meta">01 · Industrie</span>
+        <span class="name">Metall &amp; Maschinenbau</span>
+        <div class="row"><div class="stat tab">820 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">02 · Logistik</span>
+        <span class="name">Lager &amp; Transport</span>
+        <div class="row"><div class="stat tab">540 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">03 · Pflege</span>
+        <span class="name">Stationäre &amp; ambulante Pflege</span>
+        <div class="row"><div class="stat tab">390 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">04 · Bau</span>
+        <span class="name">Hoch- &amp; Tiefbau</span>
+        <div class="row"><div class="stat tab">280 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">05 · Office</span>
+        <span class="name">Büro &amp; Verwaltung</span>
+        <div class="row"><div class="stat tab">210 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">06 · Lebensmittel</span>
+        <span class="name">Produktion &amp; Verpackung</span>
+        <div class="row"><div class="stat tab">120 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile">
+        <span class="meta">07 · Handwerk</span>
+        <span class="name">Elektro &amp; SHK</span>
+        <div class="row"><div class="stat tab">60 <span>verfügbar</span></div><div class="arr">→</div></div>
+      </div>
+      <div class="tile" style="background:var(--ink);color:#fff;border-color:var(--ink)">
+        <span class="meta" style="color:rgba(255,255,255,0.5)">→ Alle Branchen</span>
+        <span class="name" style="color:#fff">7 Bereiche · 2 420 Profile</span>
+        <div class="row" style="border-top-color:rgba(255,255,255,0.15)"><div class="stat tab" style="color:#fff">98 % <span style="color:rgba(255,255,255,0.5)">Folgeauftrag</span></div><div class="arr" style="color:rgba(255,255,255,0.5)">→</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <h2>Drei Garantien, gemessen.<br>Nicht versprochen.</h2>
+      <p class="desc">Wir teilen unsere KPIs — auch wenn sie wackeln. Transparenz ist die Voraussetzung jeder Konzernbeziehung.</p>
+    </div>
+    <div class="feats">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <h3>Time-to-Fill ≤ 7 Tage</h3>
+        <p>Von der ersten Anfrage bis zum Werkstor — Industrie und Logistik in 4–7 Tagen, Pflege in 5–10. Ohne Ausnahmen, mit SLA-Bonus bei Überschreitung.</p>
+        <div class="stat"><span>Ist Q2</span><strong>4,2 Tage Ø</strong></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Folgeauftrag 98 %</h3>
+        <p>Acht von zehn Werks- und HR-Leitern verlängern beim ersten Quartalsende. Den restlichen zwei finden wir gemeinsam einen anderen Anbieter — oder wir korrigieren.</p>
+        <div class="stat"><span>Ist 12M</span><strong>98 % Renewal</strong></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+        <h3>SLA &amp; Compliance live</h3>
+        <p>iGZ-Tarif, DSGVO Art. 28, SAP-Fieldglass-Integration, D&amp;O 5 Mio €. Status-Page mit Audit-Trail rund um die Uhr abrufbar.</p>
+        <div class="stat"><span>Audit 03/2026</span><strong>✓ ohne Befund</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="strip">
+      <h3>Bereit, die Zahlen für Ihre Werke zu sehen? <em>Wir schalten frei.</em></h3>
+      <div class="actions">
+        <a href="#" class="btn">Demo-Termin (15 Min)</a>
+        <a href="#" class="btn ghost">→ Live-Status öffnen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <span>© 2026 LeXpersonal GmbH · Münster</span>
+      <span>Konzept 09 · Live Operations Dashboard</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
