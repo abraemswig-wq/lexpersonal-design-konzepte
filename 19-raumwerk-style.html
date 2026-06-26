@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeXpersonal Münster | Personaldienstleistung, Arbeitnehmerüberlassung & Vermittlung — aus einer Hand</title>
+<meta name="description" content="Starke Jobs für alle: LeXpersonal aus Münster bietet Arbeitnehmerüberlassung, Direktvermittlung und Werkverträge aus einer Hand. iGZ-tarifgebunden, SLA-garantiert, Konzern-fähig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#152a47;
+  --navy-d:#0d1c30;
+  --blue:#2f6fb0;
+  --blue-cta:#2778BC;
+  --cyan:#009fe3;
+  --cyan-light:#7cd3f7;
+  --grey:#5e6b7a;
+  --light:#f4f7fa;
+  --white:#fff;
+  --border:#e7eef4;
+  --gold:#ffc107;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#23303f;background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* Top info bar */
+.top-info{background:var(--navy-d);color:rgba(255,255,255,0.75);font-size:13px;padding:9px 60px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+.top-info strong{color:var(--cyan);font-weight:600}
+.top-info a{color:rgba(255,255,255,0.85)}
+.top-info .left{display:flex;gap:24px;flex-wrap:wrap}
+.top-info .right{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.top-info .pill{display:inline-flex;align-items:center;gap:6px}
+.top-info .pill .dot{width:7px;height:7px;border-radius:50%;background:#27c46b;box-shadow:0 0 0 3px rgba(39,196,107,0.2)}
+
+/* Nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:var(--white);position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(13,28,48,0.07)}
+.logo{display:inline-flex;align-items:center;gap:10px;font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-0.01em}
+.logo svg{width:22px;height:27px}
+.logo .x{color:var(--cyan)}
+.nav-right{display:flex;align-items:center;gap:30px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--navy);font-size:14px;font-weight:500;transition:color .25s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{padding:11px 24px;background:var(--navy);color:#fff;border-radius:30px;font-weight:600;font-size:14px;transition:background .25s}
+.nav-cta:hover{background:var(--cyan)}
+
+/* HERO */
+.hero{position:relative;background:var(--navy);overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;min-height:560px;position:relative}
+.hero-left{padding:88px 60px;display:flex;flex-direction:column;justify-content:center;z-index:2}
+.hero-right{position:relative;background:linear-gradient(120deg,#1b3a64 0%,#2c5b94 50%,#15314f 100%) center/cover;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(21,42,71,0.2) 40%,transparent 100%);z-index:2}
+.hero-right .glyph{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:520px;height:auto;opacity:0.18;z-index:1}
+.hero-right .image-mock{position:absolute;inset:0;background-image:
+  radial-gradient(circle at 70% 30%,rgba(0,159,227,0.25),transparent 50%),
+  radial-gradient(circle at 30% 70%,rgba(255,255,255,0.06),transparent 40%);z-index:1}
+.hero-right .pattern{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:48px 48px;z-index:1;opacity:0.6}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,159,227,0.15);border:1px solid rgba(0,159,227,0.4);color:var(--cyan-light);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:6px;margin-bottom:26px;width:fit-content}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan-light);box-shadow:0 0 0 3px rgba(124,211,247,0.25)}
+
+.hero h1{font-size:54px;font-weight:900;color:#fff;line-height:1.04;letter-spacing:-1px;text-transform:uppercase;margin-bottom:22px}
+.hero h1 span{color:var(--cyan)}
+.hero p.lead{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.7;max-width:480px;margin-bottom:32px;font-weight:300}
+.hero p.lead strong{color:#fff;font-weight:500}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.btn-primary{padding:15px 30px;background:var(--cyan);color:#fff;border:none;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;transition:transform .25s,box-shadow .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,159,227,0.4)}
+.btn-ghost{padding:15px 30px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:30px;font-size:15px;font-weight:500;transition:border-color .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{border-color:var(--cyan)}
+
+.hero-rating{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.85);font-size:14px;font-weight:300}
+.hero-rating strong{color:#fff;font-weight:600}
+.stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+
+/* Floating cards */
+.cards-float{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1180px;margin:-58px auto 0;padding:0 40px;position:relative;z-index:10}
+.fcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 14px 50px rgba(13,28,48,0.13);text-align:center;transition:transform .3s,box-shadow .3s}
+.fcard:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(13,28,48,0.2)}
+.fcard-img{height:170px;background-size:cover;background-position:center;transition:transform .5s ease;position:relative;overflow:hidden}
+.fcard:hover .fcard-img{transform:scale(1.08)}
+.fcard-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,42,71,0.35),transparent 60%)}
+.fcard-img.img-1{background:linear-gradient(135deg,#1b3a64,#2c5b94);position:relative}
+.fcard-img.img-2{background:linear-gradient(135deg,#152a47,#2778BC);position:relative}
+.fcard-img.img-3{background:linear-gradient(135deg,#0d1c30,#009fe3);position:relative}
+.fcard-img .icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;color:#fff;z-index:2}
+.fcard-img .icon svg{width:100%;height:100%;stroke:#fff;stroke-width:1.5;fill:none}
+.fcard-body{padding:28px 28px 30px}
+.fcard h3{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.fcard p{font-size:14px;color:var(--grey);line-height:1.6;margin-bottom:18px}
+.fcard a.fcard-link{color:var(--cyan);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.fcard a.fcard-link:hover{gap:10px}
+
+/* Sections */
+section{padding:90px 60px}
+.section-label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
+.section-label::before{content:"";width:24px;height:1px;background:var(--cyan)}
+.section-title{font-size:38px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px}
+.section-desc{font-size:16px;color:var(--grey);max-width:640px;line-height:1.7}
+
+/* Services grid (snap-scroll like raumwerk) */
+.services-grid{display:flex;gap:24px;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 4px 22px;scrollbar-width:thin;scrollbar-color:var(--cyan) #e7eef4}
+.services-grid::-webkit-scrollbar{height:7px}
+.services-grid::-webkit-scrollbar-track{background:#e7eef4;border-radius:4px}
+.services-grid::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:4px}
+.scard{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column}
+.scard:hover{box-shadow:0 18px 48px rgba(13,28,48,0.18);transform:translateY(-6px)}
+.scard-img{height:180px;background-size:cover;background-position:center;transition:transform .5s ease;position:relative;overflow:hidden}
+.scard:hover .scard-img{transform:scale(1.08)}
+.scard-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,42,71,0.3),transparent 50%)}
+.scard-img .label{position:absolute;bottom:14px;left:14px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;z-index:2;background:rgba(0,159,227,0.85);padding:4px 10px;border-radius:99px}
+.scard-img.s1{background:linear-gradient(135deg,#1b3a64,#0d1c30)}
+.scard-img.s2{background:linear-gradient(135deg,#152a47,#009fe3)}
+.scard-img.s3{background:linear-gradient(135deg,#0d1c30,#2778BC)}
+.scard-img.s4{background:linear-gradient(135deg,#1b3a64,#5e6b7a)}
+.scard-img.s5{background:linear-gradient(135deg,#152a47,#1b3a64)}
+.scard-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.scard-body h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.scard-body p{font-size:14px;color:var(--grey);line-height:1.6;margin-bottom:14px;flex:1}
+.scard-body .stat-row{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--grey)}
+.scard-body .stat-row strong{color:var(--navy);font-weight:700}
+
+/* Request section */
+.request{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;overflow:hidden;padding:0}
+.request-left{padding:88px 60px;display:flex;flex-direction:column;justify-content:center}
+.request-left .section-label{color:var(--cyan)}
+.request-left h2{font-size:40px;font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:20px;letter-spacing:-0.5px}
+.request-left h2 span{color:var(--cyan)}
+.request-left p{color:rgba(255,255,255,0.72);font-size:16px;line-height:1.7;max-width:480px;margin-bottom:30px;font-weight:300}
+.request-right{background:linear-gradient(120deg,#1b3a64 0%,#2c5b94 50%,#15314f 100%);min-height:420px;position:relative;overflow:hidden}
+.request-right::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:48px 48px;opacity:0.7}
+.request-right::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(0,159,227,0.25),transparent 55%)}
+.request-right .stat-overlay{position:absolute;bottom:30px;right:30px;background:rgba(13,28,48,0.85);backdrop-filter:blur(10px);padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);z-index:2}
+.request-right .stat-overlay .num{font-size:42px;font-weight:900;color:var(--cyan);letter-spacing:-1px;line-height:1;font-variant-numeric:tabular-nums}
+.request-right .stat-overlay .lbl{font-size:11px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:2px;margin-top:6px;font-weight:600}
+
+.checklist{list-style:none;margin-bottom:30px}
+.checklist li{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,0.88);font-size:15px;padding:9px 0}
+.checklist .ck{width:24px;height:24px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;font-weight:700}
+.checklist strong{color:#fff;font-weight:600}
+
+/* Reviews */
+.reviews{background:var(--light)}
+.reviews-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:14px}
+.reviews-head .left{max-width:620px}
+.g-badge{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:50px;padding:11px 22px;font-size:14px;font-weight:600;color:var(--navy);box-shadow:0 4px 14px rgba(13,28,48,0.05)}
+.g-badge .stars{font-size:14px}
+.g-badge .g-icon{width:18px;height:18px;border-radius:50%;background:conic-gradient(from 0deg,#EA4335,#FBBC05,#34A853,#4285F4,#EA4335);display:inline-block}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.rcard{background:#fff;border-radius:14px;padding:28px;box-shadow:0 4px 20px rgba(13,28,48,0.05);transition:transform .25s,box-shadow .25s}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(13,28,48,0.1)}
+.rcard .stars{font-size:16px;display:block;margin-bottom:6px}
+.rcard p{font-size:14.5px;color:#23303f;line-height:1.65;margin:14px 0 18px;font-weight:300}
+.rauthor{display:flex;align-items:center;gap:12px}
+.ravatar{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.ravatar.b{background:var(--blue)}
+.ravatar.c{background:var(--cyan)}
+.rauthor strong{display:block;font-size:14px;color:var(--navy);font-weight:700}
+.rauthor span{font-size:13px;color:var(--grey)}
+
+/* Trust row */
+.trust{padding:60px 60px;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-label{text-align:center;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:36px}
+.trust-row{display:flex;justify-content:center;gap:54px;flex-wrap:wrap}
+.tr-item{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;color:var(--grey);text-align:center;max-width:140px}
+.tr-ic{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#152a47,#2778BC);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(13,28,48,0.15);transition:transform .35s ease;color:#fff;font-weight:800;font-size:14px;letter-spacing:0.04em}
+.tr-item:hover .tr-ic{transform:scale(1.06)}
+.tr-ic.cyan{background:linear-gradient(135deg,#009fe3,#2778BC)}
+.tr-item strong{display:block;color:var(--navy);font-size:14px;font-weight:700;margin-bottom:2px}
+
+/* Contact */
+.contact{background:var(--light)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:44px}
+.ci h3{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:20px}
+.citem{display:flex;gap:14px;margin-bottom:18px;align-items:start}
+.ci-ic{width:42px;height:42px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;flex-shrink:0}
+.ci-ic svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}
+.citem .ci-text span{display:block;font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;font-weight:600}
+.citem .ci-text p,.citem .ci-text a{font-size:15px;color:var(--navy);font-weight:500}
+.citem .ci-text a{color:var(--cyan)}
+form.cf{background:#fff;padding:32px;border-radius:16px;box-shadow:0 6px 30px rgba(13,28,48,0.07)}
+form.cf h4{font-size:19px;color:var(--navy);margin-bottom:4px;font-weight:700}
+form.cf .fn{font-size:13px;color:var(--grey);margin-bottom:20px}
+form.cf input,form.cf select,form.cf textarea{width:100%;padding:13px 16px;border:1px solid #dde6ed;border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:13px;transition:border-color .25s}
+form.cf input:focus,form.cf select:focus,form.cf textarea:focus{outline:none;border-color:var(--cyan)}
+form.cf textarea{height:100px;resize:vertical}
+form.cf button{width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;transition:background .25s;display:flex;align-items:center;justify-content:center;gap:8px}
+form.cf button:hover{background:var(--cyan)}
+form.cf .priv{margin-top:10px;font-size:11.5px;color:var(--grey);line-height:1.5}
+
+/* Footer */
+footer{background:var(--navy-d);padding:60px 60px 28px;color:#fff}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo{color:#fff;font-size:22px}
+.footer-brand p{color:rgba(255,255,255,0.42);font-size:14px;line-height:1.6;max-width:300px;margin-top:16px;font-weight:300}
+.footer-brand .social{display:flex;gap:10px;margin-top:18px}
+.footer-brand .social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;transition:background .25s}
+.footer-brand .social a:hover{background:var(--cyan);color:#fff}
+.footer-col h4{color:#fff;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:700}
+.footer-col a{display:block;color:rgba(255,255,255,0.42);font-size:14px;margin-bottom:10px;transition:color .25s}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;justify-content:space-between;color:rgba(255,255,255,0.3);font-size:13px;flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,0.45)}
+
+/* Mobile sticky CTA */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.12);padding:10px 12px;gap:8px}
+.mobile-cta a{flex:1;text-align:center;padding:13px 6px;border-radius:30px;font-weight:600;font-size:13px}
+.mc-call{background:var(--light);color:var(--navy)}
+.mc-wa{background:#25d366;color:#fff}
+.mc-quote{background:var(--navy);color:#fff}
+
+/* Back link */
+.back-link{position:fixed;top:50px;left:18px;z-index:99;background:#fff;padding:7px 14px;border:1px solid var(--border);border-radius:99px;font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+.back-link:hover{color:var(--navy);border-color:var(--navy)}
+
+/* Responsive */
+@media (max-width:1080px){
+  .cards-float{grid-template-columns:1fr;margin-top:-30px}
+  .scard{flex:0 0 calc((100% - 24px)/2)}
+}
+@media (max-width:900px){
+  .top-info{padding:8px 20px;font-size:12px}
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:54px 24px}
+  .hero h1{font-size:36px}
+  .hero-right{display:none}
+  .cards-float{padding:0 20px;margin-top:-40px}
+  section{padding:64px 24px}
+  .section-title{font-size:28px}
+  .request{grid-template-columns:1fr}
+  .request-left{padding:60px 24px}
+  .request-left h2{font-size:28px}
+  .request-right{min-height:240px}
+  .reviews-grid{grid-template-columns:1fr}
+  .scard{flex:0 0 85%}
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .trust{padding:48px 24px}
+  .trust-row{gap:28px}
+  .mobile-cta{display:flex}
+  body{padding-bottom:64px}
+  .back-link{top:auto;bottom:80px}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- TOP INFO -->
+<div class="top-info">
+  <div class="left">
+    <span class="pill"><span class="dot"></span><strong>Pipeline aktiv</strong> · 2 420 Profile verfügbar</span>
+    <span>📍 An der Lutherkirche · Münster</span>
+  </div>
+  <div class="right">
+    <span>☎ <strong>+49 251 23 45 67-0</strong></span>
+    <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo"><svg><use href="#lex-x"/></svg>LE<span class="x">X</span>PERSONAL</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#branchen">Branchen</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#bewertungen">Bewertungen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Anfrage starten →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="hero-badge"><span class="dot"></span>Seit 2008 · Münster · iGZ-zertifiziert</span>
+      <h1>Starke Jobs.<br><span>Für alle.</span></h1>
+      <p class="lead"><strong>Arbeitnehmer­überlassung, Direktvermittlung und Werkverträge</strong> aus einer Hand — für Industrie, Logistik und Pflege im Münsterland. Tarifgebunden, konzernfähig, Festpreise.</p>
+      <div class="hero-btns">
+        <a href="#kontakt" class="btn-primary">Kostenfreies Briefing →</a>
+        <a href="#leistungen" class="btn-ghost">Leistungen ansehen</a>
+      </div>
+      <div class="hero-rating">
+        <span class="stars">★ ★ ★ ★ ★</span>
+        <span><strong>5,0</strong> bei Google · 142 Bewertungen</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="image-mock"></div>
+      <div class="pattern"></div>
+      <svg class="glyph"><use href="#lex-x"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING CARDS -->
+<div class="cards-float">
+  <div class="fcard">
+    <div class="fcard-img img-1">
+      <div class="icon">
+        <svg viewBox="0 0 48 48"><path d="M24 4 L44 14 L44 34 L24 44 L4 34 L4 14 Z"/><path d="M24 4 L24 24 M24 24 L4 14 M24 24 L44 14"/></svg>
+      </div>
+    </div>
+    <div class="fcard-body">
+      <h3>Arbeitnehmer­überlassung</h3>
+      <p>Flexible Personalverstärkung für Industrie und Logistik. Ab Tag 1 verfügbar, mit Übernahmeoption.</p>
+      <a class="fcard-link" href="#">Mehr erfahren →</a>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-img img-2">
+      <div class="icon">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="18" r="8"/><path d="M8 42 C 8 32, 16 28, 24 28 C 32 28, 40 32, 40 42"/></svg>
+      </div>
+    </div>
+    <div class="fcard-body">
+      <h3>Direkt­vermittlung</h3>
+      <p>Festanstellung beim Kunden. Senior-geprüfte Profile, Branchen-spezialisiert, mit Garantie.</p>
+      <a class="fcard-link" href="#">Mehr erfahren →</a>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-img img-3">
+      <div class="icon">
+        <svg viewBox="0 0 48 48"><path d="M6 14 L24 6 L42 14 L42 36 L24 44 L6 36 Z"/><path d="M16 22 L24 26 L32 22"/><path d="M24 26 L24 38"/></svg>
+      </div>
+    </div>
+    <div class="fcard-body">
+      <h3>Werkverträge</h3>
+      <p>Projekte mit klar definierten Gewerken. Eigenverantwortlich, schlüsselfertig, abrechnungsicher.</p>
+      <a class="fcard-link" href="#">Mehr erfahren →</a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="leistungen">
+  <span class="section-label">Branchen-Kompetenz</span>
+  <h2 class="section-title">Sieben Branchen. Ein Standard.</h2>
+  <p class="section-desc">Wir liefern geprüfte Fachkräfte in die Branchen, in denen wir seit 18 Jahren zuhause sind. Persönlich geprüft, tarifgebunden, mit messbarem SLA.</p>
+
+  <div class="services-grid" id="branchen">
+    <div class="scard">
+      <div class="scard-img s1"><span class="label">Industrie</span></div>
+      <div class="scard-body">
+        <h3>Metall &amp; Maschinenbau</h3>
+        <p>CNC-Führer, Schweißer (DIN-EN-1090), Montage. 3-Schicht-fähig, mehrsprachiges Onboarding.</p>
+        <div class="stat-row"><span>Pipeline · <strong>820 Profile</strong></span><span>TTF · <strong>4,2 d</strong></span></div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img s2"><span class="label">Logistik</span></div>
+      <div class="scard-body">
+        <h3>Lager &amp; Transport</h3>
+        <p>Staplerfahrer, Kommissionierer, Disponenten. Saisontaugliche Pools, Schichtaufstockung in 48 Std.</p>
+        <div class="stat-row"><span>Pipeline · <strong>540 Profile</strong></span><span>TTF · <strong>5,1 d</strong></span></div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img s3"><span class="label">Pflege</span></div>
+      <div class="scard-body">
+        <h3>Pflege &amp; Sozialwesen</h3>
+        <p>Pflegefach- und -hilfskräfte, PDL. Onboarding auf Polnisch &amp; Rumänisch, Bindung &gt; 18 Monate.</p>
+        <div class="stat-row"><span>Pipeline · <strong>390 Profile</strong></span><span>TTF · <strong>7,8 d</strong></span></div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img s4"><span class="label">Bau</span></div>
+      <div class="scard-body">
+        <h3>Hoch- &amp; Tiefbau</h3>
+        <p>Poliere, Maurer, Eisenflechter. Projektbezogen, mit Equal-Pay-Garantie ab Tag 1.</p>
+        <div class="stat-row"><span>Pipeline · <strong>280 Profile</strong></span><span>TTF · <strong>5,6 d</strong></span></div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img s5"><span class="label">Office</span></div>
+      <div class="scard-body">
+        <h3>Büro &amp; Verwaltung</h3>
+        <p>Sachbearbeitung, Buchhaltung, Empfang. SAP-Erfahrung, DSGVO-Schulung, Konzern-tauglich.</p>
+        <div class="stat-row"><span>Pipeline · <strong>210 Profile</strong></span><span>TTF · <strong>4,8 d</strong></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST CTA -->
+<section class="request">
+  <div class="request-left">
+    <span class="section-label">Anfrage in 24 Stunden</span>
+    <h2>Wir hören erst zu.<br><span>Dann liefern wir.</span></h2>
+    <p>Briefen Sie uns Ihren Bedarf — wir melden uns binnen <strong style="color:#fff">2 Stunden</strong> mit einem Senior-Berater. Profilvorschläge in 24 Std., Vor-Ort in maximal 4 Tagen.</p>
+    <ul class="checklist">
+      <li><span class="ck">✓</span>Festpreis nach iGZ-Tarif + Equal Pay ab Tag 1</li>
+      <li><span class="ck">✓</span>Senior-geprüfte Profile — keine Black-Box-Vorauswahl</li>
+      <li><span class="ck">✓</span>SAP Fieldglass · Onventis · Beeline-Anbindung</li>
+      <li><span class="ck">✓</span>SLA-Pönale automatisch bei Überschreitung</li>
+      <li><span class="ck">✓</span>365 Tage Audit-Trail, jederzeit prüffähig</li>
+    </ul>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-primary">Briefing starten →</a>
+      <a href="#" class="btn-ghost">SLA herunterladen</a>
+    </div>
+  </div>
+  <div class="request-right">
+    <div class="stat-overlay">
+      <div class="num">98 %</div>
+      <div class="lbl">Folgeauftragsquote · 12 M</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="bewertungen">
+  <div class="reviews-head">
+    <div class="left">
+      <span class="section-label">Stimmen unserer Kunden</span>
+      <h2 class="section-title">142 mal gut. Aus einer Region.</h2>
+      <p class="section-desc">Was Werks- und Pflegedienstleitungen aus dem Münsterland über die letzten 18 Jahre Zusammenarbeit sagen.</p>
+    </div>
+    <div class="g-badge">
+      <span class="g-icon"></span>
+      <span class="stars">★★★★★</span>
+      <span>5,0 · Google · 142 Bewertungen</span>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="rcard">
+      <span class="stars">★★★★★</span>
+      <p>„Ohne LeXpersonal hätten wir das Q3-Volumen nicht ausgeliefert. Was die zeigen, halten die. Selten so verlässlich gearbeitet."</p>
+      <div class="rauthor">
+        <div class="ravatar">AH</div>
+        <div>
+          <strong>Andreas Hoffmann</strong>
+          <span>Werksleiter · Metallwerk Münsterland</span>
+        </div>
+      </div>
+    </div>
+    <div class="rcard">
+      <span class="stars">★★★★★</span>
+      <p>„Was uns wichtig war: dass Sprache stimmt. Das polnische und rumänische Onboarding zeigt echte Wertschätzung. Genau das."</p>
+      <div class="rauthor">
+        <div class="ravatar b">BW</div>
+        <div>
+          <strong>Beatrix Wolters</strong>
+          <span>PDL · VITA Pflege e.V.</span>
+        </div>
+      </div>
+    </div>
+    <div class="rcard">
+      <span class="stars">★★★★★</span>
+      <p>„SAP-Fieldglass-Setup hat unseren Quartalsabschluss von 3 Tagen auf 4 Stunden gebracht. Das ist kein Software-Trick — das ist Disziplin."</p>
+      <div class="rauthor">
+        <div class="ravatar c">KH</div>
+        <div>
+          <strong>Kathrin Heise</strong>
+          <span>Konzern-Einkauf · NordLogistik GmbH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST ROW -->
+<section class="trust">
+  <div class="trust-label">Zertifiziert &amp; geprüft seit 2008</div>
+  <div class="trust-row">
+    <div class="tr-item"><div class="tr-ic">iGZ</div><strong>iGZ-Tarif</strong>BAP/DGB</div>
+    <div class="tr-item"><div class="tr-ic cyan">BA</div><strong>BA-Erlaubnis</strong>§ 1 AÜG</div>
+    <div class="tr-item"><div class="tr-ic">DSG</div><strong>DSGVO</strong>Art. 28 AVV</div>
+    <div class="tr-item"><div class="tr-ic cyan">SAP</div><strong>SAP-Partner</strong>Fieldglass</div>
+    <div class="tr-item"><div class="tr-ic">EP</div><strong>Equal-Pay</strong>ab Tag 1</div>
+    <div class="tr-item"><div class="tr-ic cyan">D&amp;O</div><strong>Versichert</strong>5 Mio €</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <span class="section-label">Sprechen Sie uns an</span>
+  <h2 class="section-title">Briefing in 24 Stunden.</h2>
+  <p class="section-desc">Senior-Berater meldet sich binnen 2 Stunden (Mo–Fr, 8–18 Uhr). Phase 1 — Briefing &amp; Profilvorschlag — ist kostenfrei und unverbindlich.</p>
+
+  <div class="contact-grid">
+    <div class="ci">
+      <h3>So erreichen Sie uns direkt</h3>
+
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h2.28a2 2 0 0 1 1.94 1.51l.83 3.31a2 2 0 0 1-.45 1.95L8.09 11.4a16 16 0 0 0 4.5 4.5l1.63-1.51a2 2 0 0 1 1.95-.45l3.31.83A2 2 0 0 1 21 16.72V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
+        <div class="ci-text">
+          <span>Telefon — direkter Draht</span>
+          <p>+49 251 23 45 67-0</p>
+        </div>
+      </div>
+
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+        <div class="ci-text">
+          <span>E-Mail</span>
+          <a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a>
+        </div>
+      </div>
+
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-7.58-7-12a7 7 0 0 1 14 0c0 4.42-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <div class="ci-text">
+          <span>Standort Münster</span>
+          <p>An der Lutherkirche 5<br>48149 Münster</p>
+        </div>
+      </div>
+
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <div class="ci-text">
+          <span>Öffnungszeiten</span>
+          <p>Mo–Fr · 8:00 – 18:00<br>Pflege-Hotline · 24/7</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="cf" onsubmit="event.preventDefault();this.querySelector('button').textContent='Anfrage gesendet ✓'">
+      <h4>Briefing anfordern</h4>
+      <p class="fn">Wir melden uns binnen 2 Stunden zurück.</p>
+
+      <input type="text" placeholder="Ihr Name" required>
+      <input type="text" placeholder="Unternehmen / Werk" required>
+      <input type="email" placeholder="E-Mail" required>
+      <input type="tel" placeholder="Telefon (optional)">
+      <select required>
+        <option value="">Branche wählen</option>
+        <option>Industrie / Metall</option>
+        <option>Logistik / Lager</option>
+        <option>Pflege / Sozialwesen</option>
+        <option>Bau / Handwerk</option>
+        <option>Office / Verwaltung</option>
+      </select>
+      <textarea placeholder="Worum geht's? (Volumen, Start, Modell)" required></textarea>
+      <button type="submit">Briefing senden →</button>
+      <p class="priv">Mit Absenden willigen Sie in die Verarbeitung gemäß DSGVO Art. 6 (1) lit. b ein. Wir behandeln Ihre Daten vertraulich.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo"><svg><use href="#lex-x"/></svg>LE<span class="x">X</span>PERSONAL</a>
+      <p>Starke Jobs für alle. Inhabergeführt aus Münster. iGZ-tarifgebunden, konzernfähig, seit 2008.</p>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Xing">X</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Leistungen</h4>
+      <a href="#">Arbeitnehmer­überlassung</a>
+      <a href="#">Direktvermittlung</a>
+      <a href="#">Werkverträge</a>
+      <a href="#">Konzern-Lösungen</a>
+    </div>
+    <div class="footer-col">
+      <h4>Branchen</h4>
+      <a href="#">Industrie</a>
+      <a href="#">Logistik</a>
+      <a href="#">Pflege</a>
+      <a href="#">Bau &amp; Office</a>
+    </div>
+    <div class="footer-col">
+      <h4>Unternehmen</h4>
+      <a href="#">Über uns</a>
+      <a href="#">Bewerber-Portal</a>
+      <a href="#">Karriere</a>
+      <a href="#">Kontakt</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 LeXpersonal GmbH · Münster · USt-IdNr. DE …</span>
+    <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">AGB</a></span>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:+492512345670" class="mc-call">☎ Anrufen</a>
+  <a href="https://wa.me/492512345670" class="mc-wa">WhatsApp</a>
+  <a href="#kontakt" class="mc-quote">Briefing</a>
+</div>
+
+</body>
+</html>
