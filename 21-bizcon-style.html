@@ -45,6 +45,7 @@ img{display:block;max-width:100%}
 .btn .a{font-family:'formula';transition:transform .2s}
 .btn:hover .a{transform:translateX(4px)}
 .btn.p{background:var(--cyan);color:#fff}
+.btn:hover{transform:translateY(-3px)}
 .btn.p:hover{background:var(--cyan-2)}
 .btn.d{background:var(--navy);color:#fff}
 .btn.d:hover{background:var(--navy-2)}
@@ -167,7 +168,7 @@ section.block{padding:96px 0}
 .split li .ch{color:var(--cyan);font-family:'formula';font-weight:700;font-size:18px;letter-spacing:-2px;flex-shrink:0;line-height:1.5}
 .split li b{color:var(--ink);font-weight:600}
 .split .photo{position:relative}
-.split .photo img{width:100%;height:100%;min-height:340px;object-fit:cover;border-radius:3px}
+.split .photo img{width:100%;height:100%;min-height:340px;object-fit:cover;border-radius:3px;box-shadow:-5px 5px 20px rgba(0,0,0,.31)}
 .split .photo::before{content:"";position:absolute;left:-14px;top:-14px;width:78px;height:78px;border-left:4px solid var(--cyan);border-top:4px solid var(--cyan);z-index:2}
 .split .photo .badge{position:absolute;right:-16px;bottom:26px;background:var(--navy);color:#fff;padding:18px 24px;border-radius:3px;box-shadow:0 24px 50px -18px rgba(11,22,34,.6);z-index:3}
 .split .photo .badge .v{font-family:'formula';font-weight:700;font-size:38px;line-height:1;color:var(--cyan)}
@@ -188,7 +189,7 @@ section.block{padding:96px 0}
 .svc .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
 @media(max-width:880px){.svc .cards{grid-template-columns:1fr}}
 .svc .card{border:1px solid var(--line);border-top:3px solid var(--cyan);border-radius:2px;padding:34px 30px;background:#fff;transition:transform .22s,box-shadow .22s}
-.svc .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -28px rgba(11,22,34,.32)}
+.svc .card:hover{transform:translateY(-3px);box-shadow:0 30px 60px -28px rgba(11,22,34,.32)}
 .svc .card .ic{width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--soft);border-radius:3px;margin-bottom:20px}
 .svc .card h3{font-family:'formula';font-weight:700;font-size:23px;color:var(--ink);margin-bottom:10px}
 .svc .card p{color:var(--muted);font-size:16px}
