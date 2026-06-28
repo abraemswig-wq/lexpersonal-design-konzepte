@@ -173,6 +173,11 @@ section.block{padding:96px 0}
 .split .photo .badge{position:absolute;right:-16px;bottom:26px;background:var(--navy);color:#fff;padding:18px 24px;border-radius:3px;box-shadow:0 24px 50px -18px rgba(11,22,34,.6);z-index:3}
 .split .photo .badge .v{font-family:'formula';font-weight:700;font-size:38px;line-height:1;color:var(--cyan)}
 .split .photo .badge .t{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px;letter-spacing:.03em}
+/* SHOWCASE (bizcon: schwebendes Bild links, zweizeilige Headline rechts) */
+.showcase{background:var(--soft)}
+.showcase .photo::before{left:auto;right:-14px;border-left:0;border-right:4px solid var(--cyan)}
+.showcase .photo .badge{right:auto;left:-16px}
+@media(max-width:880px){.showcase .photo{order:-1}}
 
 /* QUOTE */
 .quote{background:var(--navy);color:#fff;position:relative;overflow:hidden}
@@ -312,6 +317,28 @@ section.block{padding:96px 0}
       <div class="c"><span class="chev">»</span><div class="n">98<em>%</em></div><div class="l">Übernahmequote</div></div>
       <div class="c"><span class="chev">»</span><div class="n">0</div><div class="l">Anlauf-Ausfalltage</div></div>
       <div class="c"><span class="chev">»</span><div class="n">4,2<em>d</em></div><div class="l">Time-to-Fill Ø</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE (bizcon-Logik: schwebendes Bild links, zweizeilige Headline rechts) -->
+<section class="block split showcase">
+  <div class="wrap">
+    <div class="inner">
+      <div class="photo rv left">
+        <img src="assets/case-warehouse.jpg" alt="Eingespielte Schicht im Drei-Schicht-Betrieb" />
+        <div class="badge"><div class="v">2.420</div><div class="t">Profile im Regional-Pool</div></div>
+      </div>
+      <div class="rv right">
+        <span class="eyebrow">Was LeXpersonal liefert</span>
+        <div class="h2">Keine Bewerber-Stapel.<br><span class="c">Eine einsatzfähige Schicht.</span></div>
+        <p class="lead">Der Kunde bekommt nicht 200 Lebensläufe zum Sichten, sondern eine vom Senior-Disponenten vorausgewählte Mannschaft — qualifiziert, unterwiesen, ab Tag eins produktiv an der Linie.</p>
+        <ul>
+          <li><span class="ch">»</span><span><b>Senior-Vorauswahl statt Streuung</b> — nur geprüfte Profile erreichen den Kunden.</span></li>
+          <li><span class="ch">»</span><span><b>Sicherheits- &amp; Werkseinweisung gebündelt</b> vor dem ersten Schichttag.</span></li>
+          <li><span class="ch">»</span><span><b>Ein fester Ansprechpartner</b> für Disposition, Nachbesetzung und Doku.</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
