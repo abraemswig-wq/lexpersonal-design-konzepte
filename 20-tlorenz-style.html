@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeXpersonal Münster | Personaldienstleistung — wir machen anspruchsvolle Personalarbeit möglich</title>
+<meta name="description" content="LeXpersonal aus Münster: Arbeitnehmerüberlassung, Direktvermittlung und Werkverträge aus einer Hand. Seit 2008, iGZ-tarifgebunden, konzernfähig. Wir sehen keine Probleme, sondern liefern Lösungen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#06131e;        /* near-black engineering navy */
+  --navy-2:#0c2030;
+  --ink:#1d2733;
+  --blue:#1f7cc4;        /* tlorenz clean blue, tuned to CI */
+  --blue-cta:#2778BC;    /* LeXpersonal royal */
+  --cyan:#009fe3;        /* LeXpersonal cyan */
+  --grey:#5d6b78;
+  --grey-2:#8a97a3;
+  --line:#e3e8ee;
+  --light:#f1f4f7;       /* tlorenz light grey */
+  --paper:#fafbfc;
+  --white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4,.mont{font-family:'Montserrat',sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px}
+
+/* ── UTILITY BAR ── */
+.util{background:var(--navy);color:rgba(255,255,255,0.62);font-size:12.5px}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;height:42px;flex-wrap:wrap;gap:12px}
+.util .l{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.util .l span{display:inline-flex;align-items:center;gap:7px}
+.util .dot{width:6px;height:6px;border-radius:50%;background:#2bd07a;box-shadow:0 0 0 3px rgba(43,208,122,0.2)}
+.util a{color:rgba(255,255,255,0.8);transition:color .2s}
+.util a:hover{color:var(--cyan)}
+.util .lang{display:flex;gap:2px;align-items:center;font-weight:600;letter-spacing:0.03em}
+.util .lang a{padding:2px 7px;border-radius:4px}
+.util .lang a.on{background:rgba(255,255,255,0.12);color:#fff}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:78px}
+.logo{display:inline-flex;align-items:center;gap:11px;font-family:'Montserrat',sans-serif;font-size:23px;font-weight:800;color:var(--navy);letter-spacing:-0.01em}
+.logo svg{width:21px;height:26px}
+.logo .x{color:var(--cyan)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{position:relative;font-size:14px;font-weight:600;color:var(--ink);letter-spacing:0.01em;padding:4px 0;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--cyan);transition:width .25s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--navy);color:#fff;font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;border-radius:2px;transition:background .25s,transform .2s}
+.nav-cta:hover{background:var(--blue-cta);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{position:relative;background:var(--white);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.08fr 0.92fr;gap:64px;align-items:center;min-height:600px;padding-top:84px;padding-bottom:84px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:30px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--blue)}
+.hero h1{font-size:62px;font-weight:800;color:var(--navy);line-height:1.04;letter-spacing:-0.025em;margin-bottom:26px}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero .lead{font-size:19px;color:var(--grey);line-height:1.62;max-width:520px;font-weight:400;margin-bottom:18px}
+.hero .claim{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:36px;padding-left:18px;border-left:3px solid var(--cyan)}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:600;border-radius:2px;transition:all .25s;cursor:pointer}
+.btn-primary{padding:16px 30px;background:var(--cyan);color:#fff;border:1px solid var(--cyan)}
+.btn-primary:hover{background:var(--blue-cta);border-color:var(--blue-cta);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(0,159,227,0.5)}
+.btn-line{padding:16px 28px;background:transparent;color:var(--navy);border:1px solid var(--line)}
+.btn-line:hover{border-color:var(--navy)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* hero visual — abstract engineering gradient panel */
+.hero-visual{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:linear-gradient(150deg,#0c2030 0%,#143654 45%,#06131e 100%)}
+.hero-visual .grad{position:absolute;inset:0;background:
+  radial-gradient(circle at 72% 26%,rgba(0,159,227,0.42),transparent 52%),
+  radial-gradient(circle at 24% 80%,rgba(39,120,188,0.34),transparent 48%)}
+.hero-visual .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:44px 44px}
+.hero-visual .glyph{position:absolute;right:-46px;bottom:-34px;width:340px;height:auto;opacity:0.5}
+.hero-visual .vstat{position:absolute;left:26px;top:26px;color:#fff}
+.hero-visual .vstat .n{font-family:'Montserrat',sans-serif;font-size:54px;font-weight:800;letter-spacing:-0.02em;line-height:1}
+.hero-visual .vstat .t{font-size:13px;color:rgba(255,255,255,0.72);letter-spacing:0.04em;margin-top:6px;max-width:180px}
+.hero-visual .vchip{position:absolute;right:26px;bottom:26px;background:rgba(6,19,30,0.78);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);padding:14px 18px;border-radius:3px;color:#fff}
+.hero-visual .vchip .stars{color:#ffc107;font-size:13px;letter-spacing:2px}
+.hero-visual .vchip .lbl{font-size:12px;color:rgba(255,255,255,0.78);margin-top:3px}
+
+/* ── STAT STRIP ── */
+.stats{background:var(--navy)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);padding:0}
+.stat{background:var(--navy);padding:42px 32px;text-align:center}
+.stat .n{font-family:'Montserrat',sans-serif;font-size:46px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1}
+.stat .n em{font-style:normal;color:var(--cyan)}
+.stat .t{font-size:13.5px;color:rgba(255,255,255,0.6);margin-top:10px;letter-spacing:0.02em}
+
+/* ── SECTION SCAFFOLD ── */
+section{padding:104px 0}
+.sec-head{max-width:760px;margin-bottom:60px}
+.sec-label{display:inline-flex;align-items:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.sec-label .no{font-family:'Montserrat',sans-serif;color:var(--grey-2);font-weight:700}
+.sec-label::before{content:"";width:30px;height:2px;background:var(--blue)}
+.sec-title{font-size:42px;font-weight:800;color:var(--navy);line-height:1.12;letter-spacing:-0.02em;margin-bottom:20px}
+.sec-desc{font-size:17px;color:var(--grey);line-height:1.65}
+
+/* ── SERVICES (numbered editorial list, tlorenz-style) ── */
+.services{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.svc-list{border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:88px 1fr 1.3fr auto;gap:32px;align-items:center;padding:34px 8px;border-bottom:1px solid var(--line);transition:background .25s,padding-left .25s}
+.svc:hover{background:#fff;padding-left:20px}
+.svc .num{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--cyan);letter-spacing:0.04em}
+.svc h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.01em}
+.svc p{font-size:15px;color:var(--grey);line-height:1.6;max-width:460px}
+.svc .go{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;color:var(--navy);font-size:18px;flex-shrink:0;transition:all .25s}
+.svc:hover .go{background:var(--cyan);border-color:var(--cyan);color:#fff;transform:rotate(-45deg)}
+
+/* ── REFERENCE GRID (tlorenz featured-projects style) ── */
+.refs .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+.ref{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:4/3;display:block;color:#fff}
+.ref .bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ref:hover .bg{transform:scale(1.07)}
+.ref::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,19,30,0.86) 0%,rgba(6,19,30,0.18) 55%,transparent 100%)}
+.ref .grid-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:34px 34px;z-index:1;opacity:0.7}
+.ref .meta{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.ref .sector{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;display:block}
+.ref h3{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.ref .kpi{display:flex;gap:18px;font-size:13px;color:rgba(255,255,255,0.82)}
+.ref .kpi b{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700}
+.ref .corner{position:absolute;top:18px;right:18px;z-index:2;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)}
+.r1 .bg{background:linear-gradient(135deg,#0c2030,#1f5e94)}
+.r2 .bg{background:linear-gradient(135deg,#06131e,#009fe3)}
+.r3 .bg{background:linear-gradient(135deg,#143654,#2778BC)}
+.r4 .bg{background:linear-gradient(135deg,#0c2030,#5d6b78)}
+.r5 .bg{background:linear-gradient(135deg,#06131e,#1f7cc4)}
+.r6 .bg{background:linear-gradient(135deg,#10283d,#00b4e6)}
+
+/* ── PHILOSOPHY BAND ── */
+.philo{background:var(--navy);position:relative;overflow:hidden}
+.philo::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(0,159,227,0.18),transparent 50%)}
+.philo .grid-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:48px 48px;opacity:0.6}
+.philo .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
+.philo .quote{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:700;color:#fff;line-height:1.2;letter-spacing:-0.02em}
+.philo .quote em{font-style:normal;color:var(--cyan)}
+.philo .sub{font-size:16.5px;color:rgba(255,255,255,0.66);line-height:1.7;margin-top:24px;max-width:480px}
+.philo .pills{display:flex;flex-direction:column;gap:14px}
+.pill{display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:3px;transition:background .25s,border-color .25s}
+.pill:hover{background:rgba(255,255,255,0.07);border-color:rgba(0,159,227,0.4)}
+.pill .ck{width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.pill .tx{color:rgba(255,255,255,0.9);font-size:15px}
+.pill .tx b{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;display:block;margin-bottom:1px}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--paper);border-top:1px solid var(--line)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:3px;padding:30px;transition:transform .25s,box-shadow .25s}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 22px 50px -22px rgba(6,19,30,0.25)}
+.rcard .stars{color:#ffc107;font-size:15px;letter-spacing:2px}
+.rcard p{font-size:15px;color:var(--ink);line-height:1.62;margin:16px 0 20px}
+.rauthor{display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);padding-top:16px}
+.ravatar{width:42px;height:42px;border-radius:3px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px}
+.ravatar.b{background:var(--blue-cta)}
+.ravatar.c{background:var(--cyan)}
+.rauthor b{display:block;font-family:'Montserrat',sans-serif;font-size:14px;color:var(--navy)}
+.rauthor span{font-size:13px;color:var(--grey)}
+.g-badge{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:var(--navy);margin-top:24px}
+.g-badge .g-icon{width:17px;height:17px;border-radius:50%;background:conic-gradient(from 0deg,#EA4335,#FBBC05,#34A853,#4285F4,#EA4335)}
+.g-badge .stars{color:#ffc107;letter-spacing:1px}
+
+/* ── CONTACT ── */
+.contact{background:#fff}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.ci h3{font-family:'Montserrat',sans-serif;font-size:22px;color:var(--navy);margin:32px 0 22px}
+.citem{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start}
+.ci-ic{width:46px;height:46px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.ci-ic svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none}
+.ci-text span{display:block;font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:4px}
+.ci-text p,.ci-text a{font-size:15.5px;color:var(--navy);font-weight:500}
+.ci-text a{color:var(--cyan)}
+form.cf{background:var(--paper);border:1px solid var(--line);padding:38px;border-radius:3px}
+form.cf h4{font-family:'Montserrat',sans-serif;font-size:21px;color:var(--navy);margin-bottom:4px}
+form.cf .fn{font-size:14px;color:var(--grey);margin-bottom:24px}
+form.cf label{display:block;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey);margin-bottom:6px;font-family:'Montserrat',sans-serif}
+form.cf input,form.cf select,form.cf textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:2px;font-family:inherit;font-size:15px;margin-bottom:16px;background:#fff;transition:border-color .2s}
+form.cf input:focus,form.cf select:focus,form.cf textarea:focus{outline:none;border-color:var(--cyan)}
+form.cf textarea{height:104px;resize:vertical}
+form.cf button{width:100%;padding:16px;background:var(--navy);color:#fff;border:none;border-radius:2px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background .25s;display:flex;align-items:center;justify-content:center;gap:9px}
+form.cf button:hover{background:var(--blue-cta)}
+form.cf .priv{margin-top:12px;font-size:11.5px;color:var(--grey);line-height:1.5}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:#fff;padding:72px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px;margin-bottom:48px}
+.footer-brand .logo{color:#fff}
+.footer-brand p{color:rgba(255,255,255,0.45);font-size:14.5px;line-height:1.65;max-width:320px;margin-top:18px}
+.footer-brand .social{display:flex;gap:10px;margin-top:22px}
+.footer-brand .social a{width:36px;height:36px;border-radius:3px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:13px;font-weight:600;transition:background .25s,color .25s}
+.footer-brand .social a:hover{background:var(--cyan);color:#fff}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(255,255,255,0.45);font-size:14.5px;margin-bottom:12px;transition:color .2s}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.09);padding-top:24px;display:flex;justify-content:space-between;color:rgba(255,255,255,0.32);font-size:13px;flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,0.5)}
+
+/* ── MOBILE STICKY CTA ── */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.12);padding:10px 12px;gap:8px}
+.mobile-cta a{flex:1;text-align:center;padding:13px 6px;border-radius:2px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px}
+.mc-call{background:var(--light);color:var(--navy)}
+.mc-wa{background:#25d366;color:#fff}
+.mc-quote{background:var(--navy);color:#fff}
+
+/* back link */
+.back-link{position:fixed;top:52px;left:18px;z-index:99;background:#fff;padding:7px 14px;border:1px solid var(--line);border-radius:99px;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;box-shadow:0 4px 14px rgba(6,19,30,0.08)}
+.back-link:hover{color:var(--navy);border-color:var(--navy)}
+
+/* ── RESPONSIVE ── */
+@media (max-width:1080px){
+  .wrap{padding:0 32px}
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .hero-visual{aspect-ratio:16/11;max-width:560px}
+  .hero h1{font-size:48px}
+  .refs .grid{grid-template-columns:repeat(2,1fr)}
+  .philo .wrap{grid-template-columns:1fr;gap:40px}
+  .philo .quote{font-size:30px}
+}
+@media (max-width:860px){
+  .util .l span:nth-child(2){display:none}
+  nav .wrap{height:64px}
+  .nav-links{display:none}
+  section{padding:72px 0}
+  .hero .wrap{padding-top:54px;padding-bottom:54px}
+  .hero h1{font-size:38px}
+  .sec-title{font-size:30px}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:48px 1fr;gap:16px;row-gap:6px}
+  .svc p{grid-column:1/-1;max-width:none}
+  .svc .go{display:none}
+  .refs .grid{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .contact .wrap{grid-template-columns:1fr;gap:40px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .mobile-cta{display:flex}
+  body{padding-bottom:64px}
+  .back-link{top:auto;bottom:80px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 20px}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">← Übersicht</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="lex-x" viewBox="0 0 180 220">
+    <path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/>
+    <path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/>
+    <path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/>
+    <path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/>
+    <path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/>
+    <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
+  </symbol>
+</svg>
+
+<!-- UTILITY -->
+<div class="util">
+  <div class="wrap">
+    <div class="l">
+      <span><span class="dot"></span>Pipeline aktiv · 2 420 Profile verfügbar</span>
+      <span>📍 An der Lutherkirche 5 · 48149 Münster</span>
+    </div>
+    <div class="l">
+      <a href="tel:+492512345670">☎ +49 251 23 45 67-0</a>
+      <span class="lang"><a href="#" class="on">DE</a><a href="#">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><svg><use href="#lex-x"/></svg>LE<span class="x">X</span>PERSONAL</a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#haltung">Haltung</a></li>
+      <li><a href="#stimmen">Stimmen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Anfrage starten <span class="arr">→</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Personaldienstleistung · seit 2008 · Münster</span>
+      <h1>Wir machen anspruchs&shy;volle <em>Personalarbeit</em> möglich.</h1>
+      <p class="lead">Arbeitnehmerüberlassung, Direktvermittlung und Werkverträge aus einer Hand — für Industrie, Logistik und Pflege im Münsterland. Tarifgebunden, konzernfähig, planbar.</p>
+      <p class="claim">Wir sehen keine Probleme, sondern liefern Lösungen.</p>
+      <div class="hero-btns">
+        <a href="#leistungen" class="btn btn-primary">Unsere Leistungen <span class="arr">→</span></a>
+        <a href="#kontakt" class="btn btn-line">Kostenfreies Briefing</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="grad"></div>
+      <div class="grid"></div>
+      <svg class="glyph"><use href="#lex-x"/></svg>
+      <div class="vstat">
+        <div class="n">18</div>
+        <div class="t">Jahre Personalexpertise im Münsterland</div>
+      </div>
+      <div class="vchip">
+        <div class="stars">★★★★★</div>
+        <div class="lbl">5,0 · Google · 142 Bewertungen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">2 420</div><div class="t">geprüfte Profile in der Pipeline</div></div>
+    <div class="stat"><div class="n"><em>4,2</em> d</div><div class="t">Ø Time-to-Fill Industrie</div></div>
+    <div class="stat"><div class="n">98 %</div><div class="t">Folgeauftragsquote (12 Monate)</div></div>
+    <div class="stat"><div class="n">7</div><div class="t">Branchen mit eigenem Pool</div></div>
+  </div>
+</div>
+
+<!-- LEISTUNGEN -->
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label"><span class="no">01</span> Leistungsspektrum</span>
+      <h2 class="sec-title">Drei Modelle. Ein Standard.</h2>
+      <p class="sec-desc">Wir liefern geprüfte Fachkräfte in der Tiefe, in der wir seit 18 Jahren zuhause sind — persönlich ausgewählt, iGZ-tarifgebunden, mit messbarem SLA.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc">
+        <span class="num">/ 01</span>
+        <h3>Arbeitnehmer&shy;überlassung</h3>
+        <p>Flexible Personalverstärkung für Industrie und Logistik. Ab Tag 1 verfügbar, Equal Pay, mit Übernahmeoption.</p>
+        <a href="#kontakt" class="go">→</a>
+      </div>
+      <div class="svc">
+        <span class="num">/ 02</span>
+        <h3>Direktvermittlung</h3>
+        <p>Festanstellung beim Kunden. Senior-geprüfte Profile, branchenspezialisiert, mit Nachbesetzungsgarantie.</p>
+        <a href="#kontakt" class="go">→</a>
+      </div>
+      <div class="svc">
+        <span class="num">/ 03</span>
+        <h3>Werkverträge</h3>
+        <p>Projekte mit klar definierten Gewerken. Eigenverantwortlich abgewickelt, schlüsselfertig, abrechnungssicher.</p>
+        <a href="#kontakt" class="go">→</a>
+      </div>
+      <div class="svc">
+        <span class="num">/ 04</span>
+        <h3>Konzern-Lösungen</h3>
+        <p>SAP Fieldglass, Onventis & Beeline angebunden. SLA-Pönale, 365-Tage-Audit-Trail, jederzeit prüffähig.</p>
+        <a href="#kontakt" class="go">→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZEN -->
+<section class="refs" id="referenzen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label"><span class="no">02</span> Ausgewählte Referenzen</span>
+      <h2 class="sec-title">Was wir im Münsterland besetzt haben.</h2>
+      <p class="sec-desc">Sechs Mandate aus den Branchen, in denen wir die tiefsten Pools führen — von der 3-Schicht-Produktion bis zur Pflegedienstleitung.</p>
+    </div>
+    <div class="grid">
+      <a href="#kontakt" class="ref r1">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/01</span>
+        <div class="meta">
+          <span class="sector">Metall &amp; Maschinenbau</span>
+          <h3>3-Schicht-Hochlauf, 42 CNC-Kräfte</h3>
+          <div class="kpi"><span><b>4,2 d</b> Time-to-Fill</span><span><b>820</b> Profile</span></div>
+        </div>
+      </a>
+      <a href="#kontakt" class="ref r2">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/02</span>
+        <div class="meta">
+          <span class="sector">Logistik &amp; Transport</span>
+          <h3>Saison-Pool für Peak-Quartale</h3>
+          <div class="kpi"><span><b>48 h</b> Aufstockung</span><span><b>540</b> Profile</span></div>
+        </div>
+      </a>
+      <a href="#kontakt" class="ref r3">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/03</span>
+        <div class="meta">
+          <span class="sector">Pflege &amp; Sozialwesen</span>
+          <h3>Bindungsstarke Pflege-Teams</h3>
+          <div class="kpi"><span><b>&gt;18 Mon.</b> Bindung</span><span><b>390</b> Profile</span></div>
+        </div>
+      </a>
+      <a href="#kontakt" class="ref r4">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/04</span>
+        <div class="meta">
+          <span class="sector">Hoch- &amp; Tiefbau</span>
+          <h3>Projekt-Crew mit Equal Pay</h3>
+          <div class="kpi"><span><b>Tag 1</b> Equal Pay</span><span><b>280</b> Profile</span></div>
+        </div>
+      </a>
+      <a href="#kontakt" class="ref r5">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/05</span>
+        <div class="meta">
+          <span class="sector">Büro &amp; Verwaltung</span>
+          <h3>SAP-erfahrene Sachbearbeitung</h3>
+          <div class="kpi"><span><b>4,8 d</b> Time-to-Fill</span><span><b>210</b> Profile</span></div>
+        </div>
+      </a>
+      <a href="#kontakt" class="ref r6">
+        <div class="bg"></div><div class="grid-tex"></div>
+        <span class="corner">/06</span>
+        <div class="meta">
+          <span class="sector">Konzern-Mandat</span>
+          <h3>Fieldglass-Setup, Abschluss in 4 h</h3>
+          <div class="kpi"><span><b>3 d → 4 h</b></span><span><b>98 %</b> Folgequote</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HALTUNG / PHILOSOPHY -->
+<section class="philo" id="haltung">
+  <div class="grid-tex"></div>
+  <div class="wrap">
+    <div>
+      <span class="sec-label" style="color:var(--cyan)"><span class="no" style="color:var(--grey-2)">03</span> Unsere Haltung</span>
+      <p class="quote">Wir hören erst zu.<br>Dann <em>liefern</em> wir.</p>
+      <p class="sub">Personalarbeit ist kein Volumengeschäft, sondern Vertrauenssache. Wir prüfen jedes Profil persönlich, briefen mehrsprachig und stehen mit messbaren Zusagen gerade — nicht mit Versprechen.</p>
+    </div>
+    <div class="pills">
+      <div class="pill"><span class="ck">✓</span><span class="tx"><b>Festpreis nach iGZ-Tarif</b>Equal Pay ab Tag 1, keine versteckten Aufschläge</span></div>
+      <div class="pill"><span class="ck">✓</span><span class="tx"><b>Senior-geprüfte Profile</b>Persönliche Auswahl statt Black-Box-Vorfilter</span></div>
+      <div class="pill"><span class="ck">✓</span><span class="tx"><b>SLA mit Pönale</b>Automatisch bei Überschreitung — vertraglich fixiert</span></div>
+      <div class="pill"><span class="ck">✓</span><span class="tx"><b>Antwort in 2 Stunden</b>Profilvorschlag in 24 h, Vor-Ort in max. 4 Tagen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="reviews" id="stimmen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label"><span class="no">04</span> Stimmen unserer Kunden</span>
+      <h2 class="sec-title">142 mal gut. Aus einer Region.</h2>
+      <p class="sec-desc">Was Werks- und Pflegedienstleitungen aus dem Münsterland über 18 Jahre Zusammenarbeit sagen.</p>
+      <div class="g-badge"><span class="g-icon"></span><span class="stars">★★★★★</span> 5,0 · Google · 142 Bewertungen</div>
+    </div>
+    <div class="rev-grid">
+      <div class="rcard">
+        <span class="stars">★★★★★</span>
+        <p>„Ohne LeXpersonal hätten wir das Q3-Volumen nicht ausgeliefert. Was die zusagen, halten die. Selten so verlässlich gearbeitet."</p>
+        <div class="rauthor"><div class="ravatar">AH</div><div><b>Andreas Hoffmann</b><span>Werksleiter · Metallwerk Münsterland</span></div></div>
+      </div>
+      <div class="rcard">
+        <span class="stars">★★★★★</span>
+        <p>„Uns war wichtig, dass die Sprache stimmt. Das polnische und rumänische Onboarding zeigt echte Wertschätzung. Genau das."</p>
+        <div class="rauthor"><div class="ravatar b">BW</div><div><b>Beatrix Wolters</b><span>PDL · VITA Pflege e.V.</span></div></div>
+      </div>
+      <div class="rcard">
+        <span class="stars">★★★★★</span>
+        <p>„Das SAP-Fieldglass-Setup hat unseren Quartalsabschluss von 3 Tagen auf 4 Stunden gebracht. Das ist kein Trick — das ist Disziplin."</p>
+        <div class="rauthor"><div class="ravatar c">KH</div><div><b>Kathrin Heise</b><span>Konzern-Einkauf · NordLogistik GmbH</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="ci">
+      <span class="sec-label"><span class="no">05</span> Sprechen Sie uns an</span>
+      <h2 class="sec-title">Briefing in 24 Stunden.</h2>
+      <p class="sec-desc">Ein Senior-Berater meldet sich binnen 2 Stunden (Mo–Fr, 8–18 Uhr). Phase 1 — Briefing &amp; Profilvorschlag — ist kostenfrei und unverbindlich.</p>
+      <h3>So erreichen Sie uns direkt</h3>
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h2.28a2 2 0 0 1 1.94 1.51l.83 3.31a2 2 0 0 1-.45 1.95L8.09 11.4a16 16 0 0 0 4.5 4.5l1.63-1.51a2 2 0 0 1 1.95-.45l3.31.83A2 2 0 0 1 21 16.72V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
+        <div class="ci-text"><span>Telefon — direkter Draht</span><p>+49 251 23 45 67-0</p></div>
+      </div>
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+        <div class="ci-text"><span>E-Mail</span><a href="mailto:info@lexpersonal.de">info@lexpersonal.de</a></div>
+      </div>
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-7.58-7-12a7 7 0 0 1 14 0c0 4.42-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <div class="ci-text"><span>Standort Münster</span><p>An der Lutherkirche 5<br>48149 Münster</p></div>
+      </div>
+      <div class="citem">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <div class="ci-text"><span>Öffnungszeiten</span><p>Mo–Fr · 8:00 – 18:00 · Pflege-Hotline 24/7</p></div>
+      </div>
+    </div>
+
+    <form class="cf" onsubmit="event.preventDefault();this.querySelector('button').textContent='Anfrage gesendet ✓'">
+      <h4>Briefing anfordern</h4>
+      <p class="fn">Wir melden uns binnen 2 Stunden zurück.</p>
+      <label>Ihr Name</label>
+      <input type="text" placeholder="Vor- und Nachname" required>
+      <label>Unternehmen / Werk</label>
+      <input type="text" placeholder="Firmenname" required>
+      <label>E-Mail</label>
+      <input type="email" placeholder="name@unternehmen.de" required>
+      <label>Branche</label>
+      <select required>
+        <option value="">Branche wählen</option>
+        <option>Industrie / Metall</option>
+        <option>Logistik / Lager</option>
+        <option>Pflege / Sozialwesen</option>
+        <option>Bau / Handwerk</option>
+        <option>Office / Verwaltung</option>
+      </select>
+      <label>Ihr Bedarf</label>
+      <textarea placeholder="Volumen, Starttermin, Modell …" required></textarea>
+      <button type="submit">Briefing senden <span>→</span></button>
+      <p class="priv">Mit dem Absenden willigen Sie in die Verarbeitung gemäß DSGVO Art. 6 (1) lit. b ein. Wir behandeln Ihre Daten vertraulich.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><svg><use href="#lex-x"/></svg>LE<span class="x">X</span>PERSONAL</a>
+        <p>Anspruchsvolle Personalarbeit aus Münster. Inhabergeführt, iGZ-tarifgebunden, konzernfähig — seit 2008.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Xing">X</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="#">Arbeitnehmer&shy;überlassung</a>
+        <a href="#">Direktvermittlung</a>
+        <a href="#">Werkverträge</a>
+        <a href="#">Konzern-Lösungen</a>
+      </div>
+      <div class="footer-col">
+        <h4>Branchen</h4>
+        <a href="#">Industrie</a>
+        <a href="#">Logistik</a>
+        <a href="#">Pflege</a>
+        <a href="#">Bau &amp; Office</a>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <a href="#">Über uns</a>
+        <a href="#">Bewerber-Portal</a>
+        <a href="#">Karriere</a>
+        <a href="#">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LeXpersonal GmbH · Münster · USt-IdNr. DE …</span>
+      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">AGB</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:+492512345670" class="mc-call">☎ Anrufen</a>
+  <a href="https://wa.me/492512345670" class="mc-wa">WhatsApp</a>
+  <a href="#kontakt" class="mc-quote">Briefing</a>
+</div>
+
+</body>
+</html>

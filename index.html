@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LeXpersonal — Die finale Auswahl · 3 Konzepte · Edition 12</title>
+<title>LeXpersonal — Die finale Auswahl · 4 Konzepte · Edition 12</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -67,7 +67,7 @@ a{color:inherit;text-decoration:none}
 .group-header .badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;font-weight:600;border:1px solid var(--cyan);color:var(--cyan-bright);background:rgba(0,159,227,0.08);flex-shrink:0}
 
 /* GRID */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:32px 0 36px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:32px 0 36px}
 @media (max-width:1080px){.grid{grid-template-columns:1fr}}
 
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative}
@@ -164,10 +164,43 @@ a{color:inherit;text-decoration:none}
 .prev-raumwerk .cards .c .nm{font-size:6.5px;font-weight:700;color:#152a47;line-height:1}
 .prev-raumwerk .cards .c .lnk{font-size:6px;color:#009fe3;font-weight:600;margin-top:1px}
 
+/* 20 tlorenz-Style */
+.prev-tlorenz{background:#fff;color:#06131e;padding:0;display:flex;flex-direction:column;font-family:'Montserrat',sans-serif;position:relative;overflow:hidden}
+.prev-tlorenz .util{background:#06131e;color:rgba(255,255,255,0.6);padding:5px 14px;font-size:7.5px;display:flex;justify-content:space-between;align-items:center;letter-spacing:0.04em;font-family:'Source Sans 3',sans-serif}
+.prev-tlorenz .util .lang span{padding:1px 5px}
+.prev-tlorenz .util .lang span.on{background:rgba(255,255,255,0.14);color:#fff;border-radius:2px}
+.prev-tlorenz .nav{background:#fff;color:#06131e;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e3e8ee}
+.prev-tlorenz .nav .lg{display:flex;align-items:center;gap:5px;font-weight:800;font-size:10px}
+.prev-tlorenz .nav .lg svg{width:8px;height:10px}
+.prev-tlorenz .nav .lg span{color:#009fe3}
+.prev-tlorenz .nav .menu{display:flex;gap:9px;font-size:8px;color:#1d2733;font-weight:600;font-family:'Source Sans 3',sans-serif}
+.prev-tlorenz .nav .cta{background:#06131e;color:#fff;padding:4px 9px;font-size:8px;font-weight:600;border-radius:2px}
+.prev-tlorenz .hero{flex:1;display:grid;grid-template-columns:1.1fr 0.9fr;gap:12px;padding:16px 14px;align-items:center;min-height:130px}
+.prev-tlorenz .hero .eb{font-size:7px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1f7cc4;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.prev-tlorenz .hero .eb::before{content:"";width:18px;height:2px;background:#1f7cc4}
+.prev-tlorenz .hero h3{font-size:20px;font-weight:800;color:#06131e;line-height:1.05;letter-spacing:-0.03em;margin-bottom:7px}
+.prev-tlorenz .hero h3 em{font-style:normal;color:#009fe3}
+.prev-tlorenz .hero .claim{font-size:8px;color:#1d2733;font-weight:600;font-family:'Source Sans 3',sans-serif;border-left:2px solid #009fe3;padding-left:6px;margin-bottom:9px}
+.prev-tlorenz .hero .btns{display:flex;gap:5px}
+.prev-tlorenz .hero .btn{padding:4px 9px;font-size:7.5px;font-weight:600;border-radius:2px}
+.prev-tlorenz .hero .btn.p{background:#009fe3;color:#fff}
+.prev-tlorenz .hero .btn.g{border:1px solid #e3e8ee;color:#06131e}
+.prev-tlorenz .hero .vis{aspect-ratio:4/5;border-radius:2px;background:linear-gradient(150deg,#0c2030,#143654 45%,#06131e);position:relative;overflow:hidden}
+.prev-tlorenz .hero .vis::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 28%,rgba(0,159,227,0.4),transparent 52%),radial-gradient(circle at 25% 80%,rgba(39,120,188,0.3),transparent 48%)}
+.prev-tlorenz .hero .vis::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:14px 14px}
+.prev-tlorenz .hero .vis svg{position:absolute;right:-10px;bottom:-8px;width:70px;opacity:0.5;z-index:2}
+.prev-tlorenz .hero .vis .vn{position:absolute;left:8px;top:7px;color:#fff;font-size:18px;font-weight:800;letter-spacing:-0.02em;line-height:1;z-index:2}
+.prev-tlorenz .hero .vis .vt{position:absolute;left:8px;top:26px;color:rgba(255,255,255,0.7);font-size:6px;max-width:70px;font-family:'Source Sans 3',sans-serif;z-index:2}
+.prev-tlorenz .strip{display:grid;grid-template-columns:repeat(4,1fr);background:#06131e;gap:1px}
+.prev-tlorenz .strip .s{background:#06131e;text-align:center;padding:7px 4px}
+.prev-tlorenz .strip .s .n{font-size:11px;font-weight:800;color:#fff;line-height:1}
+.prev-tlorenz .strip .s .n em{font-style:normal;color:#009fe3}
+.prev-tlorenz .strip .s .t{font-size:5.5px;color:rgba(255,255,255,0.6);margin-top:2px;font-family:'Source Sans 3',sans-serif;line-height:1.2}
+
 /* SUMMARY SECTION */
 .summary{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 .summary h3{font-family:'Lexend',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.02em;margin-bottom:20px}
-.summary .row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.summary .row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 @media (max-width:780px){.summary .row{grid-template-columns:1fr}}
 .summary .col{padding:18px 22px;background:rgba(0,159,227,0.04);border:1px solid var(--line);border-radius:12px}
 .summary .col .lb{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan-bright);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
@@ -196,20 +229,20 @@ a{color:inherit;text-decoration:none}
 <header class="head">
   <svg class="bg-x"><use href="#lex-x"/></svg>
   <div class="head-meta">
-    <span class="mono">Edition 12 · Die finale Trinity</span>
+    <span class="mono">Edition 12 · Trinity + Engineering</span>
     <span class="mono">Münster · 2026</span>
   </div>
   <div class="head-logo">
     <svg><use href="#lex-x"/></svg>
     LE<strong>X</strong>PERSONAL · FINALE&nbsp;AUSWAHL
   </div>
-  <h1>Drei Auftritte.<br>Drei Buyer-Modi.<br><em>Eine Marke.</em></h1>
-  <p class="lead">Aus 19 Konzepten bleiben drei stehen — sorgfältig ausgewählt, damit sie sich nicht überschneiden, sondern <strong>ergänzen</strong>. Jeder Auftritt deckt eine andere Verkaufsphase ab: <strong>Action</strong>, <strong>Proof</strong>, <strong>Authority</strong>. Drei Designsprachen, eine CI.</p>
+  <h1>Vier Auftritte.<br>Vier Buyer-Modi.<br><em>Eine Marke.</em></h1>
+  <p class="lead">Die finale Trinity — <strong>Action</strong>, <strong>Proof</strong>, <strong>Authority</strong> — plus ein neuer vierter Modus: <strong>Engineering</strong>, die ruhige Ziviltechnik-Ästhetik im Stil von Thomas Lorenz ZT. Jeder Auftritt deckt eine andere Verkaufsphase ab. Vier Designsprachen, eine CI.</p>
 
   <div class="decision">
     <span class="lbl">Auswahl-Logik · Senior-Designer-Skill (ui-ux-pro-max)</span>
-    <h3>Warum diese drei und keine anderen.</h3>
-    <p>Das Skill priorisiert <strong>Style-Match</strong> und <strong>Pattern-Diversität</strong> für B2B-Service-Produkte mit Konzern-Käufern. Drei Buyer-Modi müssen abgedeckt sein, ohne dass die Designsprachen kollidieren. Die finale Trinity nutzt drei radikal verschiedene Pattern-Typen — <strong>Service-Landing</strong>, <strong>Operational Aesthetic</strong> und <strong>Editorial Letter</strong> — die alle die Navy/Cyan-CI tragen, aber jeweils andere Schriftarten, Rhythmen und emotionale Tonlagen aufrufen. So entsteht keine Redundanz: eine Marke mit drei klar getrennten Hebeln.</p>
+    <h3>Warum diese vier und keine anderen.</h3>
+    <p>Das Skill priorisiert <strong>Style-Match</strong> und <strong>Pattern-Diversität</strong> für B2B-Service-Produkte mit Konzern-Käufern. Vier Buyer-Modi müssen abgedeckt sein, ohne dass die Designsprachen kollidieren. Die Auswahl nutzt vier radikal verschiedene Pattern-Typen — <strong>Service-Landing</strong>, <strong>Operational Aesthetic</strong>, <strong>Editorial Letter</strong> und <strong>Engineering Editorial</strong> — die alle die Navy/Cyan-CI tragen, aber jeweils andere Schriftarten, Rhythmen und emotionale Tonlagen aufrufen. So entsteht keine Redundanz: eine Marke mit vier klar getrennten Hebeln.</p>
   </div>
 
   <div class="matrix">
@@ -236,10 +269,10 @@ a{color:inherit;text-decoration:none}
 
 <div class="group-header">
   <div class="left">
-    <h2>Die drei Konzepte — <em>jedes mit klarer Aufgabe</em></h2>
+    <h2>Die vier Konzepte — <em>jedes mit klarer Aufgabe</em></h2>
     <p class="sub">In der Reihenfolge der Wichtigkeit für die LeXpersonal-Markenpositionierung: 19 als Hauptauftritt für die direkte Conversion · 09 als Beweis-Schiene für skeptische Käufer · 18 als Heritage- und Vertrauenshebel für Top-Entscheider.</p>
   </div>
-  <span class="badge">★ Trinity · 3 Konzepte</span>
+  <span class="badge">★ Trinity + Engineering · 4 Konzepte</span>
 </div>
 
 <section class="grid">
@@ -381,10 +414,59 @@ a{color:inherit;text-decoration:none}
     </div>
   </a>
 
+  <!-- KONZEPT 20 — Engineering -->
+  <a href="20-tlorenz-style.html" class="card">
+    <span class="tag authority">▣ Engineering</span>
+    <div class="card-preview prev-tlorenz">
+      <div class="util">
+        <span>Pipeline aktiv · 2 420 Profile</span>
+        <span class="lang"><span class="on">DE</span> <span>EN</span></span>
+      </div>
+      <div class="nav">
+        <span class="lg"><svg><use href="#lex-x"/></svg>LE<span>X</span>PERSONAL</span>
+        <span class="menu"><span>Leistungen</span><span>Referenzen</span><span>Haltung</span></span>
+        <span class="cta">Anfrage →</span>
+      </div>
+      <div class="hero">
+        <div class="l">
+          <div class="eb">Seit 2008 · Münster</div>
+          <h3>Anspruchsvolle <em>Personalarbeit</em> möglich.</h3>
+          <div class="claim">Wir sehen keine Probleme, sondern liefern Lösungen.</div>
+          <div class="btns">
+            <span class="btn p">Leistungen →</span>
+            <span class="btn g">Briefing</span>
+          </div>
+        </div>
+        <div class="vis">
+          <div class="vn">18</div>
+          <div class="vt">Jahre Personalexpertise</div>
+          <svg><use href="#lex-x"/></svg>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="s"><div class="n">2 420</div><div class="t">Profile</div></div>
+        <div class="s"><div class="n"><em>4,2</em>d</div><div class="t">Time-to-Fill</div></div>
+        <div class="s"><div class="n">98%</div><div class="t">Folgequote</div></div>
+        <div class="s"><div class="n">7</div><div class="t">Branchen</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <span class="card-num">[20] · Engineering Editorial</span>
+      <h2>tlorenz-Style</h2>
+      <div class="role">▣ Engineering · Ziviltechnik-Modus</div>
+      <p class="desc">Ziviltechnik-Ästhetik wie Thomas Lorenz ZT: <strong>hell, großzügig, ruhig</strong>. Near-Black-Navy <strong>#06131e</strong>, viel Weißraum, große Statement-Headline („Wir machen anspruchsvolle Personalarbeit möglich"), nummerierte Leistungs-Liste, Referenz-Raster im Projekt-Galerie-Stil, dunkles Haltungs-Band, DE/EN-Switch. <strong>Montserrat + Source Sans 3.</strong></p>
+      <div class="why">
+        <strong>Warum gewählt</strong>
+        Übersetzt das Vertrauens-Signaling eines Ingenieurbüros auf Personaldienstleistung: Präzision, Ruhe, Substanz statt Lautstärke — überzeugt technisch geprägte Industrie-Entscheider.
+      </div>
+      <span class="open">Konzept öffnen →</span>
+    </div>
+  </a>
+
 </section>
 
 <section class="summary">
-  <h3>Drei Designsprachen — eine Marke</h3>
+  <h3>Vier Designsprachen — eine Marke</h3>
   <div class="row">
     <div class="col">
       <span class="lb">★ Konzept 19 · Action</span>
@@ -398,12 +480,16 @@ a{color:inherit;text-decoration:none}
       <span class="lb">◆ Konzept 18 · Authority</span>
       <p><strong>Source Serif 4 + Inter.</strong> Berkshire-Letter auf Papier-Cream. Persönlich signiert vom Inhaber, mit Berkshire-Year-Table und Pull-Quotes.</p>
     </div>
+    <div class="col">
+      <span class="lb">▣ Konzept 20 · Engineering</span>
+      <p><strong>Montserrat + Source Sans 3.</strong> Ziviltechnik-Editorial wie Thomas Lorenz ZT — hell, viel Weißraum, Statement-Headline, nummerierte Leistungs-Liste, Referenz-Raster, DE/EN. Ruhe statt Lautstärke.</p>
+    </div>
   </div>
 </section>
 
 <div class="foot-bar">
-  <span>© 2026 · 3 finale Design-Konzepte für LeXpersonal GmbH · Edition 12 · Senior-Designer-Auswahl</span>
-  <span>Action · Proof · Authority · 1 CI · Münster</span>
+  <span>© 2026 · 4 finale Design-Konzepte für LeXpersonal GmbH · Edition 12 · Senior-Designer-Auswahl</span>
+  <span>Action · Proof · Authority · Engineering · 1 CI · Münster</span>
 </div>
 
 </div>
