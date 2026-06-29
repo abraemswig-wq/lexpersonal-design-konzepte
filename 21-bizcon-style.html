@@ -290,6 +290,33 @@ section.block{padding:96px 0}
 .rv.right{transform:translateX(48px)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none}.hero .scroll .ln::after{animation:none}}
+
+/* ===== INTRO (Video-Montage à la dasglas.haus, in LeXpersonal-CI) ===== */
+.intro{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;background:var(--ink);z-index:1}
+.intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;will-change:opacity}
+.intro-video.is-active{opacity:1}
+.intro-ov{position:absolute;inset:0;z-index:2;background:
+  linear-gradient(115deg,rgba(11,22,34,.92) 0%,rgba(11,22,34,.74) 42%,rgba(0,159,227,.30) 100%),
+  linear-gradient(to top,rgba(11,22,34,.9) 0%,rgba(11,22,34,0) 30%)}
+.intro-grid{position:absolute;inset:0;z-index:2;opacity:.5;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px}
+.intro-chev{position:absolute;right:2%;top:10%;z-index:2;font-family:'formula';font-weight:700;font-size:30vw;line-height:1;color:rgba(0,159,227,.07);pointer-events:none;letter-spacing:-3vw}
+.intro-inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 28px;color:#fff;transition:opacity .6s ease,transform .6s ease}
+.intro-logo{display:flex;align-items:center;gap:14px;font-family:'formula',sans-serif;font-weight:700;font-size:clamp(34px,6vw,62px);letter-spacing:.01em;line-height:1;margin-bottom:24px}
+.intro-logo .xmark{width:clamp(30px,5vw,54px);height:auto}
+.intro-logo .x{color:var(--cyan)}
+.intro-logo .ch{color:var(--cyan);letter-spacing:-3px;margin-left:2px}
+.intro-claim{font-family:'formula',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,42px);line-height:1.08;letter-spacing:-.01em;max-width:760px;margin-bottom:16px}
+.intro-claim .c{color:var(--cyan)}
+.intro-tag{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);display:inline-flex;align-items:center;gap:9px}
+.intro-tag::before{content:"»»";font-family:'formula',sans-serif;font-weight:700;letter-spacing:-1px;color:var(--cyan)}
+.intro-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:9px;transition:opacity .5s ease}
+.intro-scroll span{color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.intro-scroll .ln{width:1px;height:46px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:introPulse 2s ease-in-out infinite}
+@keyframes introPulse{0%,100%{opacity:.3}50%{opacity:1}}
+/* Seite schiebt sich über das gepinnte Video */
+.site{position:relative;z-index:2;background:var(--white)}
+@media(max-width:880px){.intro-logo{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.intro-video{transition:none}.intro-scroll .ln{animation:none}}
 </style>
 </head>
 <body>
@@ -304,6 +331,39 @@ section.block{padding:96px 0}
     <path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/>
   </symbol>
 </svg>
+
+<!-- INTRO: Video-Montage (Personalvermittlung/Industrie) — scrollen, um zur Seite zu gelangen -->
+<section class="intro" id="intro">
+  <video class="intro-video is-active" muted playsinline autoplay preload="auto"
+    src="https://assets.mixkit.co/videos/39691/39691-1080.mp4"></video>
+  <video class="intro-video" muted playsinline preload="none"
+    src="https://assets.mixkit.co/videos/39693/39693-1080.mp4"></video>
+  <video class="intro-video" muted playsinline preload="none"
+    src="https://assets.mixkit.co/videos/771/771-1080.mp4"></video>
+  <video class="intro-video" muted playsinline preload="none"
+    src="https://assets.mixkit.co/videos/776/776-1080.mp4"></video>
+  <video class="intro-video" muted playsinline preload="none"
+    src="https://assets.mixkit.co/videos/778/778-1080.mp4"></video>
+  <video class="intro-video" muted playsinline preload="none"
+    src="https://assets.mixkit.co/videos/1445/1445-1080.mp4"></video>
+  <div class="intro-ov"></div>
+  <div class="intro-grid"></div>
+  <div class="intro-chev">»</div>
+  <div class="intro-inner">
+    <div class="intro-logo">
+      <svg class="xmark" viewBox="0 0 180 220" aria-hidden="true"><use href="#lex-x"/></svg>
+      <span>LE<span class="x">X</span>PERSONAL</span><span class="ch">»</span>
+    </div>
+    <p class="intro-claim">Die richtige Schicht — <span class="c">pünktlich zum Anlauf</span>.</p>
+    <div class="intro-tag">Personaldienstleistung · Münster · seit 2008</div>
+  </div>
+  <div class="intro-scroll">
+    <span>Scroll</span>
+    <div class="ln"></div>
+  </div>
+</section>
+
+<div class="site">
 
 <!-- UTILITY -->
 <div class="util">
@@ -551,6 +611,8 @@ section.block{padding:96px 0}
   </div>
 </footer>
 
+</div><!-- /.site -->
+
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -620,6 +682,34 @@ section.block{padding:96px 0}
   items.forEach(function(it){ var b=it.querySelector('.q'); if(it.classList.contains('open')) setOpen(it,true);
     b.addEventListener('click',function(){ var open=it.classList.contains('open'); items.forEach(function(o){ if(o!==it) setOpen(o,false); }); setOpen(it,!open); }); });
   window.addEventListener('resize',function(){ var o=document.querySelector('.faq .item.open'); if(o){ var a=o.querySelector('.a'); a.style.maxHeight=a.scrollHeight+'px'; } });
+
+  /* INTRO: Video-Montage überblenden (à la dasglas.haus) + beim Scrollen ausblenden */
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.intro-video'));
+  if (vids.length){
+    var vi = 0, HOLD = 5200;
+    function nextVid(){
+      var cur = vids[vi];
+      vi = (vi + 1) % vids.length;
+      var nx = vids[vi];
+      try { nx.currentTime = 0; nx.play(); } catch(e){}
+      nx.classList.add('is-active');
+      cur.classList.remove('is-active');
+      setTimeout(function(){ try { cur.pause(); } catch(e){} }, 1500);
+      scheduleVid();
+    }
+    function scheduleVid(){ if(!reduce) setTimeout(nextVid, HOLD); }
+    try { vids[0].play(); } catch(e){}
+    if (vids[1]) vids[1].preload = 'auto';
+    scheduleVid();
+
+    var introInner = document.querySelector('.intro-inner');
+    var introHint = document.querySelector('.intro-scroll');
+    window.addEventListener('scroll', function(){
+      var p = Math.min(window.scrollY / (window.innerHeight * 0.6), 1);
+      if (introInner){ introInner.style.opacity = String(1 - p); introInner.style.transform = 'translateY(' + (-p*40) + 'px)'; }
+      if (introHint) introHint.style.opacity = String(1 - Math.min(window.scrollY / 120, 1));
+    }, { passive:true });
+  }
 })();
 </script>
 
