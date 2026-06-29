@@ -72,29 +72,31 @@ img{display:block;max-width:100%}
 /* Logo-Animation (mirror von bizcons Lottie-Header-Logo: trigger=on_hover,
    on_hover_out=reverse — CSS-Transition kehrt beim Verlassen automatisch um). */
 .brand{cursor:pointer}
+/* Das X bleibt als GANZE Marke heil (kein Aufspalten — sonst lösen sich
+   die Fuß-Spitzen ab). Nur die ganze Marke pulst dezent. */
 .brand .xmark{width:24px;height:29px;overflow:visible;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-.brand:hover .xmark{transform:scale(1.12)}
-.brand .x-a,.brand .x-b{transform-origin:90px 110px;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-.brand:hover .x-a{transform:rotate(-22deg) translate(-7px,-3px)}
-.brand:hover .x-b{transform:rotate(22deg) translate(7px,3px)}
-.brand .ch{display:inline-block;transition:transform .4s cubic-bezier(.34,1.56,.64,1),color .2s}
-.brand:hover .ch{transform:translateX(8px) scale(1.15)}
-/* Schriftzug-Welle: jeder Buchstabe hebt sich gestaffelt mit Überschwung */
-.brand .word{display:inline-flex;line-height:1}
-.brand .ltr{display:inline-block;transition:transform .5s cubic-bezier(.34,1.56,.64,1),color .3s}
-.brand:hover .ltr{transform:translateY(-6px)}
-.brand .ltr:nth-child(1){transition-delay:0s}
-.brand .ltr:nth-child(2){transition-delay:.035s}
-.brand .ltr:nth-child(3){transition-delay:.07s}
-.brand .ltr:nth-child(4){transition-delay:.105s}
-.brand .ltr:nth-child(5){transition-delay:.14s}
-.brand .ltr:nth-child(6){transition-delay:.175s}
-.brand .ltr:nth-child(7){transition-delay:.21s}
-.brand .ltr:nth-child(8){transition-delay:.245s}
-.brand .ltr:nth-child(9){transition-delay:.28s}
-.brand .ltr:nth-child(10){transition-delay:.315s}
-.brand .ltr:nth-child(11){transition-delay:.35s}
-@media(prefers-reduced-motion:reduce){.brand .xmark,.brand .x-a,.brand .x-b,.brand .ch,.brand .ltr{transition:none}}
+.brand:hover .xmark{transform:scale(1.08) rotate(-4deg)}
+.brand .ch{display:inline-block;margin-left:2px;transition:transform .45s cubic-bezier(.22,.61,.36,1),color .2s}
+.brand:hover .ch{transform:translateX(6px)}
+/* Schriftzug fährt AUS DEM X heraus: jeder Buchstabe startet hinter dem X
+   (nach links versetzt, unsichtbar) und streamt gestaffelt nach rechts.
+   overflow:hidden clippt sie an der linken Wort-Kante = direkt am X. */
+.brand .word{display:inline-flex;line-height:1;overflow:hidden;padding:3px 0}
+.brand .ltr{display:inline-block}
+@keyframes lexDrive{0%{opacity:0;transform:translateX(-46px)}55%{opacity:1}100%{opacity:1;transform:translateX(0)}}
+.brand.go .ltr{animation:lexDrive .6s cubic-bezier(.22,.61,.36,1) both}
+.brand.go .ltr:nth-child(1){animation-delay:0s}
+.brand.go .ltr:nth-child(2){animation-delay:.04s}
+.brand.go .ltr:nth-child(3){animation-delay:.08s}
+.brand.go .ltr:nth-child(4){animation-delay:.12s}
+.brand.go .ltr:nth-child(5){animation-delay:.16s}
+.brand.go .ltr:nth-child(6){animation-delay:.2s}
+.brand.go .ltr:nth-child(7){animation-delay:.24s}
+.brand.go .ltr:nth-child(8){animation-delay:.28s}
+.brand.go .ltr:nth-child(9){animation-delay:.32s}
+.brand.go .ltr:nth-child(10){animation-delay:.36s}
+.brand.go .ltr:nth-child(11){animation-delay:.4s}
+@media(prefers-reduced-motion:reduce){.brand .xmark,.brand .ch{transition:none}.brand.go .ltr{animation:none}}
 .menu{display:flex;align-items:center;gap:30px;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:15.5px}
 .menu a{color:var(--text);position:relative;padding:4px 0}
 .menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--cyan);transition:width .25s}
@@ -306,7 +308,7 @@ section.block{padding:96px 0}
 <!-- NAV -->
 <header class="nav">
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="LeXpersonal Startseite">
+    <a href="index.html" class="brand go" aria-label="LeXpersonal Startseite">
       <svg class="xmark" viewBox="0 0 180 220" aria-hidden="true">
         <g class="x-a"><path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/><path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/><path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/></g>
         <g class="x-b"><path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/><path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/><path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/></g>
@@ -544,6 +546,18 @@ section.block{padding:96px 0}
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Logo: Schriftzug fährt aus dem X heraus — einmal beim Laden (Klasse .go
+     ist schon im Markup), danach bei jedem Hover neu auslösen. */
+  var brand = document.querySelector('.brand');
+  if (brand){
+    if (reduce){ brand.classList.remove('go'); }
+    else {
+      brand.addEventListener('mouseenter', function(){
+        brand.classList.remove('go'); void brand.offsetWidth; brand.classList.add('go');
+      });
+    }
+  }
 
   /* Reveal-Stagger je Gruppe */
   document.querySelectorAll('section, .results, .trenner').forEach(function(sec){
