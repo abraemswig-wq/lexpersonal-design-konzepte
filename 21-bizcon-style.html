@@ -67,9 +67,17 @@ img{display:block;max-width:100%}
 .nav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;justify-content:space-between;align-items:center;height:74px}
 .brand{display:flex;align-items:center;gap:11px;font-family:'formula',sans-serif;font-weight:700;font-size:25px;letter-spacing:.01em;color:var(--ink)}
-.brand svg{width:22px;height:27px}
 .brand .x{color:var(--cyan)}
 .brand .ch{color:var(--cyan);font-size:21px;letter-spacing:-2px;margin-left:1px}
+/* Logo-Animation (mirror von bizcons Lottie-Header-Logo: trigger=on_hover,
+   on_hover_out=reverse — CSS-Transition kehrt beim Verlassen automatisch um). */
+.brand .xmark{width:22px;height:27px;overflow:visible}
+.brand .x-a,.brand .x-b{transform-origin:90px 110px;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.brand:hover .x-a{transform:rotate(-10deg) translate(-3px,-2px)}
+.brand:hover .x-b{transform:rotate(10deg) translate(3px,2px)}
+.brand .ch{transition:transform .4s cubic-bezier(.22,.61,.36,1),color .2s}
+.brand:hover .ch{transform:translateX(5px)}
+@media(prefers-reduced-motion:reduce){.brand .x-a,.brand .x-b,.brand .ch{transition:none}}
 .menu{display:flex;align-items:center;gap:30px;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:15.5px}
 .menu a{color:var(--text);position:relative;padding:4px 0}
 .menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--cyan);transition:width .25s}
@@ -249,6 +257,8 @@ section.block{padding:96px 0}
 /* ===== SCROLL-REVEAL ===== */
 .rv{opacity:0;will-change:transform,opacity;transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
 .rv.up{transform:translateY(40px)}
+/* Horizontale Spalten-Reveals = bizcons fadeInLeft/fadeInRight (1.25s ease) */
+.rv.left,.rv.right{transition:opacity 1.2s ease,transform 1.2s ease}
 .rv.left{transform:translateX(-48px)}
 .rv.right{transform:translateX(48px)}
 .rv.in{opacity:1;transform:none}
@@ -279,7 +289,11 @@ section.block{padding:96px 0}
 <!-- NAV -->
 <header class="nav">
   <div class="wrap">
-    <a href="index.html" class="brand"><svg><use href="#lex-x"/></svg>LE<span class="x">X</span>PERSONAL<span class="ch">»</span></a>
+    <a href="index.html" class="brand" aria-label="LeXpersonal Startseite">
+      <svg class="xmark" viewBox="0 0 180 220" aria-hidden="true">
+        <g class="x-a"><path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/><path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/><path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/></g>
+        <g class="x-b"><path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/><path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/><path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/></g>
+      </svg>LE<span class="x">X</span>PERSONAL<span class="ch">»</span></a>
     <nav class="menu">
       <a href="#">Leistungen</a>
       <a href="#" class="active">Cases</a>
