@@ -79,7 +79,22 @@ img{display:block;max-width:100%}
 .brand:hover .x-b{transform:rotate(22deg) translate(7px,3px)}
 .brand .ch{display:inline-block;transition:transform .4s cubic-bezier(.34,1.56,.64,1),color .2s}
 .brand:hover .ch{transform:translateX(8px) scale(1.15)}
-@media(prefers-reduced-motion:reduce){.brand .xmark,.brand .x-a,.brand .x-b,.brand .ch{transition:none}}
+/* Schriftzug-Welle: jeder Buchstabe hebt sich gestaffelt mit Überschwung */
+.brand .word{display:inline-flex;line-height:1}
+.brand .ltr{display:inline-block;transition:transform .5s cubic-bezier(.34,1.56,.64,1),color .3s}
+.brand:hover .ltr{transform:translateY(-6px)}
+.brand .ltr:nth-child(1){transition-delay:0s}
+.brand .ltr:nth-child(2){transition-delay:.035s}
+.brand .ltr:nth-child(3){transition-delay:.07s}
+.brand .ltr:nth-child(4){transition-delay:.105s}
+.brand .ltr:nth-child(5){transition-delay:.14s}
+.brand .ltr:nth-child(6){transition-delay:.175s}
+.brand .ltr:nth-child(7){transition-delay:.21s}
+.brand .ltr:nth-child(8){transition-delay:.245s}
+.brand .ltr:nth-child(9){transition-delay:.28s}
+.brand .ltr:nth-child(10){transition-delay:.315s}
+.brand .ltr:nth-child(11){transition-delay:.35s}
+@media(prefers-reduced-motion:reduce){.brand .xmark,.brand .x-a,.brand .x-b,.brand .ch,.brand .ltr{transition:none}}
 .menu{display:flex;align-items:center;gap:30px;font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:15.5px}
 .menu a{color:var(--text);position:relative;padding:4px 0}
 .menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--cyan);transition:width .25s}
@@ -295,7 +310,7 @@ section.block{padding:96px 0}
       <svg class="xmark" viewBox="0 0 180 220" aria-hidden="true">
         <g class="x-a"><path d="M0 0 L34 0 L180 220 L146 220 Z" fill="#009FE3"/><path d="M34 0 L60 39 L86 0 Z" fill="#2778BC"/><path d="M34 220 L60 181 L86 220 Z" fill="#2778BC"/></g>
         <g class="x-b"><path d="M180 0 L146 0 L0 220 L34 220 Z" fill="#2778BC"/><path d="M146 0 L120 39 L94 0 Z" fill="#009FE3"/><path d="M146 220 L120 181 L94 220 Z" fill="#009FE3"/></g>
-      </svg>LE<span class="x">X</span>PERSONAL<span class="ch">»</span></a>
+      </svg><span class="word"><span class="ltr">L</span><span class="ltr">E</span><span class="ltr x">X</span><span class="ltr">P</span><span class="ltr">E</span><span class="ltr">R</span><span class="ltr">S</span><span class="ltr">O</span><span class="ltr">N</span><span class="ltr">A</span><span class="ltr">L</span></span><span class="ch">»</span></a>
     <nav class="menu">
       <a href="#">Leistungen</a>
       <a href="#" class="active">Cases</a>
